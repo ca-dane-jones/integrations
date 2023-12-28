@@ -1,0 +1,23 @@
+---
+description: Pipeline for processing postfix logs
+processors:
+- set:
+    field: ecs.version
+    value: "8.11.0"
+- set:
+    field: event.kind
+    value: "event"
+- rename:
+    field: message
+    target_field: event.original
+- set:
+    field: event.timezone
+    value: "{{_tmp.tz_offset}}"
+    if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
+- pipeline:
+    name: "logs-postfix.log@custom"
+    ignore_missing_pipeline: true
+on_failure:
+- set:
+    field: error.message
+    value: '{{ _ingest.on_failure_message }}'
