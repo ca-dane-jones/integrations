@@ -4,3 +4,14 @@
   name: event.kind
 - external: ecs
   name: event.timezone
+- external: ecs
+  name: observer.ip
+- external: ecs
+  name: observer.name
+- external: ecs
+  name: process.pid
+- external: ecs
+  name: process.name
+- external: ecs
+  name: process.pgid
+  
