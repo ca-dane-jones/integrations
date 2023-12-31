@@ -1,0 +1,13 @@
+title: "Postfix Logs"
+type: logs
+streams:
+  - input: logfile
+    title: Postfix Logs
+    description: Collect postfix logs
+    vars:
+      - name: paths
+        type: text
+        title: Paths
+        multi: true
+        default:
+          - /var/log/mail.log
