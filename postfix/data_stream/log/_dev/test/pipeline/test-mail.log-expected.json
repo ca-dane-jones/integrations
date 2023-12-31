@@ -1,0 +1,1280 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2023-12-31T00:04:01.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:04:01",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:04:01 mail postfix/smtpd[139325]: connect from unknown[185.226.173.179]",
+                "timezone": "-05:00"
+            },
+            "message": "connect from unknown[185.226.173.179]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139325"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:04:02.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:04:02",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:04:02 mail postfix/smtpd[139325]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139325"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:04:34 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139331, TLS, session=<rnaLM8cNDJdiHQpn>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:04:34 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139331, TLS, session=<rnaLM8cNDJdiHQpn>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:04:42 mail dovecot: imap(dane)<139331><rnaLM8cNDJdiHQpn>: Disconnected: Logged out in=303 out=5342 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:04:42 mail dovecot: imap(dane)<139331><rnaLM8cNDJdiHQpn>: Disconnected: Logged out in=303 out=5342 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:04:01",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:04:01",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139327"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:04:01",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:04:01",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139327"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max cache size 1 at Dec 31 00:04:01",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 1 at Dec 31 00:04:01",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139327"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:09:14 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139337, TLS, session=<84g4RMcNrqJiHQpn>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:09:14 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139337, TLS, session=<84g4RMcNrqJiHQpn>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:09:16 mail dovecot: imap(dane)<139337><84g4RMcNrqJiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:09:16 mail dovecot: imap(dane)<139337><84g4RMcNrqJiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:18:00.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:18:00",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:18:00 mail postfix/smtpd[139340]: connect from unknown[185.226.173.179]",
+                "timezone": "-05:00"
+            },
+            "message": "connect from unknown[185.226.173.179]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139340"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:18:01.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:18:01",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:18:01 mail postfix/smtpd[139340]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139340"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:18:00",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:18:00",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139344"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:18:00",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:18:00",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139344"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max cache size 1 at Dec 31 00:18:00",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 1 at Dec 31 00:18:00",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139344"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:24:23 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139350, TLS, session=<3u1lescN7spiHQpn>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:24:23 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139350, TLS, session=<3u1lescN7spiHQpn>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:24:24 mail dovecot: imap(dane)<139350><3u1lescN7spiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:24:24 mail dovecot: imap(dane)<139350><3u1lescN7spiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:31:17.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:31:17",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:31:17 mail postfix/smtpd[139355]: connect from unknown[185.226.173.179]",
+                "timezone": "-05:00"
+            },
+            "message": "connect from unknown[185.226.173.179]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139355"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:31:18.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:31:18",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:31:18 mail postfix/smtpd[139355]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139355"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:31:18",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:31:18",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139357"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:31:18",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:31:18",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139357"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max cache size 1 at Dec 31 00:31:18",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 1 at Dec 31 00:31:18",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139357"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:39:44 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139363, TLS, session=<39RKsccNEI9iHQpn>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:39:44 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139363, TLS, session=<39RKsccNEI9iHQpn>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:39:46 mail dovecot: imap(dane)<139363><39RKsccNEI9iHQpn>: Disconnected: Logged out in=159 out=3179 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:39:46 mail dovecot: imap(dane)<139363><39RKsccNEI9iHQpn>: Disconnected: Logged out in=159 out=3179 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:10.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:10",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:10 mail postfix/smtpd[139364]: connect from skynet.kdj.local[192.168.1.200]",
+                "timezone": "-05:00"
+            },
+            "message": "connect from skynet.kdj.local[192.168.1.200]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:10.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:10",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:10 mail postfix/smtpd[139364]: Anonymous TLS connection established from skynet.kdj.local[192.168.1.200]: TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits)",
+                "timezone": "-05:00"
+            },
+            "message": "Anonymous TLS connection established from skynet.kdj.local[192.168.1.200]: TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits)",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:11.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:11",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:11 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+                "timezone": "-05:00"
+            },
+            "message": "warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/trivial-rewrite",
+                "pid": "139369"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:11.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:11",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:11 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+                "timezone": "-05:00"
+            },
+            "message": "warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/trivial-rewrite",
+                "pid": "139369"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:27.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:27",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:27 mail postfix/smtpd[139364]: warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net type=A: Host not found, try again",
+                "timezone": "-05:00"
+            },
+            "message": "warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net type=A: Host not found, try again",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:42.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:42",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:42 mail postfix/smtpd[139364]: warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net type=A: Host not found, try again",
+                "timezone": "-05:00"
+            },
+            "message": "warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net type=A: Host not found, try again",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:44.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:44",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:44 mail postfix/smtpd[139364]: EE18C8003F: client=skynet.kdj.local[192.168.1.200], sasl_method=login, sasl_username=skynet",
+                "timezone": "-05:00"
+            },
+            "message": "EE18C8003F: client=skynet.kdj.local[192.168.1.200], sasl_method=login, sasl_username=skynet",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/cleanup[139371]: EE18C8003F: message-id=<>",
+                "timezone": "-05:00"
+            },
+            "message": "EE18C8003F: message-id=<>",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/cleanup",
+                "pid": "139371"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/qmgr[1996]: EE18C8003F: from=<skynet@dejlabs.com>, size=4111, nrcpt=1 (queue active)",
+                "timezone": "-05:00"
+            },
+            "message": "EE18C8003F: from=<skynet@dejlabs.com>, size=4111, nrcpt=1 (queue active)",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/qmgr",
+                "pid": "1996"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+                "timezone": "-05:00"
+            },
+            "message": "warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/trivial-rewrite",
+                "pid": "139369"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/smtpd[139364]: disconnect from skynet.kdj.local[192.168.1.200] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 commands=7",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from skynet.kdj.local[192.168.1.200] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 commands=7",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/local[139372]: EE18C8003F: to=<dane@dejlabs.com>, relay=local, delay=34, delays=34/0.05/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "timezone": "-05:00"
+            },
+            "message": "EE18C8003F: to=<dane@dejlabs.com>, relay=local, delay=34, delays=34/0.05/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": "139372"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:43:45.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:43:45",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:43:45 mail postfix/qmgr[1996]: EE18C8003F: removed",
+                "timezone": "-05:00"
+            },
+            "message": "EE18C8003F: removed",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/qmgr",
+                "pid": "1996"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:44:16.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:44:16",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:44:16 mail postfix/smtpd[139364]: connect from unknown[185.226.173.179]",
+                "timezone": "-05:00"
+            },
+            "message": "connect from unknown[185.226.173.179]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:44:17.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:44:17",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:44:17 mail postfix/smtpd[139364]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": "139364"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max connection rate 1/60s for (smtp:192.168.1.200) at Dec 31 00:43:10",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.200) at Dec 31 00:43:10",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139366"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max connection count 1 for (smtp:192.168.1.200) at Dec 31 00:43:10",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:192.168.1.200) at Dec 31 00:43:10",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139366"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2023-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max cache size 2 at Dec 31 00:44:16",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 2 at Dec 31 00:44:16",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": "139366"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:47 mail dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 1 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<QaBf3McNfshHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:47 mail dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 1 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<QaBf3McNfshHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<4PVu3McNLM5HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<4PVu3McNLM5HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<a1By3McNXM5HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<a1By3McNXM5HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<fKx23McNss5HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<fKx23McNss5HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<1MR53McNIs9HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<1MR53McNIs9HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<YFF93McNas9HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<YFF93McNas9HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<ImiA3McNvM9HBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<ImiA3McNvM9HBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oFqD3McNBtBHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oFqD3McNBtBHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oOCF3McNWNBHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oOCF3McNWNBHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<kiyI3McNHtNHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<kiyI3McNHtNHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<rXGK3McN0NNHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<rXGK3McN0NNHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol, session=<1beQ3McNtNRHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol, session=<1beQ3McNtNRHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol, session=<m3eY3McN4NVHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol, session=<m3eY3McN4NVHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "_tmp": {
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [Dec 31 00:51:51 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A00018C:SSL routines::version too low (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A00018C:SSL routines::version too low, session=<Xsih3McNMNdHBoeD>]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 00:51:51 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A00018C:SSL routines::version too low (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A00018C:SSL routines::version too low, session=<Xsih3McNMNdHBoeD>",
+                "timezone": "-05:00"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}
