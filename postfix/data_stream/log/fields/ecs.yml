@@ -5,6 +5,8 @@
 - external: ecs
   name: event.timezone
 - external: ecs
+  name: message
+- external: ecs
   name: observer.ip
 - external: ecs
   name: observer.name
@@ -14,4 +16,3 @@
   name: process.name
 - external: ecs
   name: process.pgid
-  
