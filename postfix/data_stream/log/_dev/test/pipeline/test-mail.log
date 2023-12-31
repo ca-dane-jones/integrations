@@ -1,0 +1,55 @@
+Dec 31 00:04:01 mail postfix/smtpd[139325]: connect from unknown[185.226.173.179]
+Dec 31 00:04:02 mail postfix/smtpd[139325]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
+Dec 31 00:04:34 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139331, TLS, session=<rnaLM8cNDJdiHQpn>
+Dec 31 00:04:42 mail dovecot: imap(dane)<139331><rnaLM8cNDJdiHQpn>: Disconnected: Logged out in=303 out=5342 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:04:01
+Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:04:01
+Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max cache size 1 at Dec 31 00:04:01
+Dec 31 00:09:14 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139337, TLS, session=<84g4RMcNrqJiHQpn>
+Dec 31 00:09:16 mail dovecot: imap(dane)<139337><84g4RMcNrqJiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Dec 31 00:18:00 mail postfix/smtpd[139340]: connect from unknown[185.226.173.179]
+Dec 31 00:18:01 mail postfix/smtpd[139340]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
+Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:18:00
+Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:18:00
+Dec 31 00:21:21 mail postfix/anvil[139344]: statistics: max cache size 1 at Dec 31 00:18:00
+Dec 31 00:24:23 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139350, TLS, session=<3u1lescN7spiHQpn>
+Dec 31 00:24:24 mail dovecot: imap(dane)<139350><3u1lescN7spiHQpn>: Disconnected: Logged out in=159 out=3171 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Dec 31 00:31:17 mail postfix/smtpd[139355]: connect from unknown[185.226.173.179]
+Dec 31 00:31:18 mail postfix/smtpd[139355]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
+Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:31:18
+Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:31:18
+Dec 31 00:34:39 mail postfix/anvil[139357]: statistics: max cache size 1 at Dec 31 00:31:18
+Dec 31 00:39:44 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139363, TLS, session=<39RKsccNEI9iHQpn>
+Dec 31 00:39:46 mail dovecot: imap(dane)<139363><39RKsccNEI9iHQpn>: Disconnected: Logged out in=159 out=3179 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Dec 31 00:43:10 mail postfix/smtpd[139364]: connect from skynet.kdj.local[192.168.1.200]
+Dec 31 00:43:10 mail postfix/smtpd[139364]: Anonymous TLS connection established from skynet.kdj.local[192.168.1.200]: TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits)
+Dec 31 00:43:11 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains
+Dec 31 00:43:11 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains
+Dec 31 00:43:27 mail postfix/smtpd[139364]: warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.dbl.dq.spamhaus.net type=A: Host not found, try again
+Dec 31 00:43:42 mail postfix/smtpd[139364]: warning: skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=skynet.c76aattqmtn4tsxd6gknj5ysf4.zrd.dq.spamhaus.net type=A: Host not found, try again
+Dec 31 00:43:44 mail postfix/smtpd[139364]: EE18C8003F: client=skynet.kdj.local[192.168.1.200], sasl_method=login, sasl_username=skynet
+Dec 31 00:43:45 mail postfix/cleanup[139371]: EE18C8003F: message-id=<>
+Dec 31 00:43:45 mail postfix/qmgr[1996]: EE18C8003F: from=<skynet@dejlabs.com>, size=4111, nrcpt=1 (queue active)
+Dec 31 00:43:45 mail postfix/trivial-rewrite[139369]: warning: do not list domain dejlabs.com in BOTH mydestination and virtual_alias_domains
+Dec 31 00:43:45 mail postfix/smtpd[139364]: disconnect from skynet.kdj.local[192.168.1.200] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 commands=7
+Dec 31 00:43:45 mail postfix/local[139372]: EE18C8003F: to=<dane@dejlabs.com>, relay=local, delay=34, delays=34/0.05/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)
+Dec 31 00:43:45 mail postfix/qmgr[1996]: EE18C8003F: removed
+Dec 31 00:44:16 mail postfix/smtpd[139364]: connect from unknown[185.226.173.179]
+Dec 31 00:44:17 mail postfix/smtpd[139364]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
+Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max connection rate 1/60s for (smtp:192.168.1.200) at Dec 31 00:43:10
+Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max connection count 1 for (smtp:192.168.1.200) at Dec 31 00:43:10
+Dec 31 00:47:47 mail postfix/anvil[139366]: statistics: max cache size 2 at Dec 31 00:44:16
+Dec 31 00:51:47 mail dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 1 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<QaBf3McNfshHBoeD>
+Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<4PVu3McNLM5HBoeD>
+Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<a1By3McNXM5HBoeD>
+Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<fKx23McNss5HBoeD>
+Dec 31 00:51:48 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<1MR53McNIs9HBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<YFF93McNas9HBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<ImiA3McNvM9HBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oFqD3McNBtBHBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<oOCF3McNWNBHBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<kiyI3McNHtNHBoeD>
+Dec 31 00:51:49 mail dovecot: imap-login: Disconnected: Too many invalid commands (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, session=<rXGK3McN0NNHBoeD>
+Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A000102:SSL routines::unsupported protocol, session=<1beQ3McNtNRHBoeD>
+Dec 31 00:51:50 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A0000FC:SSL routines::unknown protocol, session=<m3eY3McN4NVHBoeD>
+Dec 31 00:51:51 mail dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A00018C:SSL routines::version too low (no auth attempts in 0 secs): user=<>, rip=71.6.135.131, lip=192.168.1.213, TLS handshaking: SSL_accept() failed: error:0A00018C:SSL routines::version too low, session=<Xsih3McNMNdHBoeD>
