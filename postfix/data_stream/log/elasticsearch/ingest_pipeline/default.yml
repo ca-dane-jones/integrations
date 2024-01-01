@@ -24,12 +24,8 @@ processors:
       OBSERVER: '(?:%{IP:observer.ip}|%{HOSTNAME:observer.name})'
       PROCESS_CHILD: '(?<process.name>\w+/[\w-]+)\[%{POSINT:process.pid}\]:'
       PROCESS_PARENT: '%{WORD:process.name}\[%{POSINT:process.pgid}\]:'
-- set:
-    field: process.pid
-    override: false
-    ignore_empty_value: true
-    copy_from: process.pgid
 - date:
+    description: Set event timestamp
     field: _tmp.timestamp
     formats:
       - 'MMM d HH:mm:ss'
@@ -37,6 +33,12 @@ processors:
     target_field: '@timestamp'
     timezone: '{{ event.timezone }}'
     if: 'ctx.event?.timezone != null && ctx._tmp?.timestamp != null'
+- set:
+    description: Copy the process group parent ID to process ID if populated
+    field: process.pid
+    override: false
+    ignore_empty_value: true
+    copy_from: process.pgid
 - remove:
     description: Remove _tmp fields
     field:

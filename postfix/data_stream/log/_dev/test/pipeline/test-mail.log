@@ -1,7 +1,5 @@
 Dec 31 00:04:01 mail postfix/smtpd[139325]: connect from unknown[185.226.173.179]
 Dec 31 00:04:02 mail postfix/smtpd[139325]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
-Dec 31 00:04:34 mail dovecot: imap-login: Login: user=<dane>, method=PLAIN, rip=98.29.10.103, lip=192.168.1.213, mpid=139331, TLS, session=<rnaLM8cNDJdiHQpn>
-Dec 31 00:04:42 mail dovecot: imap(dane)<139331><rnaLM8cNDJdiHQpn>: Disconnected: Logged out in=303 out=5342 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
 Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:04:01
 Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection count 1 for (smtp:185.226.173.179) at Dec 31 00:04:01
 Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max cache size 1 at Dec 31 00:04:01
