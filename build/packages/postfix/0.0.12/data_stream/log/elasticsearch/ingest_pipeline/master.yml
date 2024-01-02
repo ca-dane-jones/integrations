@@ -1,0 +1,23 @@
+---
+description: Pipeline for processing events from the postfix master process
+processors:
+- grok:
+    description: Extract process start information
+    field: message
+    patterns: 
+      - '(?<_tmp.postfix.start>daemon started) -- version (?<postfix.version>\d+\.+\d+.\d+), configuration %{PATH:postfix.configuration_path}'
+      - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
+- set:
+    description: If this is a start event, copy @timestamp into process.start
+    field: process.start
+    override: false
+    ignore_empty_value: true
+    copy_from: '@timestamp'
+    if: 'ctx._tmp?.postfix?.start != null'
+- set:
+    description: If this is a stop event, copy @timestamp into process.end
+    field: process.end
+    override: false
+    ignore_empty_value: true
+    copy_from: '@timestamp'
+    if: 'ctx._tmp?.postfix?.stop != null'
