@@ -18,12 +18,11 @@ processors:
     description: Extract syslog base and message
     field: event.original
     patterns:
-      - '^%{SYSLOG_BASE}%{SPACE}%{GREEDYDATA:message}'
+      - '%{SYSLOG_BASE}%{PROCESS_INFO}%{SPACE}%{GREEDYDATA:message}'
     pattern_definitions:
-      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}%{SPACE}%{OBSERVER}%{SPACE}?(%{PROCESS_PARENT}|%{PROCESS_CHILD})'
+      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}%{SPACE}%{OBSERVER}%{SPACE}'
       OBSERVER: '(?:%{IP:observer.ip}|%{HOSTNAME:observer.name})'
-      PROCESS_CHILD: '(?<process.name>\w+/[\w-]+)\[%{POSINT:process.pid}\]:'
-      PROCESS_PARENT: '%{WORD:process.name}\[%{POSINT:process.pgid}\]:'
+      PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid}\]:|)|(?<process.name>\w+)\/(?<_tmp.process.child>[\w-]+)\[%{POSINT:process.pid}\]:)?'
 - date:
     description: Set event timestamp
     field: _tmp.timestamp

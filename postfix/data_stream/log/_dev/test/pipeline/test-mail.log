@@ -1,3 +1,10 @@
+Jan  2 10:17:37 mail postfix/postfix-script[59126]: stopping the Postfix mail system
+Jan  2 10:17:37 mail postfix/master[2008]: terminating on signal 15
+Jan  2 10:17:41 mail postfix[59471]: Postfix is running with backwards-compatible default settings
+Jan  2 10:17:41 mail postfix[59471]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Jan  2 10:17:41 mail postfix[59471]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Jan  2 10:17:43 mail postfix/postfix-script[59702]: starting the Postfix mail system
+Jan  2 10:17:43 mail postfix/master[59704]: daemon started -- version 3.6.4, configuration /etc/postfix
 Dec 31 00:04:01 mail postfix/smtpd[139325]: connect from unknown[185.226.173.179]
 Dec 31 00:04:02 mail postfix/smtpd[139325]: disconnect from unknown[185.226.173.179] ehlo=1 auth=0/1 quit=1 commands=2/3
 Dec 31 00:07:22 mail postfix/anvil[139327]: statistics: max connection rate 1/60s for (smtp:185.226.173.179) at Dec 31 00:04:01
