@@ -1,11 +1,17 @@
 - external: ecs
   name: ecs.version
 - external: ecs
+  name: event.action
+- external: ecs
+  name: event.category
+- external: ecs
   name: event.kind
+- external: ecs
+  name: event.provider
 - external: ecs
   name: event.timezone
 - external: ecs
-  name: event.provider
+  name: event.type
 - external: ecs
   name: message
 - external: ecs
