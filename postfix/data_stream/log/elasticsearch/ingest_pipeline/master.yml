@@ -5,7 +5,7 @@ processors:
     description: Extract process start information
     field: message
     patterns: 
-      - '(?<_tmp__postfix__start>daemon started) -- version (?<postfix.version.value>%{INT:postfix.version.major:long}\.%{INT:postfix.version.minor:long}\.%{INT:postfix.version.build:long}), configuration %{PATH:postfix.configuration_path}'
+      - '(?<_tmp.postfix.start>daemon started) -- version (?<postfix.version.value>%{INT:postfix.version.major:long}\.%{INT:postfix.version.minor:long}\.%{INT:postfix.version.build:long}), configuration %{PATH:postfix.configuration_path}'
       - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
 -  append:
     field: event.category

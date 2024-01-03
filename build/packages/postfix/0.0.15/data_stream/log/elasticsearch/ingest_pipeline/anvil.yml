@@ -2,9 +2,9 @@
 description: 'Pipeline for processing session count and request rate control events from the postfix anvil process.'
 processors:
   - grok:
-      field: _tmp.anvil.max_connection_rate
+      field: message
       patterns:
-        - 'statistics: max connection rate %{INT:postfix.anvil.connection.rate.count:long}\/%{INT:postfix.anvil.connection.rate.timespan.value:long}(?<postfix.anvil.connection.rate.timespan.unit>[smhd]{1}) for \(%{WORD:postfix.anvil.connection.service_name}:%{IP:client.ip}\) at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
+        - '(?<_tmp.anvil.max_connection_rate>statistics: max connection rate) %{INT:postfix.anvil.connection.rate.count:long}\/%{INT:postfix.anvil.connection.rate.timespan.value:long}(?<postfix.anvil.connection.rate.timespan.unit>[smhd]{1}) for \(%{WORD:postfix.anvil.connection.service_name}:%{IP:client.ip}\) at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
       description: 'Extract postfix anvil statistics'
   - date:
       description: 'If this is a max connection rate statistics event, set the session start timestamp.'
@@ -24,7 +24,7 @@ processors:
       copy_from: '@timestamp'
       if: 'ctx._tmp?.anvil?.max_connection_rate != null'
   - script:
-      source: "ZonedDateTime start = ZonedDateTime.parse(ctx.anvil.connection.start_time);\n  ZonedDateTime end = ZonedDateTime.parse(ctx.anvil.connection.end_time);\n  \n  ctx.anvil.connection.duration = ChronoUnit.MILLIS.between(start, end);\n"
-      if: 'ctx.anvil?.connection?.start_time != null && ctx.anvil?.connection?.end_time != null'
+      source: "ZonedDateTime start = ZonedDateTime.parse(ctx.postfix.anvil.connection.start_time);\n  ZonedDateTime end = ZonedDateTime.parse(ctx.postfix.anvil.connection.end_time);\n  \n  ctx.postfix.anvil.connection.duration = ChronoUnit.MILLIS.between(start, end);\n"
+      if: 'ctx.postfix?.anvil?.connection?.start_time != null && ctx.postfix?.anvil?.connection?.end_time != null'
       description: 'If session start and end timestamps are set, calculate the session duration.'
 

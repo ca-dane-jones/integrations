@@ -1,0 +1,210 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T23:54:23.000-05:00",
+            "client": {
+                "ip": "192.168.1.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "anvil": {
+                    "connection": {
+                        "duration": 201000,
+                        "end_time": "2024-12-31T23:54:23.000-05:00",
+                        "rate": {
+                            "count": 1,
+                            "timespan": {
+                                "unit": "s",
+                                "value": 60
+                            }
+                        },
+                        "service_name": "smtp",
+                        "start_time": "2024-12-31T23:51:02.000-05:00"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21425
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-12-31T23:54:23.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 23:54:23",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21425
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-12-31T23:54:23.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 23:54:23",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [statistics: max cache size 1 at Dec 31 23:51:02]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 1 at Dec 31 23:51:02",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21425
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-01T00:07:07.000-05:00",
+            "client": {
+                "ip": "192.168.1.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Jan  1 00:03:46",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Jan  1 00:03:46",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "anvil": {
+                    "connection": {
+                        "duration": 201000,
+                        "end_time": "2024-01-01T00:07:07.000-05:00",
+                        "rate": {
+                            "count": 1,
+                            "timespan": {
+                                "unit": "s",
+                                "value": 60
+                            }
+                        },
+                        "service_name": "smtp",
+                        "start_time": "2024-01-01T00:03:46.000-05:00"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21457
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-01T00:07:07.000-05:00",
+            "_tmp": {
+                "timestamp": "Jan  1 00:07:07",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21457
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-01T00:07:07.000-05:00",
+            "_tmp": {
+                "timestamp": "Jan  1 00:07:07",
+                "tz_offset": "-05:00"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": "Provided Grok expressions do not match field value: [statistics: max cache size 1 at Jan  1 00:03:46]"
+            },
+            "event": {
+                "kind": "event",
+                "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max cache size 1 at Jan  1 00:03:46",
+                "provider": "anvil",
+                "timezone": "-05:00"
+            },
+            "message": "statistics: max cache size 1 at Jan  1 00:03:46",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 21457
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}

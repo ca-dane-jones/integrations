@@ -152,11 +152,11 @@
         },
         {
             "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "_tmp__postfix__start": "daemon started",
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "action": "process-started",
                 "category": [
                     "process"
                 ],
@@ -165,7 +165,7 @@
                 "provider": "master",
                 "timezone": "-05:00",
                 "type": [
-                    "start"
+                    "info"
                 ]
             },
             "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
@@ -174,12 +174,16 @@
             },
             "postfix": {
                 "configuration_path": "/etc/postfix",
-                "version": "3.6.4"
+                "version": {
+                    "build": 4,
+                    "major": 3,
+                    "minor": 6,
+                    "value": "3.6.4"
+                }
             },
             "process": {
                 "name": "postfix/master",
-                "pid": 59704,
-                "start": "2024-01-02T10:17:43.000-05:00"
+                "pid": 59704
             },
             "tags": [
                 "preserve_original_event"
@@ -233,8 +237,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -256,8 +267,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -279,8 +297,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:07:22.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:07:22",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -392,8 +417,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -415,8 +447,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -438,8 +477,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:21:21.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:21:21",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -551,8 +597,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -574,8 +627,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -597,8 +657,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:34:39.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:34:39",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -1009,8 +1076,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -1032,8 +1106,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
@@ -1055,8 +1136,15 @@
         },
         {
             "@timestamp": "2024-12-31T00:47:47.000-05:00",
+            "_tmp": {
+                "timestamp": "Dec 31 00:47:47",
+                "tz_offset": "-05:00"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "error": {
+                "message": "field [anvil] not present as part of path [_tmp.anvil.max_connection_rate]"
             },
             "event": {
                 "kind": "event",
