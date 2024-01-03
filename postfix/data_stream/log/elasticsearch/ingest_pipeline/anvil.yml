@@ -4,10 +4,12 @@ processors:
   - grok:
       field: message
       patterns:
-        - '(?<_tmp.anvil.max_connection_rate>statistics: max connection rate) %{INT:postfix.anvil.connection.rate.count:long}\/%{INT:postfix.anvil.connection.rate.timespan.value:long}(?<postfix.anvil.connection.rate.timespan.unit>[smhd]{1}) for \(%{WORD:postfix.anvil.connection.service_name}:%{IP:client.ip}\) at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
+        - '(?<_tmp.anvil.max_connection_stat>statistics: max connection rate) %{INT:postfix.anvil.connection.rate.count:long}\/%{INT:postfix.anvil.connection.rate.timespan.value:long}(?<postfix.anvil.connection.rate.timespan.unit>[smhd]{1}) for \(%{WORD:postfix.anvil.connection.service_name}:%{IP:client.ip}\) at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
+        - '(?<_tmp.anvil.max_connection_stat>statistics: max connection count) %{INT:postfix.anvil.connection.count:long} for \(%{WORD:postfix.anvil.connection.service_name}:%{IP:client.ip}\) at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
+        - '(?<_tmp.anvil.max_connection_stat>statistics: max cache size) %{INT:postfix.anvil.connection.cache_size:long} at %{SYSLOGTIMESTAMP:_tmp.anvil.connection.start_time}'
       description: 'Extract postfix anvil statistics'
   - date:
-      description: 'If this is a max connection rate statistics event, set the session start timestamp.'
+      description: 'If this is a max connection statistics event, set the session start timestamp.'
       field: _tmp.anvil.connection.start_time
       formats:
           - 'MMM  d HH:mm:ss'
@@ -15,14 +17,14 @@ processors:
           - 'MMM dd HH:mm:ss'
       target_field: 'postfix.anvil.connection.start_time'
       timezone: '{{ event.timezone }}'
-      if: 'ctx.event?.timezone != null && ctx._tmp?.anvil?.max_connection_rate != null && ctx._tmp?.anvil?.connection?.start_time != null'
+      if: 'ctx.event?.timezone != null && ctx._tmp?.anvil?.max_connection_stat != null && ctx._tmp?.anvil?.connection?.start_time != null'
   - set:
-      description: 'If this is a max connection rate statistics event, set the session end timestamp.'
+      description: 'If this is a max connection statistics event, set the session end timestamp.'
       field: 'postfix.anvil.connection.end_time'
       override: false
       ignore_empty_value: true
       copy_from: '@timestamp'
-      if: 'ctx._tmp?.anvil?.max_connection_rate != null'
+      if: 'ctx._tmp?.anvil?.max_connection_stat != null'
   - script:
       source: "ZonedDateTime start = ZonedDateTime.parse(ctx.postfix.anvil.connection.start_time);\n  ZonedDateTime end = ZonedDateTime.parse(ctx.postfix.anvil.connection.end_time);\n  \n  ctx.postfix.anvil.connection.duration = ChronoUnit.MILLIS.between(start, end);\n"
       if: 'ctx.postfix?.anvil?.connection?.start_time != null && ctx.postfix?.anvil?.connection?.end_time != null'

@@ -8,6 +8,14 @@
         - name: connection
           type: group
           fields:
+            - name: cache_size
+              type: long
+              description: |
+                The maximum cache size during the client session.
+            - name: count
+              type: long
+              description: |
+                The total number of connections made during the client session.
             - name: duration
               type: long
               description: |
