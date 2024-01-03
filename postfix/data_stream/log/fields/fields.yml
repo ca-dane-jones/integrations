@@ -1,14 +1,53 @@
+---
 - name: postfix
   type: group
   fields:
+    - name: anvil
+      type: group
+      fields:
+        - name: connection
+          type: group
+          fields:
+            - name: duration
+              type: long
+              description: |
+                The total duration of the client session.
+            - name: end_time
+              type: date
+              description: |
+                The time at which the client session ended.
+            - name: rate
+              type: group
+              fields:
+                - name: count
+                  type: long
+                  description: |
+                    The maximum number of connections made by this client over a specific duration.
+                - name: timespan
+                  type: group
+                  fields:
+                    - name: unit
+                      type: keyword
+                      description: |
+                        The time unit over which client connection rates were calculated.
+                    - name: value
+                      type: long
+                      description: |
+                        The time value over which client connection rates were calculated.
+            - name: service_name
+              type: keyword
+              description: |
+                The master.cf service name of the postfix daemon process.
+            - name: start_time
+              type: date
+              description: |
+                The time at which the client session began.
     - name: configuration_path
       type: keyword
       description: |
         Path to the configuation file used in process startup.
     - name: version
       type: group
-      description: |
-        Postfix version identifier fields.
       fields:
         - name: value
           type: keyword
@@ -24,5 +63,4 @@
             The postfix minor version identifier.
         - name: build
           type: long
-          description: |-
-            The postfix build version identifier.
+          description: The postfix build version identifier.
