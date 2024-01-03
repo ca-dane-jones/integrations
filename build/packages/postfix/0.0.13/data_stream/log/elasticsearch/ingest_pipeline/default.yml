@@ -47,6 +47,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "master" }}'
     if: ctx.event?.provider == 'master'
+- pipeline:
+    name: '{{ IngestPipeline "anvil" }}'
+    if: ctx.event?.provider == 'anvil'
 - remove:
     description: Remove _tmp fields
     field:

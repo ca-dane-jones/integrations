@@ -1,0 +1,8 @@
+---
+description: Pipeline for processing session count and request rate control events from Postfix's anvil process
+processors:
+- grok:
+      description: Set Event Provider
+      field: process.name
+      patterns:
+        - '%{WORD}/(?<event.provider>[\w-]+)|%{WORD:event.provider}'
