@@ -9,10 +9,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
             "observer": {
@@ -52,10 +61,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02",
             "observer": {
@@ -86,10 +104,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max cache size 1 at Dec 31 23:51:02",
             "observer": {
@@ -122,10 +149,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Jan  1 00:03:46",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Jan  1 00:03:46",
             "observer": {
@@ -165,10 +201,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46",
             "observer": {
@@ -199,10 +244,19 @@
                 "version": "8.11.0"
             },
             "event": {
-                "kind": "event",
+                "category": [
+                    "session"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max cache size 1 at Jan  1 00:03:46",
                 "provider": "anvil",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "message": "statistics: max cache size 1 at Jan  1 00:03:46",
             "observer": {
