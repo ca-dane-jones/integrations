@@ -1,0 +1,96 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T04:17:57.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "from": {
+                    "address": [
+                        "postfix@maildomain.tld"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "original": "Dec 31 04:17:57 mail postfix/pickup[2010]: F03408017B: uid=0 from=<postfix@maildomain.tld>",
+                "provider": "pickup",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "F03408017B: uid=0 from=<postfix@maildomain.tld>",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "queue": {
+                    "id": "F03408017B"
+                }
+            },
+            "process": {
+                "name": "postfix/pickup",
+                "pid": 2010
+            },
+            "tags": [
+                "preserve_original_event"
+            ],
+            "user": {
+                "id": "0"
+            }
+        },
+        {
+            "@timestamp": "2024-01-03T06:25:22.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "from": {
+                    "address": [
+                        "root"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "original": "Jan  3 06:25:22 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>",
+                "provider": "pickup",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "4501D80099: uid=0 from=<root>",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "queue": {
+                    "id": "4501D80099"
+                }
+            },
+            "process": {
+                "name": "postfix/pickup",
+                "pid": 79317
+            },
+            "tags": [
+                "preserve_original_event"
+            ],
+            "user": {
+                "id": "0"
+            }
+        }
+    ]
+}

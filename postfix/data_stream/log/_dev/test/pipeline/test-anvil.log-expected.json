@@ -13,7 +13,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
@@ -65,7 +64,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection count 1 for (smtp:192.168.1.1) at Dec 31 23:51:02",
@@ -108,7 +106,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
@@ -153,7 +150,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Jan  1 00:03:46",
@@ -205,7 +201,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46",
@@ -248,7 +243,6 @@
                     "session"
                 ],
                 "kind": [
-                    "event",
                     "metric"
                 ],
                 "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max cache size 1 at Jan  1 00:03:46",

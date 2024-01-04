@@ -1,5 +1,5 @@
 ---
-description: 'Pipeline for processing session count and request rate control events from the postfix anvil process.'
+description: 'Pipeline for processing connection count and rate control events from the postfix anvil process.'
 processors:
   - grok:
         field: message
