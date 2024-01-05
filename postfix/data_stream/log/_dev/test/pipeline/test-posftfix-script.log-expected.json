@@ -1,0 +1,103 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T04:17:56.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system",
+                "provider": "postfix-script",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "starting the Postfix mail system",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "postfix-script": {
+                    "action": "starting"
+                }
+            },
+            "process": {
+                "name": "postfix/postfix-script",
+                "pid": 2006
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Jan  2 10:17:37 mail postfix/postfix-script[59126]: stopping the Postfix mail system",
+                "provider": "postfix-script",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "stopping the Postfix mail system",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "postfix-script": {
+                    "action": "stopping"
+                }
+            },
+            "process": {
+                "name": "postfix/postfix-script",
+                "pid": 59126
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: starting the Postfix mail system",
+                "provider": "postfix-script",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "starting the Postfix mail system",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "postfix-script": {
+                    "action": "starting"
+                }
+            },
+            "process": {
+                "name": "postfix/postfix-script",
+                "pid": 59702
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}

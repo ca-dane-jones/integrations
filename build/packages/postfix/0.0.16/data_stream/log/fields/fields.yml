@@ -54,6 +54,12 @@
       type: keyword
       description: |
         Path to the configuation file used in process startup.
+    - name: postfix-script
+      type: group
+      fields:
+        - name: action
+          type: keyword
+          description: Action performed by the postfix-script process.
     - name: queue
       type: group
       fields:
