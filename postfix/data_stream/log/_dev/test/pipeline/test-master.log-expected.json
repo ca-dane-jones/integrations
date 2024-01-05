@@ -10,7 +10,6 @@
                 "category": [
                     "process"
                 ],
-                "kind": "event",
                 "original": "Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix",
                 "provider": "master",
                 "timezone": "-05:00",
@@ -50,7 +49,6 @@
                 "category": [
                     "process"
                 ],
-                "kind": "event",
                 "original": "Jan  2 10:17:37 mail postfix/master[2008]: terminating on signal 15",
                 "provider": "master",
                 "timezone": "-05:00",
@@ -82,7 +80,6 @@
                 "category": [
                     "process"
                 ],
-                "kind": "event",
                 "original": "Jan  2 10:17:43 mail postfix/master[59704]: daemon started -- version 3.6.4, configuration /etc/postfix",
                 "provider": "master",
                 "timezone": "-05:00",

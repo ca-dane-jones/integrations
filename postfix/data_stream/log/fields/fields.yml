@@ -54,6 +54,13 @@
       type: keyword
       description: |
         Path to the configuation file used in process startup.
+    - name: queue
+      type: group
+      fields:
+        - name: id
+          type: keyword
+          description: |
+            Postfix queued message identifier.
     - name: version
       type: group
       fields:

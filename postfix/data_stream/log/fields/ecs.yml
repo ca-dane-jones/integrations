@@ -3,6 +3,8 @@
 - external: ecs
   name: ecs.version
 - external: ecs
+  name: email.from.address
+- external: ecs
   name: event.action
 - external: ecs
   name: event.category
@@ -34,3 +36,5 @@
   name: process.start
 - external: ecs
   name: tags
+- external: ecs
+  name: user.id
