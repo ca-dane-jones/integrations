@@ -1,0 +1,3 @@
+Dec 31 04:17:53 mail postfix[1762]: Postfix is running with backwards-compatible default settings
+Jan  2 10:17:37 mail postfix[59120]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Jan  2 10:17:37 mail postfix[59120]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"

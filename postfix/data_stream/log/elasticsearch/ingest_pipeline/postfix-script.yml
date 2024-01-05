@@ -4,7 +4,7 @@ processors:
   - grok:
         field: message
         patterns:
-        - '(?<postfix.postfix-script.action>starting|stopping) the Postfix mail system'
+        - '(?<postfix.postfix-script.action>starting|stopping|refreshing) the Postfix mail system'
         description: 'Extract the postfix-script action.'
   - append:
         description: 'Set event.kind to event'

@@ -1,0 +1,142 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T04:17:53.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Dec 31 04:17:53 mail postfix[1762]: Postfix is running with backwards-compatible default settings",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "Postfix is running with backwards-compatible default settings",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 1762,
+                "pid": 1762
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-12-31T04:17:53.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Dec 31 04:17:53 mail postfix[1762]: See http://www.postfix.org/COMPATIBILITY_README.html for details",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "See http://www.postfix.org/COMPATIBILITY_README.html for details",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 1762,
+                "pid": 1762
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-12-31T04:17:53.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Dec 31 04:17:53 mail postfix[1762]: To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 1762,
+                "pid": 1762
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  2 10:17:37 mail postfix[59120]: Postfix is running with backwards-compatible default settings",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "Postfix is running with backwards-compatible default settings",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 59120,
+                "pid": 59120
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  2 10:17:37 mail postfix[59120]: See http://www.postfix.org/COMPATIBILITY_README.html for details",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "See http://www.postfix.org/COMPATIBILITY_README.html for details",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 59120,
+                "pid": 59120
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  2 10:17:37 mail postfix[59120]: To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "message": "To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix",
+                "pgid": 59120,
+                "pid": 59120
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}
