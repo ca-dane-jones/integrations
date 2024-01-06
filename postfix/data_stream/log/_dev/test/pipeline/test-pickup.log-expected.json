@@ -10,7 +10,8 @@
                     "address": [
                         "postfix@maildomain.tld"
                     ]
-                }
+                },
+                "local_id": "F03408017B"
             },
             "event": {
                 "category": [
@@ -29,11 +30,6 @@
             "message": "F03408017B: uid=0 from=<postfix@maildomain.tld>",
             "observer": {
                 "name": "mail"
-            },
-            "postfix": {
-                "queue": {
-                    "id": "F03408017B"
-                }
             },
             "process": {
                 "name": "postfix/pickup",
@@ -56,7 +52,8 @@
                     "address": [
                         "root"
                     ]
-                }
+                },
+                "local_id": "4501D80099"
             },
             "event": {
                 "category": [
@@ -75,11 +72,6 @@
             "message": "4501D80099: uid=0 from=<root>",
             "observer": {
                 "name": "mail"
-            },
-            "postfix": {
-                "queue": {
-                    "id": "4501D80099"
-                }
             },
             "process": {
                 "name": "postfix/pickup",

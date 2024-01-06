@@ -34,7 +34,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "@timestamp": "2024-01-02T10:17:43.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -42,7 +42,7 @@
                 "kind": [
                     "event"
                 ],
-                "original": "Jan  2 10:17:37 mail postfix/postfix-script[59126]: stopping the Postfix mail system",
+                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system",
                 "provider": "postfix-script",
                 "timezone": "-05:00",
                 "type": [
@@ -60,7 +60,7 @@
             },
             "process": {
                 "name": "postfix/postfix-script",
-                "pid": 59126
+                "pid": 59702
             },
             "tags": [
                 "preserve_original_event"
@@ -75,20 +75,20 @@
                 "kind": [
                     "event"
                 ],
-                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: starting the Postfix mail system",
+                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
                 "provider": "postfix-script",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "starting the Postfix mail system",
+            "message": "refreshing the Postfix mail system",
             "observer": {
                 "name": "mail"
             },
             "postfix": {
                 "postfix-script": {
-                    "action": "starting"
+                    "action": "refreshing"
                 }
             },
             "process": {

@@ -54,19 +54,26 @@
       type: keyword
       description: |
         Path to the configuation file used in process startup.
+    - name: email
+      type: group
+      fields:
+        - name: file_size
+          type: long
+          description: |
+            Total size of the email message on disk.
     - name: postfix-script
       type: group
       fields:
         - name: action
           type: keyword
           description: Action performed by the postfix-script process.
-    - name: queue
+    - name: qmgr
       type: group
       fields:
-        - name: id
-          type: keyword
+        - name: local_recipient_count
+          type: long
           description: |
-            Postfix queued message identifier.
+            Total count of local recipients
     - name: version
       type: group
       fields:

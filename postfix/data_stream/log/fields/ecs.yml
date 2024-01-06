@@ -5,6 +5,8 @@
 - external: ecs
   name: email.from.address
 - external: ecs
+  name: email.local_id
+- external: ecs
   name: event.action
 - external: ecs
   name: event.category

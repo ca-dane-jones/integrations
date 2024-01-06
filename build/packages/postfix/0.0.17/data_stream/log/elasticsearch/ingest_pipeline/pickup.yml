@@ -4,7 +4,7 @@ processors:
   - grok:
       field: message
       patterns:
-      - '(?<postfix.queue.id>[0-9A-F]+|NOQUEUE): uid=%{INT:user.id} from=<%{DATA:_tmp.email_from_address}>'
+      - '(?<email.local_id>[0-9A-F]+|NOQUEUE): uid=%{INT:user.id} from=<%{DATA:_tmp.email_from_address}>'
   - append:
       field: email.from.address
       value: "{{{_tmp.email_from_address}}}"

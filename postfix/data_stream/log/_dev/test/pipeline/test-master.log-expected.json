@@ -71,7 +71,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "@timestamp": "2024-01-05T15:21:13.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -80,14 +80,14 @@
                 "category": [
                     "process"
                 ],
-                "original": "Jan  2 10:17:43 mail postfix/master[59704]: daemon started -- version 3.6.4, configuration /etc/postfix",
+                "original": "Jan  5 15:21:13 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
                 "provider": "master",
                 "timezone": "-05:00",
                 "type": [
                     "start"
                 ]
             },
-            "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
+            "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "observer": {
                 "name": "mail"
             },
@@ -103,7 +103,7 @@
             "process": {
                 "name": "postfix/master",
                 "pid": 59704,
-                "start": "2024-01-02T10:17:43.000-05:00"
+                "start": "2024-01-05T15:21:13.000-05:00"
             },
             "tags": [
                 "preserve_original_event"
