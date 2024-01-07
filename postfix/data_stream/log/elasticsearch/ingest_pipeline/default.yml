@@ -57,6 +57,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "qmgr" }}'
     if: ctx.event?.provider == 'qmgr'
+- pipeline:
+    name: '{{ IngestPipeline "cleanup" }}'
+    if: ctx.event?.provider == 'cleanup'
 - remove:
     description: Remove _tmp fields
     field:

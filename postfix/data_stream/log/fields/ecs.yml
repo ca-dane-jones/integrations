@@ -7,6 +7,8 @@
 - external: ecs
   name: email.local_id
 - external: ecs
+  name: email.message_id
+- external: ecs
   name: event.action
 - external: ecs
   name: event.category

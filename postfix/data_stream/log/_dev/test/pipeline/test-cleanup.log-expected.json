@@ -1,0 +1,100 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T04:49:02.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "4A50D8017B",
+                "message_id": ""
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Dec 31 04:49:02 mail postfix/cleanup[2276]: 4A50D8017B: message-id=<>",
+                "provider": "cleanup",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "4A50D8017B: message-id=<>",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/cleanup",
+                "pid": 2276
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-12-31T06:32:40.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "9641C8017B",
+                "message_id": "he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Dec 31 06:32:40 mail postfix/cleanup[19347]: 9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
+                "provider": "cleanup",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/cleanup",
+                "pid": 19347
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-04T06:06:35.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "78D8580001",
+                "message_id": "20240104110619.5B9CA202ED@plex.example.local"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Jan  4 06:06:35 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
+                "provider": "cleanup",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/cleanup",
+                "pid": 99525
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}
