@@ -54,10 +54,6 @@
       type: keyword
       description: |
         Path to the configuation file used in process startup.
-    - name: delays
-      type: group
-      fields:
-        - name: 
     - name: email
       type: group
       fields:
