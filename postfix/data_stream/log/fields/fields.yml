@@ -54,6 +54,10 @@
       type: keyword
       description: |
         Path to the configuation file used in process startup.
+    - name: delays
+      type: group
+      fields:
+        - name: 
     - name: email
       type: group
       fields:
@@ -61,6 +65,13 @@
           type: long
           description: |
             Total size of the email message on disk.
+        - name: to
+          type: group
+          fields:
+            - name: original_address
+              type: keyword
+              description: |
+                The original intended recipient of this email prior to postfix processing.
     - name: postfix-script
       type: group
       fields:

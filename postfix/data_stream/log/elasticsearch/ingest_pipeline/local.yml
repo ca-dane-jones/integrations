@@ -1,0 +1,4 @@
+---
+
+
+# (?<email__local_id>[0-9A-F]+|NOQUEUE): (to=<%{DATA:email__to__address}>, orig_to=<%{DATA:postfix__email__to__original_address}>|to=<%{DATA:email__to__address}>), relay=%{DATA:_tmp__postfix__relay_info}, delay=%{INT:postfix__delivery__delays__total_time:long}, delays=%{BASE10NUM:postfix__delivery__delays__before_qmgr_time}/%{BASE10NUM:postfix__delivery__delays__in_qmgr_time}/%{BASE10NUM:postfix__delivery__delays__connection_setup_time}/%{BASE10NUM:postfix__delivery__delays__message_transmission_time}, dsn=%{INT:postfix__delivery__status_code__class:long}\.%{INT:postfix__delivery__status_code__subject:long}\.%{INT:postfix__delivery__status_code__detail:long}, status=%{DATA:postfix__delivery__status} \(%{DATA:postfix__delivery__filepath}\)
