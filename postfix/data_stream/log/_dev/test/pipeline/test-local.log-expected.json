@@ -1,0 +1,401 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "nobody@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<bob@example.com>, relay=local, delay=22, delays=22/0.09/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<nobody@example.com>, orig_to=<bob@example.com>, relay=local, delay=22, delays=22/0.09/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.09,
+                        "message_transmission_time": 0.0,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to file: /dev/null",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                },
+                "email": {
+                    "to": {
+                        "original_address": [
+                            "bob@example.com"
+                        ]
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143005
+            },
+            "server": {
+                "domain": "local"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "nobody@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<frank@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<nobody@example.com>, orig_to=<frank@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.1,
+                        "message_transmission_time": 0.0,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to file: /dev/null",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                },
+                "email": {
+                    "to": {
+                        "original_address": [
+                            "frank@example.com"
+                        ]
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143005
+            },
+            "server": {
+                "domain": "local"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "nobody@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<elastic@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<nobody@example.com>, orig_to=<elastic@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.1,
+                        "message_transmission_time": 0.0,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to file: /dev/null",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                },
+                "email": {
+                    "to": {
+                        "original_address": [
+                            "elastic@example.com"
+                        ]
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143005
+            },
+            "server": {
+                "domain": "local"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=local, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<someone@example.com>, relay=local, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.07,
+                        "message_transmission_time": 0.02,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to maildir",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143004
+            },
+            "server": {
+                "domain": "local"
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2607:f8b0:4001:c08::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2607:f8b0:4001:c08::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.07,
+                        "message_transmission_time": 0.02,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to maildir",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143004
+            },
+            "server": {
+                "address": "2607:f8b0:4001:c08::1a",
+                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                "port": 25
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[192.168.1.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "provider": "local",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[192.168.1.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.07,
+                        "message_transmission_time": 0.02,
+                        "total_time": 22
+                    },
+                    "file_path": "delivered to maildir",
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143004
+            },
+            "server": {
+                "address": "192.168.1.5",
+                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                "port": 25
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}

@@ -41,6 +41,12 @@
 - external: ecs
   name: process.start
 - external: ecs
+  name: server.address
+- external: ecs
+  name: server.domain
+- external: ecs
+  name: server.port
+- external: ecs
   name: tags
 - external: ecs
   name: user.id
