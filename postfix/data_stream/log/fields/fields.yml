@@ -80,10 +80,6 @@
               type: long
               description: |
                 The total amount of time spent in email delivery processing.
-        - name: file_path
-          type: text
-          description: |
-            The local file path an email was delivered to.
         - name: status
           type: keyword
           description: |
@@ -107,6 +103,10 @@
               type: long
               description: |
                 The RFC 3463 email delivery status code detail returned by the SMTP server.
+        - name: status_message
+          type: text
+          description: |
+            Additional email delivery status information.
     - name: email
       type: group
       fields:
