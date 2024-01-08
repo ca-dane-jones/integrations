@@ -1,0 +1,2 @@
+Dec 31 04:17:42 mail opendkim[1042]: OpenDKIM Filter v2.11.0 starting
+Jan  1 20:05:22 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL

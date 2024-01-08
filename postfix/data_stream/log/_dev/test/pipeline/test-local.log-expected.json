@@ -41,14 +41,14 @@
                         "message_transmission_time": 0.0,
                         "total_time": 22
                     },
-                    "file_path": "delivered to file: /dev/null",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to file: /dev/null"
                 },
                 "email": {
                     "to": {
@@ -110,14 +110,14 @@
                         "message_transmission_time": 0.0,
                         "total_time": 22
                     },
-                    "file_path": "delivered to file: /dev/null",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to file: /dev/null"
                 },
                 "email": {
                     "to": {
@@ -179,14 +179,14 @@
                         "message_transmission_time": 0.0,
                         "total_time": 22
                     },
-                    "file_path": "delivered to file: /dev/null",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to file: /dev/null"
                 },
                 "email": {
                     "to": {
@@ -248,14 +248,14 @@
                         "message_transmission_time": 0.02,
                         "total_time": 22
                     },
-                    "file_path": "delivered to maildir",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to maildir"
                 }
             },
             "process": {
@@ -310,14 +310,14 @@
                         "message_transmission_time": 0.02,
                         "total_time": 22
                     },
-                    "file_path": "delivered to maildir",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to maildir"
                 }
             },
             "process": {
@@ -374,14 +374,14 @@
                         "message_transmission_time": 0.02,
                         "total_time": 22
                     },
-                    "file_path": "delivered to maildir",
                     "status": "sent",
                     "status_code": {
                         "class": 2,
                         "detail": 0,
                         "subject": 0,
                         "value": "2.0.0"
-                    }
+                    },
+                    "status_message": "delivered to maildir"
                 }
             },
             "process": {

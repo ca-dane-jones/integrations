@@ -63,6 +63,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "local" }}'
     if: ctx.event?.provider == 'local'
+- pipeline:
+    name: '{{ IngestPipeline "opendkim" }}'
+    if: ctx.event?.provider == 'opendkim'
 - remove:
     description: Remove _tmp fields
     field:

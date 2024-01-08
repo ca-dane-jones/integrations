@@ -1,0 +1,78 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-12-31T04:17:42.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Dec 31 04:17:42 mail opendkim[1042]: OpenDKIM Filter v2.11.0 starting",
+                "provider": "opendkim",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "OpenDKIM Filter v2.11.0 starting",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "dkim": {
+                    "version": "2.11.0"
+                }
+            },
+            "process": {
+                "name": "opendkim",
+                "pgid": 1042,
+                "pid": 1042
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-01T20:05:22.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "2F82A8006C"
+            },
+            "event": {
+                "kind": [
+                    "event"
+                ],
+                "original": "Jan  1 20:05:22 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
+                "provider": "opendkim",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "dkim": {
+                    "algorithm": "rsa-sha256",
+                    "domain": "accounts.google.com",
+                    "protocol": "SSL",
+                    "selector": "20230601"
+                }
+            },
+            "process": {
+                "name": "opendkim",
+                "pgid": 1042,
+                "pid": 1042
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}

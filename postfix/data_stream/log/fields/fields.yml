@@ -107,6 +107,29 @@
           type: text
           description: |
             Additional email delivery status information.
+    - name: dkim
+      type: group
+      fields:
+        - name: selector
+          type: keyword
+          description: |
+            The DKIM key selector as specified by the email sender.
+        - name: domain
+          type: keyword
+          description: |
+            The DKIM query domain as specified by the email sender.
+        - name: algorithm
+          type: keyword
+          description: |
+            The DKIM hashing algorithm as specified by the email sender.
+        - name: protocol
+          type: keyword
+          description: |
+            The DKIM message transmission protocol.
+        - name: version
+          type: version
+          description: |
+            The opendkim version number.
     - name: email
       type: group
       fields:
