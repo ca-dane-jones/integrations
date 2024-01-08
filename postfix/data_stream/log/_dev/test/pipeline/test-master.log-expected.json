@@ -23,12 +23,7 @@
             },
             "postfix": {
                 "configuration_path": "/etc/postfix",
-                "version": {
-                    "build": 4,
-                    "major": 3,
-                    "minor": 6,
-                    "value": "3.6.4"
-                }
+                "version": "3.6.4"
             },
             "process": {
                 "name": "postfix/master",
@@ -93,12 +88,7 @@
             },
             "postfix": {
                 "configuration_path": "/etc/postfix",
-                "version": {
-                    "build": 4,
-                    "major": 3,
-                    "minor": 6,
-                    "value": "3.6.4"
-                }
+                "version": "3.6.4"
             },
             "process": {
                 "name": "postfix/master",
