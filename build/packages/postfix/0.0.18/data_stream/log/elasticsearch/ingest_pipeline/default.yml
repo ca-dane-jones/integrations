@@ -41,7 +41,7 @@ processors:
       description: Set Event Provider
       field: process.name
       patterns:
-        - '%{WORD}/(?<event.provider>[\w-]+)|%{WORD:event.provider}'
+        - '%{WORD}/(?<event.provider>[\w-]+)|(?<event.provider>[\w-]+)'
 - pipeline:
     name: '{{ IngestPipeline "master" }}'
     if: ctx.event?.provider == 'master'

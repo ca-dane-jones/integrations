@@ -169,7 +169,7 @@
           description: |
             The SMTP helo command used for SPF validation.  This is typically the client domain.
         - name: identity
-          type: keyword
+          type: text
           description: |
             The SMTP field used for SPF identify validation.
         - name: receiver
