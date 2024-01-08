@@ -158,20 +158,6 @@
           description: |
             Total count of local recipients
     - name: version
-      type: group
-      fields:
-        - name: value
-          type: keyword
-          description: |
-            The full postfix version string.
-        - name: major
-          type: long
-          description: |
-            The postfix major version identifier.
-        - name: minor
-          type: long
-          description: |
-            The postfix minor version identifier.
-        - name: build
-          type: long
-          description: The postfix build version identifier.
+      type: version
+      description: |
+        The postfix version number.
