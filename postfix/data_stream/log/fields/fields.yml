@@ -160,7 +160,25 @@
     - name: smtpd
       type: group
       fields:
-        
+        - name: connection
+          type: group
+          fields:
+            - name: commands
+              type: group
+              fields: 
+                - name: helo
+                  type: group
+                  description: |
+                    Contains the number of HELO commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of HELO commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of HELO commands sent by the client that were rejected during a client connection.
     - name: spf
       type: group
       fields:
