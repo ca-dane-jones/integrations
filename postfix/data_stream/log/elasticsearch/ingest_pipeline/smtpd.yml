@@ -1,10 +1,18 @@
 ---
 #TODO: Set metric fields from _tmp captures
 #       - _tmp.metric_connect
+#       - _tmp.metric_disconnect
 description: 'Pipeline for processing smtpd events.'
 processors:
   - grok:
       field: message
       patterns:
-        - '(?<_tmp.metric_connect>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
+          - '(?<_tmp.metric_connect>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
+          - '(?<_tmp.metric_disconnect>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{DATA}|%{EHLO}|%{HELO}|%{RCPT})+'
+      pattern_definitions:
+          auth: 'helo=(%{INT:postfix.smtpd.connection.commands.auth.accepted:long}|%{INT:postfix.smtpd.connection.commands.auth.rejected:long}\/%{INT:postfix.smtpd.connection.commands.auth.accepted:long})'
+          data: 'ehlo=(%{INT:postfix.smtpd.connection.commands.data.accepted:long}|%{INT:postfix.smtpd.connection.commands.data.rejected:long}\/%{INT:postfix.smtpd.connection.commands.data.accepted:long})'
+          ehlo: 'ehlo=(%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long}|%{INT:postfix.smtpd.connection.commands.ehlo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long})'
+          helo: 'helo=(%{INT:postfix.smtpd.connection.commands.helo.accepted:long}|%{INT:postfix.smtpd.connection.commands.helo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.helo.accepted:long})'
+          rcpt: 'helo=(%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long}|%{INT:postfix.smtpd.connection.commands.rcpt.rejected:long}\/%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long})
       description: 'Extracts smtpd event fields.'
