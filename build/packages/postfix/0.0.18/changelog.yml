@@ -1,0 +1,91 @@
+# newer versions go on top
+- version: "0.0.18"
+  changes:
+    - description: Added qmgr, cleanup, and local pipelines
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.17"
+  changes:
+    - description: Added postfix-script pipeline
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.16"
+  changes:
+    - description: Added pickup pipeline
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.15"
+  changes:
+    - description: Added session duration and connection statistics to anvil pipeline.
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.14"
+  changes:
+    - description: Place postfix version value, major, minor, and build version details into their own fields
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.13"
+  changes:
+    - description: Enhanced ECS event information for master pipeline
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.12"
+  changes:
+    - description: Bugfix for calling master pipeline
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.11"
+  changes:
+    - description: Bugfixes for process.pid datatype and date parser
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.10"
+  changes:
+    - description: Modified master pipeline name
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.9"
+  changes:
+    - description: Added pipeline for master process events
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.8"
+  changes:
+    - description: Bugfix for process info
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.7"
+  changes:
+    - description: Bugfix for process info
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.6"
+  changes:
+    - description: Bugfix for process info
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.5"
+  changes:
+    - description: Added initial pipeline tests and 2 additional remove processors
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.4"
+  changes:
+    - description: Populate timestamp
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.3"
+  changes:
+    - description: Grok syslog base
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.2"
+  changes:
+    - description: Minor updates
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.1"
+  changes:
+    - description: Initial draft of the package
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link

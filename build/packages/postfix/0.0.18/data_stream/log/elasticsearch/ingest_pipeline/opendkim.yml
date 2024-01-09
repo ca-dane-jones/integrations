@@ -1,0 +1,21 @@
+---
+description: 'Pipeline for processing opendkim events.'
+processors:
+  - grok:
+        field: message
+        patterns:
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): s=%{DATA:postfix.dkim.selector} d=%{DATA:postfix.dkim.domain} a=%{DATA:postfix.dkim.algorithm} %{GREEDYDATA:postfix.dkim.protocol}'
+        - 'OpenDKIM Filter v%{DATA:postfix.dkim.version} starting'
+        description: 'Extracts opendkim event fields.'
+  - append:
+        description: 'Set event.kind to event'
+        field: event.kind
+        value:
+            - event
+        allow_duplicates: false
+  - append:
+        description: 'Set event.type to info'
+        field: 'event.type'
+        value: 
+            - info
+        allow_duplicates: false

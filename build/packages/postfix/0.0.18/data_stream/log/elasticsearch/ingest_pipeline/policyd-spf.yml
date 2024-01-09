@@ -1,0 +1,25 @@
+---
+description: 'Pipeline for processing policyd-spf events.'
+processors:
+  - grok:
+      field: message
+      patterns:
+        - 'prepend Received-SPF: %{WORD:postfix.spf.result} \(mailfrom\) identity=%{WORD:postfix.spf.identity}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
+      description: 'Extracts policyd-spf event fields.'
+  - append:
+      description: 'Sets the email.to.address field to the value of postfix.spf.receivers if its value is not "UNKOWN"'
+      field: email.to.address
+      value: "{{{postfix.spf.receiver}}}"
+      if: 'ctx.postfix?.spf?.receiver != null && ctx.postfix?.spf.receiver != "UNKNOWN"'
+  - append:
+      description: 'Set event.kind to event'
+      field: event.kind
+      value:
+          - event
+      allow_duplicates: false
+  - append:
+      description: 'Set event.type to info'
+      field: 'event.type'
+      value: 
+          - info
+      allow_duplicates: false
