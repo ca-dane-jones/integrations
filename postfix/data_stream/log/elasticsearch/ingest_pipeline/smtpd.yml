@@ -1,0 +1,8 @@
+---
+description: 'Pipeline for processing smtp events.'
+processors:
+  - grok:
+      field: message
+      patterns:
+        - 'prepend Received-SPF: %{WORD:postfix.spf.result} \(mailfrom\) identity=%{WORD:postfix.spf.identity}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
+      description: 'Extracts smtpd event fields.'
