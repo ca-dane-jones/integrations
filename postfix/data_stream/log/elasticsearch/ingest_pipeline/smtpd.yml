@@ -1,18 +1,33 @@
 ---
-#TODO: Set metric fields from _tmp captures
-#       - _tmp.metric_connect
-#       - _tmp.metric_disconnect
 description: 'Pipeline for processing smtpd events.'
 processors:
   - grok:
       field: message
       patterns:
-          - '(?<_tmp.metric_connect>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
-          - '(?<_tmp.metric_disconnect>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{DATA}|%{EHLO}|%{HELO}|%{RCPT})+'
+          - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
+          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|${EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+'
       pattern_definitions:
-          auth: 'helo=(%{INT:postfix.smtpd.connection.commands.auth.accepted:long}|%{INT:postfix.smtpd.connection.commands.auth.rejected:long}\/%{INT:postfix.smtpd.connection.commands.auth.accepted:long})'
-          data: 'ehlo=(%{INT:postfix.smtpd.connection.commands.data.accepted:long}|%{INT:postfix.smtpd.connection.commands.data.rejected:long}\/%{INT:postfix.smtpd.connection.commands.data.accepted:long})'
-          ehlo: 'ehlo=(%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long}|%{INT:postfix.smtpd.connection.commands.ehlo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long})'
-          helo: 'helo=(%{INT:postfix.smtpd.connection.commands.helo.accepted:long}|%{INT:postfix.smtpd.connection.commands.helo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.helo.accepted:long})'
-          rcpt: 'helo=(%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long}|%{INT:postfix.smtpd.connection.commands.rcpt.rejected:long}\/%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long})
+          AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.accepted:long}|%{INT:postfix.smtpd.connection.commands.auth.rejected:long}\/%{INT:postfix.smtpd.connection.commands.auth.accepted:long})'
+          BDAT: 'bdat=(%{INT:postfix.smtpd.connection.commands.bdat.accepted:long}|%{INT:postfix.smtpd.connection.commands.bdat.rejected:long}\/%{INT:postfix.smtpd.connection.commands.bdat.accepted:long})'
+          COMMANDS: 'commands=(%{INT:postfix.smtpd.connection.commands.total_accepted:long}|%{INT:postfix.smtpd.connection.commands.total_rejected:long}\/%{INT:postfix.smtpd.connection.commands.total_accepted:long})'
+          DATA: 'data=(%{INT:postfix.smtpd.connection.commands.data.accepted:long}|%{INT:postfix.smtpd.connection.commands.data.rejected:long}\/%{INT:postfix.smtpd.connection.commands.data.accepted:long})'
+          EHLO: 'ehlo=(%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long}|%{INT:postfix.smtpd.connection.commands.ehlo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.ehlo.accepted:long})'
+          ETRN: 'etrn=(%{INT:postfix.smtpd.connection.commands.etrn.accepted:long}|%{INT:postfix.smtpd.connection.commands.etrn.rejected:long}\/%{INT:postfix.smtpd.connection.commands.etrn.accepted:long})'
+          EXPN: 'expn=(%{INT:postfix.smtpd.connection.commands.expn.accepted:long}|%{INT:postfix.smtpd.connection.commands.expn.rejected:long}\/%{INT:postfix.smtpd.connection.commands.expn.accepted:long})'
+          HELO: 'helo=(%{INT:postfix.smtpd.connection.commands.helo.accepted:long}|%{INT:postfix.smtpd.connection.commands.helo.rejected:long}\/%{INT:postfix.smtpd.connection.commands.helo.accepted:long})'
+          HELP: 'rcpt=(%{INT:postfix.smtpd.connection.commands.help.accepted:long}|%{INT:postfix.smtpd.connection.commands.help.rejected:long}\/%{INT:postfix.smtpd.connection.commands.help.accepted:long})'
+          NOOP: 'noop=(%{INT:postfix.smtpd.connection.commands.noop.accepted:long}|%{INT:postfix.smtpd.connection.commands.noop.rejected:long}\/%{INT:postfix.smtpd.connection.commands.noop.accepted:long})'
+          QUIT: 'noop=(%{INT:postfix.smtpd.connection.commands.quit.accepted:long}|%{INT:postfix.smtpd.connection.commands.quit.rejected:long}\/%{INT:postfix.smtpd.connection.commands.quit.accepted:long})'          
+          RCPT: 'rcpt=(%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long}|%{INT:postfix.smtpd.connection.commands.rcpt.rejected:long}\/%{INT:postfix.smtpd.connection.commands.rcpt.accepted:long})'
+          RSET: 'rset=(%{INT:postfix.smtpd.connection.commands.rset.accepted:long}|%{INT:postfix.smtpd.connection.commands.rset.rejected:long}\/%{INT:postfix.smtpd.connection.commands.rset.accepted:long})'
+          STARTTLS: 'starttls=(%{INT:postfix.smtpd.connection.commands.starttls.accepted:long}|%{INT:postfix.smtpd.connection.commands.starttls.rejected:long}\/%{INT:postfix.smtpd.connection.commands.starttls.accepted:long})'
+          UNKNOWN: 'unknown=(%{INT:postfix.smtpd.connection.commands.unknown.accepted:long}|%{INT:postfix.smtpd.connection.commands.unknown.rejected:long}\/%{INT:postfix.smtpd.connection.commands.unknown.accepted:long})'
+          VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.accepted:long}|%{INT:postfix.smtpd.connection.commands.vrfy.rejected:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.accepted:long})'      
       description: 'Extracts smtpd event fields.'
+  - set:
+      description: If this is an smtpd connect or disconnect event, set postfix.smtpd.connection.action value
+      field: postfix.smtpd.connection.action
+      override: false
+      ignore_empty_value: false
+      value: "{{{_tmp.smtpd_cxn_action}}}"
+      if: 'ctx._tmp?.smtpd_cxn_action != null'
