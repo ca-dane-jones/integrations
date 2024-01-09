@@ -157,6 +157,10 @@
           type: long
           description: |
             Total count of local recipients
+    - name: smtpd
+      type: group
+      fields:
+        
     - name: spf
       type: group
       fields:
