@@ -1,0 +1,531 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-01-05T06:36:56.000-05:00",
+            "client": {
+                "domain": "unknown",
+                "ip": "192.168.1.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: connect from unknown[192.168.1.1]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "connect from unknown[192.168.1.1]",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "connect"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:36:56.000-05:00",
+            "client": {
+                "domain": "unknown",
+                "ip": "192.168.1.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[192.168.1.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from unknown[192.168.1.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "disconnect",
+                        "commands": {
+                            "auth": {
+                                "accepted": 1,
+                                "rejected": 0
+                            },
+                            "ehlo": {
+                                "accepted": 1
+                            },
+                            "quit": {
+                                "accepted": 1
+                            },
+                            "total_accepted": 3,
+                            "total_rejected": 2
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:35:48.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[192.168.1.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[192.168.1.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[192.168.1.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:35:48.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[192.168.1.1]]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[192.168.1.1]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[192.168.1.1]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:35:48.000-05:00",
+            "client": {
+                "domain": "scanner-04.ch1.censys-scanner.com",
+                "ip": "192.168.1.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: disconnect from scanner-04.ch1.censys-scanner.com[192.168.1.1] ehlo=1 starttls=1 commands=2",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from scanner-04.ch1.censys-scanner.com[192.168.1.1] ehlo=1 starttls=1 commands=2",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "disconnect",
+                        "commands": {
+                            "ehlo": {
+                                "accepted": 1
+                            },
+                            "starttls": {
+                                "accepted": 1
+                            },
+                            "total_accepted": 2
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T05:46:30.000-05:00",
+            "client": {
+                "domain": "nessus.example.com",
+                "ip": "192.168.1.211"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: connect from nessus.example.com[192.168.1.211]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "connect from nessus.example.com[192.168.1.211]",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "connect"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 111015
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T05:46:30.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [SSL_accept error from nessus.example.com[192.168.1.211]: -1]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: SSL_accept error from nessus.example.com[192.168.1.211]: -1",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "SSL_accept error from nessus.example.com[192.168.1.211]: -1",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 111015
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T05:46:30.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 111015
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T05:46:30.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [lost connection after STARTTLS from nessus.example.com[192.168.1.211]]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: lost connection after STARTTLS from nessus.example.com[192.168.1.211]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "lost connection after STARTTLS from nessus.example.com[192.168.1.211]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 111015
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T05:46:30.000-05:00",
+            "client": {
+                "domain": "nessus.example.com",
+                "ip": "192.168.1.211"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: disconnect from nessus.example.com[192.168.1.211] helo=1 starttls=0/1 commands=1/2",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from nessus.example.com[192.168.1.211] helo=1 starttls=0/1 commands=1/2",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "disconnect",
+                        "commands": {
+                            "helo": {
+                                "accepted": 1
+                            },
+                            "starttls": {
+                                "accepted": 1,
+                                "rejected": 0
+                            },
+                            "total_accepted": 2,
+                            "total_rejected": 1
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 111015
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:32:37.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [warning: 192.168.1.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=211.1.168.192.c76aattqmtn4tsxd6gknj5ysf4.zen.dq.spamhaus.net type=A: Host not found, try again]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  5 06:32:37 mail postfix/smtpd[121253]: warning: 192.168.1.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=211.1.168.192.c76aattqmtn4tsxd6gknj5ysf4.zen.dq.spamhaus.net type=A: Host not found, try again",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "warning: 192.168.1.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=211.1.168.192.c76aattqmtn4tsxd6gknj5ysf4.zen.dq.spamhaus.net type=A: Host not found, try again",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121253
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-08T11:01:35.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [3183E8003F: client=o5.ptr2409.example.com[192.168.1.1]]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  8 11:01:35 mail postfix/smtpd[41202]: 3183E8003F: client=o5.ptr2409.example.com[192.168.1.1]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "3183E8003F: client=o5.ptr2409.example.com[192.168.1.1]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 41202
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-08T11:01:35.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [37C3980086: client=o5.ptr2409.example.com[192.168.1.1]]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  8 11:01:35 mail postfix/smtpd[41206]: 37C3980086: client=o5.ptr2409.example.com[192.168.1.1]",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "37C3980086: client=o5.ptr2409.example.com[192.168.1.1]",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 41206
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-08T11:01:45.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [disconnect from o5.ptr2409.example.com[192.168.1.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[192.168.1.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from o5.ptr2409.example.com[192.168.1.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 41212
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-09T14:33:44.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [improper command pipelining after EHLO from unknown[152.32.205.118]: HELP\\r\\nQUIT\\r\\n]"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "original": "Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[152.32.205.118]: HELP\\r\\nQUIT\\r\\n",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "improper command pipelining after EHLO from unknown[152.32.205.118]: HELP\\r\\nQUIT\\r\\n",
+            "observer": {
+                "name": "mail"
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 82518
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-09T14:42:05.000-05:00",
+            "client": {
+                "domain": "elasticdev.example.com",
+                "ip": "192.168.1.168"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "original": "Jan  9 14:42:05 mail postfix/smtpd[82527]: disconnect from elasticdev.example.com[192.168.1.168] starttls=0/1 noop=1 vrfy=0/1 commands=1/3",
+                "provider": "smtpd",
+                "timezone": "-05:00"
+            },
+            "message": "disconnect from elasticdev.example.com[192.168.1.168] starttls=0/1 noop=1 vrfy=0/1 commands=1/3",
+            "observer": {
+                "name": "mail"
+            },
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "action": "disconnect",
+                        "commands": {
+                            "noop": {
+                                "accepted": 1
+                            },
+                            "starttls": {
+                                "accepted": 1,
+                                "rejected": 0
+                            },
+                            "total_accepted": 3,
+                            "total_rejected": 1,
+                            "vrfy": {
+                                "accepted": 1,
+                                "rejected": 0
+                            }
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 82527
+            },
+            "tags": [
+                "preserve_original_event"
+            ]
+        }
+    ]
+}

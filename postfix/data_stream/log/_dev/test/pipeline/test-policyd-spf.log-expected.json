@@ -92,20 +92,20 @@
                 "kind": [
                     "event"
                 ],
-                "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.come; receiver=<UNKNOWN>",
+                "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
                 "provider": "policyd-spf",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.come; receiver=<UNKNOWN>",
+            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
             "observer": {
                 "name": "mail"
             },
             "postfix": {
                 "spf": {
-                    "envelope_from": "root@subdomain.example.come",
+                    "envelope_from": "root@subdomain.example.com",
                     "helo": "nessus.example.local",
                     "identity": "mailfrom",
                     "receiver": "UNKNOWN",
@@ -139,20 +139,20 @@
                 "kind": [
                     "event"
                 ],
-                "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.come; receiver=someone@example.com",
+                "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
                 "provider": "policyd-spf",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.come; receiver=someone@example.com",
+            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
             "observer": {
                 "name": "mail"
             },
             "postfix": {
                 "spf": {
-                    "envelope_from": "root@subdomain.example.come",
+                    "envelope_from": "root@subdomain.example.com",
                     "helo": "nessus.example.local",
                     "identity": "mailfrom",
                     "receiver": "someone@example.com",

@@ -1,4 +1,6 @@
 - external: ecs
+  name: client.domain
+- external: ecs
   name: client.ip
 - external: ecs
   name: ecs.version

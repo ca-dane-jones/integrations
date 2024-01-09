@@ -163,9 +163,99 @@
         - name: connection
           type: group
           fields:
+            - name: action
+              type: keyword
+              description: |
+                The smtpd client connection state action such as connect or disconnect.
             - name: commands
               type: group
               fields:
+                - name: auth
+                  type: group
+                  description: |
+                    Contains counters for the number of AUTH commands sent by the client during a client connection.
+                  fields:
+                    - name: accepted_count
+                      type: long
+                      description: |
+                        The number of AUTH commands sent by the client that were accepted during a client connection.
+                    - name: rejected_count
+                      type: long
+                      description: |
+                        The number of AUTH commands sent by the client that were rejected during a client connection.
+                    - name: total_count
+                      type: long
+                      description: |
+                        The total number of AUTH commands sent by the client during a client connection.
+                - name: bdat
+                  type: group
+                  description: |
+                    Contains counters for the number of BDAT commands sent by the client during a client connection.
+                  fields:
+                    - name: accepted_count
+                      type: long
+                      description: |
+                        The number of BDAT commands sent by the client that were accepted during a client connection.
+                    - name: rejected_count
+                      type: long
+                      description: |
+                        The number of BDAT commands sent by the client that were rejected during a client connection.
+                    - name: total_count
+                      type: long
+                      description: |
+                        The total number of BDAT commands sent by the client during a client connection.
+                - name: data
+                  type: group
+                  description: |
+                    Contains the number of DATA commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of DATA commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of DATA commands sent by the client that were rejected during a client connection.
+                - name: ehlo
+                  type: group
+                  description: |
+                    Contains the number of EHLO commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of EHLO commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of EHLO commands sent by the client that were rejected during a client connection.
+                - name: etrn
+                  type: group
+                  description: |
+                    Contains the number of ETRN commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of ETRN commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of ETRN commands sent by the client that were rejected during a client connection.
+                - name: expn
+                  type: group
+                  description: |
+                    Contains the number of EXPN commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of EXPN commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of EXPN commands sent by the client that were rejected during a client connection.
                 - name: helo
                   type: group
                   description: |
@@ -179,6 +269,117 @@
                       type: long
                       description: |
                         The number of HELO commands sent by the client that were rejected during a client connection.
+                - name: help
+                  type: group
+                  description: |
+                    Contains the number of HELP commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of HELP commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of HELP commands sent by the client that were rejected during a client connection.
+                - name: noop
+                  type: group
+                  description: |
+                    Contains the number of NOOP commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of NOOP commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of NOOP commands sent by the client that were rejected during a client connection.
+                - name: quit
+                  type: group
+                  description: |
+                    Contains the number of QUIT commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of QUIT commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of QUIT commands sent by the client that were rejected during a client connection.
+                - name: rcpt
+                  type: group
+                  description: |
+                    Contains the number of RCPT commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of RCPT commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of RCPT commands sent by the client that were rejected during a client connection.
+                - name: rset
+                  type: group
+                  description: |
+                    Contains the number of RSET commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of RSET commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of RSET commands sent by the client that were rejected during a client connection.
+                - name: starttls
+                  type: group
+                  description: |
+                    Contains the number of STARTTLS commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of STARTTLS commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of STARTTLS commands sent by the client that were rejected during a client connection.
+                - name: unknown
+                  type: group
+                  description: |
+                    Contains the number of unknown commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of unknown commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of unknown commands sent by the client that were rejected during a client connection.
+                - name: total_accepted
+                  type: long
+                  description: |
+                    The total number of commands sent by the client that were accepted during a client connection.
+                - name: total_rejected
+                  type: long
+                  description: "The total number of commands sent by the client that were rejected during a client connection.                    \n"
+                - name: vrfy
+                  type: group
+                  description: |
+                    Contains the number of VRFY commands accepted or rejected during a client connection.
+                  fields:
+                    - name: accepted
+                      type: long
+                      description: |
+                        The number of VRFY commands sent by the client that were accepted during a client connection.
+                    - name: rejected
+                      type: long
+                      description: |
+                        The number of VRFY commands sent by the client that were rejected during a client connection.
     - name: spf
       type: group
       fields:
