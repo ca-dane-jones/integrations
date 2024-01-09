@@ -31,3 +31,10 @@ processors:
       ignore_empty_value: false
       value: "{{{_tmp.smtpd_cxn_action}}}"
       if: 'ctx._tmp?.smtpd_cxn_action != null'
+# Painless script sample for accessing document fields
+# double total = 0.0;
+# for (key in params._source.keySet()) {
+#      if (key.startsWith("total")) {
+#          total = total + doc[key].value;
+#      }
+#  }
