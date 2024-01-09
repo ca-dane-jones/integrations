@@ -69,6 +69,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "policyd-spf" }}'
     if: ctx.event?.provider == 'policyd-spf'
+- pipeline:
+    name: '{{ IngestPipeline "smtpd" }}'
+    if: ctx.event?.provider == 'smtpd'
 - remove:
     description: Remove _tmp fields
     field:
