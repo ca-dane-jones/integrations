@@ -36,7 +36,8 @@
                 "pid": 2010
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ],
             "user": {
                 "id": "0"
@@ -78,7 +79,8 @@
                 "pid": 79317
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ],
             "user": {
                 "id": "0"

@@ -66,7 +66,8 @@
                 "domain": "local"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -135,7 +136,8 @@
                 "domain": "local"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -204,7 +206,8 @@
                 "domain": "local"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -266,7 +269,8 @@
                 "domain": "local"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -330,7 +334,8 @@
                 "port": 25
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -394,7 +399,8 @@
                 "port": 25
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         }
     ]

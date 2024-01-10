@@ -30,7 +30,8 @@
                 "pid": 121263
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -83,7 +84,8 @@
                 "pid": 121263
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -111,7 +113,8 @@
                 "pid": 121263
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -139,7 +142,8 @@
                 "pid": 121263
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -185,7 +189,8 @@
                 "pid": 121263
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -218,7 +223,8 @@
                 "pid": 111015
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -246,7 +252,8 @@
                 "pid": 111015
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -274,7 +281,8 @@
                 "pid": 111015
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -302,7 +310,8 @@
                 "pid": 111015
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -350,7 +359,8 @@
                 "pid": 111015
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -378,7 +388,8 @@
                 "pid": 121253
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -406,7 +417,8 @@
                 "pid": 41202
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -434,7 +446,8 @@
                 "pid": 41206
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -462,7 +475,8 @@
                 "pid": 41212
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -490,7 +504,8 @@
                 "pid": 82518
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -543,7 +558,8 @@
                 "pid": 82527
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         }
     ]

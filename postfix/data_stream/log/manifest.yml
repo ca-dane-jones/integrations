@@ -9,5 +9,31 @@ streams:
         type: text
         title: Paths
         multi: true
+        required: true
+        show_user: true
         default:
           - /var/log/mail.log
+      - name: calculate_connection_metrics
+        required: true
+        show_user: true
+        title: Calculate SMTP command metrics
+        description: "Calculate accepted_count and rejected_count for each SMTP command sent to the SMTPD daemon \nfor a given connection.  This may have minor performance impacts on your injestion nodes depending\non event volume.\n"
+        type: bool
+        multi: false
+        default: true
+      - name: tags
+        type: text
+        title: Tags
+        multi: true
+        required: true
+        show_user: false
+        default:
+          - postfix
+      - name: preserve_original_event
+        required: true
+        show_user: true
+        title: Preserve original event
+        description: Preserves a raw copy of the original event, added to the field `event.original`
+        type: bool
+        multi: false
+        default: false

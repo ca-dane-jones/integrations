@@ -77,5 +77,5 @@ processors:
             - starttls
             - unknown
             - vrfy
-      if: 'ctx.postfix?.smtpd?.connection?.commands != null'
+      if: "ctx.tags.contains('calculate_connection_metrics') && ctx.postfix?.smtpd?.connection?.commands != null"
       description: 'Calculate connection command metrics'

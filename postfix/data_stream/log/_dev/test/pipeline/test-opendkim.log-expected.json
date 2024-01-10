@@ -31,7 +31,8 @@
                 "pid": 1042
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -71,7 +72,8 @@
                 "pid": 1042
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         }
     ]

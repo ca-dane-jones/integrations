@@ -3,4 +3,5 @@ dynamic_fields:
 fields:
   tags:
     - preserve_original_event
+    - calculate_connection_metrics
   "_tmp.tz_offset": -05:00

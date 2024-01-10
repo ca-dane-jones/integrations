@@ -31,7 +31,8 @@
                 "start": "2024-12-31T04:17:56.000-05:00"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -62,7 +63,8 @@
                 "pid": 2008
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         },
         {
@@ -96,7 +98,8 @@
                 "start": "2024-01-05T15:21:13.000-05:00"
             },
             "tags": [
-                "preserve_original_event"
+                "preserve_original_event",
+                "calculate_connection_metrics"
             ]
         }
     ]
