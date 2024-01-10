@@ -408,7 +408,7 @@
                       type: long
                       description: |
                         The total number of UNKNOWN commands sent by the client during a client connection.
-                - name: total_accepted
+                - name: total_accepted_count
                   type: long
                   description: |
                     The total number of commands sent by the client that were accepted during a client connection.
@@ -416,6 +416,10 @@
                   type: long
                   description: |
                     The total number of commands sent by the client.
+                - name: total_rejected_count
+                  type: long
+                  description: |
+                    The total number of commands sent by the client that were rejected during a client connection.
                 - name: vrfy
                   type: group
                   description: |
