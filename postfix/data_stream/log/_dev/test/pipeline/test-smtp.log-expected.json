@@ -58,16 +58,22 @@
                         "commands": {
                             "auth": {
                                 "accepted_count": 0,
+                                "rejected_count": 1,
                                 "total_count": 1
                             },
                             "ehlo": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "quit": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "total_accepted_count": 2,
-                            "total_count": 3
+                            "total_count": 3,
+                            "total_rejected_count": 1
                         }
                     }
                 }
@@ -160,9 +166,13 @@
                         "action": "disconnect",
                         "commands": {
                             "ehlo": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "starttls": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "total_count": 2
@@ -319,14 +329,18 @@
                         "action": "disconnect",
                         "commands": {
                             "helo": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "starttls": {
                                 "accepted_count": 0,
+                                "rejected_count": 1,
                                 "total_count": 1
                             },
                             "total_accepted_count": 1,
-                            "total_count": 2
+                            "total_count": 2,
+                            "total_rejected_count": 1
                         }
                     }
                 }
@@ -503,16 +517,21 @@
                         "action": "disconnect",
                         "commands": {
                             "noop": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
                                 "total_count": 1
                             },
                             "starttls": {
                                 "accepted_count": 0,
+                                "rejected_count": 1,
                                 "total_count": 1
                             },
                             "total_accepted_count": 1,
                             "total_count": 3,
+                            "total_rejected_count": 2,
                             "vrfy": {
                                 "accepted_count": 0,
+                                "rejected_count": 1,
                                 "total_count": 1
                             }
                         }

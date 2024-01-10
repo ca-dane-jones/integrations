@@ -31,12 +31,51 @@ processors:
       ignore_empty_value: false
       value: "{{{_tmp.smtpd_cxn_action}}}"
       if: 'ctx._tmp?.smtpd_cxn_action != null'
-
-
-# Painless script sample for accessing document fields
-# double total = 0.0;
-# for (key in params._source.keySet()) {
-#      if (key.startsWith("total")) {
-#          total = total + doc[key].value;
-#      }
-#  }
+  - script:
+      source: |
+        def cmds = ctx.postfix.smtpd.connection.commands;
+        def cmdKeys = params.cmdKeys;
+        for (key in cmds.keySet()) {
+            if (cmdKeys.contains(key)) {
+                long rejected = 0;
+                long accepted = 0;
+                long total_count = 0;
+                if (cmds[key].containsKey('total_count')) {
+                    total_count = cmds[key].total_count;
+                }
+                if (cmds[key].containsKey('accepted_count')) {
+                    accepted = cmds[key].accepted_count;
+                } else {
+                    accepted = total_count
+                }
+                if (cmds[key].containsKey('rejected_count')) {
+                    rejected = cmds[key].rejected_count;
+                }
+                cmds[key].total_count = total_count;
+                cmds[key].accepted_count = accepted;
+                cmds[key].rejected_count = total_count - accepted;
+            }
+        }
+        if (cmds.containsKey('total_count') && cmds.containsKey('total_accepted_count')) {
+            cmds.total_rejected_count = cmds.total_count - cmds.total_accepted_count;
+        }
+        ctx.postfix.smtpd.connection.commands = cmds;
+      params:
+          cmdKeys:
+            - auth
+            - bdat
+            - data
+            - ehlo
+            - etrn
+            - expn
+            - helo
+            - help
+            - noop
+            - quit
+            - rcpt
+            - rset
+            - starttls
+            - unknown
+            - vrfy
+      if: 'ctx.postfix?.smtpd?.connection?.commands != null'
+      description: 'Calculate connection command metrics'
