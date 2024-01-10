@@ -31,6 +31,10 @@ processors:
       ignore_empty_value: false
       value: "{{{_tmp.smtpd_cxn_action}}}"
       if: 'ctx._tmp?.smtpd_cxn_action != null'
+  - script:
+      source: "void iterateSmtpdFields(def x) {\n  \n  if (x instanceof List) {\n    for (def v: x) {\n        iterateSmtpdFields(v);\n    }\n  }\n  \n  if (!(x instanceof Map)) {\n    return;\n  }\n  \n  x.entrySet().removeIf(e -> e.getValue() == \"\");\n  \n  for (def v: x.values()) {\n    iterateSmtpdFields(v);\n  }\n}\n\niterateSmtpdFields(ctx.postfix.smtpd.connection.commands);"
+      if: 'ctx.postfix?.smtpd?.connection?.commands != null'
+
 # Painless script sample for accessing document fields
 # double total = 0.0;
 # for (key in params._source.keySet()) {
