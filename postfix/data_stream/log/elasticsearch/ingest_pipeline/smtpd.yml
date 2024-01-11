@@ -6,6 +6,7 @@ processors:
       patterns:
           - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
           - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|${EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+$'
+          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.tls.server.signature_digest}'
       pattern_definitions:
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
           BDAT: 'bdat=(%{INT:postfix.smtpd.connection.commands.bdat.total_count:long}|%{INT:postfix.smtpd.connection.commands.bdat.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.bdat.total_count:long})'
@@ -24,6 +25,20 @@ processors:
           UNKNOWN: 'unknown=(%{INT:postfix.smtpd.connection.commands.unknown.total_count:long}|%{INT:postfix.smtpd.connection.commands.unknown.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.unknown.total_count:long})'
           VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long}|%{INT:postfix.smtpd.connection.commands.vrfy.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long})'      
       description: 'Extracts smtpd event fields.'
+  - set:
+      description: Set tls.established to true for successful TLS connections
+      field: tls.established
+      override: false
+      ignore_empty_value: false
+      value: true
+      if: 'ctx._tmp?.tls_connection != null'
+  - set:
+      description: Set tls.version_protocol to tls for successful TLS connections
+      field: tls.version_protocol
+      override: false
+      ignore_empty_value: false
+      value: 'tls'
+      if: 'ctx.tls?.version != null'
   - set:
       description: If this is an smtpd connect or disconnect event, set postfix.smtpd.connection.action value
       field: postfix.smtpd.connection.action

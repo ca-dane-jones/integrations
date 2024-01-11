@@ -51,4 +51,12 @@
 - external: ecs
   name: tags
 - external: ecs
+  name: tls.cipher
+- external: ecs
+  name: tls.established
+- external: ecs
+  name: tls.version
+- external: ecs
+  name: tls.version_protocol
+- external: ecs
   name: user.id

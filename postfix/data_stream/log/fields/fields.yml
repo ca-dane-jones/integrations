@@ -437,6 +437,28 @@
                       type: long
                       description: |
                         The total number of VRFY commands sent by the client during a client connection.
+        - name: tls
+          type: group
+          fields:
+            - name: key_exchange_algorithm
+              type: keyword
+              description: |
+                The algorithm used for client and server key exchange.
+            - name: server
+              type: group
+              fields:
+                - name: signature_algorithm
+                  type: keyword
+                  description: |
+                    The algorithm used for signing the certificate.
+                - name: signature_digest
+                  type: keyword
+                  description: |
+                    The digest used for signing the certificate.
+                - name: signature_strength
+                  type: long
+                  description: |
+                    The size of the key, represented in number of bits, used for signing the certificate.
     - name: spf
       type: group
       fields:
