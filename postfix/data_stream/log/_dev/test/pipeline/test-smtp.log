@@ -9,4 +9,4 @@ Jan  5 06:32:37 mail postfix/smtpd[121253]: warning: 192.168.1.1.redacted.zen.dq
 Jan  8 11:01:35 mail postfix/smtpd[41202]: 3183E8003F: client=o5.ptr2409.example.com[192.168.1.1]
 Jan  8 11:01:35 mail postfix/smtpd[41206]: 37C3980086: client=o5.ptr2409.example.com[192.168.1.1]
 Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[192.168.1.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
-Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[152.32.205.118]: HELP\r\nQUIT\r\n
+Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[192.168.1.1]: HELP\r\nQUIT\r\n

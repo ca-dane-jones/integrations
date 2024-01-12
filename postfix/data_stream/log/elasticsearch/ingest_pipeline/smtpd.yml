@@ -7,7 +7,10 @@ processors:
           - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
           - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|${EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+$'
           - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.tls.server.signature_digest}'
+          - '%{LOSTCONN:postfix.smtpd.connection.lost_connection_message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost_connection_stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.ip}\](: %{GREEDYDATA:postfix.smtpd.connection.lost_connection_reason})?'
+          - 'improper command pipelining after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: %{GREEDYDATA}'
       pattern_definitions:
+          # Command definitions
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
           BDAT: 'bdat=(%{INT:postfix.smtpd.connection.commands.bdat.total_count:long}|%{INT:postfix.smtpd.connection.commands.bdat.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.bdat.total_count:long})'
           COMMANDS: 'commands=(%{INT:postfix.smtpd.connection.commands.total_count:long}|%{INT:postfix.smtpd.connection.commands.total_accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.total_count:long})'
@@ -23,7 +26,12 @@ processors:
           RSET: 'rset=(%{INT:postfix.smtpd.connection.commands.rset.total_count:long}|%{INT:postfix.smtpd.connection.commands.rset.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.rset.total_count:long})'
           STARTTLS: 'starttls=(%{INT:postfix.smtpd.connection.commands.starttls.total_count:long}|%{INT:postfix.smtpd.connection.commands.starttls.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.starttls.total_count:long})'
           UNKNOWN: 'unknown=(%{INT:postfix.smtpd.connection.commands.unknown.total_count:long}|%{INT:postfix.smtpd.connection.commands.unknown.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.unknown.total_count:long})'
-          VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long}|%{INT:postfix.smtpd.connection.commands.vrfy.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long})'      
+          VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long}|%{INT:postfix.smtpd.connection.commands.vrfy.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long})'
+          # General patterns
+          SMTP_STAGE: '(CONNECT|HELO|EHLO|STARTTLS|AUTH|MAIL( FROM)?|RCPT( TO)?|(end of )?DATA|BDAT|RSET|UNKNOWN|END-OF-MESSAGE|VRFY|\.)'
+          # Lost connection patterns
+          LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
+          LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'
       description: 'Extracts smtpd event fields.'
   - set:
       description: Set tls.established to true for successful TLS connections
