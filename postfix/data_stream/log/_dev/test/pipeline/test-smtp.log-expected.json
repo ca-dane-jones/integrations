@@ -247,12 +247,10 @@
                 "version": "8.11.0"
             },
             "error": {
-                "message": [
-                    "Provided Grok expressions do not match field value: [warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:]"
-                ]
+                "code": "TLS library problem",
+                "message": "error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
             },
             "event": {
-                "kind": "pipeline_error",
                 "module": "smtpd",
                 "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
                 "provider": "postfix",
@@ -283,6 +281,10 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "error": {
+                "code": "RBL lookup error",
+                "message": "Host or domain name not found. Name service error for name=192.168.1.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
+            },
             "event": {
                 "module": "smtpd",
                 "original": "Jan  5 06:32:37 mail postfix/smtpd[121253]: warning: 192.168.1.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=192.168.1.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
@@ -293,16 +295,6 @@
                 "name": "mail"
             },
             "message": "warning: 192.168.1.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=192.168.1.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
-            "postfix": {
-                "smtpd": {
-                    "rbl": {
-                        "error": {
-                            "message": "RBL lookup error: Host or domain name not found. Name service error for name",
-                            "reason": "Host not found, try again"
-                        }
-                    }
-                }
-            },
             "process": {
                 "name": "postfix/smtpd",
                 "pid": 121253

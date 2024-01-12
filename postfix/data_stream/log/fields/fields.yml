@@ -476,24 +476,6 @@
                       type: long
                       description: |
                         The size of the key, represented in number of bits, used for signing the certificate.
-        - name: rbl
-          type: group
-          description: |
-            This group contains fields specific to postfix RBL implementations.
-          fields:
-            - name: error
-              type: group
-              description: |
-                This group contains fields describing RBL module error conditions.
-              fields:
-                - name: message
-                  type: text
-                  description: |
-                    The error message returned by the RBL module.
-                - name: reason
-                  type: keyword
-                  description: |
-                    The error reason returned by the RBL module.
     - name: spf
       type: group
       fields:

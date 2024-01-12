@@ -10,8 +10,10 @@ processors:
           - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.ip}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
           - 'improper command pipelining after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: %{GREEDYDATA}'
           - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.ip}\]'
-          # - 'warning: %{HOSTNAME}: (?<postfix.smtpd.rbl.error.message>%{DATA} for name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}): %{GREEDYDATA:postfix.smtpd.rbl.error.reason}'
-          - 'warning: %{HOSTNAME}: (?<postfix.smtpd.rbl.error.message>[\w\s:\.]+)=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}: %{GREEDYDATA:postfix.smtpd.rbl.error.reason}'
+          - 'warning: %{HOSTNAME}: (?<error.code>RBL lookup error): %{GREEDYDATA:error.message}'
+          - 'warning: (?<error.code>TLS library problem): %{GREEDYDATA:error.message}'
+          - 'warning: hostname %{HOSTNAME:client.domain} does not resolve to address %{IP:client.ip}'
+          - 'warning: non-SMTP command from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: %{GREEDYDATA}'
       pattern_definitions:
           # Command definitions
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
@@ -36,6 +38,13 @@ processors:
           LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
           LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'
       description: 'Extracts smtpd event fields.'
+  - grok:
+      field: error.message
+      patterns:
+        - '%{DATA} name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}: %{GREEDYDATA}'
+      description: |
+        Extract dns.question fields from RBL lookup errors
+      if: ctx.error?.code == 'RBL lookup error'
   - set:
       description: Set tls.established to true for successful TLS connections
       field: tls.established

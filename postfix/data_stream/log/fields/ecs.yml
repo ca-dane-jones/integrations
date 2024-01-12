@@ -19,6 +19,10 @@
 - external: ecs
   name: email.to.address
 - external: ecs
+  name: error.code
+- external: ecs
+  name: error.message
+- external: ecs
   name: event.action
 - external: ecs
   name: event.category
