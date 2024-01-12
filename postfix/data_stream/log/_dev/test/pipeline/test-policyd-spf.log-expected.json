@@ -2,36 +2,18 @@
     "expected": [
         {
             "@timestamp": "2024-12-31T20:05:22.000-05:00",
-            "client": {
-                "ip": "192.168.100.1"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "kind": [
-                    "event"
-                ],
                 "original": "Dec 31 20:05:22 mail policyd-spf[21130]: prepend Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.100.1; helo=mail-pg1-f200.google.com; envelope-from=3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com; receiver=<UNKNOWN> ",
                 "provider": "policyd-spf",
-                "timezone": "-05:00",
-                "type": [
-                    "info"
-                ]
+                "timezone": "-05:00"
             },
-            "message": "prepend Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.100.1; helo=mail-pg1-f200.google.com; envelope-from=3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com; receiver=<UNKNOWN> ",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
-            "postfix": {
-                "spf": {
-                    "envelope_from": "3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com",
-                    "helo": "mail-pg1-f200.google.com",
-                    "identity": "mailfrom",
-                    "receiver": "UNKNOWN",
-                    "result": "Pass"
-                }
-            },
+            "message": "prepend Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.100.1; helo=mail-pg1-f200.google.com; envelope-from=3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com; receiver=<UNKNOWN> ",
             "process": {
                 "name": "policyd-spf",
                 "pid": 21130
@@ -43,36 +25,18 @@
         },
         {
             "@timestamp": "2024-01-02T05:08:33.000-05:00",
-            "client": {
-                "ip": "192.168.1.211"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "kind": [
-                    "event"
-                ],
                 "original": "Jan  2 05:08:33 mail policyd-spf[41310]: prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> ",
                 "provider": "policyd-spf",
-                "timezone": "-05:00",
-                "type": [
-                    "info"
-                ]
+                "timezone": "-05:00"
             },
-            "message": "prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> ",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
-            "postfix": {
-                "spf": {
-                    "envelope_from": "elastic@example.com",
-                    "helo": "elastic.example.com",
-                    "identity": "mailfrom",
-                    "receiver": "UNKNOWN",
-                    "result": "Softfail"
-                }
-            },
+            "message": "prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> ",
             "process": {
                 "name": "policyd-spf",
                 "pid": 41310
@@ -84,36 +48,18 @@
         },
         {
             "@timestamp": "2024-01-03T06:20:58.000-05:00",
-            "client": {
-                "ip": "192.168.1.211"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "kind": [
-                    "event"
-                ],
                 "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
                 "provider": "policyd-spf",
-                "timezone": "-05:00",
-                "type": [
-                    "info"
-                ]
+                "timezone": "-05:00"
             },
-            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
-            "postfix": {
-                "spf": {
-                    "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
-                    "identity": "mailfrom",
-                    "receiver": "UNKNOWN",
-                    "result": "None"
-                }
-            },
+            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
             "process": {
                 "name": "policyd-spf",
                 "pid": 79394
@@ -125,43 +71,18 @@
         },
         {
             "@timestamp": "2024-01-03T06:20:58.000-05:00",
-            "client": {
-                "ip": "192.168.1.211"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
-            "email": {
-                "to": {
-                    "address": [
-                        "someone@example.com"
-                    ]
-                }
-            },
             "event": {
-                "kind": [
-                    "event"
-                ],
                 "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
                 "provider": "policyd-spf",
-                "timezone": "-05:00",
-                "type": [
-                    "info"
-                ]
+                "timezone": "-05:00"
             },
-            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
-            "postfix": {
-                "spf": {
-                    "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
-                    "identity": "mailfrom",
-                    "receiver": "someone@example.com",
-                    "result": "None"
-                }
-            },
+            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.1.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
             "process": {
                 "name": "policyd-spf",
                 "pid": 79394

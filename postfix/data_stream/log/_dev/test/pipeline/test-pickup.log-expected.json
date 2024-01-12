@@ -20,17 +20,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "pickup",
                 "original": "Dec 31 04:17:57 mail postfix/pickup[2010]: F03408017B: uid=0 from=<postfix@maildomain.tld>",
-                "provider": "pickup",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "F03408017B: uid=0 from=<postfix@maildomain.tld>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "F03408017B: uid=0 from=<postfix@maildomain.tld>",
             "process": {
                 "name": "postfix/pickup",
                 "pid": 2010
@@ -63,17 +64,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "pickup",
                 "original": "Jan  3 06:25:22 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>",
-                "provider": "pickup",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "4501D80099: uid=0 from=<root>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "4501D80099: uid=0 from=<root>",
             "process": {
                 "name": "postfix/pickup",
                 "pid": 79317

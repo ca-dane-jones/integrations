@@ -18,8 +18,8 @@ processors:
     patterns:
       - '%{SYSLOG_BASE}%{PROCESS_INFO}%{SPACE}%{GREEDYDATA:message}'
     pattern_definitions:
-      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}%{SPACE}%{OBSERVER}%{SPACE}'
-      OBSERVER: '(?:%{IP:observer.ip}|%{HOSTNAME:observer.name})'
+      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}%{SPACE}%{HOST}%{SPACE}'
+      HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
 - date:
     description: Set event timestamp
@@ -41,37 +41,37 @@ processors:
       description: Set Event Provider
       field: process.name
       patterns:
-        - '%{WORD}/(?<event.provider>[\w-]+)|(?<event.provider>[\w-]+)'
+        - '%{WORD:event.provider}/(?<event.module>[\w-]+)|(?<event.provider>[\w-]+)'
 - pipeline:
     name: '{{ IngestPipeline "master" }}'
-    if: ctx.event?.provider == 'master'
+    if: ctx.event?.module == 'master'
 - pipeline:
     name: '{{ IngestPipeline "anvil" }}'
-    if: ctx.event?.provider == 'anvil'
+    if: ctx.event?.module == 'anvil'
 - pipeline:
     name: '{{ IngestPipeline "pickup" }}'
-    if: ctx.event?.provider == 'pickup'
+    if: ctx.event?.module == 'pickup'
 - pipeline:
     name: '{{ IngestPipeline "postfix-script" }}'
-    if: ctx.event?.provider == 'postfix-script'
+    if: ctx.event?.module == 'postfix-script'
 - pipeline:
     name: '{{ IngestPipeline "qmgr" }}'
-    if: ctx.event?.provider == 'qmgr'
+    if: ctx.event?.module == 'qmgr'
 - pipeline:
     name: '{{ IngestPipeline "cleanup" }}'
-    if: ctx.event?.provider == 'cleanup'
+    if: ctx.event?.module == 'cleanup'
 - pipeline:
     name: '{{ IngestPipeline "local" }}'
-    if: ctx.event?.provider == 'local'
+    if: ctx.event?.module == 'local'
 - pipeline:
     name: '{{ IngestPipeline "opendkim" }}'
-    if: ctx.event?.provider == 'opendkim'
+    if: ctx.event?.module == 'opendkim'
 - pipeline:
     name: '{{ IngestPipeline "policyd-spf" }}'
-    if: ctx.event?.provider == 'policyd-spf'
+    if: ctx.event?.module == 'policyd-spf'
 - pipeline:
     name: '{{ IngestPipeline "smtpd" }}'
-    if: ctx.event?.provider == 'smtpd'
+    if: ctx.event?.module == 'smtpd'
 - remove:
     description: Remove _tmp fields
     field:

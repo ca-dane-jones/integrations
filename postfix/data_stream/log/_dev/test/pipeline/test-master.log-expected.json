@@ -10,17 +10,18 @@
                 "category": [
                     "process"
                 ],
+                "module": "master",
                 "original": "Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix",
-                "provider": "master",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "start"
                 ]
             },
-            "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
                 "configuration_path": "/etc/postfix",
                 "version": "3.6.4"
@@ -45,17 +46,18 @@
                 "category": [
                     "process"
                 ],
+                "module": "master",
                 "original": "Jan  2 10:17:37 mail postfix/master[2008]: terminating on signal 15",
-                "provider": "master",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "end"
                 ]
             },
-            "message": "terminating on signal 15",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "terminating on signal 15",
             "process": {
                 "end": "2024-01-02T10:17:37.000-05:00",
                 "exit_code": 15,
@@ -77,17 +79,18 @@
                 "category": [
                     "process"
                 ],
+                "module": "master",
                 "original": "Jan  5 15:21:13 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
-                "provider": "master",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "start"
                 ]
             },
-            "message": "reload -- version 3.6.4, configuration /etc/postfix",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
                 "configuration_path": "/etc/postfix",
                 "version": "3.6.4"

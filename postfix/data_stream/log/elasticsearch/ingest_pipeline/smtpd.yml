@@ -5,10 +5,13 @@ processors:
       field: message
       patterns:
           - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]$'
-          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|${EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+$'
-          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.tls.server.signature_digest}'
-          - '%{LOSTCONN:postfix.smtpd.connection.lost_connection_message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost_connection_stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.ip}\](: %{GREEDYDATA:postfix.smtpd.connection.lost_connection_reason})?'
+          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+'
+          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}'
+          - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.ip}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
           - 'improper command pipelining after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.ip}\]: %{GREEDYDATA}'
+          - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.ip}\]'
+          # - 'warning: %{HOSTNAME}: (?<postfix.smtpd.rbl.error.message>%{DATA} for name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}): %{GREEDYDATA:postfix.smtpd.rbl.error.reason}'
+          - 'warning: %{HOSTNAME}: (?<postfix.smtpd.rbl.error.message>[\w\s:\.]+)=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}: %{GREEDYDATA:postfix.smtpd.rbl.error.reason}'
       pattern_definitions:
           # Command definitions
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
@@ -54,6 +57,13 @@ processors:
       ignore_empty_value: false
       value: "{{{_tmp.smtpd_cxn_action}}}"
       if: 'ctx._tmp?.smtpd_cxn_action != null'
+  - set:
+      description: If this is an RBL error message and a DNS query was captured, set the dns.type
+      field: dns.type
+      override: false
+      ignore_empty_value: false
+      value: question
+      if: 'ctx.dns?.question?.name != null'
   - script:
       source: |
         def cmds = ctx.postfix.smtpd.connection.commands;

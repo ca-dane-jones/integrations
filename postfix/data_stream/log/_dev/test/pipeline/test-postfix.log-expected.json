@@ -10,10 +10,10 @@
                 "provider": "postfix",
                 "timezone": "-05:00"
             },
-            "message": "Postfix is running with backwards-compatible default settings",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "Postfix is running with backwards-compatible default settings",
             "process": {
                 "name": "postfix",
                 "pgid": 1762,
@@ -34,10 +34,10 @@
                 "provider": "postfix",
                 "timezone": "-05:00"
             },
-            "message": "See http://www.postfix.org/COMPATIBILITY_README.html for details",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "See http://www.postfix.org/COMPATIBILITY_README.html for details",
             "process": {
                 "name": "postfix",
                 "pgid": 59120,
@@ -58,10 +58,10 @@
                 "provider": "postfix",
                 "timezone": "-05:00"
             },
-            "message": "To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
             "process": {
                 "name": "postfix",
                 "pgid": 59120,

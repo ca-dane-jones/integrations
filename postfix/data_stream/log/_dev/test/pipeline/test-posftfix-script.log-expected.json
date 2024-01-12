@@ -9,17 +9,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "postfix-script",
                 "original": "Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system",
-                "provider": "postfix-script",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "starting the Postfix mail system",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "starting the Postfix mail system",
             "postfix": {
                 "postfix-script": {
                     "action": "starting"
@@ -43,17 +44,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "postfix-script",
                 "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system",
-                "provider": "postfix-script",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "stopping the Postfix mail system",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "stopping the Postfix mail system",
             "postfix": {
                 "postfix-script": {
                     "action": "stopping"
@@ -77,17 +79,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "postfix-script",
                 "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
-                "provider": "postfix-script",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "refreshing the Postfix mail system",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "refreshing the Postfix mail system",
             "postfix": {
                 "postfix-script": {
                     "action": "refreshing"

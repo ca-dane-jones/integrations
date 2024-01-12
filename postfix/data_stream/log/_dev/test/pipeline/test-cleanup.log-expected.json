@@ -13,17 +13,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "cleanup",
                 "original": "Dec 31 04:49:02 mail postfix/cleanup[2276]: 4A50D8017B: message-id=<>",
-                "provider": "cleanup",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "4A50D8017B: message-id=<>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "4A50D8017B: message-id=<>",
             "process": {
                 "name": "postfix/cleanup",
                 "pid": 2276
@@ -46,17 +47,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "cleanup",
                 "original": "Dec 31 06:32:40 mail postfix/cleanup[19347]: 9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
-                "provider": "cleanup",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
             "process": {
                 "name": "postfix/cleanup",
                 "pid": 19347
@@ -79,17 +81,18 @@
                 "kind": [
                     "event"
                 ],
+                "module": "cleanup",
                 "original": "Jan  4 06:06:35 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
-                "provider": "cleanup",
+                "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
             },
-            "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
-            "observer": {
+            "host": {
                 "name": "mail"
             },
+            "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
             "process": {
                 "name": "postfix/cleanup",
                 "pid": 99525
