@@ -1,0 +1,11 @@
+vars: ~
+service: postfix-logfile
+input: filestream
+data_stream:
+  vars:
+    tz_offset: America/New_York
+    connection_metrics_enabled: true
+    geoip_enabled: true
+    preserve_original_event: true
+    paths:
+      - "{{SERVICE_LOGS_DIR}}/*.log"
