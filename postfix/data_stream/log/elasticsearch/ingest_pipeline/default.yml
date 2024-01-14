@@ -72,6 +72,21 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "smtpd" }}'
     if: ctx.event?.module == 'smtpd'
+- convert:
+    field: client.address
+    target_field: client.ip
+    type: ip
+    ignore_failure: true
+    ignore_missing: true
+- convert:
+    field: server.address
+    target_field: client.ip
+    type: ip
+    ignore_failure: true
+    ignore_missing: true
+- pipeline:
+    name: '{{ IngestPipeline "geoip" }}'
+    if: ctx.tags != null && ctx.tags.contains('geoip_enabled')
 - remove:
     description: Remove _tmp fields
     field:

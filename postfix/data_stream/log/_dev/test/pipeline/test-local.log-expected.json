@@ -68,7 +68,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -139,7 +140,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -210,7 +212,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -274,11 +277,24 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "client": {
+                "geo": {
+                    "continent_name": "Europe",
+                    "country_iso_code": "NO",
+                    "country_name": "Norway",
+                    "location": {
+                        "lat": 62.0,
+                        "lon": 10.0
+                    }
+                },
+                "ip": "2a02:cf40::1a"
+            },
             "ecs": {
                 "version": "8.11.0"
             },
@@ -299,7 +315,7 @@
                     "event"
                 ],
                 "module": "local",
-                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2607:f8b0:4001:c08::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2a02:cf40::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -309,7 +325,7 @@
             "host": {
                 "name": "mail"
             },
-            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2607:f8b0:4001:c08::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2a02:cf40::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
             "postfix": {
                 "delivery": {
                     "delays": {
@@ -334,17 +350,33 @@
                 "pid": 143004
             },
             "server": {
-                "address": "2607:f8b0:4001:c08::1a",
+                "address": "2a02:cf40::1a",
                 "domain": "ALT2.ASPMX.L.GOOGLE.COM",
                 "port": 25
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "client": {
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
+                "ip": "175.16.199.5"
+            },
             "ecs": {
                 "version": "8.11.0"
             },
@@ -365,7 +397,7 @@
                     "event"
                 ],
                 "module": "local",
-                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[192.168.1.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -375,7 +407,7 @@
             "host": {
                 "name": "mail"
             },
-            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[192.168.1.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
             "postfix": {
                 "delivery": {
                     "delays": {
@@ -400,13 +432,14 @@
                 "pid": 143004
             },
             "server": {
-                "address": "192.168.1.5",
+                "address": "175.16.199.5",
                 "domain": "ALT2.ASPMX.L.GOOGLE.COM",
                 "port": 25
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         }
     ]

@@ -3,5 +3,6 @@ dynamic_fields:
 fields:
   tags:
     - preserve_original_event
-    - calculate_connection_metrics
+    - connection_metrics_enabled
+    - geoip_enabled
   "_tmp.tz_offset": -05:00

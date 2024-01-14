@@ -3,7 +3,26 @@
         {
             "@timestamp": "2024-12-31T23:54:23.000-05:00",
             "client": {
-                "ip": "192.168.1.1"
+                "address": "89.160.20.129",
+                "as": {
+                    "number": 29518,
+                    "organization": {
+                        "name": "Bredband2 AB"
+                    }
+                },
+                "geo": {
+                    "city_name": "Linköping",
+                    "continent_name": "Europe",
+                    "country_iso_code": "SE",
+                    "country_name": "Sweden",
+                    "location": {
+                        "lat": 58.4167,
+                        "lon": 15.6167
+                    },
+                    "region_iso_code": "SE-E",
+                    "region_name": "Östergötland County"
+                },
+                "ip": "89.160.20.129"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -16,7 +35,7 @@
                     "metric"
                 ],
                 "module": "anvil",
-                "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
+                "original": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:89.160.20.129) at Dec 31 23:51:02",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -26,7 +45,7 @@
             "host": {
                 "name": "mail"
             },
-            "message": "statistics: max connection rate 1/60s for (smtp:192.168.1.1) at Dec 31 23:51:02",
+            "message": "statistics: max connection rate 1/60s for (smtp:89.160.20.129) at Dec 31 23:51:02",
             "postfix": {
                 "anvil": {
                     "connection": {
@@ -50,13 +69,33 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
             "@timestamp": "2024-01-01T00:07:07.000-05:00",
             "client": {
-                "ip": "192.168.1.1"
+                "address": "89.160.20.113",
+                "as": {
+                    "number": 29518,
+                    "organization": {
+                        "name": "Bredband2 AB"
+                    }
+                },
+                "geo": {
+                    "city_name": "Linköping",
+                    "continent_name": "Europe",
+                    "country_iso_code": "SE",
+                    "country_name": "Sweden",
+                    "location": {
+                        "lat": 58.4167,
+                        "lon": 15.6167
+                    },
+                    "region_iso_code": "SE-E",
+                    "region_name": "Östergötland County"
+                },
+                "ip": "89.160.20.113"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -69,7 +108,7 @@
                     "metric"
                 ],
                 "module": "anvil",
-                "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
+                "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -79,7 +118,7 @@
             "host": {
                 "name": "mail"
             },
-            "message": "statistics: max connection count 1 for (smtp:192.168.1.1) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
+            "message": "statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
             "postfix": {
                 "anvil": {
                     "connection": {
@@ -97,7 +136,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -140,7 +180,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         }
     ]

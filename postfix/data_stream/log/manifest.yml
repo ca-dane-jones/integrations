@@ -13,11 +13,19 @@ streams:
         show_user: true
         default:
           - /var/log/mail.log
-      - name: calculate_connection_metrics
+      - name: connection_metrics_enabled
         required: true
         show_user: true
         title: Calculate SMTP command metrics
         description: "Calculate accepted_count and rejected_count for each SMTP command sent to the SMTPD daemon \nfor a given connection.  This may have minor performance impacts on your injestion nodes depending\non event volume.\n"
+        type: bool
+        multi: false
+        default: true
+      - name: geoip_enabled
+        required: true
+        show_user: true
+        title: Perform GeoIP lookups
+        description: "Enrich events with GeoIP information. \n"
         type: bool
         multi: false
         default: true

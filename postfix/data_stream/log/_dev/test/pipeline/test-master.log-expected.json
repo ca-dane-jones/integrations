@@ -33,7 +33,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -66,7 +67,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         },
         {
@@ -102,7 +104,8 @@
             },
             "tags": [
                 "preserve_original_event",
-                "calculate_connection_metrics"
+                "connection_metrics_enabled",
+                "geoip_enabled"
             ]
         }
     ]
