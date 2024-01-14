@@ -1,0 +1,44 @@
+Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:89.160.20.129) at Dec 31 23:51:02
+Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02
+Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max cache size 1 at Jan  1 00:03:46Dec 31 04:49:02 mail postfix/cleanup[2276]: 4A50D8017B: message-id=<>
+Dec 31 06:32:40 mail postfix/cleanup[19347]: 9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>
+Jan  4 06:06:35 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<bob@example.com>, relay=local, delay=22, delays=22/0.09/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)
+Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<frank@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)
+Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<elastic@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)
+Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=local, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)
+Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2a02:cf40::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)
+Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)
+Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix
+Jan  2 10:17:37 mail postfix/master[2008]: terminating on signal 15
+Jan  5 15:21:13 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix
+Dec 31 04:17:42 mail opendkim[1042]: OpenDKIM Filter v2.11.0 starting
+Jan  1 20:05:22 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL
+Dec 31 04:17:57 mail postfix/pickup[2010]: F03408017B: uid=0 from=<postfix@maildomain.tld>
+Jan  3 06:25:22 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>
+Dec 31 20:05:22 mail policyd-spf[21130]: prepend Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=175.16.199.1; helo=mail-pg1-f200.google.com; envelope-from=3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com; receiver=<UNKNOWN> 
+Jan  2 05:08:33 mail policyd-spf[41310]: prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> 
+Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>
+Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com
+Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system
+Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system
+Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail systemDec 31 04:17:53 mail postfix[1762]: Postfix is running with backwards-compatible default settings
+Jan  2 10:17:37 mail postfix[59120]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Jan  2 10:17:37 mail postfix[59120]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"Dec 31 23:22:21 mail postfix/qmgr[2011]: 2F82A8006C: from=<4ab-TADzTBFYBC-A5D9My33GFBHD.5DD492.0CA1yB21279yzG.0CA@really-really.long.address.com>, size=11742, nrcpt=1 (queue active)
+Jan  1 06:33:44 mail postfix/qmgr[2011]: DAAA580001: from=<someone@example.io>, size=93215, nrcpt=1 (queue active)
+Jan  1 06:33:44 mail postfix/qmgr[2011]: DAAA580001: removed
+Jan  5 06:36:56 mail postfix/smtpd[121263]: connect from unknown[175.16.199.1]
+Jan  5 05:46:30 mail postfix/smtpd[111015]: connect from nessus.example.com[175.16.199.211]
+Jan  5 06:35:48 mail postfix/smtpd[121263]: Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256
+Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3
+Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Jan  5 06:35:48 mail postfix/smtpd[121263]: lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[175.16.199.1]
+Jan  5 05:46:30 mail postfix/smtpd[111015]: SSL_accept error from nessus.example.com[175.16.199.211]: -1
+Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\r\nQUIT\r\n
+Jan  8 11:01:35 mail postfix/smtpd[41202]: 3183E8003F: client=o5.ptr2409.example.com[175.16.199.1]
+Jan  8 11:01:35 mail postfix/smtpd[41206]: 37C3980086: client=o5.ptr2409.example.com[175.16.199.1]
+Jan  5 05:46:30 mail postfix/smtpd[111015]: warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:
+Jan  5 06:32:37 mail postfix/smtpd[121253]: warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again
+Jan 12 11:21:00 mail postfix/smtpd[21354]: warning: hostname internettl.org does not resolve to address 175.16.199.1
+Jan 10 14:55:55 mail postfix/smtpd[20511]: warning: non-SMTP command from unknown[175.16.199.1]: {"id": 1, "method": "mining.subscribe", "params": ["cpuminer/2.5.1"]}Jan  6 06:32:42 mail postfix/trivial-rewrite[140869]: warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains
+Jan 11 06:32:42 mail postfix/trivial-rewrite[140869]: warning: relay_domains lookup failure
+Jan  6 20:05:32 mail postfix/trivial-rewrite[142856]: message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]
