@@ -63,6 +63,16 @@
 - external: ecs
   name: host.name
 - external: ecs
+  name: input.type
+- external: ecs
+  name: log.file.device_id
+- external: ecs
+  name: log.file.inode
+- external: ecs
+  name: log.file.path
+- external: ecs
+  name: log.offset
+- external: ecs
   name: message
 - external: ecs
   name: process.end
