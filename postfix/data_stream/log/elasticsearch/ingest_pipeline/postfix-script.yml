@@ -1,6 +1,11 @@
 ---
 description: 'Pipeline for processing postfix-script events.'
 processors:
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'postfix-script'
+      description: |
+          Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
         field: message
         patterns:

@@ -1,6 +1,11 @@
 ---
 description: Pipeline for processing events from the postfix master process
 processors:
+- append:
+    field: _tmp.trace.pipeline
+    value: 'cleanup'
+    description: |
+        Append this pipeline's name to a temporary variable for pipeline tracing. 
 - grok:
     description: Extract process start information
     field: message

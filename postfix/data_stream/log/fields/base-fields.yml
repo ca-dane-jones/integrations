@@ -20,9 +20,6 @@
 - name: log.file.inode
   type: keyword
   description: File inode
-- name: log.file.path
-  type: keyword
-  description: Log file path
 - name: log.offset
   type: long
   description: Log offset

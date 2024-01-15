@@ -1,6 +1,11 @@
 ---
 description: 'Pipeline for populating geoIp details.'
 processors:
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'geoip'
+      description: |
+          Append this pipeline's name to a temporary variable for pipeline tracing. 
   - geoip:
       field: client.ip
       target_field: client.geo

@@ -1,6 +1,11 @@
 ---
 description: 'Pipeline for processing smtpd events.'
 processors:
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'smtpd'
+      description: |
+          Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
       field: message
       patterns:

@@ -183,6 +183,38 @@
                 "connection_metrics_enabled",
                 "geoip_enabled"
             ]
+        },
+        {
+            "@timestamp": "2024-01-10T14:55:55.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "message": [
+                    "Provided Grok expressions do not match field value: [this should throw a grok parsing error]",
+                    "Pipeline path: default --> anvil"
+                ]
+            },
+            "event": {
+                "kind": "pipeline_error",
+                "module": "anvil",
+                "original": "Jan 10 14:55:55 mail postfix/anvil[20511]: this should throw a grok parsing error",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "this should throw a grok parsing error",
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 20511
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled"
+            ]
         }
     ]
 }

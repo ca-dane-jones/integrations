@@ -1,6 +1,11 @@
 ---
 description: 'Pipeline for processing events from the postfix pickup process.'
 processors:
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'pickup'
+      description: |
+          Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
       field: message
       patterns:

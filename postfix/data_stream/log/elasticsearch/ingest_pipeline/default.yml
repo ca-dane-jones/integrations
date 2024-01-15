@@ -12,6 +12,11 @@ processors:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
     if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
+- append:
+    field: _tmp.trace.pipeline
+    value: 'default'
+    description: |
+        Append this pipeline's name to a temporary variable for pipeline tracing. 
 - grok:
     description: Extract syslog base and message
     field: event.original
@@ -99,14 +104,21 @@ processors:
     ignore_failure: true
     ignore_missing: true
 on_failure:
-- remove:
-    description: Remove _tmp fields
-    field:
-    - _tmp
-    ignore_failure: true
 - set:
     field: event.kind
     value: pipeline_error
+- join:
+    field: _tmp.trace.pipeline
+    separator: ' --> '
+    description: 'Build pipeline tracing string'
 - append:
     field: error.message
-    value: '{{{ _ingest.on_failure_message }}}'
+    value:
+      - '{{{ _ingest.on_failure_message }}}'
+      - 'Pipeline path: {{{_tmp.trace.pipeline}}}'
+- remove:
+    description: 'Remove _tmp fields'
+    field:
+      - _tmp
+    ignore_failure: true
+

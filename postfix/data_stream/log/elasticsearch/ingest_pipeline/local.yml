@@ -1,6 +1,11 @@
 ---
 description: 'Pipeline for processing postfix local events.'
 processors:
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'local'
+      description: |
+          Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
       field: message
       patterns:
