@@ -1,4 +1,19 @@
 # newer versions go on top
+- version: "0.0.24"
+  changes:
+    - description: Bug fix for catch all
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.23"
+  changes:
+    - description: Bug fix for SMTP module events
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.22"
+  changes:
+    - description: Clean-up work on pipelines
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
 - version: "0.0.21"
   changes:
     - description: Added pipeline tracing for pipeline errors

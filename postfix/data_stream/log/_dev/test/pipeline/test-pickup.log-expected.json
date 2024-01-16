@@ -39,7 +39,8 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "catch_all"
             ],
             "user": {
                 "id": "0"
@@ -84,7 +85,8 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "catch_all"
             ],
             "user": {
                 "id": "0"

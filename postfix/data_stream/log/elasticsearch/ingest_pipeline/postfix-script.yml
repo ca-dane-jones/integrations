@@ -12,6 +12,7 @@ processors:
         field: message
         patterns:
         - '(?<event.action>starting|stopping|refreshing) the Postfix mail system'
+        - '%{GREEDYDATA:_tmp.catch_all}'
         description: 'Extract the postfix-script action.'
   - append:
         description: 'Append event to event.kind'

@@ -13,6 +13,7 @@ processors:
     patterns: 
       - '(?<_tmp.postfix.start>daemon started|reload) -- version %{DATA:postfix.version}, configuration %{PATH:postfix.configuration_path}'
       - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
+      - '%{GREEDYDATA:_tmp.catch_all}'
 - append:
     field: event.category
     value:

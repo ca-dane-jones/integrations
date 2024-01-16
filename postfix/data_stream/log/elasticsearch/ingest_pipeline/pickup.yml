@@ -12,6 +12,7 @@ processors:
       field: message
       patterns:
       - '(?<email.local_id>[0-9A-F]+|NOQUEUE): uid=%{INT:user.id} from=<%{DATA:_tmp.email_from_address}>'
+      - '%{GREEDYDATA:_tmp.catch_all}'
   - append:
       field: email.from.address
       value: "{{{_tmp.email_from_address}}}"

@@ -16,12 +16,14 @@ processors:
           - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+'
           - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}'
           - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
-          - 'improper command pipelining after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
           - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.address}\]'
-          - 'warning: %{HOSTNAME}: (?<error.code>RBL lookup error): %{GREEDYDATA:error.message}'
-          - 'warning: (?<error.code>TLS library problem): %{GREEDYDATA:error.message}'
-          - 'warning: hostname %{HOSTNAME:client.domain} does not resolve to address %{IP:client.address}'
-          - 'warning: non-SMTP command from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+          - '(?<error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+          - '(?<error.type>warning): %{HOSTNAME}: (?<error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
+          - '(?<error.type>warning): (?<error.code>TLS library problem): %{GREEDYDATA}'
+          - '(?<error.type>warning): hostname %{HOSTNAME:client.domain} (?<error.code>does not resolve to address) %{IP:client.address}'
+          - '(?<error.type>warning): (?<error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+          - '(?<error.type>warning): %{GREEDYDATA}'
+          - '(?<error.type>fatal): %{GREEDYDATA}'
       pattern_definitions:
           # Command definitions
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
@@ -47,12 +49,12 @@ processors:
           LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'
       description: 'Extracts smtpd event fields.'
   - grok:
-      field: error.message
+      field: _tmp.rbl_error_msg
       patterns:
         - '%{DATA} name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}: %{GREEDYDATA}'
       description: |
         Extract dns.question fields from RBL lookup errors
-      if: ctx.error?.code == 'RBL lookup error'
+      if: "ctx._tmp?.rbl_error_msg != null && ctx._tmp?.rbl_error_msg == 'RBL lookup error'"
   - set:
       description: Set tls.established to true for successful TLS connections
       field: tls.established
@@ -68,7 +70,7 @@ processors:
       value: 'tls'
       if: 'ctx.tls?.version != null'
   - set:
-      description: If this is an smtpd connect or disconnect event, set event.action value
+      description: If this is an smtpd connect or disconnect event, set the event.action value
       field: event.action
       override: false
       ignore_empty_value: false
@@ -129,12 +131,23 @@ processors:
             - vrfy
       if: "ctx.tags != null && ctx.tags.contains('connection_metrics_enabled') && ctx.postfix?.smtpd?.connection?.commands != null"
       description: 'Calculate connection command metrics'
+  - lowercase:
+        description: 'Drop error.code to lowercase if populated'
+        field: error.code
+        if: "ctx.error?.code != null"
   - append:
         description: 'Append event to event.kind'
         field: event.kind
         value:
             - event
         allow_duplicates: false
+  - append:
+        description: 'Append metric to event.kind if the event contains command counters'
+        field: event.kind
+        value:
+            - metric
+        allow_duplicates: false
+        if: "ctx.postfix?.smtpd?.connection?.commands != null"
   - append:
         description: 'Append email to event.category'
         field: event.category
@@ -147,3 +160,24 @@ processors:
         value: 
             - info
         allow_duplicates: false
+  - append:
+        description: "Append warning to error.type if the event is an improprer command pipelining event"
+        field: error.type
+        value:
+            - warning
+        allow_duplicates: false
+        if: 'ctx.error?.code == "improper command pipelining"'
+  - append:
+        description: "Append unknown to error.code if the error.code wasn't specifically parsed by the grok processor."
+        field: error.code
+        value:
+            - unknown
+        allow_duplicates: false
+        if: 'ctx.error?.code == null'
+  - append:
+        description: "Append the contents of the message field to error.message if error.type is warning or fatal."
+        field: error.message
+        value:
+            - "{{{message}}}"
+        allow_duplicates: false
+        if: "ctx.error?.type != null && (ctx.error?.type == 'warning' || ctx.error?.type == 'fatal')"

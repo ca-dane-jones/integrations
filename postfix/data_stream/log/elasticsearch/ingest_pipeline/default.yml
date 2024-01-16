@@ -75,7 +75,7 @@ processors:
     if: ctx.event?.module == 'policyd-spf'
 - pipeline:
     name: '{{ IngestPipeline "smtpd" }}'
-    if: ctx.event?.module == 'smtpd'
+    if: ctx.event?.module == 'smtpd' || ctx.event?.module == 'smtp'
 - convert:
     field: client.address
     target_field: client.ip
@@ -91,6 +91,18 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "geoip" }}'
     if: ctx.tags != null && ctx.tags.contains('geoip_enabled')
+- script:
+    source: |
+        def err = ctx.error;
+        err.id = java.util.UUID.randomUUID().toString();
+        ctx.error = err;
+    if: 'ctx.error?.message != null'
+    description: "Generate an UUID and assign it to error.id if the event contains an error message."
+- append:
+    description: Append catch_all to events that did not match a specific grok processor in any pipeline
+    field: tags
+    value: catch_all
+    if: ctx.tmp?.catch_all != null
 - remove:
     description: Remove _tmp fields
     field:

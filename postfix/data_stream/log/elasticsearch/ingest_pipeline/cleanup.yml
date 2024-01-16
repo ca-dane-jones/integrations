@@ -12,6 +12,7 @@ processors:
         field: message
         patterns:
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): message-id=<%{DATA:email.message_id}>'
+        - '%{GREEDYDATA:_tmp.catch_all}'
         description: 'Extracts cleanup event fields.'
   - append:
         description: 'Append event to event.kind'
