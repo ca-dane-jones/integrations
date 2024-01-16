@@ -25,7 +25,7 @@ processors:
           - MMM dd HH:mm:ss
       target_field: postfix.scache.start_interval_timestamp
       timezone: '{{ event.timezone }}'
-      if: 'ctx.event?.timezone != null && ctx._tmp?.postfix_scache_start_interval_timestamp != null'
+      if: 'ctx._tmp?.postfix_scache_start_interval_timestamp != null && ctx.event?.timezone != null'
   - date:
       description: Convert the scache start interval timestamp if present.  No timezone override set.
       field: _tmp.postfix_scache_start_interval_timestamp
@@ -34,7 +34,7 @@ processors:
           - MMM d HH:mm:ss
           - MMM dd HH:mm:ss
       target_field: postfix.scache.start_interval_timestamp
-      if: 'ctx.event?.timezone == null && ctx._tmp?.postfix_scache_start_interval_timestamp != null'
+      if: 'ctx._tmp?.postfix_scache_start_interval_timestamp != null && ctx.event?.timezone == null'
   - append:
       description: 'Since scache only ever generates statistics events, append metric to event.kind'
       field: event.kind
