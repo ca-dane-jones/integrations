@@ -1,4 +1,5 @@
 ---
+# TODO: Need to add additional event category and type processing to this pipeline.  There's a lot going on here. :)
 description: |
     Pipeline for processing Posftix smtpd events.  The smtp daemon accepts network connection 
     requests and performs SMTP transactions per connection
