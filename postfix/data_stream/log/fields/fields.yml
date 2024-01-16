@@ -151,6 +151,41 @@
           type: long
           description: |
             Total count of local recipients
+    - name: scache
+      type: group
+      fields:
+        - name: cache_hits
+          type: long
+          description: |
+            The number of successful cache lookups over a period of time.
+        - name: cache_hits_percentage
+          type: long
+          description: |
+            The percentage of successful cache hits vs. total cache lookups over a period of time.
+        - name: cache_misses
+          type: long
+          description: |
+            The number of failed cache lookups over a period of time.
+        - name: cache_type
+          type: keyword
+          description: |
+            The type of cache the lookups were performed against.  Generally this will be of type address or domain.
+        - name: max_simultaneous_addresses
+          type: long
+          description: |
+            The maximum number of simultaneous address entries in the cache over a period of time.
+        - name: max_simultaneous_domains
+          type: long
+          description: |
+            The maximum number of simultaneous domain entries in the cache over a period of time.
+        - name: max_simultaneous_connections
+          type: long
+          description: |
+            The maximum number of simultaneous connection entries in the cache over a period of time.
+        - name: time_interval_timestamp
+          type: date
+          description: |
+            The timestamp at which the scache statistics interval started.
     - name: smtpd
       type: group
       fields:

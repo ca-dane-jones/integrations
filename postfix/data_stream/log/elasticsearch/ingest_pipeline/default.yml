@@ -76,6 +76,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "smtpd" }}'
     if: ctx.event?.module == 'smtpd' || ctx.event?.module == 'smtp'
+- pipeline:
+    name: '{{ IngestPipeline "scache" }}'
+    if: ctx.event?.module == 'scache'
 - convert:
     field: client.address
     target_field: client.ip
