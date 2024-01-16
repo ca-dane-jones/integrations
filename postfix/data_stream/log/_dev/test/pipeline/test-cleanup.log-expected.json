@@ -10,6 +10,9 @@
                 "message_id": ""
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -45,6 +48,9 @@
                 "message_id": "he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -80,6 +86,9 @@
                 "message_id": "20240104110619.5B9CA202ED@plex.example.local"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],

@@ -1,0 +1,38 @@
+format_version: 3.0.3
+name: postfix
+title: "Postfix Logs"
+version: 0.0.21
+source:
+  license: "Elastic-2.0"
+description: "Collect logs from Postfix mail servers with Elastic Agent."
+type: integration
+categories:
+  - custom
+  - monitoring
+  - security
+conditions:
+  kibana:
+    version: "^8.10.1"
+  elastic:
+    subscription: "basic"
+screenshots:
+  - src: /img/sample-screenshot.png
+    title: Sample screenshot
+    size: 600x600
+    type: image/png
+icons:
+  - src: /img/postfix-logo.svg
+    title: Postfix logo
+    size: 130x91
+    type: image/svg+xml
+policy_templates:
+  - name: postfix
+    title: Postfix logs
+    description: Collect Postfix logs.
+    inputs:
+      - type: filestream
+        title: Collect Postfix logs
+        description: Collect Postfix logs from file.
+owner:
+  github: elastic/integrations
+  type: community

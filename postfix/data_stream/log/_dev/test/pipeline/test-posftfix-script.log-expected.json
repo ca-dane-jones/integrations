@@ -6,6 +6,10 @@
                 "version": "8.11.0"
             },
             "event": {
+                "action": "starting",
+                "category": [
+                    "process"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -21,11 +25,6 @@
                 "name": "mail"
             },
             "message": "starting the Postfix mail system",
-            "postfix": {
-                "postfix-script": {
-                    "action": "starting"
-                }
-            },
             "process": {
                 "name": "postfix/postfix-script",
                 "pid": 2006
@@ -42,6 +41,10 @@
                 "version": "8.11.0"
             },
             "event": {
+                "action": "stopping",
+                "category": [
+                    "process"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -57,11 +60,6 @@
                 "name": "mail"
             },
             "message": "stopping the Postfix mail system",
-            "postfix": {
-                "postfix-script": {
-                    "action": "stopping"
-                }
-            },
             "process": {
                 "name": "postfix/postfix-script",
                 "pid": 59702
@@ -78,6 +76,10 @@
                 "version": "8.11.0"
             },
             "event": {
+                "action": "refreshing",
+                "category": [
+                    "process"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -93,11 +95,6 @@
                 "name": "mail"
             },
             "message": "refreshing the Postfix mail system",
-            "postfix": {
-                "postfix-script": {
-                    "action": "refreshing"
-                }
-            },
             "process": {
                 "name": "postfix/postfix-script",
                 "pid": 59702

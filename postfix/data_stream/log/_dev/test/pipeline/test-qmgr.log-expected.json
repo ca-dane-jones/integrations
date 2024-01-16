@@ -14,6 +14,9 @@
                 "local_id": "2F82A8006C"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -61,6 +64,9 @@
                 "local_id": "DAAA580001"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -103,6 +109,9 @@
                 "local_id": "DAAA580001"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
