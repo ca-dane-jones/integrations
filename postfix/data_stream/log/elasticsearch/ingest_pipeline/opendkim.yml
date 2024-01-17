@@ -3,6 +3,10 @@ description: |
     Pipeline for processing Postfix OpenDKIM milter events.  OpenDKIM is an open source implementation 
     of the DKIM (Domain Keys Identified Mail) sender authentication system.
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'opendkim'

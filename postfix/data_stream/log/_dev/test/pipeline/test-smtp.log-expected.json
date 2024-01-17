@@ -1,0 +1,117 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2024-01-05T06:36:56.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "125891E00BF",
+                "to": {
+                    "address": [
+                        "root@elastic.example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "module": "smtp",
+                "original": "Jan  5 06:36:56 mail postfix/smtp[121263]: 125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 152026.0,
+                        "connection_setup_time": 0.02,
+                        "in_qmgr_time": 0.08,
+                        "message_transmission_time": 0.0,
+                        "total_time": 152026
+                    },
+                    "status": "deferred",
+                    "status_code": {
+                        "class": 4,
+                        "detail": 1,
+                        "subject": 4,
+                        "value": "4.4.1"
+                    },
+                    "status_message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+                }
+            },
+            "process": {
+                "name": "postfix/smtp",
+                "pid": 121263
+            },
+            "server": {
+                "domain": "none"
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:36:56.000-05:00",
+            "client": {
+                "ip": "192.168.1.218"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "code": "connection refused",
+                "id": "267bcc15-8a77-4183-b352-32bc9f88a3c0",
+                "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "smtp",
+                "original": "Jan  5 06:36:56 mail postfix/smtp[121263]: connect to elastic.example.com[192.168.1.218]:25: Connection refused",
+                "outcome": "failure",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused",
+            "process": {
+                "name": "postfix/smtp",
+                "pid": 121263
+            },
+            "server": {
+                "address": "192.168.1.218",
+                "domain": "elastic.example.com",
+                "port": 25
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled"
+            ]
+        }
+    ]
+}

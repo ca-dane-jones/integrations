@@ -1,4 +1,14 @@
 # newer versions go on top
+- version: "0.0.27"
+  changes:
+    - description: Pipeline optimizations
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
+- version: "0.0.26"
+  changes:
+    - description: Added error pipeline
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link
 - version: "0.0.25"
   changes:
     - description: Added scache pipeline

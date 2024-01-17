@@ -1,20 +1,19 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:56.000-05:00",
+            "@timestamp": "2024-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "action": "starting",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
-                    "event"
+                    "metric"
                 ],
-                "module": "postfix-script",
-                "original": "Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system",
+                "module": "scache",
+                "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: start interval Jan 16 15:32:37",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -24,10 +23,15 @@
             "host": {
                 "name": "mail"
             },
-            "message": "starting the Postfix mail system",
+            "message": "statistics: start interval Jan 16 15:32:37",
+            "postfix": {
+                "scache": {
+                    "start_interval_timestamp": "2024-01-16T15:32:37.000-05:00"
+                }
+            },
             "process": {
-                "name": "postfix/postfix-script",
-                "pid": 2006
+                "name": "postfix/scache",
+                "pid": 20511
             },
             "tags": [
                 "preserve_original_event",
@@ -36,20 +40,19 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "@timestamp": "2024-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "action": "stopping",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
-                    "event"
+                    "metric"
                 ],
-                "module": "postfix-script",
-                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system",
+                "module": "scache",
+                "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: domain lookup hits=0 miss=1 success=0%",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -59,10 +62,18 @@
             "host": {
                 "name": "mail"
             },
-            "message": "stopping the Postfix mail system",
+            "message": "statistics: domain lookup hits=0 miss=1 success=0%",
+            "postfix": {
+                "scache": {
+                    "cache_hits": 0,
+                    "cache_hits_percentage": 0,
+                    "cache_misses": 1,
+                    "cache_type": "domain"
+                }
+            },
             "process": {
-                "name": "postfix/postfix-script",
-                "pid": 59702
+                "name": "postfix/scache",
+                "pid": 20511
             },
             "tags": [
                 "preserve_original_event",
@@ -71,20 +82,19 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "@timestamp": "2024-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
             "event": {
-                "action": "refreshing",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
-                    "event"
+                    "metric"
                 ],
-                "module": "postfix-script",
-                "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
+                "module": "scache",
+                "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -94,10 +104,18 @@
             "host": {
                 "name": "mail"
             },
-            "message": "refreshing the Postfix mail system",
+            "message": "statistics: address lookup hits=0 miss=1 success=0%",
+            "postfix": {
+                "scache": {
+                    "cache_hits": 0,
+                    "cache_hits_percentage": 0,
+                    "cache_misses": 1,
+                    "cache_type": "address"
+                }
+            },
             "process": {
-                "name": "postfix/postfix-script",
-                "pid": 59702
+                "name": "postfix/scache",
+                "pid": 20511
             },
             "tags": [
                 "preserve_original_event",

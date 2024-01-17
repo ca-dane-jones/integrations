@@ -4,6 +4,10 @@ description: |
     Pipeline for processing Posftix smtpd events.  The smtp daemon accepts network connection 
     requests and performs SMTP transactions per connection
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'smtpd'
@@ -24,6 +28,7 @@ processors:
           - '(?<error.type>warning): (?<error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
           - '(?<error.type>warning): %{GREEDYDATA}'
           - '(?<error.type>fatal): %{GREEDYDATA}'
+          - '%{GREEDYDATA:_tmp.catch_all}'
       pattern_definitions:
           # Command definitions
           AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'

@@ -182,7 +182,7 @@
           type: long
           description: |
             The maximum number of simultaneous connection entries in the cache over a period of time.
-        - name: time_interval_timestamp
+        - name: start_interval_timestamp
           type: date
           description: |
             The timestamp at which the scache statistics interval started.

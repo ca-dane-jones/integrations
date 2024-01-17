@@ -2,22 +2,34 @@
 description: |
     Pipeline for processing Postfix SMTP events.  
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'smtp'
       description: |
-          Append this pipeline's name to a temporary variable for pipeline tracing. 
+        Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
       field: message
       patterns:
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): (to=<%{DATA:_tmp.email_to_address}>, orig_to=<%{DATA:_tmp.postfix_email_to_original_address}>|to=<%{DATA:_tmp.email_to_address}>), relay=%{DATA:_tmp.postfix_relay_info}, delay=%{INT:postfix.delivery.delays.total_time:long}, delays=%{BASE10NUM:postfix.delivery.delays.before_qmgr_time:float}/%{BASE10NUM:postfix.delivery.delays.in_qmgr_time:float}/%{BASE10NUM:postfix.delivery.delays.connection_setup_time:float}/%{BASE10NUM:postfix.delivery.delays.message_transmission_time:float}, dsn=(?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}), status=%{DATA:postfix.delivery.status} \(%{DATA:postfix.delivery.status_message}\)'
+        - '(?<error.message>connect to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: %{LOSTCONN:error.code})'
+        - '%{GREEDYDATA:_tmp.catch_all}'
       description: 'Extract fields from Postfix SMTP messages'
+      pattern_definitions:
+        LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
   - grok:
       field: _tmp.postfix_relay_info
       patterns:
         - '%{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?'
       if: 'ctx._tmp?.postfix_relay_info != null'
       description: 'Extracts relay server details'
+  - lowercase:
+        description: 'Drop error.code to lowercase if populated'
+        field: error.code
+        if: "ctx.error?.code != null"  
   - append:
       description: Add the email to address if extracted.
       field: email.to.address
@@ -28,11 +40,31 @@ processors:
       field: postfix.email.to.original_address
       value: "{{{_tmp.postfix_email_to_original_address}}}"
       if: 'ctx._tmp?.postfix_email_to_original_address != null'  
-
-
+  - append:
+      description: 'Append event to event.kind'
+      field: event.kind
+      value:
+        - event
   - append:
       description: 'Append metric to event.kind if this is a metric event'
       field: event.kind
       value:
-          - metric
+        - metric
       if: 'ctx.postfix?.delivery?.delays?.total_time != null'
+  - append:
+      description: 'Append email to event.category'
+      field: event.category
+      value:
+        - email
+      allow_duplicates: false
+  - append:
+      description: 'Append info to event.type'
+      field: event.type
+      value: 
+        - info
+      allow_duplicates: false
+  - set:
+      description: 'Set event.outcome to failure if an error.code is populated'
+      field: event.outcome
+      value: failure
+      if: 'ctx.error?.code != null'

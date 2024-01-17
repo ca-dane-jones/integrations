@@ -3,6 +3,10 @@ description: |
   Pipeline for processing Postfix scache process events.  The scache server maintains a shared multi-connection cache. 
   This information can be used by, for example, Postfix SMTP clients or other Postfix delivery agents.
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'scache'

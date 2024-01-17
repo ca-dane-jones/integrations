@@ -2,70 +2,74 @@
 description: |
     Pipeline for processing events from the Postfix master process
 processors:
-- append:
-    field: _tmp.trace.pipeline
-    value: 'cleanup'
-    description: |
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
+  - append:
+      field: _tmp.trace.pipeline
+      value: 'cleanup'
+      description: |
         Append this pipeline's name to a temporary variable for pipeline tracing. 
-- grok:
-    description: Extract process start information
-    field: message
-    patterns: 
-      - '(?<_tmp.postfix.start>daemon started|reload) -- version %{DATA:postfix.version}, configuration %{PATH:postfix.configuration_path}'
-      - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
-      - '%{GREEDYDATA:_tmp.catch_all}'
-- append:
-    field: event.category
-    value:
+  - grok:
+      description: Extract process start information
+      field: message
+      patterns: 
+        - '(?<_tmp.postfix.start>daemon started|reload) -- version %{DATA:postfix.version}, configuration %{PATH:postfix.configuration_path}'
+        - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
+        - '%{GREEDYDATA:_tmp.catch_all}'
+  - append:
+      field: event.category
+      value:
         - process
-    allow_duplicates: false
-    description: 'Adds process to event.category'
-- set:
-    description: If this is a start event, copy @timestamp into process.start
-    field: process.start
-    override: false
-    ignore_empty_value: true
-    copy_from: '@timestamp'
-    if: 'ctx._tmp?.postfix?.start != null'
-- set:
-    description: If this is a start event, set event.action to process-started
-    field: event.action
-    override: false
-    ignore_empty_value: true
-    value: 'process-started'
-    if: 'ctx._tmp?.postfix?.start != null'
-- append:
-    field: event.type
-    value:
+      allow_duplicates: false
+      description: 'Adds process to event.category'
+  - set:
+      description: If this is a start event, copy @timestamp into process.start
+      field: process.start
+      override: false
+      ignore_empty_value: true
+      copy_from: '@timestamp'
+      if: 'ctx._tmp?.postfix?.start != null'
+  - set:
+      description: If this is a start event, set event.action to process-started
+      field: event.action
+      override: false
+      ignore_empty_value: true
+      value: 'process-started'
+      if: 'ctx._tmp?.postfix?.start != null'
+  - append:
+      field: event.type
+      value:
         - start
-    allow_duplicates: false
-    if: 'ctx._tmp?.postfix?.start != null'
-    description: 'If this is a start event, add start to event.type'
-- set:
-    description: If this is a stop event, copy @timestamp into process.end
-    field: process.end
-    override: false
-    ignore_empty_value: true
-    copy_from: '@timestamp'
-    if: 'ctx._tmp?.postfix?.stop != null'
-- set:
-    description: If this is a stop event, set event.action to process-stopped
-    field: event.action
-    override: false
-    ignore_empty_value: true
-    value: 'process-stopped'
-    if: 'ctx._tmp?.postfix?.stop != null'
-- append:
-    field: event.type
-    value:
+      allow_duplicates: false
+      if: 'ctx._tmp?.postfix?.start != null'
+      description: 'If this is a start event, add start to event.type'
+  - set:
+      description: If this is a stop event, copy @timestamp into process.end
+      field: process.end
+      override: false
+      ignore_empty_value: true
+      copy_from: '@timestamp'
+      if: 'ctx._tmp?.postfix?.stop != null'
+  - set:
+      description: If this is a stop event, set event.action to process-stopped
+      field: event.action
+      override: false
+      ignore_empty_value: true
+      value: 'process-stopped'
+      if: 'ctx._tmp?.postfix?.stop != null'
+  - append:
+      field: event.type
+      value:
         - end
-    allow_duplicates: false
-    if: 'ctx._tmp?.postfix?.stop != null'
-    description: 'If this is a stop event, add end to event.type'
-- append:
-    field: event.type
-    value:
+      allow_duplicates: false
+      if: 'ctx._tmp?.postfix?.stop != null'
+      description: 'If this is a stop event, add end to event.type'
+  - append:
+      field: event.type
+      value:
         - info
-    allow_duplicates: false
-    if: 'ctx._tmp?.postfix?.stop == null && ctx._tmp?.postfix?.start == null'
-    description: 'If this is neither a start or stop event, add info to event.type'
+      allow_duplicates: false
+      if: 'ctx._tmp?.postfix?.stop == null && ctx._tmp?.postfix?.start == null'
+      description: 'If this is neither a start or stop event, add info to event.type'

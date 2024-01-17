@@ -11,6 +11,10 @@ processors:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
     if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
+- set:
+    field: _tmp.defaulted_event
+    value: 1
+    if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
 - append:
     field: _tmp.trace.pipeline
     value: 'default'
@@ -75,10 +79,16 @@ processors:
     if: ctx.event?.module == 'policyd-spf'
 - pipeline:
     name: '{{ IngestPipeline "smtpd" }}'
-    if: ctx.event?.module == 'smtpd' || ctx.event?.module == 'smtp'
+    if: ctx.event?.module == 'smtpd'
+- pipeline:
+    name: '{{ IngestPipeline "smtp" }}'
+    if: ctx.event?.module == 'smtp'
 - pipeline:
     name: '{{ IngestPipeline "scache" }}'
     if: ctx.event?.module == 'scache'
+- pipeline:
+    name: '{{ IngestPipeline "error" }}'
+    if: ctx.event?.module == 'error'
 - convert:
     field: client.address
     target_field: client.ip
@@ -95,6 +105,7 @@ processors:
     name: '{{ IngestPipeline "geoip" }}'
     if: ctx.tags != null && ctx.tags.contains('geoip_enabled')
 - script:
+    # Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
     source: |
         def err = ctx.error;
         err.id = java.util.UUID.randomUUID().toString();
@@ -102,10 +113,10 @@ processors:
     if: 'ctx.error?.message != null'
     description: "Generate an UUID and assign it to error.id if the event contains an error message."
 - append:
-    description: Append catch_all to events that did not match a specific grok processor in any pipeline
+    description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags
     value: catch_all
-    if: ctx.tmp?.catch_all != null
+    if: ctx.tmp?.catch_all != null 
 - remove:
     description: Remove _tmp fields
     field:

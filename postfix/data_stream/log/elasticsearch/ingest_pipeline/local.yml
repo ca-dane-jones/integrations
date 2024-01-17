@@ -3,6 +3,10 @@ description: |
     Pipeline for processing Postfix local events.  The Postfix local daemon processes delivery requests from the Postfix queue
     manager to deliver mail to local recipients.
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'local'

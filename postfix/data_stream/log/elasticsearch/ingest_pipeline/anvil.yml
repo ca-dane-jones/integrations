@@ -1,6 +1,10 @@
 ---
 description: 'Pipeline for processing connection count and rate control events from the Postfix anvil process.'
 processors:
+  - remove:
+    description: Remove defaulted event trace variable
+    field: _tmp.defaulted_event
+    ignore_failure: true
   - append:
       field: _tmp.trace.pipeline
       value: 'anvil'

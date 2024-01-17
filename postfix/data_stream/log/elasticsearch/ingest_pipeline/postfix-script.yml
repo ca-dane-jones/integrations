@@ -3,6 +3,10 @@ description: |
     Pipeline for processing Postfix postfix-script events.  postfix-script is used to administratively start, stop, 
     or reload configuration for the postfix master process.
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'postfix-script'

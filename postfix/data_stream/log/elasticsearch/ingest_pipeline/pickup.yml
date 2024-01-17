@@ -3,6 +3,10 @@ description: |
     Pipeline for processing events from the Postfix pickup process.  The  pickup daemon waits for hints that new 
     mail has been dropped into the maildrop directory, and feeds it into the cleanup daemon.
 processors:
+  - remove:
+      description: Remove defaulted event trace variable
+      field: _tmp.defaulted_event
+      ignore_failure: true  
   - append:
       field: _tmp.trace.pipeline
       value: 'pickup'
