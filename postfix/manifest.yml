@@ -7,9 +7,7 @@ source:
 description: "Collect logs from Postfix mail servers with Elastic Agent."
 type: integration
 categories:
-  - custom
-  - monitoring
-  - security
+  - observability
 conditions:
   kibana:
     version: "^8.10.1"
