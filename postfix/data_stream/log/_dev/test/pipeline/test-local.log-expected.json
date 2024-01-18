@@ -284,15 +284,6 @@
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
             "client": {
-                "geo": {
-                    "continent_name": "Europe",
-                    "country_iso_code": "NO",
-                    "country_name": "Norway",
-                    "location": {
-                        "lat": 62.0,
-                        "lon": 10.0
-                    }
-                },
                 "ip": "2a02:cf40::1a"
             },
             "ecs": {
@@ -363,18 +354,6 @@
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
             "client": {
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.5"
             },
             "ecs": {

@@ -4,24 +4,6 @@
             "@timestamp": "2024-12-31T23:54:23.000-05:00",
             "client": {
                 "address": "89.160.20.129",
-                "as": {
-                    "number": 29518,
-                    "organization": {
-                        "name": "Bredband2 AB"
-                    }
-                },
-                "geo": {
-                    "city_name": "Linköping",
-                    "continent_name": "Europe",
-                    "country_iso_code": "SE",
-                    "country_name": "Sweden",
-                    "location": {
-                        "lat": 58.4167,
-                        "lon": 15.6167
-                    },
-                    "region_iso_code": "SE-E",
-                    "region_name": "Östergötland County"
-                },
                 "ip": "89.160.20.129"
             },
             "ecs": {
@@ -77,24 +59,6 @@
             "@timestamp": "2024-01-01T00:07:07.000-05:00",
             "client": {
                 "address": "89.160.20.113",
-                "as": {
-                    "number": 29518,
-                    "organization": {
-                        "name": "Bredband2 AB"
-                    }
-                },
-                "geo": {
-                    "city_name": "Linköping",
-                    "continent_name": "Europe",
-                    "country_iso_code": "SE",
-                    "country_name": "Sweden",
-                    "location": {
-                        "lat": 58.4167,
-                        "lon": 15.6167
-                    },
-                    "region_iso_code": "SE-E",
-                    "region_name": "Östergötland County"
-                },
                 "ip": "89.160.20.113"
             },
             "ecs": {

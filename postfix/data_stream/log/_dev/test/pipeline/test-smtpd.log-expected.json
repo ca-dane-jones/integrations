@@ -5,18 +5,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -62,18 +50,6 @@
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.211"
             },
             "ecs": {
@@ -150,7 +126,8 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "catch_all"
             ]
         },
         {
@@ -158,18 +135,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -234,18 +199,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -310,18 +263,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "scanner-04.ch1.censys-scanner.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -376,18 +317,6 @@
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.211"
             },
             "ecs": {
@@ -442,18 +371,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -499,18 +416,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -558,18 +463,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -619,7 +512,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "723c6f84-789d-4c31-b0b2-d3c73c79d4ca",
+                "id": "503f1ca5-0795-4f8b-86bf-f4423fef2b51",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -661,7 +554,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "d6ee3691-f9c2-4743-92b6-4f8e2bf2dbc3",
+                "id": "9e5892cc-e671-48a2-9612-91def9f47beb",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -701,18 +594,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "internettl.org",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -720,7 +601,7 @@
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "d799150d-a2cc-4d00-a4cf-3ef185ad04cd",
+                "id": "570c5d0c-20ca-4eec-b2ab-83efa2cbf060",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -760,18 +641,6 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -779,7 +648,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "d80d8d77-2d56-4430-bd27-ac4179aa92ee",
+                "id": "34251bf7-6f0d-4d24-baba-0dfe6f918853",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],

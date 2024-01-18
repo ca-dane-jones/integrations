@@ -14,7 +14,6 @@ processors:
 - set:
     field: _tmp.defaulted_event
     value: 1
-    if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
 - append:
     field: _tmp.trace.pipeline
     value: 'default'
@@ -103,7 +102,7 @@ processors:
     ignore_missing: true
 - pipeline:
     name: '{{ IngestPipeline "geoip" }}'
-    if: ctx.tags != null && ctx.tags.contains('geoip_enabled')
+    if: ctx.tags != null && ctx.tags.contains('geoip_enabled') && ctx.server?.ip != null && ctx.client?.ip != null
 - script:
     # Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
     source: |
@@ -116,7 +115,7 @@ processors:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags
     value: catch_all
-    if: ctx.tmp?.catch_all != null 
+    if: ctx._tmp?.catch_all != null || ctx._tmp?.defaulted_event != null
 - remove:
     description: Remove _tmp fields
     field:

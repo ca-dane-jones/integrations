@@ -75,7 +75,7 @@
             },
             "error": {
                 "code": "connection refused",
-                "id": "267bcc15-8a77-4183-b352-32bc9f88a3c0",
+                "id": "ad05992b-9300-43c7-ad84-1a4af91949d6",
                 "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
