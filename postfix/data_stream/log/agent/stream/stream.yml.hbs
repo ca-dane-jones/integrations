@@ -13,6 +13,9 @@ tags:
 {{#if geoip_enabled}}
   - geoip_enabled
 {{/if}}
+{{#if pipeline_trace_enabled}}
+  - pipeline_trace_enabled
+{{/if}}
 {{#each tags as |tag i|}}
   - {{tag}}
 {{/each}}

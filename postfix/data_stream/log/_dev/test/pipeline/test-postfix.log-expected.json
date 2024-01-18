@@ -6,6 +6,7 @@
                 "version": "8.11.0"
             },
             "event": {
+                "module": "postfix",
                 "original": "Dec 31 04:17:53 mail postfix[1762]: Postfix is running with backwards-compatible default settings",
                 "provider": "postfix",
                 "timezone": "-05:00"
@@ -23,7 +24,8 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
-                "catch_all"
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -32,6 +34,7 @@
                 "version": "8.11.0"
             },
             "event": {
+                "module": "postfix",
                 "original": "Jan  2 10:17:37 mail postfix[59120]: See http://www.postfix.org/COMPATIBILITY_README.html for details",
                 "provider": "postfix",
                 "timezone": "-05:00"
@@ -49,7 +52,8 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
-                "catch_all"
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -58,6 +62,7 @@
                 "version": "8.11.0"
             },
             "event": {
+                "module": "postfix",
                 "original": "Jan  2 10:17:37 mail postfix[59120]: To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
                 "provider": "postfix",
                 "timezone": "-05:00"
@@ -75,7 +80,8 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
-                "catch_all"
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         }
     ]

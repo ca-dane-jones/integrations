@@ -1,6 +1,12 @@
 ---
 description: Pipeline for processing Postfix logs
 processors:
+- append:
+    description: Append pipeline trace tag if enabled
+    field: tags
+    value:
+        - "pipeline: default"
+    if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
 - set:
     field: ecs.version
     value: "8.11.0"
@@ -11,14 +17,6 @@ processors:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
     if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
-- set:
-    field: _tmp.defaulted_event
-    value: 1
-- append:
-    field: _tmp.trace.pipeline
-    value: 'default'
-    description: |
-        Append this pipeline's name to a temporary variable for pipeline tracing. 
 - grok:
     description: Extract syslog base and message
     field: event.original
@@ -49,6 +47,11 @@ processors:
       field: process.name
       patterns:
         - '%{WORD:event.provider}/(?<event.module>[\w-]+)|(?<event.provider>[\w-]+)'
+- set:
+    description: 'Copy event.provider to event.module if event.module is empty'
+    field: event.module
+    value: "{{event.provider}}"
+    if: ctx.event?.module == null
 - pipeline:
     name: '{{ IngestPipeline "master" }}'
     if: ctx.event?.module == 'master'

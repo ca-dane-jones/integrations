@@ -42,7 +42,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -87,7 +89,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -127,6 +131,8 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
                 "catch_all"
             ]
         },
@@ -191,7 +197,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -255,7 +263,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -309,7 +319,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -363,7 +375,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -408,7 +422,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -455,7 +471,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -502,7 +520,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -512,7 +532,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "503f1ca5-0795-4f8b-86bf-f4423fef2b51",
+                "id": "1730e54e-159b-4986-a0b4-866db2ecfa92",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -544,7 +564,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -554,7 +576,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "9e5892cc-e671-48a2-9612-91def9f47beb",
+                "id": "46a5a43f-90da-4b89-a6cd-76782e06805e",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -586,7 +608,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -601,7 +625,7 @@
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "570c5d0c-20ca-4eec-b2ab-83efa2cbf060",
+                "id": "2b3381e4-c269-4413-b984-64fbcd417076",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -633,7 +657,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -648,7 +674,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "34251bf7-6f0d-4d24-baba-0dfe6f918853",
+                "id": "e5b99fd1-4351-447d-a954-8255f199aa6a",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],
@@ -680,7 +706,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         }
     ]

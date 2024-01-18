@@ -6,14 +6,29 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "process"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "opendkim",
                 "original": "Dec 31 04:17:42 mail opendkim[1042]: OpenDKIM Filter v2.11.0 starting",
                 "provider": "opendkim",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "start"
+                ]
             },
             "host": {
                 "name": "mail"
             },
             "message": "OpenDKIM Filter v2.11.0 starting",
+            "postfix": {
+                "dkim": {
+                    "version": "2.11.0"
+                }
+            },
             "process": {
                 "name": "opendkim",
                 "pgid": 1042,
@@ -23,7 +38,9 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
-                "catch_all"
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: opendkim"
             ]
         },
         {
@@ -31,15 +48,36 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "local_id": "2F82A8006C"
+            },
             "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "opendkim",
                 "original": "Jan  1 20:05:22 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
                 "provider": "opendkim",
-                "timezone": "-05:00"
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
             },
             "host": {
                 "name": "mail"
             },
             "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
+            "postfix": {
+                "dkim": {
+                    "algorithm": "rsa-sha256",
+                    "domain": "accounts.google.com",
+                    "protocol": "SSL",
+                    "selector": "20230601"
+                }
+            },
             "process": {
                 "name": "opendkim",
                 "pgid": 1042,
@@ -49,7 +87,9 @@
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
-                "catch_all"
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: opendkim"
             ]
         }
     ]

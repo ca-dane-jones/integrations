@@ -40,7 +40,7 @@
                         "connection_setup_time": 0.02,
                         "in_qmgr_time": 0.08,
                         "message_transmission_time": 0.0,
-                        "total_time": 152026
+                        "total_time": 152026.0
                     },
                     "status": "deferred",
                     "status_code": {
@@ -62,7 +62,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -75,7 +77,7 @@
             },
             "error": {
                 "code": "connection refused",
-                "id": "ad05992b-9300-43c7-ad84-1a4af91949d6",
+                "id": "f471db63-e69b-4a56-9243-6f0b8228ffd4",
                 "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
@@ -110,7 +112,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         }
     ]

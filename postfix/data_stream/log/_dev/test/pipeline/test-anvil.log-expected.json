@@ -11,7 +11,8 @@
             },
             "event": {
                 "category": [
-                    "session"
+                    "session",
+                    "email"
                 ],
                 "kind": [
                     "metric"
@@ -52,7 +53,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -66,7 +69,8 @@
             },
             "event": {
                 "category": [
-                    "session"
+                    "session",
+                    "email"
                 ],
                 "kind": [
                     "metric"
@@ -101,7 +105,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         },
         {
@@ -111,7 +117,8 @@
             },
             "event": {
                 "category": [
-                    "session"
+                    "session",
+                    "email"
                 ],
                 "kind": [
                     "metric"
@@ -145,7 +152,9 @@
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
-                "geoip_enabled"
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
             ]
         }
     ]

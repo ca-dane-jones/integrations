@@ -46,6 +46,13 @@ streams:
         show_user: false
         default:
           - postfix
+      - name: pipeline_trace_enabled
+        type: bool
+        title: Enable pipeline tracing
+        description: 'Pipeline tracing will add a "pipeline: <pipeline_name>" tag for each Postfix ingestion pipeline the event passes through.  This is useful for debugging.'
+        required: true
+        show_user: false
+        default: false
       - name: preserve_original_event
         required: true
         show_user: true

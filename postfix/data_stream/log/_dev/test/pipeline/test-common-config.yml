@@ -5,4 +5,5 @@ fields:
     - preserve_original_event
     - connection_metrics_enabled
     - geoip_enabled
+    - pipeline_trace_enabled
   "_tmp.tz_offset": -05:00
