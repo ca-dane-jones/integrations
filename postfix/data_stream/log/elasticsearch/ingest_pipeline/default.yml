@@ -103,14 +103,23 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "geoip" }}'
     if: ctx.tags != null && ctx.tags.contains('geoip_enabled') && ctx.server?.ip != null && ctx.client?.ip != null
+# ------------------------------------------------------------------------------------------------------------------
+# Postfix error event processing
+#   TODO: Should probably move this to it's own pipeline
+# ------------------------------------------------------------------------------------------------------------------
 - script:
-    # Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
+    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
     source: |
         def err = ctx.error;
         err.id = java.util.UUID.randomUUID().toString();
         ctx.error = err;
     if: 'ctx.error?.message != null'
     description: "Generate an UUID and assign it to error.id if the event contains an error message."
+- lowercase:
+    description: 'Drop error.code to lowercase if populated'
+    field: error.code
+    if: "ctx.error?.code != null"
+# ----
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags

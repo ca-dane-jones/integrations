@@ -136,10 +136,6 @@ processors:
             - vrfy
       if: "ctx.tags != null && ctx.tags.contains('connection_metrics_enabled') && ctx.postfix?.smtpd?.connection?.commands != null"
       description: 'Calculate connection command metrics'
-  - lowercase:
-        description: 'Drop error.code to lowercase if populated'
-        field: error.code
-        if: "ctx.error?.code != null"
   - append:
         description: 'Append event to event.kind'
         field: event.kind

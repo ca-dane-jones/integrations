@@ -33,6 +33,8 @@
 - external: ecs
   name: ecs.version
 - external: ecs
+  name: email.direction
+- external: ecs
   name: email.from.address
 - external: ecs
   name: email.local_id

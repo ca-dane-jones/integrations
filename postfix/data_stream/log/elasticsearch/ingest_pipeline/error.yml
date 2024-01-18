@@ -1,6 +1,6 @@
 ---
 description: |
-    Pipeline for processing Postfix error agent events.  The Postfix error delivery agent processes requests from
+    Pipeline for processing Postfix error delivery agent events.  The Postfix error delivery agent processes errored requests from
     the queue manager.
 processors:
   - remove:
@@ -20,9 +20,29 @@ processors:
   - grok:
       field: postfix.delivery.status_message
       patterns:
-        - '%{DATA}connect to %{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?: %{GREEDYDATA}'
+        - '%{DATA}connect to %{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?: %{LOSTCONN:error.code}'
       if: 'ctx.postfix?.delivery?.status_message != null'
-      description: 'Extracts server details from the delivery error message'
+      description: 'Extracts server and error code from the delivery status message'
+  - grok:
+      field: _tmp.postfix_relay_info
+      patterns:
+        - '%{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?'
+      if: 'ctx._tmp?.postfix_relay_info != null'
+      description: 'Extracts relay server details'  
+  - set:
+      field: error.message
+      value: "{{message}}"
+      description: Set error.message to message
+  - append:
+      description: Add the email to address if extracted.
+      field: email.to.address
+      value: "{{{_tmp.email_to_address}}}"
+      if: 'ctx._tmp?.email_to_address != null'
+  - append:
+      description: Add the original to address if extracted.
+      field: postfix.email.to.original_address
+      value: "{{{_tmp.postfix_email_to_original_address}}}"
+      if: 'ctx._tmp?.postfix_email_to_original_address != null'  
   - append:
       description: 'Append event to event.kind'
       field: event.kind
@@ -40,3 +60,7 @@ processors:
       value: 
         - info
       allow_duplicates: false
+  - set:
+      description: Set event.outcome to failure
+      field: event.outcome
+      value: failure
