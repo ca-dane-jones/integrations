@@ -10,11 +10,6 @@
             "ecs": {
                 "version": "8.11.0"
             },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
-            },
             "event": {
                 "action": "connect",
                 "category": [
@@ -44,7 +39,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -56,11 +52,6 @@
             },
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "action": "connect",
@@ -91,18 +82,14 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
             "@timestamp": "2024-01-05T06:35:48.000-05:00",
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "category": [
@@ -133,6 +120,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
+                "pipeline: smtpd",
                 "catch_all"
             ]
         },
@@ -145,11 +133,6 @@
             },
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "action": "disconnect",
@@ -178,14 +161,22 @@
                         "commands": {
                             "auth": {
                                 "accepted_count": 0,
-                                "rejected_count": 0,
-                                "total_count": 0
+                                "rejected_count": 1,
+                                "total_count": 1
                             },
                             "ehlo": {
                                 "accepted_count": 1,
                                 "rejected_count": 0,
                                 "total_count": 1
-                            }
+                            },
+                            "quit": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
+                                "total_count": 1
+                            },
+                            "total_accepted_count": 2,
+                            "total_count": 3,
+                            "total_rejected_count": 1
                         }
                     }
                 }
@@ -199,7 +190,80 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-05T06:36:56.000-05:00",
+            "client": {
+                "address": "175.16.199.1",
+                "domain": "unknown",
+                "ip": "175.16.199.1"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "error": {
+                "code": [
+                    "grok parsing failure"
+                ],
+                "id": "78e0cd5f-cf90-46f7-ad6e-d749ab2fec07",
+                "message": [
+                    "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
+                ]
+            },
+            "event": {
+                "action": "disconnect",
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event",
+                    "metric"
+                ],
+                "module": "smtpd",
+                "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "commands": {
+                            "ehlo": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
+                                "total_count": 1
+                            },
+                            "missing_parser": {
+                                "command_name": "missing_parser"
+                            },
+                            "total_accepted_count": 2,
+                            "total_count": 3,
+                            "total_rejected_count": 1
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -211,11 +275,6 @@
             },
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "action": "disconnect",
@@ -242,16 +301,35 @@
                 "smtpd": {
                     "connection": {
                         "commands": {
+                            "data": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
+                                "total_count": 1
+                            },
                             "ehlo": {
                                 "accepted_count": 2,
                                 "rejected_count": 0,
                                 "total_count": 2
                             },
+                            "mail": {
+                                "total_count": 1
+                            },
+                            "quit": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
+                                "total_count": 1
+                            },
+                            "rcpt": {
+                                "accepted_count": 1,
+                                "rejected_count": 0,
+                                "total_count": 1
+                            },
                             "starttls": {
                                 "accepted_count": 1,
                                 "rejected_count": 0,
                                 "total_count": 1
-                            }
+                            },
+                            "total_count": 7
                         }
                     }
                 }
@@ -265,7 +343,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -277,11 +356,6 @@
             },
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "category": [
@@ -321,7 +395,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -333,11 +408,6 @@
             },
             "ecs": {
                 "version": "8.11.0"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "category": [
@@ -377,7 +447,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -424,7 +495,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -439,11 +511,6 @@
             },
             "email": {
                 "local_id": "3183E8003F"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "category": [
@@ -473,7 +540,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -488,11 +556,6 @@
             },
             "email": {
                 "local_id": "37C3980086"
-            },
-            "error": {
-                "code": [
-                    "unknown"
-                ]
             },
             "event": {
                 "category": [
@@ -522,7 +585,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -532,7 +596,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "1730e54e-159b-4986-a0b4-866db2ecfa92",
+                "id": "da9a33d3-93f0-49cd-b8c2-e145ad8b56bd",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -566,7 +630,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -576,7 +641,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "46a5a43f-90da-4b89-a6cd-76782e06805e",
+                "id": "a513b132-f4a8-4abf-b261-600fc288d5f4",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -610,7 +675,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -625,7 +691,7 @@
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "2b3381e4-c269-4413-b984-64fbcd417076",
+                "id": "e7d20b22-b670-4e64-a9c2-5383eb1e8b14",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -659,7 +725,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         },
         {
@@ -674,7 +741,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "e5b99fd1-4351-447d-a954-8255f199aa6a",
+                "id": "902cc207-f579-48ff-b4c9-cd781d38906d",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],
@@ -708,7 +775,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtpd"
             ]
         }
     ]

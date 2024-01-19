@@ -4,21 +4,21 @@ description: |
     Pipeline for processing Posftix smtpd events.  The smtp daemon accepts network connection 
     requests and performs SMTP transactions per connection
 processors:
-  - remove:
-      description: Remove defaulted event trace variable
-      field: _tmp.defaulted_event
-      ignore_failure: true  
   - append:
-      field: _tmp.trace.pipeline
-      value: 'smtpd'
-      description: |
-          Append this pipeline's name to a temporary variable for pipeline tracing. 
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: smtpd"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
   - grok:
+      #TODO: The disconnect and command parsing pattern in this processor should be revisited in a future release.  It doesn't gracefully handle
+      #      multiple "missing_parser" commands in a disconnect message
       field: message
       patterns:
           - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]$'
-          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] ( |%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELO}|%{HELP}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY})+'
-          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>.+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}'
+          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
+          - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]'
+          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}$'
           - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
           - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.address}\]'
           - '(?<error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
@@ -31,22 +31,24 @@ processors:
           - '%{GREEDYDATA:_tmp.catch_all}'
       pattern_definitions:
           # Command definitions
-          AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
-          BDAT: 'bdat=(%{INT:postfix.smtpd.connection.commands.bdat.total_count:long}|%{INT:postfix.smtpd.connection.commands.bdat.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.bdat.total_count:long})'
-          COMMANDS: 'commands=(%{INT:postfix.smtpd.connection.commands.total_count:long}|%{INT:postfix.smtpd.connection.commands.total_accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.total_count:long})'
-          DATA: 'data=(%{INT:postfix.smtpd.connection.commands.data.total_count:long}|%{INT:postfix.smtpd.connection.commands.data.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.data.total_count:long})'
-          EHLO: 'ehlo=(%{INT:postfix.smtpd.connection.commands.ehlo.total_count:long}|%{INT:postfix.smtpd.connection.commands.ehlo.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.ehlo.total_count:long})'
-          ETRN: 'etrn=(%{INT:postfix.smtpd.connection.commands.etrn.total_count:long}|%{INT:postfix.smtpd.connection.commands.etrn.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.etrn.total_count:long})'
-          EXPN: 'expn=(%{INT:postfix.smtpd.connection.commands.expn.total_count:long}|%{INT:postfix.smtpd.connection.commands.expn.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.expn.total_count:long})'
-          HELO: 'helo=(%{INT:postfix.smtpd.connection.commands.helo.total_count:long}|%{INT:postfix.smtpd.connection.commands.helo.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.helo.total_count:long})'
-          HELP: 'rcpt=(%{INT:postfix.smtpd.connection.commands.help.total_count:long}|%{INT:postfix.smtpd.connection.commands.help.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.help.total_count:long})'
-          NOOP: 'noop=(%{INT:postfix.smtpd.connection.commands.noop.total_count:long}|%{INT:postfix.smtpd.connection.commands.noop.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.noop.total_count:long})'
-          QUIT: 'quit=(%{INT:postfix.smtpd.connection.commands.quit.total_count:long}|%{INT:postfix.smtpd.connection.commands.quit.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.quit.total_count:long})'          
-          RCPT: 'rcpt=(%{INT:postfix.smtpd.connection.commands.rcpt.total_count:long}|%{INT:postfix.smtpd.connection.commands.rcpt.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.rcpt.total_count:long})'
-          RSET: 'rset=(%{INT:postfix.smtpd.connection.commands.rset.total_count:long}|%{INT:postfix.smtpd.connection.commands.rset.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.rset.total_count:long})'
-          STARTTLS: 'starttls=(%{INT:postfix.smtpd.connection.commands.starttls.total_count:long}|%{INT:postfix.smtpd.connection.commands.starttls.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.starttls.total_count:long})'
-          UNKNOWN: 'unknown=(%{INT:postfix.smtpd.connection.commands.unknown.total_count:long}|%{INT:postfix.smtpd.connection.commands.unknown.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.unknown.total_count:long})'
-          VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long}|%{INT:postfix.smtpd.connection.commands.vrfy.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long})'
+          AUTH: 'auth=(%{INT:postfix.smtpd.connection.commands.auth.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.auth.total_count:long}|%{INT:postfix.smtpd.connection.commands.auth.total_count:long})'
+          BDAT: 'bdat=(%{INT:postfix.smtpd.connection.commands.bdat.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.bdat.total_count:long}|%{INT:postfix.smtpd.connection.commands.bdat.total_count:long})'
+          COMMANDS: 'commands=(%{INT:postfix.smtpd.connection.commands.total_accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.total_count:long}|%{INT:postfix.smtpd.connection.commands.total_count:long})'
+          DATA: 'data=(%{INT:postfix.smtpd.connection.commands.data.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.data.total_count:long}|%{INT:postfix.smtpd.connection.commands.data.total_count:long})'
+          EHLO: 'ehlo=(%{INT:postfix.smtpd.connection.commands.ehlo.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.ehlo.total_count:long}|%{INT:postfix.smtpd.connection.commands.ehlo.total_count:long})'
+          ETRN: 'etrn=(%{INT:postfix.smtpd.connection.commands.etrn.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.etrn.total_count:long}|%{INT:postfix.smtpd.connection.commands.etrn.total_count:long})'
+          EXPN: 'expn=(%{INT:postfix.smtpd.connection.commands.expn.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.expn.total_count:long}|%{INT:postfix.smtpd.connection.commands.expn.total_count:long})'
+          HELO: 'helo=(%{INT:postfix.smtpd.connection.commands.helo.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.helo.total_count:long}|%{INT:postfix.smtpd.connection.commands.helo.total_count:long})'
+          HELP: 'help=(%{INT:postfix.smtpd.connection.commands.help.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.help.total_count:long}|%{INT:postfix.smtpd.connection.commands.help.total_count:long})'
+          MAIL: 'mail=(%{INT:postfix.smtpd.connection.commands.mail.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.mail.total_count:long}|%{INT:postfix.smtpd.connection.commands.mail.total_count:long})'
+          NOOP: 'noop=(%{INT:postfix.smtpd.connection.commands.noop.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.noop.total_count:long}|%{INT:postfix.smtpd.connection.commands.noop.total_count:long})'
+          QUIT: 'quit=(%{INT:postfix.smtpd.connection.commands.quit.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.quit.total_count:long}|%{INT:postfix.smtpd.connection.commands.quit.total_count:long})'
+          RCPT: 'rcpt=(%{INT:postfix.smtpd.connection.commands.rcpt.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.rcpt.total_count:long}|%{INT:postfix.smtpd.connection.commands.rcpt.total_count:long})'
+          RSET: 'rset=(%{INT:postfix.smtpd.connection.commands.rset.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.rset.total_count:long}|%{INT:postfix.smtpd.connection.commands.rset.total_count:long})'
+          STARTTLS: 'starttls=(%{INT:postfix.smtpd.connection.commands.starttls.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.starttls.total_count:long}|%{INT:postfix.smtpd.connection.commands.starttls.total_count:long})'
+          UNKNOWN: 'unknown=(%{INT:postfix.smtpd.connection.commands.unknown.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.unknown.total_count:long}|%{INT:postfix.smtpd.connection.commands.unknown.total_count:long})'
+          VRFY: 'vrfy=(%{INT:postfix.smtpd.connection.commands.vrfy.accepted_count:long}\/%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long}|%{INT:postfix.smtpd.connection.commands.vrfy.total_count:long})'
+          MISSING_PARSER: '%{WORD:postfix.smtpd.connection.commands.missing_parser.command_name}=(%{INT}\/%{INT}|%{INT})'
           # General patterns
           SMTP_STAGE: '(CONNECT|HELO|EHLO|STARTTLS|AUTH|MAIL( FROM)?|RCPT( TO)?|(end of )?DATA|BDAT|RSET|UNKNOWN|END-OF-MESSAGE|VRFY|\.)'
           # Lost connection patterns
@@ -169,16 +171,35 @@ processors:
         allow_duplicates: false
         if: 'ctx.error?.code == "improper command pipelining"'
   - append:
-        description: "Append unknown to error.code if the error.code wasn't specifically parsed by the grok processor."
-        field: error.code
-        value:
-            - unknown
-        allow_duplicates: false
-        if: 'ctx.error?.code == null'
-  - append:
         description: "Append the contents of the message field to error.message if error.type is warning or fatal."
         field: error.message
         value:
             - "{{{message}}}"
         allow_duplicates: false
         if: "ctx.error?.type != null && (ctx.error?.type == 'warning' || ctx.error?.type == 'fatal')"
+  # --------------------------------------------------------------------------------------------------------
+  #  Error messsage and code handling for missing command parser for disconnect events 
+  #  with a command summary
+  # --------------------------------------------------------------------------------------------------------
+  - append:
+        description: "Append an error message containing information about a missing command parser, if any, for disconnect messages."
+        field: error.message
+        value:
+            - "Missing SMTPD disconnect command summary grok pattern for command [{{{postfix.smtpd.connection.commands.missing_parser.command_name}}}]"
+        if: "ctx.postfix?.smtpd?.connection?.commands?.missing_parser?.command_name != null"
+  - append:
+        description: "Append an error code for missing command parser."
+        field: error.code
+        value:
+            - "grok parsing failure"
+        if: "ctx.postfix?.smtpd?.connection?.commands?.missing_parser?.command_name != null"
+  # ---End Section---
+  - append:
+        description: |
+            Append unknown to error.code if there's an error.message on the event and error.code wasn't 
+            specifically parsed by the grok processor.
+        field: error.code
+        value:
+            - unknown
+        allow_duplicates: false
+        if: 'ctx.error?.message != null && ctx.error?.code == null'

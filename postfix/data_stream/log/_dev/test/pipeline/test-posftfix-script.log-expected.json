@@ -34,7 +34,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: postfix-script"
             ]
         },
         {
@@ -71,7 +72,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: postfix-script"
             ]
         },
         {
@@ -108,7 +110,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: postfix-script"
             ]
         }
     ]

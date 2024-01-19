@@ -64,7 +64,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtp"
             ]
         },
         {
@@ -77,7 +78,7 @@
             },
             "error": {
                 "code": "connection refused",
-                "id": "f471db63-e69b-4a56-9243-6f0b8228ffd4",
+                "id": "60ad6e44-497e-4fb7-992a-0f1f5895d938",
                 "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
@@ -114,7 +115,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: smtp"
             ]
         }
     ]

@@ -41,7 +41,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: pickup"
             ],
             "user": {
                 "id": "0"
@@ -88,7 +89,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: pickup"
             ],
             "user": {
                 "id": "0"

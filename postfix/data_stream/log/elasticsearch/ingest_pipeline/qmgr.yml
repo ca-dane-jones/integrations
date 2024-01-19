@@ -3,15 +3,12 @@ description: |
     Pipeline for processing Postfix queue manager events.  The qmgr daemon awaits the arrival of incoming mail and arranges for
     its delivery via Postfix delivery processes.
 processors:
-  - remove:
-      description: Remove defaulted event trace variable
-      field: _tmp.defaulted_event
-      ignore_failure: true  
   - append:
-      field: _tmp.trace.pipeline
-      value: 'qmgr'
-      description: |
-          Append this pipeline's name to a temporary variable for pipeline tracing. 
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: qmgr"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
   - grok:
         field: message
         patterns:
@@ -42,3 +39,8 @@ processors:
         value: 
             - info
         allow_duplicates: false
+  - set:
+        description: 'Set event.outcome to success'
+        field: 'event.outcome'
+        value: 
+            - success

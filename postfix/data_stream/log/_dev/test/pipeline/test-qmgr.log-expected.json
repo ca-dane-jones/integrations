@@ -22,6 +22,9 @@
                 ],
                 "module": "qmgr",
                 "original": "Dec 31 23:22:21 mail postfix/qmgr[2011]: 2F82A8006C: from=<4ab-TADzTBFYBC-A5D9My33GFBHD.5DD492.0CA1yB21279yzG.0CA@really-really.long.address.com>, size=11742, nrcpt=1 (queue active)",
+                "outcome": [
+                    "success"
+                ],
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -49,7 +52,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: qmgr"
             ]
         },
         {
@@ -74,6 +78,9 @@
                 ],
                 "module": "qmgr",
                 "original": "Jan  1 06:33:44 mail postfix/qmgr[2011]: DAAA580001: from=<someone@example.io>, size=93215, nrcpt=1 (queue active)",
+                "outcome": [
+                    "success"
+                ],
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -101,7 +108,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: qmgr"
             ]
         },
         {
@@ -121,6 +129,9 @@
                 ],
                 "module": "qmgr",
                 "original": "Jan  1 06:33:44 mail postfix/qmgr[2011]: DAAA580001: removed",
+                "outcome": [
+                    "success"
+                ],
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -140,7 +151,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: qmgr"
             ]
         }
     ]

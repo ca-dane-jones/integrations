@@ -3,15 +3,12 @@ description: |
     Pipeline for processing Postfix error delivery agent events.  The Postfix error delivery agent processes errored requests from
     the queue manager.
 processors:
-  - remove:
-      description: Remove defaulted event trace variable
-      field: _tmp.defaulted_event
-      ignore_failure: true
   - append:
-      field: _tmp.trace.pipeline
-      value: 'error'
-      description: |
-        Append this pipeline's name to a temporary variable for pipeline tracing. 
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: error"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
   - grok:
       field: message
       patterns:

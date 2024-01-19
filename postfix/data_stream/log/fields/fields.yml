@@ -331,6 +331,31 @@
                       type: long
                       description: |
                         The total number of HELP commands sent by the client during a client connection.
+                - name: mail
+                  type: group
+                  description: |
+                    Contains counters for the number of MAIL commands sent by the client during a client connection.
+                  fields:
+                    - name: accepted_count
+                      type: long
+                      description: |
+                        The number of MAIL commands sent by the client that were accepted during a client connection.
+                    - name: rejected_count
+                      type: long
+                      description: |
+                        The number of MAIL commands sent by the client that were rejected during a client connection.
+                    - name: total_count
+                      type: long
+                      description: |
+                        The total number of MAIL commands sent by the client during a client connection.
+                - name: missing_parser
+                  type: group
+                  description: |
+                    Contains information related to missing SMTP grok command parsers
+                  fields:
+                    - name: command_name
+                      type: keyword
+                      description: "The name of the SMTP command identified as being missed by the SMTPD disconnect \ncommand summary grok processor.\n"
                 - name: noop
                   type: group
                   description: |

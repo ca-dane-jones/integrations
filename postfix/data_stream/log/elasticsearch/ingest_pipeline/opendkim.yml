@@ -9,11 +9,6 @@ processors:
       value:
         - "pipeline: opendkim"
       if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
-  - append:
-      field: _tmp.trace.pipeline
-      value: 'opendkim'
-      description: |
-        Append this pipeline's name to a temporary variable for pipeline tracing. 
   - grok:
         field: message
         patterns:
