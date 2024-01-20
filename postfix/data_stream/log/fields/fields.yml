@@ -147,6 +147,10 @@
     - name: milter
       type: group
       fields:
+        - name: action
+          type: keyword
+          description: |
+            The action Postfix took as a result of milter processing.
         - name: data
           type: text
           description: |
@@ -159,10 +163,25 @@
           type: text
           description: |
             The message emitted by the milter.
-        - name: result
+    - name: prepend
+      type: group
+      fields:
+        - name: keyvalue_data
+          type: text
+          description: |
+            The prepend key/value data.
+        - name: trigger
           type: keyword
           description: |
-            The result of milter processing.
+            The prepend trigger.
+        - name: type
+          type: keyword
+          description: |
+            The prepend type.
+        - name: value
+          type: keyword
+          description: |
+            The prepend value.
     - name: qmgr
       type: group
       fields:

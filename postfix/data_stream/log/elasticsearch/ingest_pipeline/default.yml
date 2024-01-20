@@ -111,7 +111,7 @@ processors:
 #   TODO: Should probably move this to it's own pipeline
 # ------------------------------------------------------------------------------------------------------------------
 - script:
-    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
+    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the UUID?
     source: |
         def err = ctx.error;
         err.id = java.util.UUID.randomUUID().toString();
@@ -122,7 +122,7 @@ processors:
     description: 'Drop error.code to lowercase if populated'
     field: error.code
     if: "ctx.error?.code != null"
-# ----
+# ---- End Section -----
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags

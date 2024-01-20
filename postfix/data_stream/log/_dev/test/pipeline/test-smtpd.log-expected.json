@@ -297,7 +297,7 @@
                 "code": [
                     "grok parsing failure"
                 ],
-                "id": "ba9b0eac-5969-4f74-b801-61cc7c994e61",
+                "id": "74873708-969b-4af4-84ab-0e09fc67b7ea",
                 "message": [
                     "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                 ]
@@ -764,7 +764,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "bfc68b2f-39d7-451f-9085-b6271907707c",
+                "id": "37652cf7-8073-4b48-8a2f-578f6b782ff8",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -809,7 +809,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "f20b458e-816a-4659-bce4-0466266f5c59",
+                "id": "a68bbacf-763f-4f89-a4c4-3a96ce97a628",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -871,7 +871,7 @@
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "c0fb6493-3b6a-4c23-8099-f5972724a948",
+                "id": "8d0ec41a-55b0-4159-8b17-4d232e881f3b",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -934,7 +934,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "afcb07ac-e71c-444c-a36b-b8922159d81f",
+                "id": "43af3da0-29be-46fb-a42a-892336e6dc89",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],

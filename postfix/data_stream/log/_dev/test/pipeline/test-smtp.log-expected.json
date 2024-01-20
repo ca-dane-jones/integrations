@@ -75,7 +75,7 @@
             },
             "error": {
                 "code": "connection refused",
-                "id": "885a43cd-9164-47c7-a5d2-36db1e59757a",
+                "id": "cabf881a-a0a8-4e9c-86a1-e300415f2fa1",
                 "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
@@ -116,6 +116,44 @@
                 "pipeline: default",
                 "pipeline: smtp",
                 "pipeline: geoip"
+            ]
+        },
+        {
+            "@timestamp": "2024-07-02T12:24:48.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "smtp",
+                "original": "Jul  2 12:24:48 mail postfix/smtp[12345]: 1234567890A: to=user@example.com, relay=198.51.100.0[198.51.100.0]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "1234567890A: to=user@example.com, relay=198.51.100.0[198.51.100.0]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+            "process": {
+                "name": "postfix/smtp",
+                "pid": 12345
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtp",
+                "catch_all"
             ]
         }
     ]

@@ -9,20 +9,25 @@
                 "local_id": "1585B1E04A0",
                 "to": {
                     "address": [
-                        "root@elastic.dejlabs.com"
+                        "root@elastic.example.com"
                     ]
                 }
+            },
+            "error": {
+                "code": "connection refused",
+                "id": "e830824f-bb4d-4ccb-b6e4-f80853090b60",
+                "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
                 "category": [
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
-                "module": "local",
-                "original": "Jan  6 20:05:33 mail postfix/local[143004]: 1585B1E04A0: to=<root@elastic.dejlabs.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.dejlabs.com[192.168.1.218]:25: Connection refused)",
+                "module": "error",
+                "original": "Jan  6 20:05:33 mail postfix/error[143004]: 1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
+                "outcome": "failure",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -32,7 +37,7 @@
             "host": {
                 "name": "mail"
             },
-            "message": "1585B1E04A0: to=<root@elastic.dejlabs.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.dejlabs.com[192.168.1.218]:25: Connection refused)",
+            "message": "1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
             "postfix": {
                 "delivery": {
                     "delays": {
@@ -40,7 +45,7 @@
                         "connection_setup_time": 0.0,
                         "in_qmgr_time": 0.07,
                         "message_transmission_time": 0.02,
-                        "total_time": 291242
+                        "total_time": 291242.0
                     },
                     "status": "deferred",
                     "status_code": {
@@ -49,7 +54,7 @@
                         "subject": 4,
                         "value": "4.4.1"
                     },
-                    "status_message": "delivery temporarily suspended: connect to elastic.dejlabs.com[192.168.1.218]:25: Connection refused"
+                    "status_message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "email": {
                     "to": {
@@ -60,11 +65,14 @@
                 }
             },
             "process": {
-                "name": "postfix/local",
+                "name": "postfix/error",
                 "pid": 143004
             },
             "server": {
-                "domain": "none"
+                "address": "192.168.1.218",
+                "domain": "none",
+                "ip": "192.168.1.218",
+                "port": 25
             },
             "tags": [
                 "preserve_original_event",
@@ -72,7 +80,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: local"
+                "pipeline: error",
+                "pipeline: geoip"
             ]
         }
     ]
