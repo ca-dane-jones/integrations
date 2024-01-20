@@ -1,0 +1,40 @@
+---
+description: |
+    Pipeline for processing Postfix policyd-spf events.  policyd-spf is a Postfix SMTPd policy daemon 
+    for Sender Policy Framework (SPF) checking.
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: policyd-spf"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - grok:
+      field: message
+      patterns:
+        - 'prepend Received-SPF: %{WORD:postfix.spf.result} \(mailfrom\) identity=%{WORD:postfix.spf.identity}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
+        - '%{GREEDYDATA:_tmp.catch_all}'
+      description: 'Extracts policyd-spf event fields.'
+  - append:
+      description: 'Sets the email.to.address field to the value of postfix.spf.receivers if its value is not "UNKOWN"'
+      field: email.to.address
+      value: "{{{postfix.spf.receiver}}}"
+      if: 'ctx.postfix?.spf?.receiver != null && ctx.postfix?.spf.receiver != "UNKNOWN"'
+  - append:
+      description: 'Append event to event.kind'
+      field: event.kind
+      value:
+          - event
+      allow_duplicates: false
+  - append:
+      description: 'Append email to event.category'
+      field: 'event.type'
+      value: 
+          - info
+      allow_duplicates: false     
+  - append:
+      description: 'Append info to event.type'
+      field: 'event.type'
+      value: 
+          - info
+      allow_duplicates: false

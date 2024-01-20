@@ -1,0 +1,30 @@
+paths:
+{{#each paths as |path i|}}
+  - {{path}}
+{{/each}}
+exclude_files: ['\.gz$']
+tags:
+{{#if preserve_original_event}}
+  - preserve_original_event
+{{/if}}
+{{#if connection_metrics_enabled}}
+  - connection_metrics_enabled
+{{/if}}
+{{#if geoip_enabled}}
+  - geoip_enabled
+{{/if}}
+{{#if pipeline_trace_enabled}}
+  - pipeline_trace_enabled
+{{/if}}
+{{#each tags as |tag i|}}
+  - {{tag}}
+{{/each}}
+{{#if tz_offset}}
+fields_under_root: true
+fields:
+  _tmp:
+    tz_offset: {{tz_offset}}
+{{/if}}
+{{#if processors}}
+{{processors}}
+{{/if}}

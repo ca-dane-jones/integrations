@@ -5,6 +5,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -40,7 +52,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -48,6 +61,18 @@
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.211"
             },
             "ecs": {
@@ -83,11 +108,29 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
             "@timestamp": "2024-01-05T06:35:48.000-05:00",
+            "client": {
+                "address": "67.43.156.1",
+                "as": {
+                    "number": 35908
+                },
+                "domain": "scanner-04.ch1.censys-scanner.com",
+                "geo": {
+                    "continent_name": "Asia",
+                    "country_iso_code": "BT",
+                    "country_name": "Bhutan",
+                    "location": {
+                        "lat": 27.5,
+                        "lon": 90.5
+                    }
+                },
+                "ip": "67.43.156.1"
+            },
             "ecs": {
                 "version": "8.11.0"
             },
@@ -110,6 +153,21 @@
                 "name": "mail"
             },
             "message": "Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "tls": {
+                            "client_certificate_status": "Anonymous",
+                            "key_exchange_algorithm": "X25519",
+                            "server": {
+                                "signature_algorithm": "RSA-PSS",
+                                "signature_digest": "SHA256",
+                                "signature_strength": 4096
+                            }
+                        }
+                    }
+                }
+            },
             "process": {
                 "name": "postfix/smtpd",
                 "pid": 121263
@@ -121,14 +179,32 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "catch_all"
-            ]
+                "pipeline: geoip"
+            ],
+            "tls": {
+                "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+                "established": true,
+                "version": "1.3",
+                "version_protocol": "tls"
+            }
         },
         {
             "@timestamp": "2024-01-05T06:36:56.000-05:00",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -191,7 +267,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -199,6 +276,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -208,7 +297,7 @@
                 "code": [
                     "grok parsing failure"
                 ],
-                "id": "78e0cd5f-cf90-46f7-ad6e-d749ab2fec07",
+                "id": "ba9b0eac-5969-4f74-b801-61cc7c994e61",
                 "message": [
                     "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                 ]
@@ -263,7 +352,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -271,6 +361,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -344,7 +446,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -352,6 +455,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "scanner-04.ch1.censys-scanner.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -396,7 +511,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -404,6 +520,18 @@
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.211"
             },
             "ecs": {
@@ -448,7 +576,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -456,6 +585,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -496,7 +637,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -504,6 +646,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -541,7 +695,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -549,6 +704,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -586,7 +753,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -596,7 +764,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "da9a33d3-93f0-49cd-b8c2-e145ad8b56bd",
+                "id": "bfc68b2f-39d7-451f-9085-b6271907707c",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -641,7 +809,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "a513b132-f4a8-4abf-b261-600fc288d5f4",
+                "id": "f20b458e-816a-4659-bce4-0466266f5c59",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -684,6 +852,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "internettl.org",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -691,7 +871,7 @@
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "e7d20b22-b670-4e64-a9c2-5383eb1e8b14",
+                "id": "c0fb6493-3b6a-4c23-8099-f5972724a948",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -726,7 +906,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         },
         {
@@ -734,6 +915,18 @@
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
                 "ip": "175.16.199.1"
             },
             "ecs": {
@@ -741,7 +934,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "902cc207-f579-48ff-b4c9-cd781d38906d",
+                "id": "afcb07ac-e71c-444c-a36b-b8922159d81f",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],
@@ -776,7 +969,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: geoip"
             ]
         }
     ]
