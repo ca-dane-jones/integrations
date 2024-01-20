@@ -144,6 +144,25 @@
               type: keyword
               description: |
                 The original intended recipient of this email prior to postfix processing.
+    - name: milter
+      type: group
+      fields:
+        - name: data
+          type: text
+          description: |
+            Additional data emitted by the milter, if any.
+        - name: keyvalue_data
+          type: text
+          description: |
+            The key value pairs emitted by the milter.
+        - name: message
+          type: text
+          description: |
+            The message emitted by the milter.
+        - name: result
+          type: keyword
+          description: |
+            The result of milter processing.
     - name: qmgr
       type: group
       fields:

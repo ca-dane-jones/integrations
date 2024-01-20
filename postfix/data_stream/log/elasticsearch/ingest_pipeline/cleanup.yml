@@ -13,7 +13,13 @@ processors:
       field: message
       patterns:
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): message-id=<%{DATA:email.message_id}>'
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): milter-%{POSTFIX_ACTION:postfix.milter.result}: %{GREEDYDATA:postfix.milter.message}; %{GREEDYDATA_NO_COLON:postfix.milter.keyvalue_data}(: %{GREEDYDATA:postfix.milter.data})?'
+ #    POSTFIX_CLEANUP_PREPEND %{POSTFIX_QUEUEID:postfix_queueid}: prepend: %{POSTFIX_CLEANUP_PREPEND_TYPE:postfix_prepend_type} %{GREEDYDATA:postfix_prepend_trigger} from %{POSTFIX_CLIENT_INFO}; %{GREEDYDATA_NO_COLON:postfix_keyvalue_data}: %{GREEDYDATA:postfix_prepend_value}
         - '%{GREEDYDATA:_tmp.catch_all}'
+      pattern_definitions:
+        - GREEDYDATA_NO_COLON: '[^:]*'
+        - POSTFIX_ACTION: '(accept|defer|discard|filter|header-redirect|reject|reject_warning)'
+        - POSTFIX_CLEANUP_PREPEND_TYPE: '(header|body)'
       description: 'Extracts cleanup event fields.'
   - set:
       description: 'Set email.direction to inbound'
