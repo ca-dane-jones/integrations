@@ -15,7 +15,7 @@
             },
             "error": {
                 "code": "connection refused",
-                "id": "e830824f-bb4d-4ccb-b6e4-f80853090b60",
+                "id": "9b57f41e-01a2-45f8-a15c-40f2a2ab8117",
                 "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
             },
             "event": {
@@ -62,6 +62,11 @@
                             "root"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "none"
+                    }
                 }
             },
             "process": {
@@ -70,9 +75,12 @@
             },
             "server": {
                 "address": "192.168.1.218",
-                "domain": "none",
+                "domain": "elastic.example.com",
                 "ip": "192.168.1.218",
-                "port": 25
+                "port": 25,
+                "registered_domain": "example.com",
+                "subdomain": "elastic",
+                "top_level_domain": "com"
             },
             "tags": [
                 "preserve_original_event",

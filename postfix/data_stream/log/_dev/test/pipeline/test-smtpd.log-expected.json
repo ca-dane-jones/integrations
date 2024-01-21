@@ -73,7 +73,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.211"
+                "ip": "175.16.199.211",
+                "registered_domain": "example.com",
+                "subdomain": "nessus",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -129,7 +132,10 @@
                         "lon": 90.5
                     }
                 },
-                "ip": "67.43.156.1"
+                "ip": "67.43.156.1",
+                "registered_domain": "censys-scanner.com",
+                "subdomain": "scanner-04.ch1",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -297,7 +303,7 @@
                 "code": [
                     "grok parsing failure"
                 ],
-                "id": "74873708-969b-4af4-84ab-0e09fc67b7ea",
+                "id": "9916641b-3147-4235-b4d7-f13ee6236ab8",
                 "message": [
                     "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                 ]
@@ -373,7 +379,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.1"
+                "ip": "175.16.199.1",
+                "registered_domain": "example.com",
+                "subdomain": "o5.ptr2409",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -467,7 +476,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.1"
+                "ip": "175.16.199.1",
+                "registered_domain": "censys-scanner.com",
+                "subdomain": "scanner-04.ch1",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -532,7 +544,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.211"
+                "ip": "175.16.199.211",
+                "registered_domain": "example.com",
+                "subdomain": "nessus",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -658,7 +673,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.1"
+                "ip": "175.16.199.1",
+                "registered_domain": "example.com",
+                "subdomain": "o5.ptr2409",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -716,7 +734,10 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.1"
+                "ip": "175.16.199.1",
+                "registered_domain": "example.com",
+                "subdomain": "o5.ptr2409",
+                "top_level_domain": "com"
             },
             "ecs": {
                 "version": "8.11.0"
@@ -764,7 +785,7 @@
             },
             "error": {
                 "code": "tls library problem",
-                "id": "37652cf7-8073-4b48-8a2f-578f6b782ff8",
+                "id": "654a5e4d-e646-4743-bab0-7a382f847cc7",
                 "message": [
                     "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                 ],
@@ -809,7 +830,7 @@
             },
             "error": {
                 "code": "rbl lookup error",
-                "id": "a68bbacf-763f-4f89-a4c4-3a96ce97a628",
+                "id": "837e056b-a6fb-4594-ba12-865ed66046d7",
                 "message": [
                     "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                 ],
@@ -864,14 +885,16 @@
                     "region_iso_code": "CN-22",
                     "region_name": "Jilin Sheng"
                 },
-                "ip": "175.16.199.1"
+                "ip": "175.16.199.1",
+                "registered_domain": "internettl.org",
+                "top_level_domain": "org"
             },
             "ecs": {
                 "version": "8.11.0"
             },
             "error": {
                 "code": "does not resolve to address",
-                "id": "8d0ec41a-55b0-4159-8b17-4d232e881f3b",
+                "id": "cc27eed4-343c-44f0-9021-446e30e5a017",
                 "message": [
                     "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                 ],
@@ -934,7 +957,7 @@
             },
             "error": {
                 "code": "non-smtp command",
-                "id": "43af3da0-29be-46fb-a42a-892336e6dc89",
+                "id": "a301691a-1cf3-486f-9597-8264ffa13989",
                 "message": [
                     "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                 ],

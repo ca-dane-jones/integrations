@@ -27,7 +27,7 @@ processors:
   - grok:
       field: _tmp.postfix_relay_info
       patterns:
-        - '%{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?'
+        - '%{HOSTNAME:postfix.relay.server.domain}(\[%{IP:postfix.relay.server.address}\]:%{POSINT:postfix.relay.server.port:long})?'
       if: 'ctx._tmp?.postfix_relay_info != null'
       description: 'Extracts relay server details'  
   - set:

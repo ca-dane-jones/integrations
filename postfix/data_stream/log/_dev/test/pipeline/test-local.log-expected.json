@@ -57,14 +57,16 @@
                             "bob@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -132,14 +134,16 @@
                             "frank@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -207,14 +211,16 @@
                             "elastic@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -275,14 +281,16 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -343,26 +351,21 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "address": "2a02:cf40::1a",
+                        "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                        "ip": "2a02:cf40::1a",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "address": "2a02:cf40::1a",
-                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                "geo": {
-                    "continent_name": "Europe",
-                    "country_iso_code": "NO",
-                    "country_name": "Norway",
-                    "location": {
-                        "lat": 62.0,
-                        "lon": 10.0
-                    }
-                },
-                "ip": "2a02:cf40::1a",
-                "port": 25
             },
             "tags": [
                 "preserve_original_event",
@@ -370,8 +373,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: local",
-                "pipeline: geoip"
+                "pipeline: local"
             ]
         },
         {
@@ -424,29 +426,21 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "address": "175.16.199.5",
+                        "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                        "ip": "175.16.199.5",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "address": "175.16.199.5",
-                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                "geo": {
-                    "city_name": "Changchun",
-                    "continent_name": "Asia",
-                    "country_iso_code": "CN",
-                    "country_name": "China",
-                    "location": {
-                        "lat": 43.88,
-                        "lon": 125.3228
-                    },
-                    "region_iso_code": "CN-22",
-                    "region_name": "Jilin Sheng"
-                },
-                "ip": "175.16.199.5",
-                "port": 25
             },
             "tags": [
                 "preserve_original_event",
@@ -454,8 +448,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: local",
-                "pipeline: geoip"
+                "pipeline: local"
             ]
         }
     ]

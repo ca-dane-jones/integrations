@@ -91,15 +91,34 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
+- registered_domain:
+    field: client.domain
+    target_field: client
+    ignore_missing: true
 - convert:
     field: client.address
     target_field: client.ip
     type: ip
     ignore_failure: true
     ignore_missing: true
+- registered_domain:
+    field: server.domain
+    target_field: server
+    ignore_missing: true
 - convert:
     field: server.address
     target_field: server.ip
+    type: ip
+    ignore_failure: true
+    ignore_missing: true
+- registered_domain:
+    field: postfix.relay.server.domain
+    target_field: postfix.relay.server
+    ignore_missing: true
+    if: 'ctx.postfix?.relay?.server?.domain != "none" && ctx.postfix?.relay?.server?.domain != "local"'
+- convert:
+    field: postfix.relay.server.address
+    target_field: postfix.relay.server.ip
     type: ip
     ignore_failure: true
     ignore_missing: true
