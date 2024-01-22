@@ -102,27 +102,46 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
+- registered_domain:
+    field: client.domain
+    target_field: client
+    ignore_missing: true
 - convert:
     field: client.address
     target_field: client.ip
     type: ip
     ignore_failure: true
     ignore_missing: true
+- registered_domain:
+    field: server.domain
+    target_field: server
+    ignore_missing: true
 - convert:
     field: server.address
-    target_field: client.ip
+    target_field: server.ip
+    type: ip
+    ignore_failure: true
+    ignore_missing: true
+- registered_domain:
+    field: postfix.relay.server.domain
+    target_field: postfix.relay.server
+    ignore_missing: true
+    if: 'ctx.postfix?.relay?.server?.domain != "none" && ctx.postfix?.relay?.server?.domain != "local"'
+- convert:
+    field: postfix.relay.server.address
+    target_field: postfix.relay.server.ip
     type: ip
     ignore_failure: true
     ignore_missing: true
 - pipeline:
     name: '{{ IngestPipeline "geoip" }}'
-    if: ctx.tags != null && ctx.tags.contains('geoip_enabled') && ctx.server?.ip != null && ctx.client?.ip != null
+    if: ctx.tags != null && ctx.tags.contains('geoip_enabled') && (ctx.server?.ip != null || ctx.client?.ip != null)
 # ------------------------------------------------------------------------------------------------------------------
 # Postfix error event processing
 #   TODO: Should probably move this to it's own pipeline
 # ------------------------------------------------------------------------------------------------------------------
 - script:
-    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the event message?
+    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the UUID?
     source: |
         def err = ctx.error;
         err.id = java.util.UUID.randomUUID().toString();
@@ -133,7 +152,7 @@ processors:
     description: 'Drop error.code to lowercase if populated'
     field: error.code
     if: "ctx.error?.code != null"
-# ----
+# ---- End Section -----
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags

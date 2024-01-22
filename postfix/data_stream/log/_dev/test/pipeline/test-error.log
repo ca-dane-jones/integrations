@@ -1,1 +1,1 @@
-Jan  6 20:05:33 mail postfix/local[143004]: 1585B1E04A0: to=<root@elastic.dejlabs.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.dejlabs.com[192.168.1.218]:25: Connection refused)
+Jan  6 20:05:33 mail postfix/error[143004]: 1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)

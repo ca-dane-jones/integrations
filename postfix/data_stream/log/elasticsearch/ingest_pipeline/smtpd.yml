@@ -18,7 +18,7 @@ processors:
           - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]$'
           - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
           - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]'
-          - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}$'
+          - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.client_certificate_status} (?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}$'
           - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
           - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.address}\]'
           - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
@@ -51,6 +51,7 @@ processors:
           MISSING_PARSER: '%{WORD:postfix.smtpd.connection.commands.missing_parser.command_name}=(%{INT}\/%{INT}|%{INT})'
           # General patterns
           SMTP_STAGE: '(CONNECT|HELO|EHLO|STARTTLS|AUTH|MAIL( FROM)?|RCPT( TO)?|(end of )?DATA|BDAT|RSET|UNKNOWN|END-OF-MESSAGE|VRFY|\.)'
+          TLS_AUTH_TYPE: '(Anonymous|Trusted|Untrusted|Verified)'
           # Lost connection patterns
           LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
           LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'

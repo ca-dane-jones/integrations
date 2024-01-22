@@ -170,6 +170,38 @@
           type: long
           description: |
             Total count of local recipients
+    - name: relay
+      type: group
+      fields:
+        - name: server
+          type: group
+          fields:
+            - name: address
+              description: |
+                The raw server address.
+            - name: domain
+              description: "The domain name of the relay server system.  This value may be a host name, \na fully qualified domain name, or another host naming format.\n"
+              type: keyword
+            - name: ip
+              description: |
+                IP address of the server (IPv4 or IPv6).
+              type: ip
+            - name: port
+              description: |
+                Port of the server.
+              type: long
+            - name: registered_domain
+              description: |
+                The highest registered server domain, stripped of the subdomain.
+              type: keyword
+            - name: subdomain
+              description: |
+                The subdomain portion of a fully qualified domain name includes all of the names except the host name under the registered_domain. In a partially qualified domain, or if the the qualification level of the full name cannot be determined, subdomain contains all of the names below the registered domain.
+              type: keyword
+            - name: top_level_domain
+              description: |
+                The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name.
+              type: keyword
     - name: scache
       type: group
       fields:
@@ -526,6 +558,9 @@
             - name: tls
               type: group
               fields:
+                - name: client_certificate_status
+                  type: keyword
+                  description: This field contains the verification status of a client certificate, if provided, during an SMTPD connection SSL handshake.
                 - name: key_exchange_algorithm
                   type: keyword
                   description: |

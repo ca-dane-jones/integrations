@@ -20,9 +20,9 @@ processors:
   - grok:
       field: _tmp.postfix_relay_info
       patterns:
-        - '%{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?'
-      if: 'ctx._tmp?.postfix_relay_info != null'
-      description: 'Extracts relay server details'
+        - '%{HOSTNAME:postfix.relay.server.domain}(\[%{IP:postfix.relay.server.address}\]:%{POSINT:postfix.relay.server.port:long})?'
+      if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postrix_relay_info != "none"'
+      description: 'Extracts relay server details'  
   - lowercase:
         description: 'Drop error.code to lowercase if populated'
         field: postfix.error.code

@@ -25,6 +25,12 @@
 - external: ecs
   name: client.ip
 - external: ecs
+  name: client.registered_domain
+- external: ecs
+  name: client.subdomain
+- external: ecs
+  name: client.top_level_domain
+- external: ecs
   name: dns.question.name
 - external: ecs
   name: dns.question.type
@@ -110,6 +116,12 @@
   name: server.geo.region_name
 - external: ecs
   name: server.ip
+- external: ecs
+  name: server.registered_domain
+- external: ecs
+  name: server.subdomain
+- external: ecs
+  name: server.top_level_domain
 - external: ecs
   name: server.port
 - external: ecs

@@ -57,14 +57,16 @@
                             "bob@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -132,14 +134,16 @@
                             "frank@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -207,14 +211,16 @@
                             "elastic@example.com"
                         ]
                     }
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143005
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -275,14 +281,16 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "domain": "local"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "domain": "local"
             },
             "tags": [
                 "preserve_original_event",
@@ -295,9 +303,6 @@
         },
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
-            "client": {
-                "ip": "2a02:cf40::1a"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
@@ -346,16 +351,21 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "address": "2a02:cf40::1a",
+                        "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                        "ip": "2a02:cf40::1a",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "address": "2a02:cf40::1a",
-                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                "port": 25
             },
             "tags": [
                 "preserve_original_event",
@@ -368,9 +378,6 @@
         },
         {
             "@timestamp": "2024-01-06T20:05:33.000-05:00",
-            "client": {
-                "ip": "175.16.199.5"
-            },
             "ecs": {
                 "version": "8.11.0"
             },
@@ -419,16 +426,21 @@
                         "value": "2.0.0"
                     },
                     "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "address": "175.16.199.5",
+                        "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                        "ip": "175.16.199.5",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
+                    }
                 }
             },
             "process": {
                 "name": "postfix/local",
                 "pid": 143004
-            },
-            "server": {
-                "address": "175.16.199.5",
-                "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                "port": 25
             },
             "tags": [
                 "preserve_original_event",
