@@ -23,6 +23,9 @@
 - name: log.offset
   type: long
   description: Log offset
+- name: log.syslog.priority
+  type: long
+  description: Syslog priority
 - name: '@timestamp'
   type: date
   description: Event timestamp.

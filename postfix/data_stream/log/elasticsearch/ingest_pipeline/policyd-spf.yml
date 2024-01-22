@@ -21,18 +21,6 @@ processors:
       value: "{{{postfix.spf.receiver}}}"
       if: 'ctx.postfix?.spf?.receiver != null && ctx.postfix?.spf.receiver != "UNKNOWN"'
   - append:
-      description: 'Append event to event.kind'
-      field: event.kind
-      value:
-          - event
-      allow_duplicates: false
-  - append:
-      description: 'Append email to event.category'
-      field: 'event.type'
-      value: 
-          - info
-      allow_duplicates: false     
-  - append:
       description: 'Append info to event.type'
       field: 'event.type'
       value: 

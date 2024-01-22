@@ -8,14 +8,17 @@
             "event": {
                 "action": "process-started",
                 "category": [
-                    "process"
+                    "email"
+                ],
+                "kind": [
+                    "event"
                 ],
                 "module": "master",
                 "original": "Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
-                    "start"
+                    "info"
                 ]
             },
             "host": {
@@ -28,8 +31,7 @@
             },
             "process": {
                 "name": "postfix/master",
-                "pid": 2008,
-                "start": "2024-12-31T04:17:56.000-05:00"
+                "pid": 2008
             },
             "tags": [
                 "preserve_original_event",
@@ -48,14 +50,17 @@
             "event": {
                 "action": "process-stopped",
                 "category": [
-                    "process"
+                    "email"
+                ],
+                "kind": [
+                    "event"
                 ],
                 "module": "master",
                 "original": "Jan  2 10:17:37 mail postfix/master[2008]: terminating on signal 15",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
-                    "end"
+                    "info"
                 ]
             },
             "host": {
@@ -63,7 +68,6 @@
             },
             "message": "terminating on signal 15",
             "process": {
-                "end": "2024-01-02T10:17:37.000-05:00",
                 "exit_code": 15,
                 "name": "postfix/master",
                 "pid": 2008
@@ -83,16 +87,18 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "process-started",
                 "category": [
-                    "process"
+                    "email"
+                ],
+                "kind": [
+                    "event"
                 ],
                 "module": "master",
                 "original": "Jan  5 15:21:13 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
-                    "start"
+                    "info"
                 ]
             },
             "host": {
@@ -105,8 +111,7 @@
             },
             "process": {
                 "name": "postfix/master",
-                "pid": 59704,
-                "start": "2024-01-05T15:21:13.000-05:00"
+                "pid": 59704
             },
             "tags": [
                 "preserve_original_event",

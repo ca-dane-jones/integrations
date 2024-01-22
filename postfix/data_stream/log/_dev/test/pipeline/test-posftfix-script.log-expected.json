@@ -8,7 +8,7 @@
             "event": {
                 "action": "starting",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
                     "event"
@@ -46,7 +46,7 @@
             "event": {
                 "action": "stopping",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
                     "event"
@@ -84,7 +84,7 @@
             "event": {
                 "action": "refreshing",
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
                     "event"

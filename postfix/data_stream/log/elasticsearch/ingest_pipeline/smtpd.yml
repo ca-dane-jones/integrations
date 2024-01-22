@@ -21,13 +21,13 @@ processors:
           - '(?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}$'
           - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
           - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.address}\]'
-          - '(?<error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
-          - '(?<error.type>warning): %{HOSTNAME}: (?<error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
-          - '(?<error.type>warning): (?<error.code>TLS library problem): %{GREEDYDATA}'
-          - '(?<error.type>warning): hostname %{HOSTNAME:client.domain} (?<error.code>does not resolve to address) %{IP:client.address}'
-          - '(?<error.type>warning): (?<error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
-          - '(?<error.type>warning): %{GREEDYDATA}'
-          - '(?<error.type>fatal): %{GREEDYDATA}'
+          - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+          - '(?<postfix.error.type>warning): %{HOSTNAME}: (?<postfix.error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
+          - '(?<postfix.error.type>warning): (?<postfix.error.code>TLS library problem): %{GREEDYDATA}'
+          - '(?<postfix.error.type>warning): hostname %{HOSTNAME:client.domain} (?<postfix.error.code>does not resolve to address) %{IP:client.address}'
+          - '(?<postfix.error.type>warning): (?<postfix.error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+          - '(?<postfix.error.type>warning): %{GREEDYDATA}'
+          - '(?<postfix.error.type>fatal): %{GREEDYDATA}'
           - '%{GREEDYDATA:_tmp.catch_all}'
       pattern_definitions:
           # Command definitions
@@ -139,12 +139,6 @@ processors:
       if: "ctx.tags != null && ctx.tags.contains('connection_metrics_enabled') && ctx.postfix?.smtpd?.connection?.commands != null"
       description: 'Calculate connection command metrics'
   - append:
-        description: 'Append event to event.kind'
-        field: event.kind
-        value:
-            - event
-        allow_duplicates: false
-  - append:
         description: 'Append metric to event.kind if the event contains command counters'
         field: event.kind
         value:
@@ -152,54 +146,48 @@ processors:
         allow_duplicates: false
         if: "ctx.postfix?.smtpd?.connection?.commands != null"
   - append:
-        description: 'Append email to event.category'
-        field: event.category
-        value:
-            - email
-        allow_duplicates: false
-  - append:
         description: 'Append info to event.type'
         field: 'event.type'
         value: 
             - info
         allow_duplicates: false
   - append:
-        description: "Append warning to error.type if the event is an improprer command pipelining event"
-        field: error.type
+        description: "Append warning to postfix.error.type if the event is an improprer command pipelining event"
+        field: postfix.error.type
         value:
             - warning
         allow_duplicates: false
-        if: 'ctx.error?.code == "improper command pipelining"'
+        if: 'ctx.postfix?.error?.code == "improper command pipelining"'
   - append:
-        description: "Append the contents of the message field to error.message if error.type is warning or fatal."
-        field: error.message
+        description: "Append the contents of the message field to postfix.error.message if error.type is warning or fatal."
+        field: postfix.error.message
         value:
             - "{{{message}}}"
         allow_duplicates: false
-        if: "ctx.error?.type != null && (ctx.error?.type == 'warning' || ctx.error?.type == 'fatal')"
+        if: "ctx.postfix?.error?.type != null && (ctx.postfix?.error?.type == 'warning' || ctx.postfix?.error?.type == 'fatal')"
   # --------------------------------------------------------------------------------------------------------
   #  Error messsage and code handling for missing command parser for disconnect events 
   #  with a command summary
   # --------------------------------------------------------------------------------------------------------
   - append:
         description: "Append an error message containing information about a missing command parser, if any, for disconnect messages."
-        field: error.message
+        field: postfix.error.message
         value:
             - "Missing SMTPD disconnect command summary grok pattern for command [{{{postfix.smtpd.connection.commands.missing_parser.command_name}}}]"
         if: "ctx.postfix?.smtpd?.connection?.commands?.missing_parser?.command_name != null"
   - append:
         description: "Append an error code for missing command parser."
-        field: error.code
+        field: postfix.error.code
         value:
             - "grok parsing failure"
         if: "ctx.postfix?.smtpd?.connection?.commands?.missing_parser?.command_name != null"
   # ---End Section---
   - append:
         description: |
-            Append unknown to error.code if there's an error.message on the event and error.code wasn't 
+            Append unknown to postfix.error.code if there's an postfix.error.message on the event and postfix.error.code wasn't 
             specifically parsed by the grok processor.
-        field: error.code
+        field: postfix.error.code
         value:
             - unknown
         allow_duplicates: false
-        if: 'ctx.error?.message != null && ctx.error?.code == null'
+        if: 'ctx.postfix?.error?.message != null && ctx.postfix?.error?.code == null'

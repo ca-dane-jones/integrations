@@ -18,8 +18,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<bob@example.com>, relay=local, delay=22, delays=22/0.09/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
@@ -93,8 +93,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<frank@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
@@ -168,8 +168,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143005]: 264E480039: to=<nobody@example.com>, orig_to=<elastic@example.com>, relay=local, delay=22, delays=22/0.1/0/0, dsn=2.0.0, status=sent (delivered to file: /dev/null)",
@@ -243,8 +243,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=local, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
@@ -314,8 +314,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[2a02:cf40::1a]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
@@ -387,8 +387,8 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
-                    "event"
+                    "event",
+                    "metric"
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",

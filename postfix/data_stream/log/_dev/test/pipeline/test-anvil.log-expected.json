@@ -11,10 +11,11 @@
             },
             "event": {
                 "category": [
-                    "session",
-                    "email"
+                    "email",
+                    "session"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "anvil",
@@ -70,10 +71,11 @@
             },
             "event": {
                 "category": [
-                    "session",
-                    "email"
+                    "email",
+                    "session"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "anvil",
@@ -119,10 +121,11 @@
             },
             "event": {
                 "category": [
-                    "session",
-                    "email"
+                    "email",
+                    "session"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "anvil",

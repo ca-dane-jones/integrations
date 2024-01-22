@@ -6,6 +6,12 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
                 "module": "trivial-rewrite",
                 "original": "Jan  6 06:32:42 mail postfix/trivial-rewrite[140869]: warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
                 "provider": "postfix",
@@ -33,6 +39,12 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
                 "module": "trivial-rewrite",
                 "original": "Jan 11 06:32:42 mail postfix/trivial-rewrite[140869]: warning: relay_domains lookup failure",
                 "provider": "postfix",
@@ -60,6 +72,12 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
                 "module": "trivial-rewrite",
                 "original": "Jan  6 20:05:32 mail postfix/trivial-rewrite[142856]: message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                 "provider": "postfix",

@@ -17,9 +17,9 @@ processors:
   - grok:
       field: postfix.delivery.status_message
       patterns:
-        - '%{DATA}connect to %{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?: %{LOSTCONN:error.code}'
-        - '%{DATA}(?<error.code>Name service error) for name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}:%{GREEDYDATA}'
-        - '%{DATA}(?<error.code>SASL authentication failed)%{DATA}%{HOSTNAME:server.domain}\[%{IP:server.ip}\]%{GREEDYDATA}'
+        - '%{DATA}connect to %{HOSTNAME:server.domain}(\[%{IP:server.address}\]:%{POSINT:server.port:long})?: %{LOSTCONN:postfix.error.code}'
+        - '%{DATA}(?<postfix.error.code>Name service error) for name=%{HOSTNAME:dns.question.name} type=%{WORD:dns.question.type}:%{GREEDYDATA}'
+        - '%{DATA}(?<postfix.error.code>SASL authentication failed)%{DATA}%{HOSTNAME:server.domain}\[%{IP:server.ip}\]%{GREEDYDATA}'
       pattern_definitions:
         LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|Name service error|-1)'
       if: 'ctx.postfix?.delivery?.status_message != null'
@@ -36,9 +36,9 @@ processors:
       description: Set server.domain to dns.question.name if populated
       if: ctx.dns?.question?.name != null
   - set:
-      field: error.message
+      field: postfix.error.message
       value: "{{postfix.delivery.status_message}}"
-      description: Set error.message to postfix.delivery.status_message
+      description: Set postfix.error.message to postfix.delivery.status_message
       if: 'ctx.postfix?.delivery?.status_message != null'
   - append:
       description: Add the email to address if extracted.
@@ -51,23 +51,8 @@ processors:
       value: "{{{_tmp.postfix_email_to_original_address}}}"
       if: 'ctx._tmp?.postfix_email_to_original_address != null'  
   - append:
-      description: 'Append event to event.kind'
-      field: event.kind
-      value:
-        - event
-  - append:
-      description: 'Append email to event.category'
-      field: event.category
-      value:
-        - email
-      allow_duplicates: false
-  - append:
       description: 'Append info to event.type'
       field: event.type
       value: 
         - info
       allow_duplicates: false
-  - set:
-      description: Set event.outcome to failure
-      field: event.outcome
-      value: failure

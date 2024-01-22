@@ -76,11 +76,6 @@
             "ecs": {
                 "version": "8.11.0"
             },
-            "error": {
-                "code": "connection refused",
-                "id": "60ad6e44-497e-4fb7-992a-0f1f5895d938",
-                "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
-            },
             "event": {
                 "category": [
                     "email"
@@ -101,6 +96,12 @@
                 "name": "mail"
             },
             "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused",
+            "postfix": {
+                "error": {
+                    "code": "connection refused",
+                    "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+                }
+            },
             "process": {
                 "name": "postfix/smtp",
                 "pid": 121263

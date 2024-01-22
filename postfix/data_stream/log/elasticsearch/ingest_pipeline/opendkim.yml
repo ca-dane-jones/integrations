@@ -17,42 +17,8 @@ processors:
         - '%{GREEDYDATA:_tmp.catch_all}'
         description: 'Extracts opendkim event fields.'
   - append:
-        description: 'Append event to event.kind'
-        field: event.kind
-        value:
-            - event
-        allow_duplicates: false
-  - append:
-        # If postfix.dkim.version is null, this is an email event
-        description: 'Append email to event.category'
-        field: event.category
-        value:
-            - email
-        allow_duplicates: false
-        if: ctx.postfix?.dkim?.version == null
-  - append:
-        # If postfix.dkim.version is not null, this event is a process start event
-        # and event.category should be process
-        description: 'Append process to event.category'
-        field: event.category
-        value:
-            - process
-        allow_duplicates: false
-        if: ctx.postfix?.dkim?.version != null
-  - append:
-        # If postfix.dkim.version is null, this event is an info type.
         description: 'Append info to event.type'
         field: 'event.type'
         value: 
             - info
         allow_duplicates: false
-        if: ctx.postfix?.dkim?.version == null
-  - append:
-        # If postfix.dkim.version is not null, this event is a process start event
-        # and event type should be set to "start"
-        description: 'Append start to event.type'
-        field: event.type
-        value:
-            - start
-        allow_duplicates: false
-        if: ctx.postfix?.dkim?.version != null

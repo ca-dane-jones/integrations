@@ -32,18 +32,12 @@ processors:
       value: "{{{_tmp.postfix_email_to_original_address}}}"
       if: 'ctx._tmp?.postfix_email_to_original_address != null'  
   - append:
-      description: 'Set event.kind to metric and event'
+      description: 'Append metric to event.kind'
       field: event.kind
       value:
           - metric
-          - event
       allow_duplicates: false
-  - append:
-      description: 'Set event.category to email'
-      field: 'event.category'
-      value: 
-          - email
-      allow_duplicates: false
+      if: 'ctx.email?.local_id != null'
   - append:
       description: 'Set event.type to info'
       field: 'event.type'

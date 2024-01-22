@@ -54,12 +54,6 @@ processors:
       allow_duplicates: false
       if: 'ctx._tmp?.anvil?.max_connection_stat != null'
   - append:
-      description: 'Append email to event.category'
-      field: event.category
-      value: 
-        - email
-      allow_duplicates: false
-  - append:
       description: 'Append info to event.type'
       field: 'event.type'
       value: 

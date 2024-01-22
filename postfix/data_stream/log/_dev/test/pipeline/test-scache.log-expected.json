@@ -10,6 +10,7 @@
                     "email"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "scache",
@@ -52,6 +53,7 @@
                     "email"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "scache",
@@ -97,6 +99,7 @@
                     "email"
                 ],
                 "kind": [
+                    "event",
                     "metric"
                 ],
                 "module": "scache",

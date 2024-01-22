@@ -7,7 +7,7 @@
             },
             "event": {
                 "category": [
-                    "process"
+                    "email"
                 ],
                 "kind": [
                     "event"
@@ -17,7 +17,7 @@
                 "provider": "opendkim",
                 "timezone": "-05:00",
                 "type": [
-                    "start"
+                    "info"
                 ]
             },
             "host": {

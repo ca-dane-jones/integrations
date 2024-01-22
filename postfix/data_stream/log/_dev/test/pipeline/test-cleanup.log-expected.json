@@ -6,7 +6,6 @@
                 "version": "8.11.0"
             },
             "email": {
-                "direction": "inbound",
                 "local_id": "4A50D8017B",
                 "message_id": ""
             },
@@ -19,7 +18,6 @@
                 ],
                 "module": "cleanup",
                 "original": "Dec 31 04:49:02 mail postfix/cleanup[2276]: 4A50D8017B: message-id=<>",
-                "outcome": "success",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -49,7 +47,6 @@
                 "version": "8.11.0"
             },
             "email": {
-                "direction": "inbound",
                 "local_id": "9641C8017B",
                 "message_id": "he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus"
             },
@@ -62,7 +59,6 @@
                 ],
                 "module": "cleanup",
                 "original": "Dec 31 06:32:40 mail postfix/cleanup[19347]: 9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
-                "outcome": "success",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -92,7 +88,6 @@
                 "version": "8.11.0"
             },
             "email": {
-                "direction": "inbound",
                 "local_id": "78D8580001",
                 "message_id": "20240104110619.5B9CA202ED@plex.example.local"
             },
@@ -105,7 +100,6 @@
                 ],
                 "module": "cleanup",
                 "original": "Jan  4 06:06:35 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
-                "outcome": "success",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

@@ -22,18 +22,6 @@ processors:
       value: "{{{_tmp.email_from_address}}}"
       if: 'ctx._tmp?.email_from_address != null'
   - append:
-        description: 'Append event to event.kind'
-        field: event.kind
-        value:
-            - event
-        allow_duplicates: false
-  - append:
-        description: 'Append email to event.category'
-        field: event.category
-        value:
-            - email
-        allow_duplicates: false
-  - append:
         description: 'Append info to event.type'
         field: 'event.type'
         value: 

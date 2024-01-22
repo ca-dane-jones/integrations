@@ -9,6 +9,9 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -55,6 +58,9 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -101,6 +107,9 @@
                 "version": "8.11.0"
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],
@@ -154,6 +163,9 @@
                 }
             },
             "event": {
+                "category": [
+                    "email"
+                ],
                 "kind": [
                     "event"
                 ],

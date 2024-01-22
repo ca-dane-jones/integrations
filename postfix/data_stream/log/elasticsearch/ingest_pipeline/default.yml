@@ -17,6 +17,18 @@ processors:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
     if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
+- append:
+    description: 'Append event to event.kind'
+    field: event.kind
+    value:
+      - event
+    allow_duplicates: false
+- append:
+    description: 'Append email to event.category'
+    field: event.category
+    value: 
+      - email
+    allow_duplicates: false
 - grok:
     description: Extract syslog base and message
     field: event.original
@@ -27,15 +39,14 @@ processors:
       HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
 - date:
-    description: Set event timestamp
+    if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
     field: _tmp.timestamp
-    formats:
-        - MMM  d HH:mm:ss
-        - MMM d HH:mm:ss
-        - MMM dd HH:mm:ss
     target_field: '@timestamp'
+    formats:
+    - MMM  d HH:mm:ss
+    - MMM d HH:mm:ss
+    - MMM dd HH:mm:ss
     timezone: '{{ event.timezone }}'
-    if: 'ctx.event?.timezone != null && ctx._tmp?.timestamp != null'
 - set:
     description: Copy the process group parent ID to process ID if populated
     field: process.pid
