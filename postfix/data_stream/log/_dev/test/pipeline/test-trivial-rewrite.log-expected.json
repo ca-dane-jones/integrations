@@ -21,6 +21,12 @@
                 "name": "mail"
             },
             "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
+            "postfix": {
+                "error": {
+                    "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
+                    "type": "warning"
+                }
+            },
             "process": {
                 "name": "postfix/trivial-rewrite",
                 "pid": 140869
@@ -54,6 +60,12 @@
                 "name": "mail"
             },
             "message": "warning: relay_domains lookup failure",
+            "postfix": {
+                "error": {
+                    "message": "warning: relay_domains lookup failure",
+                    "type": "warning"
+                }
+            },
             "process": {
                 "name": "postfix/trivial-rewrite",
                 "pid": 140869
@@ -87,6 +99,12 @@
                 "name": "mail"
             },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
+            "postfix": {
+                "error": {
+                    "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
+                    "type": "warning"
+                }
+            },
             "process": {
                 "name": "postfix/trivial-rewrite",
                 "pid": 142856

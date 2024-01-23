@@ -13,22 +13,15 @@
                     ]
                 }
             },
-            "error": {
-                "code": "connection refused",
-                "id": "9b57f41e-01a2-45f8-a15c-40f2a2ab8117",
-                "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
-            },
             "event": {
                 "category": [
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "event"
                 ],
                 "module": "error",
                 "original": "Jan  6 20:05:33 mail postfix/error[143004]: 1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
-                "outcome": "failure",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -64,6 +57,10 @@
                         ]
                     }
                 },
+                "error": {
+                    "code": "Connection refused",
+                    "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+                },
                 "relay": {
                     "server": {
                         "domain": "none"
@@ -91,6 +88,94 @@
                 "pipeline: default",
                 "pipeline: error",
                 "pipeline: geoip"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "error",
+                "original": "Jan  6 20:05:33 mail postfix/error[143004]: warning: This is a generic unparsed warning message",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "warning: This is a generic unparsed warning message",
+            "postfix": {
+                "error": {
+                    "message": "warning: This is a generic unparsed warning message",
+                    "type": "warning"
+                }
+            },
+            "process": {
+                "name": "postfix/error",
+                "pid": 143004
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: error",
+                "catch_all"
+            ]
+        },
+        {
+            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "error",
+                "original": "Jan  6 20:05:33 mail postfix/error[143004]: fatal: ..and this is an unparsed fatal message!",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "fatal: ..and this is an unparsed fatal message!",
+            "postfix": {
+                "error": {
+                    "message": "fatal: ..and this is an unparsed fatal message!",
+                    "type": "fatal"
+                }
+            },
+            "process": {
+                "name": "postfix/error",
+                "pid": 143004
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: error",
+                "catch_all"
             ]
         }
     ]
