@@ -1,0 +1,2 @@
+Nov  4 08:51:29 mail postfix/postscreen[12345]: CONNECT from [175.16.199.2]:25 to [175.16.199.2]:25
+Nov  4 08:51:29 mail postfix/postscreen[12345]: ALLOWLISTED [175.16.199.1]:25
