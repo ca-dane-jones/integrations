@@ -26,8 +26,6 @@ processors:
           - '(?<postfix.error.type>warning): (?<postfix.error.code>TLS library problem): %{GREEDYDATA}'
           - '(?<postfix.error.type>warning): hostname %{HOSTNAME:client.domain} (?<postfix.error.code>does not resolve to address) %{IP:client.address}'
           - '(?<postfix.error.type>warning): (?<postfix.error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
-          - '(?<postfix.error.type>warning): %{GREEDYDATA}'
-          - '(?<postfix.error.type>fatal): %{GREEDYDATA}'
           - '%{GREEDYDATA:_tmp.catch_all}'
       pattern_definitions:
           # Command definitions
@@ -166,10 +164,10 @@ processors:
             - "{{{message}}}"
         allow_duplicates: false
         if: "ctx.postfix?.error?.type != null && (ctx.postfix?.error?.type == 'warning' || ctx.postfix?.error?.type == 'fatal')"
-  # --------------------------------------------------------------------------------------------------------
-  #  Error messsage and code handling for missing command parser for disconnect events 
+  # -------------------------------------------------------------------------------------
+  #  Error messsage and code handling for missing command parser in disconnect events 
   #  with a command summary
-  # --------------------------------------------------------------------------------------------------------
+  # -------------------------------------------------------------------------------------
   - append:
         description: "Append an error message containing information about a missing command parser, if any, for disconnect messages."
         field: postfix.error.message

@@ -102,6 +102,14 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
+- grok:
+    description: 'Capture any unparsed warning or fatal messages.'
+    field: message
+    patterns:
+        - '(?<postfix.error.message>(?<postfix.error.type>warning): %{GREEDYDATA})'
+        - '(?<postfix.error.message>(?<postfix.error.type>fatal): %{GREEDYDATA})'
+    if: ctx.postfix?.error?.type == null
+    ignore_failure: true
 - registered_domain:
     field: client.domain
     target_field: client
@@ -187,4 +195,3 @@ on_failure:
     field:
       - _tmp
     ignore_failure: true
-
