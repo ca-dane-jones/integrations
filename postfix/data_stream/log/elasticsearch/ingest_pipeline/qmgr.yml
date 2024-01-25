@@ -27,8 +27,3 @@ processors:
         value: 
             - info
         allow_duplicates: false
-  - set:
-        description: 'Set event.outcome to success'
-        field: 'event.outcome'
-        value: 
-            - success
