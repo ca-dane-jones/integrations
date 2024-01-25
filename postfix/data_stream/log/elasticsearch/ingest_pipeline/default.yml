@@ -102,14 +102,6 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
-- grok:
-    description: 'Capture any unparsed warning or fatal messages.'
-    field: message
-    patterns:
-        - '(?<postfix.error.message>(?<postfix.error.type>warning): %{GREEDYDATA})'
-        - '(?<postfix.error.message>(?<postfix.error.type>fatal): %{GREEDYDATA})'
-    if: ctx.postfix?.error?.type == null
-    ignore_failure: true
 - registered_domain:
     field: client.domain
     target_field: client
@@ -148,18 +140,32 @@ processors:
 # Postfix error event processing
 #   TODO: Should probably move this to it's own pipeline
 # ------------------------------------------------------------------------------------------------------------------
+- grok:
+    description: 'Capture any unparsed warning or fatal messages.'
+    field: message
+    patterns:
+        - '(?<postfix.error.message>(?<postfix.error.type>warning): %{GREEDYDATA})'
+        - '(?<postfix.error.message>(?<postfix.error.type>fatal): %{GREEDYDATA})'
+    if: 'ctx.postfix?.error?.type == null'
+    ignore_failure: true
 - script:
     # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the UUID?
     source: |
-        def err = ctx.error;
+        def err = ctx.postfix.error;
         err.id = java.util.UUID.randomUUID().toString();
-        ctx.error = err;
-    if: 'ctx.error?.message != null'
-    description: "Generate an UUID and assign it to error.id if the event contains an error message."
+        ctx.postfix.error = err;
+    if: 'ctx.postfix?.error?.message != null'
+    description: "Generate an UUID and assign it to postfix.error.id if the event contains an error message."
 - lowercase:
     description: 'Drop error.code to lowercase if populated'
     field: error.code
     if: "ctx.error?.code != null"
+- set:
+    description: |
+        Set postfix.error.code to "not parsed" if postfix.error.message is set and postfix.error.code is not set.
+    field: postfix.error.code
+    value: 'not parsed'
+    if: 'ctx.postfix?.error?.message != null && ctx.postfix?.error?.code == null'
 # ---- End Section -----
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
