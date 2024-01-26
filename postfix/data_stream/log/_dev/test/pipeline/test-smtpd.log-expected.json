@@ -325,6 +325,7 @@
                     "code": [
                         "grok parsing failure"
                     ],
+                    "id": "379910fe-c0bc-4774-8163-90bb0dc6f936",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -805,7 +806,8 @@
             "message": "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
             "postfix": {
                 "error": {
-                    "code": "TLS library problem",
+                    "code": "tls library problem",
+                    "id": "ab57a444-a93d-4063-aca0-b5610341319c",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -851,7 +853,8 @@
             "message": "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
             "postfix": {
                 "error": {
-                    "code": "RBL lookup error",
+                    "code": "rbl lookup error",
+                    "id": "9bc615b8-eb64-4cf4-bd99-30407c156cab",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -917,6 +920,7 @@
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
+                    "id": "0133c50f-0153-4c1c-9205-2c0359b9b02b",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -980,7 +984,8 @@
             "message": "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}",
             "postfix": {
                 "error": {
-                    "code": "non-SMTP command",
+                    "code": "non-smtp command",
+                    "id": "8086d43b-36e6-40f7-bee1-95483fac7ab7",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],

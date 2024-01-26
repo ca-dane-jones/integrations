@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.31"
+- version: "0.0.32"
   changes:
     - description: Catch all implementation
       type: enhancement

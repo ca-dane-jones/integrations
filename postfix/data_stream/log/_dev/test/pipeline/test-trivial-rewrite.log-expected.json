@@ -23,6 +23,8 @@
             "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
             "postfix": {
                 "error": {
+                    "code": "not parsed",
+                    "id": "22f066a5-1802-4162-8fc1-2e906e1807e2",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
                     "type": "warning"
                 }
@@ -62,6 +64,8 @@
             "message": "warning: relay_domains lookup failure",
             "postfix": {
                 "error": {
+                    "code": "not parsed",
+                    "id": "a9ff8b23-a16b-47b7-8173-4f23da78102a",
                     "message": "warning: relay_domains lookup failure",
                     "type": "warning"
                 }
@@ -101,6 +105,8 @@
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
                 "error": {
+                    "code": "not parsed",
+                    "id": "47f6179a-4f65-4830-b277-51a9cedfd789",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }

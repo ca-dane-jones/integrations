@@ -98,6 +98,7 @@
             "postfix": {
                 "error": {
                     "code": "connection refused",
+                    "id": "9658d24f-0887-40db-acd8-6a7d0c50bfcd",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 }
             },
