@@ -1,6 +1,6 @@
 ---
 description: |
-    Pipeline for processing Postfix SMTP events.  
+  Pipeline for processing Postfix SMTP events.  
 processors:
   - append:
       description: Append pipeline trace tag if enabled
@@ -18,15 +18,24 @@ processors:
       pattern_definitions:
         LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
   - grok:
+      field: postfix.delivery.status_message
+      patterns:
+        - '(?<postfix.error.message>connect to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: %{LOSTCONN:postfix.error.code})'      
+      pattern_definitions:
+        LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
+      if: ctx.postfix?.delivery?.status_message != null
+      ignore_failure: true
+      description: Parse error and server information from a delivery status message
+  - grok:
       field: _tmp.postfix_relay_info
       patterns:
         - '%{HOSTNAME:postfix.relay.server.domain}(\[%{IP:postfix.relay.server.address}\]:%{POSINT:postfix.relay.server.port:long})?'
       if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postrix_relay_info != "none"'
       description: 'Extracts relay server details'  
   - lowercase:
-        description: 'Drop error.code to lowercase if populated'
-        field: postfix.error.code
-        if: "ctx.postfix?.error?.code != null"  
+      description: 'Drop error.code to lowercase if populated'
+      field: postfix.error.code
+      if: "ctx.postfix?.error?.code != null"  
   - append:
       description: Add the email to address if extracted.
       field: email.to.address

@@ -10,8 +10,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "scache",
                 "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: start interval Jan 16 15:32:37",
@@ -53,8 +53,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "scache",
                 "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: domain lookup hits=0 miss=1 success=0%",
@@ -99,8 +99,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "scache",
                 "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%",

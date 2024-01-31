@@ -18,11 +18,12 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "smtp",
                 "original": "Jan  5 06:36:56 mail postfix/smtp[121263]: 125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
+                "outcome": "failure",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -51,6 +52,11 @@
                     },
                     "status_message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
+                "error": {
+                    "code": "connection refused",
+                    "id": "a7f6a363-b960-4cb8-a29c-c2f34aafbc45",
+                    "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+                },
                 "relay": {
                     "server": {
                         "domain": "none"
@@ -61,13 +67,23 @@
                 "name": "postfix/smtp",
                 "pid": 121263
             },
+            "server": {
+                "address": "192.168.1.218",
+                "domain": "elastic.example.com",
+                "ip": "192.168.1.218",
+                "port": 25,
+                "registered_domain": "example.com",
+                "subdomain": "elastic",
+                "top_level_domain": "com"
+            },
             "tags": [
                 "preserve_original_event",
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtp"
+                "pipeline: smtp",
+                "pipeline: geoip"
             ]
         },
         {
@@ -98,7 +114,7 @@
             "postfix": {
                 "error": {
                     "code": "connection refused",
-                    "id": "9658d24f-0887-40db-acd8-6a7d0c50bfcd",
+                    "id": "091e984e-2cfb-433e-a88d-fb259565848b",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 }
             },
@@ -130,15 +146,24 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "local_id": "125891E00BA",
+                "to": {
+                    "address": [
+                        "user@example.com"
+                    ]
+                }
+            },
             "event": {
                 "category": [
                     "email"
                 ],
                 "kind": [
+                    "metric",
                     "event"
                 ],
                 "module": "smtp",
-                "original": "Jul  2 12:24:48 mail postfix/smtp[12345]: 1234567890A: to=user@example.com, relay=198.51.100.0[198.51.100.0]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+                "original": "Jul  2 12:24:48 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -148,10 +173,37 @@
             "host": {
                 "name": "mail"
             },
-            "message": "1234567890A: to=user@example.com, relay=198.51.100.0[198.51.100.0]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+            "message": "125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 5.1,
+                        "connection_setup_time": 0.02,
+                        "in_qmgr_time": 0.02,
+                        "message_transmission_time": 0.2,
+                        "total_time": 5.3
+                    },
+                    "status": "sent",
+                    "status_code": {
+                        "class": 1,
+                        "detail": 3,
+                        "subject": 2,
+                        "value": "1.2.3"
+                    },
+                    "status_message": "250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery"
+                },
+                "relay": {
+                    "server": {
+                        "address": "89.160.20.129",
+                        "domain": "89.160.20.129",
+                        "ip": "89.160.20.129",
+                        "port": 25
+                    }
+                }
+            },
             "process": {
                 "name": "postfix/smtp",
-                "pid": 12345
+                "pid": 123456
             },
             "tags": [
                 "preserve_original_event",
@@ -159,8 +211,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtp",
-                "catch_all"
+                "pipeline: smtp"
             ]
         }
     ]

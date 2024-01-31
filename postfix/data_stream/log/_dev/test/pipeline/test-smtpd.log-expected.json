@@ -222,8 +222,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "smtpd",
                 "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
@@ -305,8 +305,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "smtpd",
                 "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
@@ -325,7 +325,7 @@
                     "code": [
                         "grok parsing failure"
                     ],
-                    "id": "379910fe-c0bc-4774-8163-90bb0dc6f936",
+                    "id": "8f8626ef-1146-4f53-9cd4-f1d7dd393a10",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -393,8 +393,8 @@
                     "email"
                 ],
                 "kind": [
-                    "event",
-                    "metric"
+                    "metric",
+                    "event"
                 ],
                 "module": "smtpd",
                 "original": "Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
@@ -807,7 +807,7 @@
             "postfix": {
                 "error": {
                     "code": "tls library problem",
-                    "id": "ab57a444-a93d-4063-aca0-b5610341319c",
+                    "id": "e7b8d4b5-c459-4de0-a48c-466932458079",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -854,7 +854,7 @@
             "postfix": {
                 "error": {
                     "code": "rbl lookup error",
-                    "id": "9bc615b8-eb64-4cf4-bd99-30407c156cab",
+                    "id": "8d4ee7f0-4578-41ba-9d74-32dd73550273",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -920,7 +920,7 @@
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
-                    "id": "0133c50f-0153-4c1c-9205-2c0359b9b02b",
+                    "id": "a0492e4e-de9b-47c5-87db-ce9bbaca0fec",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -985,7 +985,7 @@
             "postfix": {
                 "error": {
                     "code": "non-smtp command",
-                    "id": "8086d43b-36e6-40f7-bee1-95483fac7ab7",
+                    "id": "d185edc1-3f86-4e15-8c9d-7e13a8e9ee6c",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],
