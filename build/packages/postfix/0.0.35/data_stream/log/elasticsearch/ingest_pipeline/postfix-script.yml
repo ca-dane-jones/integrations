@@ -1,0 +1,23 @@
+---
+description: |
+    Pipeline for processing Postfix postfix-script events.  postfix-script is used to administratively start, stop, 
+    or reload configuration for the postfix master process.
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: postfix-script"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - grok:
+        field: message
+        patterns:
+        - '(?<event.action>starting|stopping|refreshing) the Postfix mail system'
+        - '%{GREEDYDATA:_tmp.catch_all}'
+        description: 'Extract the postfix-script action.'
+  - append:
+        description: 'Append info to event.type'
+        field: 'event.type'
+        value: 
+            - info
+        allow_duplicates: false
