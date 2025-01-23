@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T20:05:22.000-05:00",
+            "@timestamp": "2025-12-31T20:05:22.000-05:00",
             "client": {
                 "geo": {
                     "city_name": "Changchun",
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T05:08:33.000-05:00",
+            "@timestamp": "2025-01-02T05:08:33.000-05:00",
             "client": {
                 "geo": {
                     "city_name": "Changchun",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-03T06:20:58.000-05:00",
+            "@timestamp": "2025-01-03T06:20:58.000-05:00",
             "client": {
                 "geo": {
                     "city_name": "Changchun",
@@ -187,7 +187,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-03T06:20:58.000-05:00",
+            "@timestamp": "2025-01-03T06:20:58.000-05:00",
             "client": {
                 "geo": {
                     "city_name": "Changchun",
@@ -222,6 +222,75 @@
                 ],
                 "module": "policyd-spf",
                 "original": "Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
+                "provider": "policyd-spf",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
+            "postfix": {
+                "spf": {
+                    "envelope_from": "root@subdomain.example.com",
+                    "helo": "nessus.example.local",
+                    "identity": "mailfrom",
+                    "receiver": "someone@example.com",
+                    "result": "None"
+                }
+            },
+            "process": {
+                "name": "policyd-spf",
+                "pid": 79394
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: policyd-spf",
+                "pipeline: geoip"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "client": {
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
+                "ip": "175.16.199.211"
+            },
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "policyd-spf",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
                 "provider": "policyd-spf",
                 "timezone": "-05:00",
                 "type": [

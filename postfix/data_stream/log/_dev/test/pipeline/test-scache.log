@@ -1,3 +1,4 @@
 Jan 10 14:55:55 mail postfix/scache[20511]: statistics: start interval Jan 16 15:32:37
 Jan 10 14:55:55 mail postfix/scache[20511]: statistics: domain lookup hits=0 miss=1 success=0%
 Jan 10 14:55:55 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%
+2025-01-22T19:03:58.807240-05:00 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%

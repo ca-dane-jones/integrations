@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:57.000-05:00",
+            "@timestamp": "2025-12-31T04:17:57.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -49,7 +49,7 @@
             }
         },
         {
-            "@timestamp": "2024-01-03T06:25:22.000-05:00",
+            "@timestamp": "2025-01-03T06:25:22.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -70,6 +70,54 @@
                 ],
                 "module": "pickup",
                 "original": "Jan  3 06:25:22 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "4501D80099: uid=0 from=<root>",
+            "process": {
+                "name": "postfix/pickup",
+                "pid": 79317
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: pickup"
+            ],
+            "user": {
+                "id": "0"
+            }
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "from": {
+                    "address": [
+                        "root"
+                    ]
+                },
+                "local_id": "4501D80099"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "pickup",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

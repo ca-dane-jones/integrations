@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -78,7 +78,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -155,7 +155,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -232,7 +232,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -302,7 +302,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -377,7 +377,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -399,6 +399,81 @@
                 ],
                 "module": "local",
                 "original": "Jan  6 20:05:33 mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 22.0,
+                        "connection_setup_time": 0.0,
+                        "in_qmgr_time": 0.07,
+                        "message_transmission_time": 0.02,
+                        "total_time": 22
+                    },
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    },
+                    "status_message": "delivered to maildir"
+                },
+                "relay": {
+                    "server": {
+                        "address": "175.16.199.5",
+                        "domain": "ALT2.ASPMX.L.GOOGLE.COM",
+                        "ip": "175.16.199.5",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/local",
+                "pid": 143004
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: local"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "264E480039",
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "metric",
+                    "event"
+                ],
+                "module": "local",
+                "original": "2025-01-22T19:03:58.807240-05:00  mail postfix/local[143004]: 264E480039: to=<someone@example.com>, relay=ALT2.ASPMX.L.GOOGLE.COM[175.16.199.5]:25, delay=22, delays=22/0.07/0/0.02, dsn=2.0.0, status=sent (delivered to maildir)",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

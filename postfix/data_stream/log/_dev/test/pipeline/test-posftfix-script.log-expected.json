@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:56.000-05:00",
+            "@timestamp": "2025-12-31T04:17:56.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "@timestamp": "2025-01-02T10:17:43.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -77,7 +77,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:43.000-05:00",
+            "@timestamp": "2025-01-02T10:17:43.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -91,6 +91,44 @@
                 ],
                 "module": "postfix-script",
                 "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "refreshing the Postfix mail system",
+            "process": {
+                "name": "postfix/postfix-script",
+                "pid": 59702
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: postfix-script"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "action": "refreshing",
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "postfix-script",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

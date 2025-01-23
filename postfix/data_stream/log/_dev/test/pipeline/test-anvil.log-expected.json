@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T23:54:23.000-05:00",
+            "@timestamp": "2025-12-31T23:54:23.000-05:00",
             "client": {
                 "address": "89.160.20.129",
                 "as": {
@@ -52,7 +52,7 @@
                 "anvil": {
                     "connection": {
                         "duration": 201000,
-                        "end_time": "2024-12-31T23:54:23.000-05:00",
+                        "end_time": "2025-12-31T23:54:23.000-05:00",
                         "rate": {
                             "count": 1,
                             "timespan": {
@@ -61,7 +61,7 @@
                             }
                         },
                         "service_name": "smtp",
-                        "start_time": "2024-12-31T23:51:02.000-05:00"
+                        "start_time": "2025-12-31T23:51:02.000-05:00"
                     }
                 }
             },
@@ -80,7 +80,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-01T00:07:07.000-05:00",
+            "@timestamp": "2025-01-01T00:07:07.000-05:00",
             "client": {
                 "address": "89.160.20.113",
                 "as": {
@@ -132,9 +132,9 @@
                     "connection": {
                         "count": 1,
                         "duration": 201000,
-                        "end_time": "2024-01-01T00:07:07.000-05:00",
+                        "end_time": "2025-01-01T00:07:07.000-05:00",
                         "service_name": "smtp",
-                        "start_time": "2024-01-01T00:03:46.000-05:00"
+                        "start_time": "2025-01-01T00:03:46.000-05:00"
                     }
                 }
             },
@@ -153,7 +153,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-01T00:07:07.000-05:00",
+            "@timestamp": "2025-01-01T00:07:07.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -183,14 +183,63 @@
                     "connection": {
                         "cache_size": 1,
                         "duration": 201000,
-                        "end_time": "2024-01-01T00:07:07.000-05:00",
-                        "start_time": "2024-01-01T00:03:46.000-05:00"
+                        "end_time": "2025-01-01T00:07:07.000-05:00",
+                        "start_time": "2025-01-01T00:03:46.000-05:00"
                     }
                 }
             },
             "process": {
                 "name": "postfix/anvil",
                 "pid": 21457
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: anvil"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "session",
+                    "email"
+                ],
+                "kind": [
+                    "metric",
+                    "event"
+                ],
+                "module": "anvil",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/anvil[36715]: statistics: max cache size 1 at Jan 22 19:00:37",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "statistics: max cache size 1 at Jan 22 19:00:37",
+            "postfix": {
+                "anvil": {
+                    "connection": {
+                        "cache_size": 1,
+                        "duration": -17798193,
+                        "end_time": "2025-01-22T19:03:58.807Z",
+                        "start_time": "2025-01-22T19:00:37.000-05:00"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/anvil",
+                "pid": 36715
             },
             "tags": [
                 "preserve_original_event",

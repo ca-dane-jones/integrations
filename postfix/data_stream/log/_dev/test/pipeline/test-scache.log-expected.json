@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-01-10T14:55:55.000-05:00",
+            "@timestamp": "2025-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -27,7 +27,7 @@
             "message": "statistics: start interval Jan 16 15:32:37",
             "postfix": {
                 "scache": {
-                    "start_interval_timestamp": "2024-01-16T15:32:37.000-05:00"
+                    "start_interval_timestamp": "2025-01-16T15:32:37.000-05:00"
                 }
             },
             "process": {
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-10T14:55:55.000-05:00",
+            "@timestamp": "2025-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -90,7 +90,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-10T14:55:55.000-05:00",
+            "@timestamp": "2025-01-10T14:55:55.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -104,6 +104,52 @@
                 ],
                 "module": "scache",
                 "original": "Jan 10 14:55:55 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "statistics: address lookup hits=0 miss=1 success=0%",
+            "postfix": {
+                "scache": {
+                    "cache_hits": 0,
+                    "cache_hits_percentage": 0,
+                    "cache_misses": 1,
+                    "cache_type": "address"
+                }
+            },
+            "process": {
+                "name": "postfix/scache",
+                "pid": 20511
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: scache"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "metric",
+                    "event"
+                ],
+                "module": "scache",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/scache[20511]: statistics: address lookup hits=0 miss=1 success=0%",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

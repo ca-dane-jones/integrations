@@ -1,3 +1,4 @@
 Jan  5 06:36:56 mail postfix/smtp[121263]: 125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)
 Jan  5 06:36:56 mail postfix/smtp[121263]: connect to elastic.example.com[192.168.1.218]:25: Connection refused
 Jul  2 12:24:48 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)
+2025-01-22T19:03:58.807240-05:00 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)

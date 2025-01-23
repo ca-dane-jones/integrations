@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-01-06T06:32:42.000-05:00",
+            "@timestamp": "2025-01-06T06:32:42.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -24,7 +24,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "c26ed204-8928-4f68-9757-6fd8f46aae26",
+                    "id": "1678a9f3-7bd6-4913-ae4e-db91a71fa876",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
                     "type": "warning"
                 }
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-11T06:32:42.000-05:00",
+            "@timestamp": "2025-01-11T06:32:42.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -65,7 +65,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "3e6b18d8-39eb-43c8-b92d-ccf48a575920",
+                    "id": "b21ed053-8565-44e9-9514-eb163f116256",
                     "message": "warning: relay_domains lookup failure",
                     "type": "warning"
                 }
@@ -83,7 +83,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:32.000-05:00",
+            "@timestamp": "2025-01-06T20:05:32.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -106,7 +106,48 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "8da616fe-5dba-4ce5-a857-2226e5fa78ec",
+                    "id": "d8b3ff82-3b07-4676-88e9-0186d54b4155",
+                    "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
+                    "type": "warning"
+                }
+            },
+            "process": {
+                "name": "postfix/trivial-rewrite",
+                "pid": 142856
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:00:37.966Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "trivial-rewrite",
+                "original": "2025-01-22T19:00:37.966121-05:00 mail postfix/trivial-rewrite[142856]: message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
+            "postfix": {
+                "error": {
+                    "code": "not parsed",
+                    "id": "de1e9300-ea80-400d-b5aa-6ff38a28de81",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }

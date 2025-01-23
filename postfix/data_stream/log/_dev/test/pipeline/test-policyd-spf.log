@@ -2,3 +2,4 @@ Dec 31 20:05:22 mail policyd-spf[21130]: prepend Received-SPF: Pass (mailfrom) i
 Jan  2 05:08:33 mail policyd-spf[41310]: prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> 
 Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>
 Jan  3 06:20:58 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com
+2025-01-22T19:03:58.807240-05:00 mail policyd-spf[79394]: prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com

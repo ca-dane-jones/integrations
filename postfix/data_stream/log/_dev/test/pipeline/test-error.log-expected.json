@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -59,7 +59,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "07b7fc15-30a7-46ad-a7a6-d37a923f9309",
+                    "id": "bcdbc55f-ac0f-4c43-ae49-3e79d971ddad",
                     "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -92,7 +92,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -118,7 +118,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "4d4e7aea-056f-41d5-98a3-36069125adee",
+                    "id": "b3d228e6-0449-4747-8065-ba20031112c6",
                     "message": "warning: This is a generic unparsed warning message",
                     "type": "warning"
                 }
@@ -138,7 +138,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-06T20:05:33.000-05:00",
+            "@timestamp": "2025-01-06T20:05:33.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -164,7 +164,53 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "54e616c6-469e-41fa-b342-07620fefd78f",
+                    "id": "22cd11a0-ac52-4740-8cf7-aad82ee8229b",
+                    "message": "fatal: ..and this is an unparsed fatal message!",
+                    "type": "fatal"
+                }
+            },
+            "process": {
+                "name": "postfix/error",
+                "pid": 143004
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: error",
+                "catch_all"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "error",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/error[143004]: fatal: ..and this is an unparsed fatal message!",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "fatal: ..and this is an unparsed fatal message!",
+            "postfix": {
+                "error": {
+                    "code": "not parsed",
+                    "id": "964856a9-80c9-43f2-af4b-62a052333969",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }

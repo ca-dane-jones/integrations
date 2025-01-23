@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:49:02.000-05:00",
+            "@timestamp": "2025-12-31T04:49:02.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "@timestamp": "2024-12-31T06:32:40.000-05:00",
+            "@timestamp": "2025-12-31T06:32:40.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -83,7 +83,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-04T06:06:35.000-05:00",
+            "@timestamp": "2025-01-04T06:06:35.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -100,6 +100,47 @@
                 ],
                 "module": "cleanup",
                 "original": "Jan  4 06:06:35 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
+            "process": {
+                "name": "postfix/cleanup",
+                "pid": 99525
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: cleanup"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "78D8580001",
+                "message_id": "20240104110619.5B9CA202ED@plex.example.local"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "cleanup",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/cleanup[99525]: 78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

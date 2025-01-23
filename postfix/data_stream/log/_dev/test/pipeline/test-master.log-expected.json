@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:56.000-05:00",
+            "@timestamp": "2025-12-31T04:17:56.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "@timestamp": "2025-01-02T10:17:37.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-05T15:21:13.000-05:00",
+            "@timestamp": "2025-01-05T15:21:13.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -95,6 +95,47 @@
                 ],
                 "module": "master",
                 "original": "Jan  5 15:21:13 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "reload -- version 3.6.4, configuration /etc/postfix",
+            "postfix": {
+                "configuration_path": "/etc/postfix",
+                "version": "3.6.4"
+            },
+            "process": {
+                "name": "postfix/master",
+                "pid": 59704
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: master"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "master",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [

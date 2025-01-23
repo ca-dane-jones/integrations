@@ -1,3 +1,4 @@
 Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system
 Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system
 Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system
+2025-01-22T19:03:58.807240-05:00 mail postfix/postfix-script[59702]: refreshing the Postfix mail system

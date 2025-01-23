@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:53.000-05:00",
+            "@timestamp": "2025-12-31T04:17:53.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -35,7 +35,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "@timestamp": "2025-01-02T10:17:37.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -69,7 +69,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-02T10:17:37.000-05:00",
+            "@timestamp": "2025-01-02T10:17:37.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -82,6 +82,40 @@
                 ],
                 "module": "postfix",
                 "original": "Jan  2 10:17:37 mail postfix[59120]: To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+                "provider": "postfix",
+                "timezone": "-05:00"
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
+            "process": {
+                "name": "postfix",
+                "pgid": 59120,
+                "pid": 59120
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "postfix",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix[59120]: To disable backwards compatibility use \"postconf compatibility_level=3.6\" and \"postfix reload\"",
                 "provider": "postfix",
                 "timezone": "-05:00"
             },

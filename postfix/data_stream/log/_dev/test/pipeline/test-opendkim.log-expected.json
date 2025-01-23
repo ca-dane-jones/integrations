@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2024-12-31T04:17:42.000-05:00",
+            "@timestamp": "2025-12-31T04:17:42.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "@timestamp": "2024-01-01T20:05:22.000-05:00",
+            "@timestamp": "2025-01-01T20:05:22.000-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -60,6 +60,55 @@
                 ],
                 "module": "opendkim",
                 "original": "Jan  1 20:05:22 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
+                "provider": "opendkim",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
+            "postfix": {
+                "dkim": {
+                    "algorithm": "rsa-sha256",
+                    "domain": "accounts.google.com",
+                    "protocol": "SSL",
+                    "selector": "20230601"
+                }
+            },
+            "process": {
+                "name": "opendkim",
+                "pgid": 1042,
+                "pid": 1042
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: opendkim"
+            ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "2F82A8006C"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "opendkim",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail opendkim[1042]: 2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
                 "provider": "opendkim",
                 "timezone": "-05:00",
                 "type": [

@@ -21,11 +21,18 @@ processors:
     description: Extract syslog base and message
     field: event.original
     patterns:
-      - '%{SYSLOG_BASE}%{PROCESS_INFO}%{SPACE}%{GREEDYDATA:message}'
+      - '(?:%{SYSLOG_BASE}|%{SYSLOG_ISO8601})%{SPACE}%{HOST}%{SPACE}%{PROCESS_INFO}%{SPACE}%{GREEDYDATA:message}'
     pattern_definitions:
-      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}%{SPACE}%{HOST}%{SPACE}'
+      SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}'
+      SYSLOG_ISO8601: '(?<_tmp.timestamp8601>%{YEAR}-%{MONTHNUM}-%{MONTHDAY}T%{HOUR}:%{MINUTE}:%{SECOND}(?:\.%{INT})?)(?:%{ISO8601_TIMEZONE:event.timezone})?'
       HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
+- date:
+    if: ctx._tmp?.timestamp8601 != null
+    field: _tmp.timestamp8601
+    target_field: '@timestamp'
+    formats:
+      - ISO8601
 - date:
     if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
     field: _tmp.timestamp
