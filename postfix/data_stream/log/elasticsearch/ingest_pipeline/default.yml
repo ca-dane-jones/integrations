@@ -1,5 +1,5 @@
-#TODO: Add agent option for dropping log lines that aren't parsed.
 ---
+#TODO: Add agent option for dropping log lines that aren't parsed.
 description: Pipeline for processing Postfix logs
 processors:
 - append:
