@@ -1,3 +1,4 @@
+#TODO: Add agent option for dropping log lines that aren't parsed.
 ---
 description: Pipeline for processing Postfix logs
 processors:
@@ -28,11 +29,12 @@ processors:
       HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
 - date:
-    if: ctx._tmp?.timestamp8601 != null
+    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone != null
     field: _tmp.timestamp8601
     target_field: '@timestamp'
     formats:
       - ISO8601
+    timezone: '{{ event.timezone }}'
 - date:
     if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
     field: _tmp.timestamp
@@ -97,7 +99,7 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
-#TODO: Insert drop for events that aren't relevant to this pipeline.
+
 - registered_domain:
     field: client.domain
     target_field: client
