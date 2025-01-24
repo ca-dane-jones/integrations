@@ -59,7 +59,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "bcdbc55f-ac0f-4c43-ae49-3e79d971ddad",
+                    "id": "f5fc6805-c436-4526-abb4-3144ac910b18",
                     "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -118,7 +118,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "b3d228e6-0449-4747-8065-ba20031112c6",
+                    "id": "39784869-20f7-4aba-8417-7799ba08974c",
                     "message": "warning: This is a generic unparsed warning message",
                     "type": "warning"
                 }
@@ -164,7 +164,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "22cd11a0-ac52-4740-8cf7-aad82ee8229b",
+                    "id": "51ac56e8-25e9-425e-98b8-1a493a45c9db",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }
@@ -184,7 +184,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-22T19:03:58.807Z",
+            "@timestamp": "2025-01-22T19:03:58.807-05:00",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -210,7 +210,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "964856a9-80c9-43f2-af4b-62a052333969",
+                    "id": "3560e1c8-2362-4c6f-9d55-1a35be674f67",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }

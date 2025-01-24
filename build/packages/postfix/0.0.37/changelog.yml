@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.35"
+- version: "0.0.37"
   changes:
     - description: Implemented ISO8601 timestamp parsing
       type: enhancement
