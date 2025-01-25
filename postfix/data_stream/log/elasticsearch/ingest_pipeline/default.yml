@@ -165,6 +165,11 @@ processors:
     value: 'not parsed'
     if: 'ctx.postfix?.error?.message != null && ctx.postfix?.error?.code == null'
 # ---- End Section -----
+- set:
+    description: Copy event.type to log.level if set
+    field: log.level
+    value: '{{event.type}}'
+    if: ctx.event?.type != null
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
     field: tags
