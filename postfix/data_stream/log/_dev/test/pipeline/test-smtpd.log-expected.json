@@ -41,6 +41,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "connect from unknown[175.16.199.1]",
             "process": {
                 "name": "postfix/smtpd",
@@ -100,6 +105,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "connect from nessus.example.com[175.16.199.211]",
             "process": {
                 "name": "postfix/smtpd",
@@ -157,6 +167,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
             "postfix": {
@@ -235,6 +250,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
             "postfix": {
@@ -319,13 +339,18 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
             "postfix": {
                 "error": {
                     "code": [
                         "grok parsing failure"
                     ],
-                    "id": "78f22cc9-e7f3-4993-908f-d8df508bf086",
+                    "id": "81669963-62a7-47dc-820b-320b4a4c41c9",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -406,6 +431,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
             "postfix": {
@@ -502,6 +532,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[175.16.199.1]",
             "postfix": {
                 "smtpd": {
@@ -570,6 +605,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "SSL_accept error from nessus.example.com[175.16.199.211]: -1",
             "postfix": {
                 "smtpd": {
@@ -634,6 +674,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "error"
+                ]
             },
             "message": "improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\\r\\nQUIT\\r\\n",
             "postfix": {
@@ -704,6 +749,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "3183E8003F: client=o5.ptr2409.example.com[175.16.199.1]",
             "process": {
                 "name": "postfix/smtpd",
@@ -765,6 +815,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "37C3980086: client=o5.ptr2409.example.com[175.16.199.1]",
             "process": {
                 "name": "postfix/smtpd",
@@ -803,11 +858,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
             "postfix": {
                 "error": {
                     "code": "tls library problem",
-                    "id": "4b4b9591-3275-466b-a2a4-1524796fee67",
+                    "id": "d5c788e3-9c96-4895-b038-7cdd60584636",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -850,11 +910,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
             "postfix": {
                 "error": {
                     "code": "rbl lookup error",
-                    "id": "43182230-91b4-4ffb-8fbb-3ea39f75c4d0",
+                    "id": "f2be8a1f-d85d-4396-ad27-a8667d4c5bd7",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -916,11 +981,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "warning: hostname internettl.org does not resolve to address 175.16.199.1",
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
-                    "id": "e582d090-bc69-4f37-a553-78c77f1ec526",
+                    "id": "580ab283-941c-4653-95a9-35ca91a13a15",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -981,11 +1051,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}",
             "postfix": {
                 "error": {
                     "code": "non-smtp command",
-                    "id": "c14ac909-0384-4ae9-8daa-4ec5b0e9e71f",
+                    "id": "352efce0-8255-4302-b19c-e608c5ebd993",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],
@@ -1029,11 +1104,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "0e8fafbe-0954-4bac-b166-3d99fab968b4",
+                    "id": "c77e68ba-827a-483d-af67-c0b4f7459841",
                     "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
                     "type": "warning"
                 }

@@ -53,13 +53,21 @@ processors:
         - metric
       if: 'ctx.postfix?.delivery?.delays?.total_time != null'
   - append:
+      # Set to info because even.type: error is not supported for event.category: email.
       description: 'Append info to event.type'
       field: event.type
       value: 
         - info
       allow_duplicates: false
   - set:
-      description: 'Set event.outcome to failure if a postfix.error.code is populated'
-      field: event.outcome
-      value: failure
+      description: 'Set info to log.level if a postfix.error.code is not populated'
+      field: log.level
+      value: 
+        - info
+      if: 'ctx.postfix?.error?.code == null'
+  - set:
+      description: 'Set error to log.level if a postfix.error.code is populated'
+      field: log.level
+      value: 
+        - error
       if: 'ctx.postfix?.error?.code != null'

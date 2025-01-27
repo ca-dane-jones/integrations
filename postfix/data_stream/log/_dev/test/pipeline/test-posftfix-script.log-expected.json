@@ -24,6 +24,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "starting the Postfix mail system",
             "process": {
                 "name": "postfix/postfix-script",
@@ -61,6 +66,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "stopping the Postfix mail system",
             "process": {
@@ -100,6 +110,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "refreshing the Postfix mail system",
             "process": {
                 "name": "postfix/postfix-script",
@@ -137,6 +152,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "refreshing the Postfix mail system",
             "process": {

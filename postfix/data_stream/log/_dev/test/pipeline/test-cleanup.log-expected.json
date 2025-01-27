@@ -27,6 +27,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "4A50D8017B: message-id=<>",
             "process": {
                 "name": "postfix/cleanup",
@@ -67,6 +72,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
             "process": {
@@ -109,6 +119,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
             "process": {
                 "name": "postfix/cleanup",
@@ -149,6 +164,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
             "process": {

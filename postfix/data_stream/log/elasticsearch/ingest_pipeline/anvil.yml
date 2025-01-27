@@ -57,5 +57,10 @@ processors:
       description: 'Append info to event.type'
       field: 'event.type'
       value: 
-        - info
+        - 'info'
       allow_duplicates: false
+  - set:
+      description: 'Set log.level to info'
+      field: 'log.level'
+      value: 
+        - 'info'

@@ -10,14 +10,19 @@ processors:
         - "pipeline: postfix-script"
       if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
   - grok:
-        field: message
-        patterns:
+      field: message
+      patterns:
         - '(?<event.action>starting|stopping|refreshing) the Postfix mail system'
         - '%{GREEDYDATA:_tmp.catch_all}'
-        description: 'Extract the postfix-script action.'
+      description: 'Extract the postfix-script action.'
   - append:
-        description: 'Append info to event.type'
-        field: 'event.type'
-        value: 
-            - info
-        allow_duplicates: false
+      description: 'Append info to event.type'
+      field: 'event.type'
+      value: 
+        - 'info'
+      allow_duplicates: false
+  - set:
+      description: 'Set info to log.level'
+      field: log.level
+      value: 
+        - 'info'

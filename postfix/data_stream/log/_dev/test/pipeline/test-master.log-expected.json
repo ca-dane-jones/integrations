@@ -24,6 +24,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
                 "configuration_path": "/etc/postfix",
@@ -66,6 +71,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "terminating on signal 15",
             "process": {
                 "exit_code": 15,
@@ -103,6 +113,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
@@ -144,6 +159,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "postfix": {

@@ -23,6 +23,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "OpenDKIM Filter v2.11.0 starting",
             "postfix": {
                 "dkim": {
@@ -68,6 +73,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
             "postfix": {
@@ -117,6 +127,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
             "postfix": {

@@ -31,6 +31,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "F03408017B: uid=0 from=<postfix@maildomain.tld>",
             "process": {
                 "name": "postfix/pickup",
@@ -79,6 +84,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "4501D80099: uid=0 from=<root>",
             "process": {
                 "name": "postfix/pickup",
@@ -126,6 +136,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "4501D80099: uid=0 from=<root>",
             "process": {

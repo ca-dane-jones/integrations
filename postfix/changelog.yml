@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.39"
+- version: "0.0.40"
   changes:
     - description: Added log.info field support
       type: enhancement

@@ -31,6 +31,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
             "postfix": {
                 "delivery": {
@@ -59,7 +64,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "f5fc6805-c436-4526-abb4-3144ac910b18",
+                    "id": "b5d35fb5-e169-4d8a-ad0f-cfb2060c5e34",
                     "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -114,11 +119,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "warning: This is a generic unparsed warning message",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "39784869-20f7-4aba-8417-7799ba08974c",
+                    "id": "ccdfbaf9-88e5-4830-a43d-91bf73349b91",
                     "message": "warning: This is a generic unparsed warning message",
                     "type": "warning"
                 }
@@ -160,11 +170,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "51ac56e8-25e9-425e-98b8-1a493a45c9db",
+                    "id": "9bdd8529-f2a9-4841-86a2-e3cf16d00c47",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }
@@ -206,11 +221,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "3560e1c8-2362-4c6f-9d55-1a35be674f67",
+                    "id": "dfe03a69-6abe-4988-8149-db77a138ab76",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }

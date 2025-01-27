@@ -23,7 +23,6 @@
                 ],
                 "module": "smtp",
                 "original": "Jan  5 06:36:56 mail postfix/smtp[121263]: 125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
-                "outcome": "failure",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -32,6 +31,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "error"
+                ]
             },
             "message": "125891E00BF: to=<root@elastic.example.com>, relay=none, delay=152026, delays=152026/0.08/0.02/0, dsn=4.4.1, status=deferred (connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
             "postfix": {
@@ -54,7 +58,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "d0f9fe0a-a861-4f41-a660-8b6903fa256a",
+                    "id": "a943ee5d-b912-4af4-8da3-26f803bb09ac",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -100,7 +104,6 @@
                 ],
                 "module": "smtp",
                 "original": "Jan  5 06:36:56 mail postfix/smtp[121263]: connect to elastic.example.com[192.168.1.218]:25: Connection refused",
-                "outcome": "failure",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -110,11 +113,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "error"
+                ]
+            },
             "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused",
             "postfix": {
                 "error": {
                     "code": "connection refused",
-                    "id": "a7a5eab1-2ec6-4a16-8ad7-f8abf027de03",
+                    "id": "7ce0dbc7-1b49-4748-9ee7-914f84e0b854",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 }
             },
@@ -172,6 +180,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
             "postfix": {
@@ -245,6 +258,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
             "postfix": {

@@ -24,6 +24,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "statistics: start interval Jan 16 15:32:37",
             "postfix": {
                 "scache": {
@@ -66,6 +71,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "statistics: domain lookup hits=0 miss=1 success=0%",
             "postfix": {
@@ -113,6 +123,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "statistics: address lookup hits=0 miss=1 success=0%",
             "postfix": {
                 "scache": {
@@ -158,6 +173,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "statistics: address lookup hits=0 miss=1 success=0%",
             "postfix": {

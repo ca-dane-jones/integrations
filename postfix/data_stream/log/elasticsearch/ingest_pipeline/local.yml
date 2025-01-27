@@ -35,12 +35,17 @@ processors:
       description: 'Append metric to event.kind'
       field: event.kind
       value:
-          - metric
+        - 'metric'
       allow_duplicates: false
       if: 'ctx.email?.local_id != null'
   - append:
       description: 'Set event.type to info'
       field: 'event.type'
       value: 
-          - info
+        - 'info'
       allow_duplicates: false
+  - set:
+      description: 'Set info to log.level'
+      field: log.level
+      value: 
+        - 'info'

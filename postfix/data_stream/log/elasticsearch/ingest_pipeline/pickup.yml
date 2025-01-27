@@ -20,5 +20,11 @@ processors:
       if: 'ctx._tmp?.email_from_address != null'
   - append:
       field: event.type
-      value: 'info'
+      value: 
+        - 'info'
       description: 'Append info to event.type'
+  - set:
+      description: 'Set info to log.level'
+      field: log.level
+      value: 
+        - 'info'

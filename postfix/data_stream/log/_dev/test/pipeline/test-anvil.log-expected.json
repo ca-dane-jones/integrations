@@ -47,6 +47,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "statistics: max connection rate 1/60s for (smtp:89.160.20.129) at Dec 31 23:51:02",
             "postfix": {
                 "anvil": {
@@ -126,6 +131,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46",
             "postfix": {
                 "anvil": {
@@ -177,6 +187,11 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
             "message": "statistics: max cache size 1 at Jan  1 00:03:46",
             "postfix": {
                 "anvil": {
@@ -225,6 +240,11 @@
             },
             "host": {
                 "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
             },
             "message": "statistics: max cache size 1 at Jan 22 19:00:37",
             "postfix": {
