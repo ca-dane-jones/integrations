@@ -1,0 +1,49 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2025-02-25T07:56:14.799-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "spawn",
+                "original": "2025-02-25T07:56:14.799145-05:00 mail spawn[136649]: fatal: spawn_comand: execvp /usr/bin/policyd-spf: No such file or directory",
+                "provider": "spawn",
+                "timezone": "-05:00"
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": "error"
+            },
+            "message": "fatal: spawn_comand: execvp /usr/bin/policyd-spf: No such file or directory",
+            "postfix": {
+                "error": {
+                    "code": "not parsed",
+                    "id": "8621b30f-858d-4695-b172-aa059c2cfc18",
+                    "message": "fatal: spawn_comand: execvp /usr/bin/policyd-spf: No such file or directory",
+                    "type": "fatal"
+                }
+            },
+            "process": {
+                "name": "spawn",
+                "pgid": 136649,
+                "pid": 136649
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default"
+            ]
+        }
+    ]
+}

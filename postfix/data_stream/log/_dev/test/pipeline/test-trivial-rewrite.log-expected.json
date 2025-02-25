@@ -20,11 +20,14 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "warn"
+            },
             "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "2c95cdc8-ab26-4136-b266-48e48f2a6a0c",
+                    "id": "e3bb5774-ba2c-474c-a0b1-750c33240b77",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
                     "type": "warning"
                 }
@@ -61,11 +64,14 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "warn"
+            },
             "message": "warning: relay_domains lookup failure",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "22f6ffac-25cc-4a9b-9f8c-a212f93d9800",
+                    "id": "dede1b1d-83ba-467c-b159-53c1a28094e4",
                     "message": "warning: relay_domains lookup failure",
                     "type": "warning"
                 }
@@ -102,11 +108,14 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "warn"
+            },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "f653d70f-80c2-4ca3-a46a-7fde42185468",
+                    "id": "474abb27-80c5-4a58-95d9-a457585f5c47",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }
@@ -143,11 +152,14 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "warn"
+            },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "58961c6c-e47e-4fc0-aa1c-6ba564558f3a",
+                    "id": "6faf6554-c687-4895-be2a-e871fa822be9",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }

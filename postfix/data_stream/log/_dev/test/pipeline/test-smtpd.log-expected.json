@@ -350,7 +350,7 @@
                     "code": [
                         "grok parsing failure"
                     ],
-                    "id": "81669963-62a7-47dc-820b-320b4a4c41c9",
+                    "id": "7dfccd6c-55bd-4047-9fc4-6106a68db900",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -867,7 +867,7 @@
             "postfix": {
                 "error": {
                     "code": "tls library problem",
-                    "id": "d5c788e3-9c96-4895-b038-7cdd60584636",
+                    "id": "e012524e-135e-418f-8f38-730f92b5888a",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -919,7 +919,7 @@
             "postfix": {
                 "error": {
                     "code": "rbl lookup error",
-                    "id": "f2be8a1f-d85d-4396-ad27-a8667d4c5bd7",
+                    "id": "8503607c-a0e1-42fe-9fbf-e50d4505cc9f",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -990,7 +990,7 @@
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
-                    "id": "580ab283-941c-4653-95a9-35ca91a13a15",
+                    "id": "ffa50ac2-5124-491a-bafb-4d7779b23f35",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -1060,7 +1060,7 @@
             "postfix": {
                 "error": {
                     "code": "non-smtp command",
-                    "id": "352efce0-8255-4302-b19c-e608c5ebd993",
+                    "id": "594202af-2d3c-458f-80a1-dc8e7e6e9984",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],
@@ -1113,7 +1113,7 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "c77e68ba-827a-483d-af67-c0b4f7459841",
+                    "id": "ad2be934-4d68-4a0c-b840-579ca6b3e3b3",
                     "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
                     "type": "warning"
                 }

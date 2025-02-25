@@ -195,10 +195,9 @@ processors:
         value: 
             - 'info'
         if: 'ctx.postfix?.error?.code == null'
-# Handle this in the default pipeline
-#    - set:
-#        description: 'Set error to log.level if a postfix.error.code is populated'
-#        field: log.level
-#        value: 
-#            - 'error'
-#        if: 'ctx.postfix?.error?.code != null'
+    - set:
+        description: 'Set error to log.level if a postfix.error.code is populated'
+        field: log.level
+        value: 
+            - 'error'
+        if: 'ctx.postfix?.error?.code != null'
