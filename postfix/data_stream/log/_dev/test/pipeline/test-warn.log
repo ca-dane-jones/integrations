@@ -1,0 +1,2 @@
+2025-02-25T07:56:13.795503-05:00 mail postfix/spawn[136647]: warning: command /usr/bin/policyd-spf exit status 1
+2025-02-25T07:56:13.795503-05:00 mail postfix/spawn[136647]: warning: command /usr/bin/policyd-spf timeout

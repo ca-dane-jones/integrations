@@ -133,6 +133,7 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "geoip" }}'
     if: ctx.tags != null && ctx.tags.contains('geoip_enabled') && (ctx.server?.ip != null || ctx.client?.ip != null)
+
 # ------------------------------------------------------------------------------------------------------------------
 # Postfix error event processing
 #   TODO: Should probably move this to it's own pipeline
@@ -163,7 +164,19 @@ processors:
     field: postfix.error.code
     value: 'not parsed'
     if: 'ctx.postfix?.error?.message != null && ctx.postfix?.error?.code == null'
-# ---- End Section -----
+- set:
+    description: |
+        Set log.level to warn if postfix.error.type is set to warning and log.level is not set.
+    field: log.level
+    value: 'warn'
+    if: 'ctx.postfix?.error?.type == "warning" && ctx.log?.level == null'
+- set:
+    description: |
+        Set log.level to error if postfix.error.type is set to fatal and log.level is not set.
+    field: log.level
+    value: 'error'
+    if: 'ctx.postfix?.error?.type == "fatal" && ctx.log?.level == null'
+# ---- End Postfix error event processing -----
 
 - append:
     description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
