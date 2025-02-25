@@ -64,7 +64,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "1f3f9aaa-98e8-4b23-a26d-cc39cf43ce83",
+                    "id": "b1e87cea-3205-49e2-868a-7f453383de1b",
                     "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -120,15 +120,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "error"
-                ]
+                "level": "warn"
             },
             "message": "warning: This is a generic unparsed warning message",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "d63357f6-b36b-43f4-b833-f6902ffa86bb",
+                    "id": "179f9e62-7820-4ae0-8cfa-3ff36f8be713",
                     "message": "warning: This is a generic unparsed warning message",
                     "type": "warning"
                 }
@@ -171,15 +169,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "error"
-                ]
+                "level": "error"
             },
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "bfc62414-714d-43fb-9b13-06711b70db63",
+                    "id": "783e4198-b920-4a55-9655-362cf33adc10",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }
@@ -222,15 +218,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "error"
-                ]
+                "level": "error"
             },
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "46cef483-16aa-49d6-a2c0-01de2f91c642",
+                    "id": "bc00a960-9d14-462b-9e19-fa62aa0793be",
                     "message": "fatal: ..and this is an unparsed fatal message!",
                     "type": "fatal"
                 }

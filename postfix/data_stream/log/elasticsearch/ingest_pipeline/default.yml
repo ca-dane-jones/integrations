@@ -92,7 +92,7 @@ processors:
     if: ctx.event?.module == 'smtpd'
 - pipeline:
     name: '{{ IngestPipeline "smtp" }}'
-    if: ctx.event?.module == 'smtp'
+    if: ctx.event?.module == 'smtp' || ctx.event?.module == 'lmtp'
 - pipeline:
     name: '{{ IngestPipeline "scache" }}'
     if: ctx.event?.module == 'scache'

@@ -1,6 +1,6 @@
 ---
 description: |
-  Pipeline for processing Postfix SMTP events.  
+  Pipeline for processing Postfix SMTP and LMTP events.  
 processors:
   - append:
       description: Append pipeline trace tag if enabled

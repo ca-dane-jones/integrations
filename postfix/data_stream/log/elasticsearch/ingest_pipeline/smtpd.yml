@@ -158,7 +158,7 @@ processors:
             - "{{{message}}}"
         allow_duplicates: false
         if: "ctx.postfix?.error?.type != null && (ctx.postfix?.error?.type == 'warning' || ctx.postfix?.error?.type == 'fatal')"
-# -------------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------------
     #  Error messsage and code handling for missing command parser in disconnect events 
     #  with a command summary
     # -------------------------------------------------------------------------------------
@@ -195,10 +195,3 @@ processors:
         value: 
             - 'info'
         if: 'ctx.postfix?.error?.code == null'
-# Handle this in the default pipeline
-#    - set:
-#        description: 'Set error to log.level if a postfix.error.code is populated'
-#        field: log.level
-#        value: 
-#            - 'error'
-#        if: 'ctx.postfix?.error?.code != null'

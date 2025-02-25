@@ -1,0 +1,79 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2025-02-25T11:31:19.987-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "9FBF280032",
+                "to": {
+                    "address": [
+                        "someone@example.com"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "metric",
+                    "event"
+                ],
+                "module": "lmtp",
+                "original": "2025-02-25T11:31:19.987565-05:00 mail postfix/lmtp[139597]: 9FBF280032: to=<someone@example.com>, relay=mail[private/dovecot-lmtp], delay=0.56, delays=0.52/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 <someone@example.com> Gej2OVfwvWdOIQIAyxxFqw Saved)",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
+            "message": "9FBF280032: to=<someone@example.com>, relay=mail[private/dovecot-lmtp], delay=0.56, delays=0.52/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 <someone@example.com> Gej2OVfwvWdOIQIAyxxFqw Saved)",
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 0.52,
+                        "connection_setup_time": 0.01,
+                        "in_qmgr_time": 0.01,
+                        "message_transmission_time": 0.01,
+                        "total_time": 0.56
+                    },
+                    "status": "sent",
+                    "status_code": {
+                        "class": 2,
+                        "detail": 0,
+                        "subject": 0,
+                        "value": "2.0.0"
+                    },
+                    "status_message": "250 2.0.0 <someone@example.com> Gej2OVfwvWdOIQIAyxxFqw Saved"
+                },
+                "relay": {
+                    "server": {
+                        "domain": "mail"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/lmtp",
+                "pid": 139597
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtp"
+            ]
+        }
+    ]
+}

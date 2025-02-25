@@ -58,7 +58,7 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "7dd51588-d782-478b-8a37-a96450eb63b0",
+                    "id": "6faab526-6474-4f8c-ba78-fd0a69263400",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -122,7 +122,7 @@
             "postfix": {
                 "error": {
                     "code": "connection refused",
-                    "id": "1c1e8168-9319-4b90-948a-5b445108f91f",
+                    "id": "1413f412-e824-4a3b-a6e6-8129a25c70aa",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 }
             },

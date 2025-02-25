@@ -1,0 +1,1 @@
+2025-02-25T11:31:19.987565-05:00 mail postfix/lmtp[139597]: 9FBF280032: to=<someone@example.com>, relay=mail[private/dovecot-lmtp], delay=0.56, delays=0.52/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 <someone@example.com> Gej2OVfwvWdOIQIAyxxFqw Saved)
