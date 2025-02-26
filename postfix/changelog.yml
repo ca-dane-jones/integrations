@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.44"
+- version: "0.0.45"
   changes:
     - description: "Moved log.level processing into its own pipeline"
       type: enhancement
