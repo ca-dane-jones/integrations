@@ -39,9 +39,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "prepend Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=175.16.199.1; helo=mail-pg1-f200.google.com; envelope-from=3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com; receiver=<UNKNOWN> ",
             "postfix": {
@@ -64,7 +62,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: policyd-spf",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -106,9 +105,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=elastic.example.com; envelope-from=elastic@example.com; receiver=<UNKNOWN> ",
             "postfix": {
@@ -131,7 +128,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: policyd-spf",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -173,9 +171,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=<UNKNOWN>",
             "postfix": {
@@ -198,7 +194,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: policyd-spf",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -247,9 +244,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
             "postfix": {
@@ -272,7 +267,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: policyd-spf",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -321,9 +317,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "prepend Received-SPF: None (mailfrom) identity=mailfrom; client-ip=175.16.199.211; helo=nessus.example.local; envelope-from=root@subdomain.example.com; receiver=someone@example.com",
             "postfix": {
@@ -346,7 +340,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: policyd-spf",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         }
     ]

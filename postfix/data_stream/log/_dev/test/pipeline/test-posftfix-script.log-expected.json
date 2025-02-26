@@ -25,9 +25,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "starting the Postfix mail system",
             "process": {
@@ -40,7 +38,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: postfix-script"
+                "pipeline: postfix-script",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -68,9 +67,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "stopping the Postfix mail system",
             "process": {
@@ -83,7 +80,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: postfix-script"
+                "pipeline: postfix-script",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -111,9 +109,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "refreshing the Postfix mail system",
             "process": {
@@ -126,7 +122,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: postfix-script"
+                "pipeline: postfix-script",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -154,9 +151,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "refreshing the Postfix mail system",
             "process": {
@@ -169,7 +164,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: postfix-script"
+                "pipeline: postfix-script",
+                "pipeline: loglevel"
             ]
         }
     ]

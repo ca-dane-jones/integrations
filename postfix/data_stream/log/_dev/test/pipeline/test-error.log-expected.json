@@ -32,9 +32,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "error"
-                ]
+                "level": "error"
             },
             "message": "1585B1E04A0: to=<root@elastic.example.com>, orig_to=<root>, relay=none, delay=291242, delays=291242/0.07/0/0.02, dsn=4.4.1, status=deferred (delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused)",
             "postfix": {
@@ -64,8 +62,9 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "b1e87cea-3205-49e2-868a-7f453383de1b",
-                    "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused"
+                    "id": "0d97f2cf-333d-4506-a619-27fad064224d",
+                    "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused",
+                    "type": "error"
                 },
                 "relay": {
                     "server": {
@@ -93,7 +92,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: error",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -120,15 +120,12 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: This is a generic unparsed warning message",
             "postfix": {
                 "error": {
-                    "code": "not parsed",
-                    "id": "179f9e62-7820-4ae0-8cfa-3ff36f8be713",
-                    "message": "warning: This is a generic unparsed warning message",
-                    "type": "warning"
+                    "type": "error"
                 }
             },
             "process": {
@@ -142,7 +139,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: error",
-                "catch_all"
+                "catch_all",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -174,10 +172,7 @@
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
-                    "code": "not parsed",
-                    "id": "783e4198-b920-4a55-9655-362cf33adc10",
-                    "message": "fatal: ..and this is an unparsed fatal message!",
-                    "type": "fatal"
+                    "type": "error"
                 }
             },
             "process": {
@@ -191,7 +186,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: error",
-                "catch_all"
+                "catch_all",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -223,10 +219,7 @@
             "message": "fatal: ..and this is an unparsed fatal message!",
             "postfix": {
                 "error": {
-                    "code": "not parsed",
-                    "id": "bc00a960-9d14-462b-9e19-fa62aa0793be",
-                    "message": "fatal: ..and this is an unparsed fatal message!",
-                    "type": "fatal"
+                    "type": "error"
                 }
             },
             "process": {
@@ -240,7 +233,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: error",
-                "catch_all"
+                "catch_all",
+                "pipeline: loglevel"
             ]
         }
     ]

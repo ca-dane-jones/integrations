@@ -21,13 +21,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "aea3cd42-ca43-486f-b0f6-63ed045e8521",
+                    "id": "53df19cf-bfec-4d7b-a32f-4347c5cd10d9",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
                     "type": "warning"
                 }
@@ -41,7 +41,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -65,13 +66,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: relay_domains lookup failure",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "6978f079-dd42-4893-bdce-ea1e62d4886e",
+                    "id": "bd52b417-c35b-41b7-9431-b24ba5940071",
                     "message": "warning: relay_domains lookup failure",
                     "type": "warning"
                 }
@@ -85,7 +86,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -109,13 +111,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "d30d9578-fa4f-482a-afd4-d23649150c67",
+                    "id": "d8d4e96f-0b94-4c9a-8f8e-041ba2dce06c",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }
@@ -129,7 +131,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -153,13 +156,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "ee2367f1-aeb3-4faa-b3bf-b2ae14e2fadb",
+                    "id": "ccec665e-93f3-4b86-8bd7-c1c701f7ed66",
                     "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
                     "type": "warning"
                 }
@@ -173,7 +176,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         }
     ]

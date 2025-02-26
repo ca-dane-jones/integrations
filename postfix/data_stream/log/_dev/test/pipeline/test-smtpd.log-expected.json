@@ -58,7 +58,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -122,7 +123,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -200,7 +202,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ],
             "tls": {
                 "cipher": "TLS_CHACHA20_POLY1305_SHA256",
@@ -294,7 +297,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -339,13 +343,16 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "error"
+            },
             "message": "disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
             "postfix": {
                 "error": {
                     "code": [
                         "grok parsing failure"
                     ],
-                    "id": "18e6687d-ae89-48fe-9119-6c9304c06c5b",
+                    "id": "3c86cdbe-c696-4b2c-b9c9-24a7c96228fa",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -379,7 +386,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -481,7 +489,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -554,7 +563,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -627,7 +637,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -670,6 +681,9 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "error"
+            },
             "message": "improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\\r\\nQUIT\\r\\n",
             "postfix": {
                 "error": {
@@ -690,7 +704,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -756,7 +771,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -822,7 +838,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -849,13 +866,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
             "postfix": {
                 "error": {
                     "code": "tls library problem",
-                    "id": "fd44cee9-15ae-4d87-9cda-b95af0bbc9bf",
+                    "id": "143ed0bd-c1dc-47cd-a166-628c7adb1893",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -872,7 +889,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -899,13 +917,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
             "postfix": {
                 "error": {
                     "code": "rbl lookup error",
-                    "id": "18ae571c-5392-487c-a460-edee56e8f70d",
+                    "id": "9e4c6377-8f9d-42b8-a209-4250253ea8dc",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -922,7 +940,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtpd"
+                "pipeline: smtpd",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -968,13 +987,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: hostname internettl.org does not resolve to address 175.16.199.1",
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
-                    "id": "78c7d66d-7207-4de9-a741-127a1c5106d2",
+                    "id": "995e344a-3233-436e-8ab4-79f80a4ba5ca",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -992,7 +1011,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -1036,13 +1056,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}",
             "postfix": {
                 "error": {
                     "code": "non-smtp command",
-                    "id": "9b9a4914-dccf-430b-ba3e-7d8505541227",
+                    "id": "47f6c05c-70bc-47f6-8d85-c9921875b422",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],
@@ -1060,7 +1080,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "pipeline: geoip"
+                "pipeline: geoip",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -1087,13 +1108,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "625d289a-7489-4044-96d5-b4ffd96737dc",
+                    "id": "49870c5c-cd3d-4d80-bad6-481608447f50",
                     "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
                     "type": "warning"
                 }
@@ -1109,7 +1130,8 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "catch_all"
+                "catch_all",
+                "pipeline: loglevel"
             ]
         }
     ]

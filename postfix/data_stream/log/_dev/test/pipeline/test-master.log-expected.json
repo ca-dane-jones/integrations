@@ -25,9 +25,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "daemon started -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
@@ -44,7 +42,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: master"
+                "pipeline: master",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -72,9 +71,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "terminating on signal 15",
             "process": {
@@ -88,7 +85,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: master"
+                "pipeline: master",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -115,9 +113,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
@@ -134,7 +130,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: master"
+                "pipeline: master",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -161,9 +158,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "reload -- version 3.6.4, configuration /etc/postfix",
             "postfix": {
@@ -180,7 +175,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: master"
+                "pipeline: master",
+                "pipeline: loglevel"
             ]
         }
     ]

@@ -21,13 +21,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: command /usr/bin/policyd-spf exit status 1",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "d8efc088-72e4-4b08-b222-52188f4ab5bf",
+                    "id": "e46a159b-3302-4a6d-832f-24ddabc1aadd",
                     "message": "warning: command /usr/bin/policyd-spf exit status 1",
                     "type": "warning"
                 }
@@ -41,7 +41,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -65,13 +66,13 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "error"
             },
             "message": "warning: command /usr/bin/policyd-spf timeout",
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "b512daea-8648-4f06-85f2-766d530231d9",
+                    "id": "3f1c6a64-b3e7-4039-b6bd-b9e51bdb2f83",
                     "message": "warning: command /usr/bin/policyd-spf timeout",
                     "type": "warning"
                 }
@@ -85,7 +86,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         }
     ]

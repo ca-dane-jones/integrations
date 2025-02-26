@@ -24,9 +24,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "OpenDKIM Filter v2.11.0 starting",
             "postfix": {
@@ -45,7 +43,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: opendkim"
+                "pipeline: opendkim",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -75,9 +74,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
             "postfix": {
@@ -99,7 +96,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: opendkim"
+                "pipeline: opendkim",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -129,9 +127,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "2F82A8006C: s=20230601 d=accounts.google.com a=rsa-sha256 SSL",
             "postfix": {
@@ -153,7 +149,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: opendkim"
+                "pipeline: opendkim",
+                "pipeline: loglevel"
             ]
         }
     ]

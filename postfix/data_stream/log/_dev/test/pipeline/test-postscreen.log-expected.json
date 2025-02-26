@@ -20,6 +20,9 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "info"
+            },
             "message": "CONNECT from [175.16.199.2]:25 to [175.16.199.2]:25",
             "process": {
                 "name": "postfix/postscreen",
@@ -30,7 +33,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -53,6 +57,9 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "info"
+            },
             "message": "ALLOWLISTED [175.16.199.1]:25",
             "process": {
                 "name": "postfix/postscreen",
@@ -63,7 +70,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -86,6 +94,9 @@
             "host": {
                 "name": "mail"
             },
+            "log": {
+                "level": "info"
+            },
             "message": "ALLOWLISTED [175.16.199.1]:25",
             "process": {
                 "name": "postfix/postscreen",
@@ -96,7 +107,8 @@
                 "connection_metrics_enabled",
                 "geoip_enabled",
                 "pipeline_trace_enabled",
-                "pipeline: default"
+                "pipeline: default",
+                "pipeline: loglevel"
             ]
         }
     ]

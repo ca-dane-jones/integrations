@@ -28,9 +28,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "4A50D8017B: message-id=<>",
             "process": {
@@ -43,7 +41,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: cleanup"
+                "pipeline: cleanup",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -74,9 +73,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "9641C8017B: message-id=<he_BJcuhgnke3rgeHS1ZB3T3cSn_DqhatgIeS65mE0m_0cC1RuYSLnUJoDtZZXZY@nessus>",
             "process": {
@@ -89,7 +86,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: cleanup"
+                "pipeline: cleanup",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -120,9 +118,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
             "process": {
@@ -135,7 +131,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: cleanup"
+                "pipeline: cleanup",
+                "pipeline: loglevel"
             ]
         },
         {
@@ -166,9 +163,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "78D8580001: message-id=<20240104110619.5B9CA202ED@plex.example.local>",
             "process": {
@@ -181,7 +176,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: cleanup"
+                "pipeline: cleanup",
+                "pipeline: loglevel"
             ]
         }
     ]

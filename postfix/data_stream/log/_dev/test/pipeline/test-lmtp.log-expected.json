@@ -33,9 +33,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "9FBF280032: to=<someone@example.com>, relay=mail[private/dovecot-lmtp], delay=0.56, delays=0.52/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 <someone@example.com> Gej2OVfwvWdOIQIAyxxFqw Saved)",
             "postfix": {
@@ -72,7 +70,8 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
-                "pipeline: smtp"
+                "pipeline: smtp",
+                "pipeline: loglevel"
             ]
         }
     ]
