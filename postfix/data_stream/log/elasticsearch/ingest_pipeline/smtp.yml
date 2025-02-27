@@ -1,6 +1,7 @@
 ---
 description: |
   Pipeline for processing Postfix SMTP and LMTP events.  
+# TODO: Implement email.direction
 processors:
   - append:
       description: Append pipeline trace tag if enabled
