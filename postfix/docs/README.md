@@ -32,7 +32,7 @@ Currently this integration supports parsing logs from the Postfix anvil, cleanup
 | email.from.address | The email address of the sender. | keyword |
 | email.local_id | Unique identifier given to the email by the source that created the event.<br/><br/> Identifier is not persistent across hops. | keyword |
 | email.message_id | Identifier from the RFC 5322 `Message-ID:` email header that refers to a particular email message. | wildcard |
-| email.to.address | The email address of the recipient.<br/><br/>**Note:** If one or more recipients of an email are aliases, this field will contain the address of the non-alias/resolved email address.  The address of the orginal `email.to.address` alias is stored in `email.to.original_address`. | keyword 
+| email.to.address | The email address of the recipient.<br/><br/>**Note:** If one or more recipients of an email are aliases, this field will contain the address of the non-alias/resolved email address.  The address of the orginal `email.to.address` alias is stored in `email.to.original_address`. | keyword |
 | ##########LEFT OFF HERE############### |
 | data_stream.dataset | Data stream dataset name.<br/> `postfix.log` | constant_keyword |
 | data_stream.type | Data stream type.<br/> `logs` | constant_keyword |
