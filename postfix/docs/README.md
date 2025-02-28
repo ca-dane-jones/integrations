@@ -40,7 +40,7 @@ Currently this integration supports parsing logs from the Postfix anvil, cleanup
 | error.id | Unique identifier for the error.<br/><br/>**Note:** This field is reserved and populated by elasticsearch if errors occur during document/event ingestion.  See `postfix.error.id` for errors reported by Postfix. | keyword |
 | error.message | Error message.<br/><br/>**Note:** This field is reserved and populated by elasticsearch if errors occur during document/event ingestion.  See `postfix.error.message` for errors reported by Postfix. | match_only_text |
 | error.type | The type of the error, for example the class name of the exception.<br/><br/>**Note:** This field is reserved and populated by elasticsearch if errors occur during document/event ingestion.  See `postfix.error.type` for errors reported by Postfix. | keyword |
-| event.action | The action captured by the event.<br/><br/>This describes the information in the event. It is more specific than event.category. Possible values are `process-starting`, `process-stopping`, `process-reloading`, `process-started`, `process-stopped`, `process-reloaded`, `connect` and `disconnect`. 
+| event.action | The action captured by the event.<br/><br/>This describes the information in the event. It is more specific than event.category. Possible values are `process-starting`, `process-stopping`, `process-reloading`, `process-started`, `process-stopped`, `process-reloaded`, `smtpd-connect` and `smtpd-disconnect`. 
 | ##########LEFT OFF HERE############### |
 | event.dataset | Name of the dataset.<br/>`postfix.log` | constant_keyword |
 | input.type| Type of Filebeat input.<br/>`filestream`| keyword |
