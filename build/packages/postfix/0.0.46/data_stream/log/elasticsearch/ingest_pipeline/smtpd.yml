@@ -1,5 +1,6 @@
 ---
 # TODO: Need to add additional event category and type processing to this pipeline.  There's a lot going on here. :)
+# TODO: Implement email.direction
 description: |
     Pipeline for processing Posftix smtpd events.  The smtp daemon accepts network connection 
     requests and performs SMTP transactions per connection
@@ -76,12 +77,17 @@ processors:
         value: 'tls'
         if: 'ctx.tls?.version != null'
     - set:
-        description: If this is an smtpd connect or disconnect event, set the event.action value
+        description: If this is an smtpd connect event, set the event.action to smtpd-connect
         field: event.action
-        override: false
         ignore_empty_value: false
-        value: "{{{_tmp.smtpd_cxn_action}}}"
-        if: 'ctx._tmp?.smtpd_cxn_action != null'
+        value: "smtpd-connect"
+        if: 'ctx._tmp?.smtpd_cxn_action == "connect"'
+    - set:
+        description: If this is an smtpd disconnect event, set the event.action to smtpd-disconnect
+        field: event.action
+        ignore_empty_value: false
+        value: "smtpd-disconnect"
+        if: 'ctx._tmp?.smtpd_cxn_action == "disconnect"'
     - set:
         description: If this is an RBL error message and a DNS query was captured, set the dns.type
         field: dns.type
@@ -152,7 +158,7 @@ processors:
         allow_duplicates: false
         if: 'ctx.postfix?.error?.code == "improper command pipelining"'
     - append:
-        description: "Append the contents of the message field to postfix.error.message if error.type is warning or fatal."
+        description: "Append the contents of the message field to postfix.error.message if postfix.error.type is warning or fatal."
         field: postfix.error.message
         value:
             - "{{{message}}}"

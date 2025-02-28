@@ -1,6 +1,6 @@
 # newer versions go on top
-- version: "0.0.45"
+- version: "0.0.46"
   changes:
-    - description: "Moved log.level processing into its own pipeline"
+    - description: "Documentation updates and minor fixes."
       type: enhancement
       link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link

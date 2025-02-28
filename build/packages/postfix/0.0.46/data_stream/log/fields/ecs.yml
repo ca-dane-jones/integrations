@@ -20,6 +20,9 @@
 - description: City name.
   name: client.geo.city_name
   type: keyword
+- description: Two-letter code representing continent's name.
+  name: client.geo.continent_code
+  type: keyword
 - description: Name of the continent.
   name: client.geo.continent_name
   type: keyword
@@ -30,10 +33,7 @@
   name: client.geo.country_name
   type: keyword
 - description: Longitude and latitude.
-  name: client.geo.location.lat
-  type: geo_point
-- description: Longitude and latitude.
-  name: client.geo.location.lon
+  name: client.geo.location
   type: geo_point
 - description: Region ISO code.
   name: client.geo.region_iso_code

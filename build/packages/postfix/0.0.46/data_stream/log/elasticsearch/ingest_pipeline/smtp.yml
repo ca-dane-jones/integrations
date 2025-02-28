@@ -1,6 +1,7 @@
 ---
 description: |
   Pipeline for processing Postfix SMTP and LMTP events.  
+# TODO: Implement email.direction
 processors:
   - append:
       description: Append pipeline trace tag if enabled
@@ -33,7 +34,7 @@ processors:
       if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postrix_relay_info != "none"'
       description: 'Extracts relay server details'  
   - lowercase:
-      description: 'Drop error.code to lowercase if populated'
+      description: 'Drop postfix.error.code to lowercase if populated'
       field: postfix.error.code
       if: "ctx.postfix?.error?.code != null"  
   - append:
