@@ -144,13 +144,6 @@ processors:
         if: "ctx.tags != null && ctx.tags.contains('connection_metrics_enabled') && ctx.postfix?.smtpd?.connection?.commands != null"
         description: 'Calculate connection command metrics'
     - append:
-        description: 'Append metric to event.kind if the event contains command counters'
-        field: event.kind
-        value:
-            - metric
-        allow_duplicates: false
-        if: 'ctx.postfix?.smtpd?.connection?.commands != null'
-    - append:
         description: "Append warning to postfix.error.type if the event is an improprer command pipelining event"
         field: postfix.error.type
         value:

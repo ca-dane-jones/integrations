@@ -37,12 +37,6 @@ processors:
       target_field: postfix.scache.start_interval_timestamp
       if: 'ctx._tmp?.postfix_scache_start_interval_timestamp != null && ctx.event?.timezone == null'
   - append:
-      description: 'Since scache only ever generates statistics events, append metric to event.kind'
-      field: event.kind
-      value:
-      - metric
-      allow_duplicates: false
-  - append:
       description: 'Append info to event.type'
       field: 'event.type'
       value: 

@@ -40,13 +40,6 @@ processors:
       if: 'ctx.postfix?.anvil?.connection?.start_time != null && ctx.postfix?.anvil?.connection?.end_time != null'
       description: 'If session start and end timestamps are set, calculate the session duration.'
   - append:
-      description: 'If this is a statistics event, append metric to event.kind'
-      field: event.kind
-      value:
-        - metric
-      allow_duplicates: false
-      if: 'ctx._tmp?.anvil?.max_connection_stat != null'
-  - append:
       description: 'If this is a statistics event, append session to event.category'
       field: event.category
       value: 

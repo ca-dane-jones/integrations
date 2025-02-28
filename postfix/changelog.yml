@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.46"
+- version: "0.0.47"
   changes:
     - description: "Documentation updates and minor fixes."
       type: enhancement
