@@ -32,7 +32,7 @@ Currently this integration supports parsing logs from the Postfix anvil, cleanup
 | email.from.address | The email address of the sender. | keyword |
 | email.local_id | Unique identifier given to the email by the source that created the event.<br/><br/> Identifier is not persistent across hops. | keyword |
 | email.message_id | Identifier from the RFC 5322 `Message-ID:` email header that refers to a particular email message. | wildcard |
-| email.to.address | The email address of the recipient.<br/><br/>**Note:** If one or more recipients of an email are aliases, this field will contain the address of the non-alias/resolved email address.  The address of the orginal `email.to.address` alias is stored in `email.to.original_address`. | keyword |
+| email.to.address | The email address of the recipient.<br/><br/>**Note:** If one or more recipients of an email are [local](https://www.postfix.org/aliases.5.html), [virtual](https://www.postfix.org/virtual.5.html), or remote aliases, this field will contain the address of the local or virtual non-alias/resolved email address.  The address of the orginal `email.to.address` alias is stored in [`postfix.email.to.original_address`](#postfix-email-to-original_address). | keyword |
 | ##########LEFT OFF HERE############### |
 | data_stream.dataset | Data stream dataset name.<br/> `postfix.log` | constant_keyword |
 | data_stream.type | Data stream type.<br/> `logs` | constant_keyword |
@@ -40,3 +40,4 @@ Currently this integration supports parsing logs from the Postfix anvil, cleanup
 | event.dataset | Name of the dataset.<br/>`postfix.log` | constant_keyword |
 | input.type| Type of Filebeat input.<br/>`filestream`| keyword |
 | log.file.path | Full path to the log file this event came from, including the file name. | keyword |
+| <a name="postfix-email-to-orginal_address"></a>postfix.email.to.orginal_address | Original intended recipient of an email.  This field is most often populated in cases where the to address for a recipient is modified by Postfix due to [local](https://www.postfix.org/aliases.5.html), [virtual](https://www.postfix.org/virtual.5.html), or remote aliasing. | keyword |
