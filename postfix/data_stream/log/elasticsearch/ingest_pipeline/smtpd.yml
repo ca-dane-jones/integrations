@@ -153,7 +153,7 @@ processors:
         allow_duplicates: false
         if: 'ctx.postfix?.error?.code == "improper command pipelining"'
     - append:
-        description: "Append the contents of the message field to postfix.error.message if error.type is warning or fatal."
+        description: "Append the contents of the message field to postfix.error.message if postfix.error.type is warning or fatal."
         field: postfix.error.message
         value:
             - "{{{message}}}"
