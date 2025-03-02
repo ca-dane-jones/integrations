@@ -62,7 +62,6 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "0d97f2cf-333d-4506-a619-27fad064224d",
                     "message": "delivery temporarily suspended: connect to elastic.example.com[192.168.1.218]:25: Connection refused",
                     "type": "error"
                 },

@@ -27,7 +27,6 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "a9a3c7be-27eb-4b16-9533-f1f9f5429f74",
                     "message": "fatal: spawn_comand: execvp /usr/bin/policyd-spf: No such file or directory",
                     "type": "fatal"
                 }

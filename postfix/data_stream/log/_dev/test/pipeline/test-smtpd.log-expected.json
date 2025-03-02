@@ -23,7 +23,7 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "connect",
+                "action": "smtpd-connect",
                 "category": [
                     "email"
                 ],
@@ -88,7 +88,7 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "connect",
+                "action": "smtpd-connect",
                 "category": [
                     "email"
                 ],
@@ -235,12 +235,11 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "disconnect",
+                "action": "smtpd-disconnect",
                 "category": [
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtpd",
@@ -324,12 +323,11 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "disconnect",
+                "action": "smtpd-disconnect",
                 "category": [
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtpd",
@@ -352,7 +350,6 @@
                     "code": [
                         "grok parsing failure"
                     ],
-                    "id": "3c86cdbe-c696-4b2c-b9c9-24a7c96228fa",
                     "message": [
                         "Missing SMTPD disconnect command summary grok pattern for command [missing_parser]"
                     ]
@@ -416,12 +413,11 @@
                 "version": "8.11.0"
             },
             "event": {
-                "action": "disconnect",
+                "action": "smtpd-disconnect",
                 "category": [
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtpd",
@@ -872,7 +868,6 @@
             "postfix": {
                 "error": {
                     "code": "tls library problem",
-                    "id": "143ed0bd-c1dc-47cd-a166-628c7adb1893",
                     "message": [
                         "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:"
                     ],
@@ -923,7 +918,6 @@
             "postfix": {
                 "error": {
                     "code": "rbl lookup error",
-                    "id": "9e4c6377-8f9d-42b8-a209-4250253ea8dc",
                     "message": [
                         "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again"
                     ],
@@ -993,7 +987,6 @@
             "postfix": {
                 "error": {
                     "code": "does not resolve to address",
-                    "id": "995e344a-3233-436e-8ab4-79f80a4ba5ca",
                     "message": [
                         "warning: hostname internettl.org does not resolve to address 175.16.199.1"
                     ],
@@ -1062,7 +1055,6 @@
             "postfix": {
                 "error": {
                     "code": "non-smtp command",
-                    "id": "47f6c05c-70bc-47f6-8d85-c9921875b422",
                     "message": [
                         "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}"
                     ],
@@ -1114,7 +1106,6 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "49870c5c-cd3d-4d80-bad6-481608447f50",
                     "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
                     "type": "warning"
                 }

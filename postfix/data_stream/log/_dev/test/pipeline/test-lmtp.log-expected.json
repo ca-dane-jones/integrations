@@ -18,7 +18,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "lmtp",

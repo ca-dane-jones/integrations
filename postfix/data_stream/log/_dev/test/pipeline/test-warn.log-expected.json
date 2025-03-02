@@ -27,7 +27,6 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "e46a159b-3302-4a6d-832f-24ddabc1aadd",
                     "message": "warning: command /usr/bin/policyd-spf exit status 1",
                     "type": "warning"
                 }
@@ -72,7 +71,6 @@
             "postfix": {
                 "error": {
                     "code": "not parsed",
-                    "id": "3f1c6a64-b3e7-4039-b6bd-b9e51bdb2f83",
                     "message": "warning: command /usr/bin/policyd-spf timeout",
                     "type": "warning"
                 }

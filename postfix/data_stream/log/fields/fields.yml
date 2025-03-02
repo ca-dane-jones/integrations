@@ -151,10 +151,6 @@
           description: |
             Error code describing the error.
           type: keyword
-        - name: id
-          description: |
-            Unique identifier for the error.
-          type: keyword
         - name: message
           description: |
             The error message.

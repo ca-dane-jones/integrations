@@ -33,7 +33,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "anvil",
@@ -116,7 +115,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "anvil",
@@ -171,7 +169,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "anvil",
@@ -224,7 +221,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "anvil",

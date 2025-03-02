@@ -18,7 +18,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtp",
@@ -56,7 +55,6 @@
                 },
                 "error": {
                     "code": "connection refused",
-                    "id": "709c0ead-ba35-4858-995c-e2da41490a8e",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 },
                 "relay": {
@@ -119,7 +117,6 @@
             "postfix": {
                 "error": {
                     "code": "connection refused",
-                    "id": "993ee028-5536-42c8-949c-5809a8252165",
                     "message": "connect to elastic.example.com[192.168.1.218]:25: Connection refused"
                 }
             },
@@ -165,7 +162,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtp",
@@ -242,7 +238,6 @@
                     "email"
                 ],
                 "kind": [
-                    "metric",
                     "event"
                 ],
                 "module": "smtp",
