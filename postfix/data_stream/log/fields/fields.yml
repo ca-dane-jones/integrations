@@ -603,3 +603,13 @@
       type: version
       description: |-
         The postfix version number.
+    - name: _tmp
+      type: group
+      fields:
+        - name: trace
+          type: group
+          fields:
+            - name: pipeline
+              type: keyword
+              description: |
+                Remove me!

@@ -1,2 +1,2 @@
 # Ignore the Elastic Agent logs
-elastic-agent*.log
+/build

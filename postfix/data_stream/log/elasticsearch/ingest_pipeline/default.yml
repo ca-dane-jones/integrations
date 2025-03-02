@@ -8,13 +8,18 @@ processors:
     value:
         - "pipeline: default"
     if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+#- append:
+#    description: Append pipeline trace tag
+#    field: _tmp.trace.pipeline
+#    value:
+#        - "default"
 - set:
     field: ecs.version
     value: "8.11.0"
 - rename:
     field: message
     target_field: event.original
-    if: "ctx.tags != null && ctx.tags.contains('preserve_original_event') && ctx.event?.original == null"
+    if: "ctx.event?.original == null"
 - set:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
@@ -187,16 +192,16 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "loglevel" }}'
 - remove:
-    description: Remove _tmp fields
-    field:
-    - _tmp
-    ignore_failure: true
-- remove:
     description: Remove event.original if preserve_original_event is not set
     field: event.original
     if: "ctx.tags != null && !(ctx.tags.contains('preserve_original_event'))"
     ignore_failure: true
     ignore_missing: true
+- remove:
+    description: Remove _tmp fields
+    field:
+    - _tmp
+    ignore_failure: true
 on_failure:
 - set:
     field: event.kind
