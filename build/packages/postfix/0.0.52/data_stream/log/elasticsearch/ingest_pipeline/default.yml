@@ -14,7 +14,7 @@ processors:
 - rename:
     field: message
     target_field: event.original
-    if: "ctx.event?.original == null"
+    if: "ctx.tags != null && ctx.tags.contains('preserve_original_event') && ctx.event?.original == null"
 - set:
     field: event.timezone
     value: "{{_tmp.tz_offset}}"
@@ -201,17 +201,12 @@ on_failure:
 - set:
     field: event.kind
     value: pipeline_error
-#- join:
-#    field: _tmp.trace.pipeline
-#    separator: ' --> '
-#    description: 'Build pipeline tracing string'
 - append:
     field: error.message
     value: >-
         Processor '{{{ _ingest.on_failure_processor_type }}}'
         {{{#_ingest.on_failure_processor_tag}}}with tag '{{{ _ingest.on_failure_processor_tag }}}'
         {{{/_ingest.on_failure_processor_tag}}} failed with message '{{{ _ingest.on_failure_message }}}'
-        pipeline path: {{{_tmp.trace.pipeline}}}'
 - remove:
     description: 'Remove _tmp fields'
     field:
