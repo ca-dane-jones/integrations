@@ -1,0 +1,44 @@
+---
+description: |
+    Pipeline for processing events from the Postfix master process
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: master"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - grok:
+      description: Extract process start information
+      field: message
+      patterns: 
+        - '(?<_tmp.postfix.start>daemon started|reload) -- version %{DATA:postfix.version}, configuration %{PATH:postfix.configuration_path}'
+        - '(?<_tmp.postfix.stop>terminating on signal %{INT:process.exit_code:long})'
+        - '%{GREEDYDATA:_tmp.catch_all}'
+  - set:
+      description: If this is a start event, set event.action to process-started
+      field: event.action
+      override: false
+      ignore_empty_value: true
+      value: 'process-started'
+      if: 'ctx._tmp?.postfix?.start == "daemon started"'
+  - set:
+      description: If this is a reload event, set event.action to process-reloaded
+      field: event.action
+      override: false
+      ignore_empty_value: true
+      value: 'process-reloaded'
+      if: 'ctx._tmp?.postfix?.start == "daemon reload"'
+  - set:
+      description: If this is a stop event, set event.action to process-stopped
+      field: event.action
+      override: false
+      ignore_empty_value: true
+      value: 'process-stopped'
+      if: 'ctx._tmp?.postfix?.stop != null'
+  - append:
+      field: event.type
+      value:
+        - 'info'
+      allow_duplicates: false
+      description: 'Append info to event.type'
