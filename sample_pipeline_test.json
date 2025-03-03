@@ -9,7 +9,7 @@
           "connection_metrics_enabled",
           "clear_tmp_disabled"
         ],
-        "message": "Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix"
+        "message": "2025-03-03T11:05:59.768817-05:00 mail postfix/smtpd[79066]: disconnect from dej-elasticdev-vm.kdj.local[192.168.1.198] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 quit=1 commands=8"
       }
     },
     {

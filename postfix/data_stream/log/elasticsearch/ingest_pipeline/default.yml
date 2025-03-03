@@ -7,22 +7,19 @@ processors:
     field: tags
     value:
         - "pipeline: default"
-    if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
-#- append:
-#    description: Append pipeline trace tag
-#    field: _tmp.trace.pipeline
-#    value:
-#        - "default"
+    if: "ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')"
 - set:
     field: ecs.version
     value: "8.11.0"
 - rename:
     field: message
     target_field: event.original
+    ignore_missing: true
     if: "ctx.event?.original == null"
 - set:
+    description: Set event.timezone to the agent specified timezone (if set).
     field: event.timezone
-    value: "{{_tmp.tz_offset}}"
+    value: "{{{_tmp.tz_offset}}}"
     if: "ctx._tmp?.tz_offset != null && ctx._tmp?.tz_offset != 'local'"
 - grok:
     description: Extract syslog base and message
@@ -31,7 +28,7 @@ processors:
       - '(?:%{SYSLOG_BASE}|%{SYSLOG_ISO8601})%{SPACE}%{HOST}%{SPACE}%{PROCESS_INFO}%{SPACE}%{GREEDYDATA:message}'
     pattern_definitions:
       SYSLOG_BASE: '%{SYSLOGTIMESTAMP:_tmp.timestamp}'
-      SYSLOG_ISO8601: '(?<_tmp.timestamp8601>%{YEAR}-%{MONTHNUM}-%{MONTHDAY}T%{HOUR}:%{MINUTE}:%{SECOND}(?:\.%{INT})?)(?:%{ISO8601_TIMEZONE})?'
+      SYSLOG_ISO8601: '(?<_tmp.timestamp8601>%{YEAR}-%{MONTHNUM}-%{MONTHDAY}T%{HOUR}:%{MINUTE}:%{SECOND}(?:\.%{INT})?)(?:%{ISO8601_TIMEZONE:event.timezone})?'
       HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
 - date:
@@ -40,15 +37,8 @@ processors:
     target_field: '@timestamp'
     formats:
       - ISO8601
-    timezone: '{{ event.timezone }}'
-    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone != null
-- date:
-    description: Set the event timestamp.  Handles ISO8601 timestamps and null event.timezones.
-    field: _tmp.timestamp8601
-    target_field: '@timestamp'
-    formats:
-      - ISO8601
-    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone == null
+    timezone: '{{{ event.timezone }}}'
+    if: ctx._tmp?.timestamp8601 != null
 - date:
     description: Set the event timestamp.  Handles syslog timestamps.
     field: _tmp.timestamp
@@ -57,10 +47,10 @@ processors:
     - MMM  d HH:mm:ss
     - MMM d HH:mm:ss
     - MMM dd HH:mm:ss
-    timezone: '{{ event.timezone }}'
+    timezone: '{{{ event.timezone }}}'
     if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
 - date:
-    description: Set the event timestamp.  Handles syslog timestamps and event.timezones.
+    description: Set the event timestamp.  Handles syslog timestamps with empty event.timezones.
     field: _tmp.timestamp
     target_field: '@timestamp'
     formats:
