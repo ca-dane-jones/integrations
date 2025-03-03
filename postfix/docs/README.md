@@ -11,11 +11,11 @@ An example event for `log` looks as following:
 
 ```json
 {
-    "@timestamp": "2025-01-01T00:07:07.000-05:00",
+    "@timestamp": "2025-01-01T00:07:07.000Z",
     "agent": {
-        "ephemeral_id": "9e0675fb-5a41-4e81-bc79-3b0638c84b5f",
-        "id": "6e7f07fa-276e-4b46-afee-93cb40b42dc5",
-        "name": "elastic-agent-47249",
+        "ephemeral_id": "5de5f298-d09b-4786-835d-aa485be2e10f",
+        "id": "ee9912e3-07b5-4cf8-beb8-33112699ad73",
+        "name": "elastic-agent-92462",
         "type": "filebeat",
         "version": "8.17.1"
     },
@@ -43,14 +43,14 @@ An example event for `log` looks as following:
     },
     "data_stream": {
         "dataset": "postfix.log",
-        "namespace": "44741",
+        "namespace": "50562",
         "type": "logs"
     },
     "ecs": {
         "version": "8.11.0"
     },
     "elastic_agent": {
-        "id": "6e7f07fa-276e-4b46-afee-93cb40b42dc5",
+        "id": "ee9912e3-07b5-4cf8-beb8-33112699ad73",
         "snapshot": false,
         "version": "8.17.1"
     },
@@ -61,15 +61,13 @@ An example event for `log` looks as following:
             "email"
         ],
         "dataset": "postfix.log",
-        "ingested": "2025-01-23T12:55:42Z",
+        "ingested": "2025-03-03T22:13:42Z",
         "kind": [
-            "metric",
             "event"
         ],
         "module": "anvil",
         "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
         "provider": "postfix",
-        "timezone": "America/New_York",
         "type": [
             "info"
         ]
@@ -77,19 +75,19 @@ An example event for `log` looks as following:
     "host": {
         "architecture": "x86_64",
         "containerized": false,
-        "hostname": "elastic-agent-47249",
+        "hostname": "elastic-agent-92462",
         "ip": [
-            "172.20.0.2",
-            "172.19.0.7"
+            "172.23.0.2",
+            "172.22.0.4"
         ],
         "mac": [
-            "02-42-AC-13-00-07",
-            "02-42-AC-14-00-02"
+            "02-42-AC-16-00-04",
+            "02-42-AC-17-00-02"
         ],
         "name": "mail",
         "os": {
             "family": "",
-            "kernel": "6.8.0-51-generic",
+            "kernel": "6.11.0-17-generic",
             "name": "Wolfi",
             "platform": "wolfi",
             "type": "linux",
@@ -102,9 +100,10 @@ An example event for `log` looks as following:
     "log": {
         "file": {
             "device_id": "51",
-            "inode": "24862",
+            "inode": "146306",
             "path": "/tmp/service_logs/mail.log"
         },
+        "level": "info",
         "offset": 125
     },
     "message": "statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
@@ -112,10 +111,8 @@ An example event for `log` looks as following:
         "anvil": {
             "connection": {
                 "count": 1,
-                "duration": 201000,
-                "end_time": "2025-01-01T00:07:07.000-05:00",
-                "service_name": "smtp",
-                "start_time": "2025-01-01T00:03:46.000-05:00"
+                "end_time": "2025-01-01T00:07:07.000Z",
+                "service_name": "smtp"
             }
         }
     },
@@ -127,7 +124,12 @@ An example event for `log` looks as following:
         "preserve_original_event",
         "connection_metrics_enabled",
         "geoip_enabled",
-        "postfix"
+        "pipeline_trace_enabled",
+        "postfix",
+        "pipeline: default",
+        "pipeline: anvil",
+        "pipeline: geoip",
+        "pipeline: loglevel"
     ]
 }
 ```
