@@ -23,6 +23,13 @@ processors:
       value: 'process-started'
       if: 'ctx._tmp?.postfix?.start == "daemon started"'
   - set:
+      description: If this is a start event, set process.start to the timestamp
+      field: process.start
+      copy_from: "@timestamp"
+      override: false
+      ignore_empty_value: true
+      if: "ctx.event?.action == 'process-started'"
+  - set:
       description: If this is a reload event, set event.action to process-reloaded
       field: event.action
       override: false
@@ -36,6 +43,13 @@ processors:
       ignore_empty_value: true
       value: 'process-stopped'
       if: 'ctx._tmp?.postfix?.stop != null'
+  - set:
+      description: If this is a stop event, set process.stop to the timestamp
+      field: process.stop
+      copy_from: "@timestamp"
+      override: false
+      ignore_empty_value: true
+      if: "ctx.event?.action == 'process-stopped'"
   - append:
       field: event.type
       value:

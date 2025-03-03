@@ -85,9 +85,9 @@
 - external: ecs
   name: process.exit_code
 - external: ecs
-  name: process.pid
-- external: ecs
   name: process.name
+- external: ecs
+  name: process.pid
 - external: ecs
   name: process.pgid
 - external: ecs

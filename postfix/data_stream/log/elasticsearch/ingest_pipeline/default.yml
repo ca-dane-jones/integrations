@@ -35,14 +35,22 @@ processors:
       HOST: '(?:%{IP:host.ip}|%{HOSTNAME:host.name})'
       PROCESS_INFO: '((?<process.name>\w+)[\[:]+?(%{POSINT:process.pgid:long}\]:|)|(?<process.name>[\w\/-]+)\[%{POSINT:process.pid:long}\]:)?'
 - date:
-    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone != null
+    description: Set the event timestamp.  Handles ISO8601 timestamps.
     field: _tmp.timestamp8601
     target_field: '@timestamp'
     formats:
       - ISO8601
     timezone: '{{ event.timezone }}'
+    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone != null
 - date:
-    if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
+    description: Set the event timestamp.  Handles ISO8601 timestamps and null event.timezones.
+    field: _tmp.timestamp8601
+    target_field: '@timestamp'
+    formats:
+      - ISO8601
+    if: ctx._tmp?.timestamp8601 != null && ctx.event?.timezone == null
+- date:
+    description: Set the event timestamp.  Handles syslog timestamps.
     field: _tmp.timestamp
     target_field: '@timestamp'
     formats:
@@ -50,6 +58,16 @@ processors:
     - MMM d HH:mm:ss
     - MMM dd HH:mm:ss
     timezone: '{{ event.timezone }}'
+    if: ctx.event?.timezone != null && ctx._tmp?.timestamp != null
+- date:
+    description: Set the event timestamp.  Handles syslog timestamps and event.timezones.
+    field: _tmp.timestamp
+    target_field: '@timestamp'
+    formats:
+    - MMM  d HH:mm:ss
+    - MMM d HH:mm:ss
+    - MMM dd HH:mm:ss
+    if: ctx.event?.timezone == null && ctx._tmp?.timestamp != null
 - set:
     description: Copy the process group parent ID to process ID if populated
     field: process.pid
@@ -202,6 +220,7 @@ processors:
     field:
     - _tmp
     ignore_failure: true
+    if: "!(ctx.tags?.contains('clear_tmp_disabled'))"
 on_failure:
 - set:
     field: event.kind
@@ -217,4 +236,5 @@ on_failure:
     description: 'Remove _tmp fields'
     field:
       - _tmp
+    if: "!(ctx.tags?.contains('clear_tmp_disabled'))"
     ignore_failure: true

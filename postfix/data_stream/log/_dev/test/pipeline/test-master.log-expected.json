@@ -34,7 +34,8 @@
             },
             "process": {
                 "name": "postfix/master",
-                "pid": 2008
+                "pid": 2008,
+                "start": "2025-12-31T04:17:56.000-05:00"
             },
             "tags": [
                 "preserve_original_event",
@@ -77,7 +78,8 @@
             "process": {
                 "exit_code": 15,
                 "name": "postfix/master",
-                "pid": 2008
+                "pid": 2008,
+                "stop": "2025-01-02T10:17:37.000-05:00"
             },
             "tags": [
                 "preserve_original_event",

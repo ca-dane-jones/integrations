@@ -1,0 +1,28 @@
+[
+    {
+      "_source": {
+        "_tmp.tz_offset": "local",
+        "tags": [
+          "pipeline_trace_enabled",
+          "geoip_enabled",
+          "preserve_original_event",
+          "connection_metrics_enabled",
+          "clear_tmp_disabled"
+        ],
+        "message": "Dec 31 04:17:56 mail postfix/master[2008]: daemon started -- version 3.6.4, configuration /etc/postfix"
+      }
+    },
+    {
+      "_source": {
+        "_tmp.tz_offset": "local",
+        "tags": [
+          "pipeline_trace_enabled",
+          "geoip_enabled",
+          "preserve_original_event",
+          "connection_metrics_enabled",
+          "clear_tmp_disabled"
+        ],
+        "message": "2025-01-22T19:03:58.807240-05:00 mail postfix/master[2008]: terminating on signal 15"
+      }
+    }
+  ]
