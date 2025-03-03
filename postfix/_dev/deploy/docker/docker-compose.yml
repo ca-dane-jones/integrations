@@ -1,6 +1,5 @@
-version: "3.0"
 services:
-  postfix-logfile:
+  postfix-log:
     image: alpine
     volumes:
       - ./sample_logs:/sample_logs:ro

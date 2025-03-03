@@ -1,17 +1,12 @@
 vars: ~
-service: postfix-logfile
+service: postfix-log
 input: filestream
 data_stream:
   vars:
-    tz_offset: America/New_York
+    tz_offset: local
     connection_metrics_enabled: true
     geoip_enabled: true
     preserve_original_event: true
+    pipeline_trace_enabled: true
     paths:
       - "{{SERVICE_LOGS_DIR}}/*.log"
-numeric_keyword_fields:
-  - log.file.device_id
-  - log.file.inode
-  - log.file.idxhi
-  - log.file.idxlo
-  - log.file.vol

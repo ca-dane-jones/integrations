@@ -45,7 +45,7 @@ processors:
       if: 'ctx._tmp?.postfix?.stop != null'
   - set:
       description: If this is a stop event, set process.stop to the timestamp
-      field: process.stop
+      field: process.end
       copy_from: "@timestamp"
       override: false
       ignore_empty_value: true

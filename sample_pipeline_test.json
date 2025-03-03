@@ -9,7 +9,7 @@
           "connection_metrics_enabled",
           "clear_tmp_disabled"
         ],
-        "message": "2025-03-03T11:05:59.768817-05:00 mail postfix/smtpd[79066]: disconnect from dej-elasticdev-vm.kdj.local[192.168.1.198] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 quit=1 commands=8"
+        "message": "Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max connection rate 1/60s for (smtp:89.160.20.129) at Dec 31 23:51:02"
       }
     },
     {
