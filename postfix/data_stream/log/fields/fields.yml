@@ -588,9 +588,16 @@
           description: |
             The SMTP helo command used for SPF validation.  This is typically the client domain.
         - name: identity
-          type: text
-          description: |
-            The SMTP field used for SPF identify validation.
+          type: group
+          fields:
+            - name: field_name
+              type: keyword
+              description: |
+                The SMTP field used for SPF identify validation.
+            - name: field_value
+              type: text
+              description: |
+                The value of the SMTP field used for SPF identify validation.
         - name: receiver
           type: keyword
           description: |
@@ -599,6 +606,10 @@
           type: keyword
           description: |
             The SPF validation result.
+        - name: xcomment
+          type: text
+          description: |
+            The SPF X-Comment value.  This field is populated by Postfix when SPF checks are skipped due to SPF policy (e.g. local or trusted relays, or other whitelisting). Note: `postfix.spf.result` will be set to `skipped` when this field is populated.
     - name: version
       type: version
       description: |-

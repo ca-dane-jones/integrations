@@ -12,14 +12,19 @@ processors:
   - grok:
       field: message
       patterns:
-        - 'prepend Received-SPF: %{WORD:postfix.spf.result} \(mailfrom\) identity=%{WORD:postfix.spf.identity}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
+        - '(\: |)prepend Received-SPF: %{WORD:postfix.spf.result} \(%{WORD:postfix.spf.identity.field_name}\) identity=%{WORD:postfix.spf.identity.field_value}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
+        - '(\: |)prepend X-Comment: %{DATA:postfix.spf.xcomment} - client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix_spf_receiver})'
         - '%{GREEDYDATA:_tmp.catch_all}'
       description: 'Extracts policyd-spf event fields.'
-  - append:
-      description: 'Sets the email.to.address field to the value of postfix.spf.receivers if its value is not "UNKOWN"'
-      field: email.to.address
-      value: "{{{postfix.spf.receiver}}}"
-      if: 'ctx.postfix?.spf?.receiver != null && ctx.postfix?.spf.receiver != "UNKNOWN"'
+  - set:
+      field: postfix.spf.result
+      value: 'skipped'
+      if: 'postfix.spf.xcomment != null'
+      description: 'Set postfix.spf.result to skipped if xcomment is present.'
+  - trim:
+      field: postfix.spf.receiver
+      ignore_missing: true
+      description: 'Trim postfix.spf.receiver field.'
   - append:
       description: 'Append info to event.type'
       field: 'event.type'
