@@ -211,7 +211,7 @@ An example event for `log` looks as following:
 | postfix.delivery.status_code.detail | The RFC 3463 email delivery status code detail returned by the SMTP server. | long |
 | postfix.delivery.status_code.subject | The RFC 3463 email delivery status code subject returned by the SMTP server. | long |
 | postfix.delivery.status_code.value | The full RFC 3463 email delivery status code returned by the SMTP server. | keyword |
-| postfix.delivery.status_message | Additional email delivery status information. | text |
+| postfix.delivery.status_message | Additional email delivery status information. | match_only_text |
 | postfix.dkim.algorithm | The DKIM hashing algorithm as specified by the email sender. | keyword |
 | postfix.dkim.domain | The DKIM query domain as specified by the email sender. | keyword |
 | postfix.dkim.protocol | The DKIM message transmission protocol. | keyword |
@@ -300,9 +300,11 @@ An example event for `log` looks as following:
 | postfix.smtpd.connection.tls.server.signature_strength | The size of the key, represented in number of bits, used for signing the certificate. | long |
 | postfix.spf.envelope_from | The SMTP from address used in SPF validation. | keyword |
 | postfix.spf.helo | The SMTP helo command used for SPF validation.  This is typically the client domain. | keyword |
-| postfix.spf.identity | The SMTP field used for SPF identify validation. | text |
+| postfix.spf.identity.field_name | The SMTP field used for SPF identify validation. | keyword |
+| postfix.spf.identity.field_value | The value of the SMTP field used for SPF identify validation. | keyword |
 | postfix.spf.receiver | The value of the SMTP mail to field.  Note that policyd-spf default configuration sets this value to UNKNOWN. | keyword |
 | postfix.spf.result | The SPF validation result. | keyword |
+| postfix.spf.xcomment | The SPF X-Comment value.  This field is populated by Postfix when SPF checks are skipped due to SPF policy (e.g. local or trusted relays, or other whitelisting). Note: `postfix.spf.result` will be set to `Skip` when this field is populated. | match_only_text |
 | postfix.version | The postfix version number. | version |
 | process.end | The time the process ended. | date |
 | process.exit_code | The exit code of the process, if this is a termination event. The field should be absent if there is no exit code for the event (e.g. process start). | long |

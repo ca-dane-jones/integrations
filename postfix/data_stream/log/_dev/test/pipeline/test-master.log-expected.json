@@ -76,10 +76,10 @@
             },
             "message": "terminating on signal 15",
             "process": {
+                "end": "2025-01-02T10:17:37.000-05:00",
                 "exit_code": 15,
                 "name": "postfix/master",
-                "pid": 2008,
-                "stop": "2025-01-02T10:17:37.000-05:00"
+                "pid": 2008
             },
             "tags": [
                 "preserve_original_event",
@@ -142,6 +142,7 @@
                 "version": "8.11.0"
             },
             "event": {
+                "action": "process-stopped",
                 "category": [
                     "email"
                 ],
@@ -149,7 +150,7 @@
                     "event"
                 ],
                 "module": "master",
-                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/master[59704]: reload -- version 3.6.4, configuration /etc/postfix",
+                "original": "2025-01-22T19:03:58.807240-05:00 mail postfix/master[2008]: terminating on signal 15",
                 "provider": "postfix",
                 "timezone": "-05:00",
                 "type": [
@@ -162,14 +163,12 @@
             "log": {
                 "level": "info"
             },
-            "message": "reload -- version 3.6.4, configuration /etc/postfix",
-            "postfix": {
-                "configuration_path": "/etc/postfix",
-                "version": "3.6.4"
-            },
+            "message": "terminating on signal 15",
             "process": {
+                "end": "2025-01-22T19:03:58.807-05:00",
+                "exit_code": 15,
                 "name": "postfix/master",
-                "pid": 59704
+                "pid": 2008
             },
             "tags": [
                 "preserve_original_event",

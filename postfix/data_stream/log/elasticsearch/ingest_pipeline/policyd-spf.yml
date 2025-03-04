@@ -13,14 +13,14 @@ processors:
       field: message
       patterns:
         - '(\: |)prepend Received-SPF: %{WORD:postfix.spf.result} \(%{WORD:postfix.spf.identity.field_name}\) identity=%{WORD:postfix.spf.identity.field_value}; client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
-        - '(\: |)prepend X-Comment: %{DATA:postfix.spf.xcomment} - client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix_spf_receiver})'
+        - '(\: |)prepend X-Comment: %{DATA:postfix.spf.xcomment} - client-ip=%{IP:client.ip}; helo=%{DATA:postfix.spf.helo}; envelope-from=%{DATA:postfix.spf.envelope_from}; receiver=(<%{DATA:postfix.spf.receiver}>|%{GREEDYDATA:postfix.spf.receiver})'
         - '%{GREEDYDATA:_tmp.catch_all}'
       description: 'Extracts policyd-spf event fields.'
   - set:
       field: postfix.spf.result
-      value: 'skipped'
-      if: 'postfix.spf.xcomment != null'
-      description: 'Set postfix.spf.result to skipped if xcomment is present.'
+      value: 'Skip'
+      if: 'ctx.postfix?.spf?.xcomment != null'
+      description: 'Set postfix.spf.result to Skip if an X-Comment is present.'
   - trim:
       field: postfix.spf.receiver
       ignore_missing: true

@@ -104,7 +104,7 @@
               description: |
                 The RFC 3463 email delivery status code detail returned by the SMTP server.
         - name: status_message
-          type: text
+          type: match_only_text
           description: |
             Additional email delivery status information.
     - name: dkim
@@ -595,7 +595,7 @@
               description: |
                 The SMTP field used for SPF identify validation.
             - name: field_value
-              type: text
+              type: keyword
               description: |
                 The value of the SMTP field used for SPF identify validation.
         - name: receiver
@@ -607,9 +607,9 @@
           description: |
             The SPF validation result.
         - name: xcomment
-          type: text
+          type: match_only_text
           description: |
-            The SPF X-Comment value.  This field is populated by Postfix when SPF checks are skipped due to SPF policy (e.g. local or trusted relays, or other whitelisting). Note: `postfix.spf.result` will be set to `skipped` when this field is populated.
+            The SPF X-Comment value.  This field is populated by Postfix when SPF checks are skipped due to SPF policy (e.g. local or trusted relays, or other whitelisting). Note: `postfix.spf.result` will be set to `Skip` when this field is populated.
     - name: version
       type: version
       description: |-
