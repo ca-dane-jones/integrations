@@ -45,10 +45,18 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "3uw-szqgtbfybc-f2d9my00cibhg.4cc492.0ca1yb21279yzg.0ca@identity-reachout.bounces.google.com",
-                    "helo": "mail-pg1-f200.google.com",
+                    "helo": {
+                        "url": {
+                            "domain": "mail-pg1-f200.google.com",
+                            "registered_domain": "google.com",
+                            "subdomain": "mail-pg1-f200",
+                            "top_level_domain": "com"
+                        },
+                        "value": "mail-pg1-f200.google.com"
+                    },
                     "identity": {
-                        "field_name": "mailfrom",
-                        "field_value": "mailfrom"
+                        "name": "mailfrom",
+                        "value": "mailfrom"
                     },
                     "receiver": "UNKNOWN",
                     "result": "Pass"
@@ -114,10 +122,18 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "elastic@example.com",
-                    "helo": "elastic.example.com",
+                    "helo": {
+                        "url": {
+                            "domain": "elastic.example.com",
+                            "registered_domain": "example.com",
+                            "subdomain": "elastic",
+                            "top_level_domain": "com"
+                        },
+                        "value": "elastic.example.com"
+                    },
                     "identity": {
-                        "field_name": "mailfrom",
-                        "field_value": "mailfrom"
+                        "name": "mailfrom",
+                        "value": "mailfrom"
                     },
                     "receiver": "UNKNOWN",
                     "result": "Softfail"
@@ -183,10 +199,12 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
+                    "helo": {
+                        "value": "nessus.example.local"
+                    },
                     "identity": {
-                        "field_name": "mailfrom",
-                        "field_value": "mailfrom"
+                        "name": "mailfrom",
+                        "value": "mailfrom"
                     },
                     "receiver": "UNKNOWN",
                     "result": "None"
@@ -252,10 +270,12 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
+                    "helo": {
+                        "value": "nessus.example.local"
+                    },
                     "identity": {
-                        "field_name": "mailfrom",
-                        "field_value": "mailfrom"
+                        "name": "mailfrom",
+                        "value": "mailfrom"
                     },
                     "receiver": "someone@example.com",
                     "result": "None"
@@ -321,10 +341,12 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
+                    "helo": {
+                        "value": "nessus.example.local"
+                    },
                     "identity": {
-                        "field_name": "mailfrom",
-                        "field_value": "mailfrom"
+                        "name": "mailfrom",
+                        "value": "mailfrom"
                     },
                     "receiver": "someone@example.com",
                     "result": "None"
@@ -390,7 +412,9 @@
             "postfix": {
                 "spf": {
                     "envelope_from": "root@subdomain.example.com",
-                    "helo": "nessus.example.local",
+                    "helo": {
+                        "value": "nessus.example.local"
+                    },
                     "receiver": "example.com",
                     "result": "Skip",
                     "xcomment": "SPF check N/A for local connections"

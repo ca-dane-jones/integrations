@@ -584,17 +584,40 @@
           description: |
             The SMTP from address used in SPF validation.
         - name: helo
-          type: keyword
-          description: |
-            The SMTP helo command used for SPF validation.  This is typically the client domain.
+          type: group
+          fields:
+            - name: value
+              type: keyword
+              description: |
+                The SMTP helo command used for SPF validation.  This is typically the client domain.
+            - name: url
+              type: group
+              fields:
+              - name: domain
+                type: keyword
+                description: |
+                  The domain name of the host specified in the HELO.  This value may be a host name,
+                  a fully qualified domain name, or another host naming format.
+              - name: registered_domain
+                type: keyword
+                description: |
+                  The highest registered domain, stripped of the subdomain.
+              - name: subdomain
+                type: keyword
+                description: |
+                  The subdomain portion of the host specified in the HELO.
+              - name: top_level_domain
+                type: keyword
+                description: |
+                  The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name.
         - name: identity
           type: group
           fields:
-            - name: field_name
+            - name: name
               type: keyword
               description: |
                 The SMTP field used for SPF identify validation.
-            - name: field_value
+            - name: value
               type: keyword
               description: |
                 The value of the SMTP field used for SPF identify validation.

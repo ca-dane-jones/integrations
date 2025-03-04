@@ -299,9 +299,13 @@ An example event for `log` looks as following:
 | postfix.smtpd.connection.tls.server.signature_digest | The digest used for signing the certificate. | keyword |
 | postfix.smtpd.connection.tls.server.signature_strength | The size of the key, represented in number of bits, used for signing the certificate. | long |
 | postfix.spf.envelope_from | The SMTP from address used in SPF validation. | keyword |
-| postfix.spf.helo | The SMTP helo command used for SPF validation.  This is typically the client domain. | keyword |
-| postfix.spf.identity.field_name | The SMTP field used for SPF identify validation. | keyword |
-| postfix.spf.identity.field_value | The value of the SMTP field used for SPF identify validation. | keyword |
+| postfix.spf.helo.url.domain | The domain name of the host specified in the HELO.  This value may be a host name, a fully qualified domain name, or another host naming format. | keyword |
+| postfix.spf.helo.url.registered_domain | The highest registered domain, stripped of the subdomain. | keyword |
+| postfix.spf.helo.url.subdomain | The subdomain portion of the host specified in the HELO. | keyword |
+| postfix.spf.helo.url.top_level_domain | The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name. | keyword |
+| postfix.spf.helo.value | The SMTP helo command used for SPF validation.  This is typically the client domain. | keyword |
+| postfix.spf.identity.name | The SMTP field used for SPF identify validation. | keyword |
+| postfix.spf.identity.value | The value of the SMTP field used for SPF identify validation. | keyword |
 | postfix.spf.receiver | The value of the SMTP mail to field.  Note that policyd-spf default configuration sets this value to UNKNOWN. | keyword |
 | postfix.spf.result | The SPF validation result. | keyword |
 | postfix.spf.xcomment | The SPF X-Comment value.  This field is populated by Postfix when SPF checks are skipped due to SPF policy (e.g. local or trusted relays, or other whitelisting). Note: `postfix.spf.result` will be set to `Skip` when this field is populated. | match_only_text |
