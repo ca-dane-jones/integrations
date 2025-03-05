@@ -1,7 +1,7 @@
 format_version: 3.0.4
 name: postfix
 title: "Postfix"
-version: 0.0.65
+version: 0.0.66
 source:
   license: "Elastic-2.0"
 description: "Collect logs from Postfix mail servers with Elastic Agent."

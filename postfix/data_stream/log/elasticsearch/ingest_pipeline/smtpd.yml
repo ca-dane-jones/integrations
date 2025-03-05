@@ -17,7 +17,7 @@ processors:
         field: message
         patterns:
             - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]$'
-            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
+            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{HELO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
             - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]'
             - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.client_certificate_status} (?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher %{WORD:tls.cipher} \(%{NUMBER}\/%{NUMBER} bits\) key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w]+) server-signature (?<postfix.smtpd.connection.tls.server.signature_algorithm>[\w-]+) \(%{POSINT:postfix.smtpd.connection.tls.server.signature_strength:long} bits\) server-digest %{WORD:postfix.smtpd.connection.tls.server.signature_digest}$'
             - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
