@@ -342,7 +342,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "info"
             },
             "message": "disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
             "postfix": {
@@ -678,7 +678,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "info"
             },
             "message": "improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\\r\\nQUIT\\r\\n",
             "postfix": {
@@ -862,7 +862,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
             "postfix": {
@@ -912,7 +912,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
             "postfix": {
@@ -981,7 +981,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: hostname internettl.org does not resolve to address 175.16.199.1",
             "postfix": {
@@ -1049,7 +1049,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}",
             "postfix": {
@@ -1100,7 +1100,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: connect to Milter service local:opendkim/opendkim.sock: No such file or directory",
             "postfix": {

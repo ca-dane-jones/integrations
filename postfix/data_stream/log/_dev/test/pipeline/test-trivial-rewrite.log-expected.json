@@ -21,7 +21,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
             "postfix": {
@@ -65,7 +65,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: relay_domains lookup failure",
             "postfix": {
@@ -109,7 +109,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {
@@ -153,7 +153,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
             "postfix": {

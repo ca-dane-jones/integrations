@@ -48,7 +48,7 @@ processors:
       value: "{{{_tmp.postfix_email_to_original_address}}}"
       if: 'ctx._tmp?.postfix_email_to_original_address != null'  
   - append:
-      # Set to info because even.type: error is not supported for event.category: email.
+      # Set to info because event.type: error is not supported for event.category: email.
       description: 'Append info to event.type'
       field: event.type
       value: 

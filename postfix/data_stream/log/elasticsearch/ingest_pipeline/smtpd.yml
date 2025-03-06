@@ -96,6 +96,7 @@ processors:
         value: question
         if: 'ctx.dns?.question?.name != null'
     - script:
+        description: 'Calculate connection command metrics'
         source: |
             def cmds = ctx.postfix.smtpd.connection.commands;
             def cmdKeys = params.cmdKeys;
@@ -142,7 +143,6 @@ processors:
                 - unknown
                 - vrfy
         if: "ctx.tags != null && ctx.tags.contains('connection_metrics_enabled') && ctx.postfix?.smtpd?.connection?.commands != null"
-        description: 'Calculate connection command metrics'
     - append:
         description: "Append warning to postfix.error.type if the event is an improprer command pipelining event"
         field: postfix.error.type
@@ -173,9 +173,16 @@ processors:
         value:
             - "grok parsing failure"
         if: "ctx.postfix?.smtpd?.connection?.commands?.missing_parser?.command_name != null"
+    - append:
+        description: "Append warning to postfix.error.type for missing command parser."
+        field: postfix.error.type
+        value:
+            - warning
+        allow_duplicates: false
+        if: 'ctx.postfix?.error?.code == "improper command pipelining"'
     # ---End Section---
     - append:
-        description: "Append unknown to postfix.error.code if there's an postfix.error.message on the event and postfix.error.code wasn't specifically parsed by the grok processor."
+        description: "Append unknown to postfix.error.code if there is a postfix.error.message on the event and postfix.error.code wasn't specifically parsed by the grok processor."
         field: postfix.error.code
         value:
             - 'unknown'

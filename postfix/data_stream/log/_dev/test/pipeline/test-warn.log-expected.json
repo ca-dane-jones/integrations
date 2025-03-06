@@ -21,7 +21,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: command /usr/bin/policyd-spf exit status 1",
             "postfix": {
@@ -65,7 +65,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": "error"
+                "level": "warn"
             },
             "message": "warning: command /usr/bin/policyd-spf timeout",
             "postfix": {
