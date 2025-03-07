@@ -13,7 +13,7 @@ processors:
         Set log.level to warn if postfix.error.type is set to warning and log.level is not set.
       field: log.level
       value: 'warn'
-      if: 'ctx.postfix?.error?.type == "warning"'
+      if: 'ctx.postfix?.error?.type == "warning" || ctx.postfix?.error?.type == "reject_warning"'
   - set:
       description: |
         Set log.level to error if postfix.error.type is set to fatal or error.

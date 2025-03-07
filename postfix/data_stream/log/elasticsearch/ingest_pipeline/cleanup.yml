@@ -15,6 +15,7 @@ processors:
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): message-id=<%{DATA:email.message_id}>'
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): milter-%{POSTFIX_ACTION:postfix.milter.action}: %{GREEDYDATA:postfix.milter.message}; %{GREEDYDATA_NO_COLON:postfix.milter.keyvalue_data}(: %{GREEDYDATA:postfix.milter.data})?'
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): prepend: %{POSTFIX_CLEANUP_PREPEND_TYPE:postfix.prepend.type} %{GREEDYDATA:postfix.prepend.trigger} from %{HOSTNAME:client.domain}?\[%{IP:client.ip}\](:%{INT:client.port})?; %{GREEDYDATA_NO_COLON:postfix.prepend.keyvalue_data}: %{GREEDYDATA:postfix.prepend.value}'
+        - '(?<postfix.error.type>warning): %{GREEDYDATA:postfix.error.message}'
         - '%{GREEDYDATA:_tmp.catch_all}'
       pattern_definitions:
         GREEDYDATA_NO_COLON: '[^:]*'
