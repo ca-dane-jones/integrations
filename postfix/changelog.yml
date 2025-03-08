@@ -1,6 +1,6 @@
 # newer versions go on top
-- version: "0.0.68"
+- version: "0.0.69"
   changes:
-    - description: "Documentation updates and minor fixes."
+    - description: "Minor fixes."
       type: enhancement
       link: https://github.com/elastic/integrations/pull/1 # FIXME Replace with the real PR link

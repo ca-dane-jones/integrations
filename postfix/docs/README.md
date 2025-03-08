@@ -217,12 +217,13 @@ An example event for `log` looks as following:
 | postfix.dkim.protocol | The DKIM message transmission protocol. | keyword |
 | postfix.dkim.selector | The DKIM key selector as specified by the email sender. | keyword |
 | postfix.dkim.version | The opendkim version number. | version |
-| postfix.email.file_size | Total size of the email message on disk. | long |
+| postfix.email.size | Total size of the email message on disk. | long |
 | postfix.email.to.original_address | The original intended recipient of this email prior to postfix processing. | keyword |
 | postfix.error.code | Error code describing the error. | keyword |
 | postfix.error.message | The error message. | match_only_text |
 | postfix.error.type | The type of the error.  The type field will typically contain values such as warning or fatal. | keyword |
 | postfix.qmgr.local_recipient_count | Total count of local recipients | long |
+| postfix.qmgr.queue_name | The mail queue the message is currently in. | keyword |
 | postfix.relay.server.address | The raw server address. |  |
 | postfix.relay.server.domain | The domain name of the relay server system.  This value may be a host name,  a fully qualified domain name, or another host naming format. | keyword |
 | postfix.relay.server.ip | IP address of the server (IPv4 or IPv6). | ip |

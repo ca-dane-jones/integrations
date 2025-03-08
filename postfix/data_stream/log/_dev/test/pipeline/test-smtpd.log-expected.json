@@ -1124,6 +1124,55 @@
                 "catch_all",
                 "pipeline: loglevel"
             ]
+        },
+        {
+            "@timestamp": "2025-01-22T19:00:37.966-05:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "smtpd",
+                "original": "2025-01-22T19:00:37.966121-05:00 mail postfix/smtpd[36713]: NOQUEUE: reject_warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
+                "provider": "postfix",
+                "timezone": "-05:00",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": "warn"
+            },
+            "message": "NOQUEUE: reject_warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
+            "postfix": {
+                "error": {
+                    "code": "not parsed",
+                    "message": "warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
+                    "type": "warning"
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 36713
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtpd",
+                "catch_all",
+                "pipeline: loglevel"
+            ]
         }
     ]
 }

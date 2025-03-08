@@ -12,7 +12,7 @@ processors:
   - grok:
         field: message
         patterns:
-            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): from=<%{DATA:_tmp.email_from_address}>, size=%{INT:postfix.email.file_size:long}, nrcpt=%{INT:postfix.qmgr.local_recipient_count:long}'
+            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): from=<%{DATA:_tmp.email_from_address}>, size=%{INT:postfix.email.size:long}, nrcpt=%{INT:postfix.qmgr.local_recipient_count:long}( \(queue %{WORD:postfix.qmgr.queue_name}\)|)'
             - '(?<email.local_id>[0-9A-F]+|NOQUEUE): removed'
             - '%{GREEDYDATA:_tmp.catch_all}'
         description: 'Extracts qmgr event fields.'

@@ -133,7 +133,7 @@
     - name: email
       type: group
       fields:
-        - name: file_size
+        - name: size
           type: long
           description: |
             Total size of the email message on disk.
@@ -166,6 +166,10 @@
           type: long
           description: |
             Total count of local recipients
+        - name: queue_name
+          type: keyword
+          description: |
+            The mail queue the message is currently in.
     - name: relay
       type: group
       fields:
