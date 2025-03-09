@@ -4,17 +4,20 @@ paths:
 {{/each}}
 exclude_files: ['\.gz$']
 tags:
-{{#if preserve_original_event}}
-  - preserve_original_event
-{{/if}}
 {{#if connection_metrics_enabled}}
   - connection_metrics_enabled
+{{/if}}
+{{#if discard_unparsed_logs}}
+  - discard_unparsed_logs
 {{/if}}
 {{#if geoip_enabled}}
   - geoip_enabled
 {{/if}}
 {{#if pipeline_trace_enabled}}
   - pipeline_trace_enabled
+{{/if}}
+{{#if preserve_original_event}}
+  - preserve_original_event
 {{/if}}
 {{#each tags as |tag i|}}
   - {{tag}}

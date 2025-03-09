@@ -30,6 +30,14 @@ streams:
         type: bool
         multi: false
         default: true
+      - name: discard_unparsed_logs
+        required: true
+        show_user: true
+        title: Discard Unparsed Events
+        description: "Discard all events failing to match a grok pattern in this integration."
+        type: bool
+        multi: false
+        default: false
       - name: geoip_enabled
         required: true
         show_user: true
@@ -38,14 +46,6 @@ streams:
         type: bool
         multi: false
         default: true
-      - name: tags
-        type: text
-        title: Tags
-        multi: true
-        required: true
-        show_user: false
-        default:
-          - postfix
       - name: pipeline_trace_enabled
         type: bool
         title: Enable pipeline tracing
@@ -69,3 +69,11 @@ streams:
         show_user: false
         description: |
           Processors are used to reduce the number of fields in the exported event or to enhance the event with metadata.  This executes in the agent before the logs are parsed. See [Processors](https://www.elastic.co/guide/en/beats/filebeat/current/filtering-and-enhancing-data.html) for details.
+      - name: tags
+        type: text
+        title: Tags
+        multi: true
+        required: true
+        show_user: false
+        default:
+          - postfix

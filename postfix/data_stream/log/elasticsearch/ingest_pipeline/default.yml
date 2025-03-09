@@ -113,6 +113,9 @@ processors:
 - pipeline:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
+- drop:
+    description: Drops the log if discard_unparsed_logs is set and this log failed to match a grok processor
+    if: (ctx._tmp?.catch_all != null || ctx._tmp?.defaulted_event != null) && ctx.tags.contains('discard_unparsed_logs')
 - registered_domain:
     field: client.domain
     target_field: client
@@ -160,14 +163,6 @@ processors:
         - '(?<postfix.error.message>(?<postfix.error.type>fatal): %{GREEDYDATA})'
     if: 'ctx.postfix?.error?.type == null'
     ignore_failure: true
-#- script:
-    # TODO: Modify this to generate a shorter, more useable error.id.  Maybe a hash of the UUID?
-#    source: |
-#        def err = ctx.postfix.error;
-#        err.id = java.util.UUID.randomUUID().toString();
-#        ctx.postfix.error = err;
-#    if: 'ctx.postfix?.error?.message != null'
-#    description: "Generate an UUID and assign it to postfix.error.id if the event contains an error message."
 - lowercase:
     description: 'Drop error.code to lowercase if populated'
     field: postfix.error.code
