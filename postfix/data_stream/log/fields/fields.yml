@@ -558,9 +558,9 @@
             - name: tls
               type: group
               fields:
-                - name: client_certificate_status
+                - name: certificate_status
                   type: keyword
-                  description: This field contains the verification status of a client certificate, if provided, during an SMTPD connection SSL handshake.
+                  description: This field contains the verification status of a certificate, if provided, during an SMTPD connection SSL handshake.
                 - name: key_exchange_algorithm
                   type: keyword
                   description: |

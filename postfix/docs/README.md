@@ -307,7 +307,7 @@ An example event for `log` looks as following:
 | postfix.smtpd.connection.lost.message | The high level description of the event. | keyword |
 | postfix.smtpd.connection.lost.reason | The reason the connection was prematurely lost or terminated. | keyword |
 | postfix.smtpd.connection.lost.stage | The stage of the connection when it was prematurely lost or terminated. | keyword |
-| postfix.smtpd.connection.tls.client_certificate_status | This field contains the verification status of a client certificate, if provided, during an SMTPD connection SSL handshake. | keyword |
+| postfix.smtpd.connection.tls.certificate_status | This field contains the verification status of a certificate, if provided, during an SMTPD connection SSL handshake. | keyword |
 | postfix.smtpd.connection.tls.key_exchange_algorithm | The algorithm used for client and server key exchange. | keyword |
 | postfix.smtpd.connection.tls.server.signature_algorithm | The algorithm used for signing the certificate. | keyword |
 | postfix.smtpd.connection.tls.server.signature_digest | The digest used for signing the certificate. | keyword |
