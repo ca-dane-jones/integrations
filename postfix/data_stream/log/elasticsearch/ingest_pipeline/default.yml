@@ -114,8 +114,8 @@ processors:
     name: '{{ IngestPipeline "error" }}'
     if: ctx.event?.module == 'error'
 - drop:
-    description: Drops the log if discard_unparsed_logs is set and this log failed to match a grok processor
-    if: (ctx._tmp?.catch_all != null || ctx._tmp?.defaulted_event != null) && ctx.tags.contains('discard_unparsed_logs')
+    description: Drops the log if drop_unparsed_logs is set and this log failed to match a grok processor
+    if: (ctx._tmp?.catch_all != null || ctx._tmp?.defaulted_event != null) && ctx.tags.contains('drop_unparsed_logs')
 - registered_domain:
     field: client.domain
     target_field: client

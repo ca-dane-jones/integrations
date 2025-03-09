@@ -22,6 +22,8 @@ streams:
         show_user: true
         default:
           - /var/log/mail.log
+        description: |
+          The path(s) to the postfix log file(s). Paths entires support wildcard characters such as `*` and `?`.
       - name: connection_metrics_enabled
         required: true
         show_user: true
@@ -30,11 +32,11 @@ streams:
         type: bool
         multi: false
         default: true
-      - name: discard_unparsed_logs
+      - name: drop_unparsed_logs
         required: true
         show_user: true
-        title: Discard Unparsed Events
-        description: "Discard all events failing to match a grok pattern in this integration."
+        title: Drop Unparsed Events
+        description: "Drops all logs failing to match a grok pattern in this integration. If disabled (`false`), the pipeline will add a `catch_all` tag to each unparsed event. **Note**: It is recommended to leave this disabled until you are comfortable that all interesting and relevant events are parsed correctly."
         type: bool
         multi: false
         default: false
@@ -42,7 +44,7 @@ streams:
         required: true
         show_user: true
         title: Perform GeoIP lookups
-        description: "Enrich events with GeoIP information. \n"
+        description: "Enrich events with GeoIP information."
         type: bool
         multi: false
         default: true
