@@ -24,5 +24,19 @@
         ],
         "message": "2025-01-22T19:03:58.807240-05:00 mail postfix/master[2008]: terminating on signal 15"
       }
+    },
+    {
+      "_source": {
+        "_tmp.tz_offset": "local",
+        "tags": [
+          "pipeline_trace_enabled",
+          "geoip_enabled",
+          "preserve_original_event",
+          "connection_metrics_enabled",
+          "clear_tmp_disabled"
+        ],
+        "message": "2025-01-22T19:00:37.966121-05:00 mail postfix/smtpd[36713]: NOQUEUE: reject_warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>"
+      }
     }
+  
   ]

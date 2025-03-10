@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2025-01-05T06:36:56.000-05:00",
+            "@timestamp": "2025-01-05T06:36:56.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
@@ -33,7 +33,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: connect from unknown[175.16.199.1]",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -63,7 +62,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T05:46:30.000-05:00",
+            "@timestamp": "2025-01-05T05:46:30.000Z",
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
@@ -98,7 +97,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: connect from nessus.example.com[175.16.199.211]",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -128,7 +126,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T06:35:48.000-05:00",
+            "@timestamp": "2025-01-05T06:35:48.000Z",
             "client": {
                 "address": "67.43.156.1",
                 "as": {
@@ -162,7 +160,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -180,13 +177,11 @@
                 "smtpd": {
                     "connection": {
                         "tls": {
-                            "client_certificate_status": "Anonymous",
+                            "certificate_status": "Anonymous",
                             "key_exchange_algorithm": "X25519",
-                            "server": {
-                                "signature_algorithm": "RSA-PSS",
-                                "signature_digest": "SHA256",
-                                "signature_strength": 4096
-                            }
+                            "signature_algorithm": "RSA-PSS",
+                            "signature_digest": "SHA256",
+                            "signature_strength": 4096
                         }
                     }
                 }
@@ -213,7 +208,89 @@
             }
         },
         {
-            "@timestamp": "2025-01-05T06:36:56.000-05:00",
+            "@timestamp": "2025-01-05T06:35:48.000Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "smtpd",
+                "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: Trusted TLS connection established to gmail-smtp-in.l.google.com[67.43.156.1]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256",
+                "provider": "postfix",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": [
+                    "info"
+                ]
+            },
+            "message": "Trusted TLS connection established to gmail-smtp-in.l.google.com[67.43.156.1]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256",
+            "postfix": {
+                "smtpd": {
+                    "connection": {
+                        "tls": {
+                            "certificate_status": "Trusted",
+                            "key_exchange_algorithm": "X25519",
+                            "signature_algorithm": "ECDSA",
+                            "signature_digest": "SHA256"
+                        }
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtpd",
+                "pid": 121263
+            },
+            "server": {
+                "address": "67.43.156.1",
+                "as": {
+                    "number": 35908
+                },
+                "domain": "gmail-smtp-in.l.google.com",
+                "geo": {
+                    "continent_name": "Asia",
+                    "country_iso_code": "BT",
+                    "country_name": "Bhutan",
+                    "location": {
+                        "lat": 27.5,
+                        "lon": 90.5
+                    }
+                },
+                "ip": "67.43.156.1",
+                "port": 25,
+                "registered_domain": "google.com",
+                "subdomain": "gmail-smtp-in.l",
+                "top_level_domain": "com"
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtpd",
+                "pipeline: geoip",
+                "pipeline: loglevel"
+            ],
+            "tls": {
+                "cipher": "TLS_AES_256_GCM_SHA384",
+                "established": true,
+                "version": "1.3",
+                "version_protocol": "tls"
+            }
+        },
+        {
+            "@timestamp": "2025-01-05T06:36:56.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
@@ -245,7 +322,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -301,7 +377,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T06:36:56.000-05:00",
+            "@timestamp": "2025-01-05T06:36:56.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
@@ -333,7 +409,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -388,7 +463,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-08T11:01:45.000-05:00",
+            "@timestamp": "2025-01-08T11:01:45.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
@@ -423,7 +498,6 @@
                 "module": "smtpd",
                 "original": "Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -490,7 +564,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T06:35:48.000-05:00",
+            "@timestamp": "2025-01-05T06:35:48.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "scanner-04.ch1.censys-scanner.com",
@@ -524,7 +598,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:35:48 mail postfix/smtpd[121263]: lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[175.16.199.1]",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -564,7 +637,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T05:46:30.000-05:00",
+            "@timestamp": "2025-01-05T05:46:30.000Z",
             "client": {
                 "address": "175.16.199.211",
                 "domain": "nessus.example.com",
@@ -598,7 +671,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: SSL_accept error from nessus.example.com[175.16.199.211]: -1",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -638,7 +710,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-09T14:33:44.000-05:00",
+            "@timestamp": "2025-01-09T14:33:44.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
@@ -669,7 +741,6 @@
                 "module": "smtpd",
                 "original": "Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\\r\\nQUIT\\r\\n",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -705,7 +776,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-08T11:01:35.000-05:00",
+            "@timestamp": "2025-01-08T11:01:35.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
@@ -742,7 +813,6 @@
                 "module": "smtpd",
                 "original": "Jan  8 11:01:35 mail postfix/smtpd[41202]: 3183E8003F: client=o5.ptr2409.example.com[175.16.199.1]",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -772,7 +842,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-08T11:01:35.000-05:00",
+            "@timestamp": "2025-01-08T11:01:35.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "o5.ptr2409.example.com",
@@ -809,7 +879,6 @@
                 "module": "smtpd",
                 "original": "Jan  8 11:01:35 mail postfix/smtpd[41206]: 37C3980086: client=o5.ptr2409.example.com[175.16.199.1]",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -839,7 +908,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T05:46:30.000-05:00",
+            "@timestamp": "2025-01-05T05:46:30.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -853,7 +922,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 05:46:30 mail postfix/smtpd[111015]: warning: TLS library problem: error:0A0000C1:SSL routines::no shared cipher:../ssl/statem/statem_srvr.c:2220:",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -889,7 +957,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-05T06:32:37.000-05:00",
+            "@timestamp": "2025-01-05T06:32:37.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -903,7 +971,6 @@
                 "module": "smtpd",
                 "original": "Jan  5 06:32:37 mail postfix/smtpd[121253]: warning: 175.16.199.1.redacted.zen.dq.spamhaus.net: RBL lookup error: Host or domain name not found. Name service error for name=175.16.199.1.redacted.zen.dq.spamhaus.net type=A: Host not found, try again",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -939,7 +1006,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-12T11:21:00.000-05:00",
+            "@timestamp": "2025-01-12T11:21:00.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "internettl.org",
@@ -972,7 +1039,6 @@
                 "module": "smtpd",
                 "original": "Jan 12 11:21:00 mail postfix/smtpd[21354]: warning: hostname internettl.org does not resolve to address 175.16.199.1",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -1009,7 +1075,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-10T14:55:55.000-05:00",
+            "@timestamp": "2025-01-10T14:55:55.000Z",
             "client": {
                 "address": "175.16.199.1",
                 "domain": "unknown",
@@ -1040,7 +1106,6 @@
                 "module": "smtpd",
                 "original": "Jan 10 14:55:55 mail postfix/smtpd[20511]: warning: non-SMTP command from unknown[175.16.199.1]: {\"id\": 1, \"method\": \"mining.subscribe\", \"params\": [\"cpuminer/2.5.1\"]}",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -1127,8 +1192,31 @@
         },
         {
             "@timestamp": "2025-01-22T19:00:37.966-05:00",
+            "client": {
+                "address": "175.16.199.1",
+                "domain": "nessus.example.com",
+                "geo": {
+                    "city_name": "Changchun",
+                    "continent_name": "Asia",
+                    "country_iso_code": "CN",
+                    "country_name": "China",
+                    "location": {
+                        "lat": 43.88,
+                        "lon": 125.3228
+                    },
+                    "region_iso_code": "CN-22",
+                    "region_name": "Jilin Sheng"
+                },
+                "ip": "175.16.199.1",
+                "registered_domain": "example.com",
+                "subdomain": "nessus",
+                "top_level_domain": "com"
+            },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "local_id": "NOQUEUE"
             },
             "event": {
                 "category": [
@@ -1149,14 +1237,29 @@
                 "name": "mail"
             },
             "log": {
-                "level": "warn"
+                "level": "info"
             },
             "message": "NOQUEUE: reject_warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
             "postfix": {
+                "delivery": {
+                    "reject": {
+                        "type": "reject_warning"
+                    },
+                    "status_code": {
+                        "class": 4,
+                        "detail": 1,
+                        "subject": 7,
+                        "value": "4.7.1"
+                    }
+                },
                 "error": {
-                    "code": "not parsed",
-                    "message": "warning: RCPT from nessus.example.com[175.16.199.1]: 450 4.7.1 <nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
-                    "type": "warning"
+                    "code": [
+                        "unknown"
+                    ],
+                    "message": "<nessus>: Helo command rejected: Host not found; from=<nessus@example.com> to=<user@example2.com> proto=ESMTP helo=<nessus>",
+                    "type": [
+                        "reject_warning"
+                    ]
                 }
             },
             "process": {
@@ -1170,7 +1273,7 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtpd",
-                "catch_all",
+                "pipeline: geoip",
                 "pipeline: loglevel"
             ]
         }

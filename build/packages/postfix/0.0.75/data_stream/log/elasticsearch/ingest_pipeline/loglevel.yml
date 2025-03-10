@@ -1,0 +1,28 @@
+---
+description: |
+  Pipeline for setting log.level values
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+          - "pipeline: loglevel"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - set:
+      description: |
+        Set log.level to warn if postfix.error.type is set to warning and log.level is not set.
+      field: log.level
+      value: 'warn'
+      if: 'ctx.postfix?.error?.type == "warning" || ctx.postfix?.error?.type == "reject_warning"'
+  - set:
+      description: |
+        Set log.level to error if postfix.error.type is set to fatal or error.
+      field: log.level
+      value: 'error'
+      if: 'ctx.postfix?.error?.type == "fatal" || ctx.postfix?.error?.type == "error"'
+  - set:
+      description: |
+        Set log.level to info if its not already set.
+      field: log.level
+      value: 'info'
+      if: 'ctx.log?.level == null'

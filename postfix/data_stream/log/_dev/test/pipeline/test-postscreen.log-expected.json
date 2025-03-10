@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2025-11-04T08:51:29.000-05:00",
+            "@timestamp": "2025-11-04T08:51:29.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -14,8 +14,7 @@
                 ],
                 "module": "postscreen",
                 "original": "Nov  4 08:51:29 mail postfix/postscreen[12345]: CONNECT from [175.16.199.2]:25 to [175.16.199.2]:25",
-                "provider": "postfix",
-                "timezone": "-05:00"
+                "provider": "postfix"
             },
             "host": {
                 "name": "mail"
@@ -38,7 +37,7 @@
             ]
         },
         {
-            "@timestamp": "2025-11-04T08:51:29.000-05:00",
+            "@timestamp": "2025-11-04T08:51:29.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -51,8 +50,7 @@
                 ],
                 "module": "postscreen",
                 "original": "Nov  4 08:51:29 mail postfix/postscreen[12345]: ALLOWLISTED [175.16.199.1]:25",
-                "provider": "postfix",
-                "timezone": "-05:00"
+                "provider": "postfix"
             },
             "host": {
                 "name": "mail"

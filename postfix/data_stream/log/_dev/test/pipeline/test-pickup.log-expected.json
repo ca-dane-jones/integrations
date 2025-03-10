@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2025-12-31T04:17:57.000-05:00",
+            "@timestamp": "2025-12-31T04:17:57.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -23,7 +23,6 @@
                 "module": "pickup",
                 "original": "Dec 31 04:17:57 mail postfix/pickup[2010]: F03408017B: uid=0 from=<postfix@maildomain.tld>",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -53,7 +52,7 @@
             }
         },
         {
-            "@timestamp": "2025-01-03T06:25:22.000-05:00",
+            "@timestamp": "2025-01-03T06:25:22.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -75,7 +74,6 @@
                 "module": "pickup",
                 "original": "Jan  3 06:25:22 mail postfix/pickup[79317]: 4501D80099: uid=0 from=<root>",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]

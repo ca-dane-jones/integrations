@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2025-01-06T06:32:42.000-05:00",
+            "@timestamp": "2025-01-06T06:32:42.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -14,8 +14,7 @@
                 ],
                 "module": "trivial-rewrite",
                 "original": "Jan  6 06:32:42 mail postfix/trivial-rewrite[140869]: warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains",
-                "provider": "postfix",
-                "timezone": "-05:00"
+                "provider": "postfix"
             },
             "host": {
                 "name": "mail"
@@ -45,7 +44,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-11T06:32:42.000-05:00",
+            "@timestamp": "2025-01-11T06:32:42.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -58,8 +57,7 @@
                 ],
                 "module": "trivial-rewrite",
                 "original": "Jan 11 06:32:42 mail postfix/trivial-rewrite[140869]: warning: relay_domains lookup failure",
-                "provider": "postfix",
-                "timezone": "-05:00"
+                "provider": "postfix"
             },
             "host": {
                 "name": "mail"
@@ -89,7 +87,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-06T20:05:32.000-05:00",
+            "@timestamp": "2025-01-06T20:05:32.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -102,8 +100,7 @@
                 ],
                 "module": "trivial-rewrite",
                 "original": "Jan  6 20:05:32 mail postfix/trivial-rewrite[142856]: message repeated 2 times: [ warning: do not list domain example.com in BOTH mydestination and virtual_alias_domains]",
-                "provider": "postfix",
-                "timezone": "-05:00"
+                "provider": "postfix"
             },
             "host": {
                 "name": "mail"

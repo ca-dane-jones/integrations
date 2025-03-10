@@ -1,7 +1,7 @@
 {
     "expected": [
         {
-            "@timestamp": "2025-12-31T04:17:56.000-05:00",
+            "@timestamp": "2025-12-31T04:17:56.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -16,7 +16,6 @@
                 "module": "postfix-script",
                 "original": "Dec 31 04:17:56 mail postfix/postfix-script[2006]: starting the Postfix mail system",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -43,7 +42,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-02T10:17:43.000-05:00",
+            "@timestamp": "2025-01-02T10:17:43.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -58,7 +57,6 @@
                 "module": "postfix-script",
                 "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: stopping the Postfix mail system",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
@@ -85,7 +83,7 @@
             ]
         },
         {
-            "@timestamp": "2025-01-02T10:17:43.000-05:00",
+            "@timestamp": "2025-01-02T10:17:43.000Z",
             "ecs": {
                 "version": "8.11.0"
             },
@@ -100,7 +98,6 @@
                 "module": "postfix-script",
                 "original": "Jan  2 10:17:43 mail postfix/postfix-script[59702]: refreshing the Postfix mail system",
                 "provider": "postfix",
-                "timezone": "-05:00",
                 "type": [
                     "info"
                 ]
