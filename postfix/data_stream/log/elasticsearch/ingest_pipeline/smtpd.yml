@@ -2,7 +2,7 @@
 # TODO: Need to add additional event category and type processing to this pipeline.  There's a lot going on here. :)
 # TODO: Implement email.direction
 #########################
-#TODO: Further refinement of grok pattern: (?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.reject.type}: %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{NUMBER} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) %{GREEDYDATA:postfix.error.message}
+#TODO: Further refinement of grok pattern: (?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.reject.type}: %{SMTP_STAGE} from %{HOST_AND_IP}: %{NUMBER} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) %{GREEDYDATA:postfix.error.message}
 #       postfix.error.message contains fields that need to be extracted
 #########################
 description: |
@@ -20,19 +20,19 @@ processors:
         #       It doesn't gracefully handle multiple "missing_parser" commands in a disconnect message
         field: message
         patterns:
-            - '(?<_tmp.smtpd_cxn_action>connect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]$'
-            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\] (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{HELO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
-            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]'
-            - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.certificate_status} (?<_tmp.tls_connection>TLS connection established) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: TLSv(?<tls.version>[\d\.]+) with cipher (?<tls.cipher>[\w\d\-_]+) \(%{NUMBER}\/%{NUMBER} bits\)( key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w\d\-_]+) server-signature (?<postfix.smtpd.connection.tls.signature_algorithm>[\w\d\-_]+) \(%{POSINT:postfix.smtpd.connection.tls.signature_strength:long} bits\) server-digest (?<postfix.smtpd.connection.tls.signature_digest>[\w\d\-_]+)|)'
+            - '(?<_tmp.smtpd_cxn_action>connect) from %{HOST_AND_IP}$'
+            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOST_AND_IP} (%{AUTH}|%{BDAT}|%{COMMANDS}|%{DATA}|%{EHLO}|%{HELO}|%{ETRN}|%{EXPN}|%{HELP}|%{MAIL}|%{NOOP}|%{QUIT}|%{RCPT}|%{RSET}|%{STARTTLS}|%{UNKNOWN}|%{VRFY}|%{MISSING_PARSER}|%{SPACE})+'
+            - '(?<_tmp.smtpd_cxn_action>disconnect) from %{HOST_AND_IP}( %{COMMANDS}|)$'
+            - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.certificate_status} (?<_tmp.tls_connection>TLS connection established) from %{HOST_AND_IP}: TLSv(?<tls.version>[\d\.]+) with cipher (?<tls.cipher>[\w\d\-_]+) \(%{NUMBER}\/%{NUMBER} bits\)( key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w\d\-_]+) server-signature (?<postfix.smtpd.connection.tls.signature_algorithm>[\w\d\-_]+) \(%{POSINT:postfix.smtpd.connection.tls.signature_strength:long} bits\) server-digest (?<postfix.smtpd.connection.tls.signature_digest>[\w\d\-_]+)|)'
             - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.certificate_status} (?<_tmp.tls_connection>TLS connection established) to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: TLSv(?<tls.version>[\d\.]+) with cipher (?<tls.cipher>[\w\d\-_]+) \(%{NUMBER}\/%{NUMBER} bits\)( key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w\d\-_]+) server-signature (?<postfix.smtpd.connection.tls.signature_algorithm>[\w\d\-_]+) \((%{POSINT:postfix.smtpd.connection.tls.signature_strength:long} bits|(?<_tmp.sig_algo_strength>[\w\d\-_]+))\) server-digest (?<postfix.smtpd.connection.tls.signature_digest>[\w\d\-_]+)|)'
-            - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOSTNAME:client.domain}\[%{IP:client.address}\](: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
-            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOSTNAME:client.domain}\[%{IP:client.address}\]'
-            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.reject.type}: %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{NUMBER} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) %{GREEDYDATA:postfix.error.message}'
-            - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+            - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOST_AND_IP}(: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
+            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOST_AND_IP}'
+            - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.reject.type}: %{SMTP_STAGE} from %{HOST_AND_IP}: %{NUMBER} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) %{GREEDYDATA:postfix.error.message}'
+            - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOST_AND_IP}: %{GREEDYDATA}'
             - '(?<postfix.error.type>warning): %{HOSTNAME}: (?<postfix.error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
             - '(?<postfix.error.type>warning): (?<postfix.error.code>TLS library problem): %{GREEDYDATA}'
             - '(?<postfix.error.type>warning): hostname %{HOSTNAME:client.domain} (?<postfix.error.code>does not resolve to address) %{IP:client.address}'
-            - '(?<postfix.error.type>warning): (?<postfix.error.code>non-SMTP command) from %{HOSTNAME:client.domain}\[%{IP:client.address}\]: %{GREEDYDATA}'
+            - '(?<postfix.error.type>warning): (?<postfix.error.code>non-SMTP command) from %{HOST_AND_IP}: %{GREEDYDATA}'
             - '%{GREEDYDATA:_tmp.catch_all}'
         pattern_definitions:
             # Command definitions
@@ -56,6 +56,7 @@ processors:
             MISSING_PARSER: '%{WORD:postfix.smtpd.connection.commands.missing_parser.command_name}=(%{INT}\/%{INT}|%{INT})'
             POSTFIX_ACTION: '(accept|defer|discard|filter|header-redirect|reject_warning|reject|)'
             # General patterns
+            HOST_AND_IP: '(%{HOSTNAME:client.domain}|unknown)\[(%{IP:client.address}|unknown)\]'
             SMTP_STAGE: '(CONNECT|HELO|EHLO|STARTTLS|AUTH|MAIL( FROM)?|RCPT( TO)?|(end of )?DATA|BDAT|RSET|UNKNOWN|END-OF-MESSAGE|VRFY|\.)'
             SMTP_STAGE_LIST: '(auth|bdat|data|ehlo|etrn|expn|helo|help|mail|noop|quit|rcpt|rset|starttls|unknown|vrfy)'
             SMTPD_PROTO: 'ESMTP'

@@ -1,11 +1,14 @@
 Jan  5 06:36:56 mail postfix/smtpd[121263]: connect from unknown[175.16.199.1]
+Jan  5 06:36:56 mail postfix/smtpd[121263]: connect from unknown[unknown]
 Jan  5 05:46:30 mail postfix/smtpd[111015]: connect from nessus.example.com[175.16.199.211]
 Jan  5 06:35:48 mail postfix/smtpd[121263]: Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256
 Jan  5 06:35:48 mail postfix/smtpd[121263]: Trusted TLS connection established to gmail-smtp-in.l.google.com[67.43.156.1]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256
 Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3
 Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[175.16.199.1] missing_parser=1/2 ehlo=1 commands=2/3
+Jan  5 06:36:56 mail postfix/smtpd[121263]: disconnect from unknown[unknown] commands=0/0
 Jan  8 11:01:45 mail postfix/smtpd[41212]: disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
 Jan  5 06:35:48 mail postfix/smtpd[121263]: lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[175.16.199.1]
+Jan  5 06:35:48 mail postfix/smtpd[121263]: lost connection after CONNECT from unknown[unknown]
 Jan  5 05:46:30 mail postfix/smtpd[111015]: SSL_accept error from nessus.example.com[175.16.199.211]: -1
 Jan  9 14:33:44 mail postfix/smtpd[82518]: improper command pipelining after EHLO from unknown[175.16.199.1]: HELP\r\nQUIT\r\n
 Jan  8 11:01:35 mail postfix/smtpd[41202]: 3183E8003F: client=o5.ptr2409.example.com[175.16.199.1]
