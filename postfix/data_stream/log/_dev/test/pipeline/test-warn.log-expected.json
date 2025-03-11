@@ -41,6 +41,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
+                "catch_all",
                 "pipeline: loglevel"
             ]
         },
@@ -85,6 +86,7 @@
                 "geoip_enabled",
                 "pipeline_trace_enabled",
                 "pipeline: default",
+                "catch_all",
                 "pipeline: loglevel"
             ]
         }

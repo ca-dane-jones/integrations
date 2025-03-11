@@ -1,0 +1,50 @@
+---
+description: |
+    Pipeline for enriching events containing client and/or server IP addresses with GeoIP database details.
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: geoip"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - geoip:
+      field: client.ip
+      target_field: client.geo
+      ignore_missing: true
+  - geoip:
+      ignore_missing: true
+      database_file: GeoLite2-ASN.mmdb
+      field: client.ip
+      target_field: client.as
+      properties:
+        - asn
+        - organization_name  
+  - rename:
+      field: client.as.asn
+      target_field: client.as.number
+      ignore_missing: true
+  - rename:
+      field: client.as.organization_name
+      target_field: client.as.organization.name
+      ignore_missing: true
+  - geoip:
+      field: server.ip
+      target_field: server.geo
+      ignore_missing: true
+  - geoip:
+      database_file: GeoLite2-ASN.mmdb
+      field: server.ip
+      target_field: server.as
+      properties:
+        - asn
+        - organization_name
+      ignore_missing: true
+  - rename:
+      field: server.as.asn
+      target_field: server.as.number
+      ignore_missing: true
+  - rename:
+      field: server.as.organization_name
+      target_field: server.as.organization.name
+      ignore_missing: true

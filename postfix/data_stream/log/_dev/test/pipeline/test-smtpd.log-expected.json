@@ -41,9 +41,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "connect from unknown[175.16.199.1]",
             "process": {
@@ -88,9 +86,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "connect from unknown[unknown]",
             "process": {
@@ -151,9 +147,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "connect from nessus.example.com[175.16.199.211]",
             "process": {
@@ -214,9 +208,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "Anonymous TLS connection established from scanner-04.ch1.censys-scanner.com[67.43.156.1]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256",
             "postfix": {
@@ -276,9 +268,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "Trusted TLS connection established to gmail-smtp-in.l.google.com[67.43.156.1]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256",
             "postfix": {
@@ -376,9 +366,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "disconnect from unknown[175.16.199.1] ehlo=1 auth=0/1 quit=1 commands=2/3",
             "postfix": {
@@ -535,9 +523,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "disconnect from unknown[unknown] commands=0/0",
             "postfix": {
@@ -609,9 +595,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "disconnect from o5.ptr2409.example.com[175.16.199.1] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7",
             "postfix": {
@@ -709,9 +693,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "lost connection after STARTTLS from scanner-04.ch1.censys-scanner.com[175.16.199.1]",
             "postfix": {
@@ -765,9 +747,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "lost connection after CONNECT from unknown[unknown]",
             "postfix": {
@@ -837,9 +817,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "SSL_accept error from nessus.example.com[175.16.199.211]: -1",
             "postfix": {
@@ -979,9 +957,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "3183E8003F: client=o5.ptr2409.example.com[175.16.199.1]",
             "process": {
@@ -1045,9 +1021,7 @@
                 "name": "mail"
             },
             "log": {
-                "level": [
-                    "info"
-                ]
+                "level": "info"
             },
             "message": "37C3980086: client=o5.ptr2409.example.com[175.16.199.1]",
             "process": {
