@@ -217,9 +217,3 @@ processors:
         value: 
             - 'info'
         allow_duplicates: false
-    - set:
-        description: 'Set info to log.level if a postfix.error.code is not populated'
-        field: log.level
-        value: 
-            - 'info'
-        if: 'ctx.postfix?.error?.code == null'
