@@ -1,0 +1,56 @@
+---
+description: |
+  Pipeline for processing Postfix SMTP and LMTP events.  
+# TODO: Implement email.direction
+processors:
+  - append:
+      description: Append pipeline trace tag if enabled
+      field: tags
+      value:
+        - "pipeline: smtp"
+      if: ctx.tags != null && ctx.tags.contains('pipeline_trace_enabled')
+  - grok:
+      field: message
+      patterns:
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): (to=<%{DATA:_tmp.email_to_address}>, orig_to=<%{DATA:_tmp.postfix_email_to_original_address}>|to=<%{DATA:_tmp.email_to_address}>), relay=%{DATA:_tmp.postfix_relay_info}, delay=%{BASE10NUM:postfix.delivery.delays.total_time:float}, delays=%{BASE10NUM:postfix.delivery.delays.before_qmgr_time:float}\/%{BASE10NUM:postfix.delivery.delays.in_qmgr_time:float}\/%{BASE10NUM:postfix.delivery.delays.connection_setup_time:float}\/%{BASE10NUM:postfix.delivery.delays.message_transmission_time:float}, dsn=(?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}), status=%{DATA:postfix.delivery.status} \(%{DATA:postfix.delivery.status_message}\)'
+        - '(?<postfix.error.message>connect to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: %{LOSTCONN:postfix.error.code})'
+        - '%{GREEDYDATA:_tmp.catch_all}'
+      description: 'Extract fields from Postfix SMTP messages'
+      pattern_definitions:
+        LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
+  - grok:
+      field: postfix.delivery.status_message
+      patterns:
+        - '(?<postfix.error.message>connect to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: %{LOSTCONN:postfix.error.code})'      
+      pattern_definitions:
+        LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
+      if: ctx.postfix?.delivery?.status_message != null
+      ignore_failure: true
+      description: Parse error and server information from a delivery status message
+  - grok:
+      field: _tmp.postfix_relay_info
+      patterns:
+        - '%{HOSTNAME:postfix.relay.server.domain}(\[%{IP:postfix.relay.server.address}\]:%{POSINT:postfix.relay.server.port:long})?'
+      if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postrix_relay_info != "none"'
+      description: 'Extracts relay server details'  
+  - lowercase:
+      description: 'Drop postfix.error.code to lowercase if populated'
+      field: postfix.error.code
+      if: "ctx.postfix?.error?.code != null"  
+  - append:
+      description: Add the email to address if extracted.
+      field: email.to.address
+      value: "{{{_tmp.email_to_address}}}"
+      if: 'ctx._tmp?.email_to_address != null'
+  - append:
+      description: Add the original to address if extracted.
+      field: postfix.email.to.original_address
+      value: "{{{_tmp.postfix_email_to_original_address}}}"
+      if: 'ctx._tmp?.postfix_email_to_original_address != null'  
+  - append:
+      # Set to info because event.type: error is not supported for event.category: email.
+      description: 'Append info to event.type'
+      field: event.type
+      value: 
+        - info
+      allow_duplicates: false

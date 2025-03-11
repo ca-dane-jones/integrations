@@ -1,0 +1,122 @@
+{
+    "@timestamp": "2025-01-01T00:07:07.000Z",
+    "agent": {
+        "ephemeral_id": "5de5f298-d09b-4786-835d-aa485be2e10f",
+        "id": "ee9912e3-07b5-4cf8-beb8-33112699ad73",
+        "name": "elastic-agent-92462",
+        "type": "filebeat",
+        "version": "8.17.1"
+    },
+    "client": {
+        "address": "89.160.20.113",
+        "as": {
+            "number": 29518,
+            "organization": {
+                "name": "Bredband2 AB"
+            }
+        },
+        "geo": {
+            "city_name": "Linköping",
+            "continent_name": "Europe",
+            "country_iso_code": "SE",
+            "country_name": "Sweden",
+            "location": {
+                "lat": 58.4167,
+                "lon": 15.6167
+            },
+            "region_iso_code": "SE-E",
+            "region_name": "Östergötland County"
+        },
+        "ip": "89.160.20.113"
+    },
+    "data_stream": {
+        "dataset": "postfix.log",
+        "namespace": "50562",
+        "type": "logs"
+    },
+    "ecs": {
+        "version": "8.11.0"
+    },
+    "elastic_agent": {
+        "id": "ee9912e3-07b5-4cf8-beb8-33112699ad73",
+        "snapshot": false,
+        "version": "8.17.1"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "category": [
+            "session",
+            "email"
+        ],
+        "dataset": "postfix.log",
+        "ingested": "2025-03-03T22:13:42Z",
+        "kind": [
+            "event"
+        ],
+        "module": "anvil",
+        "original": "Jan  1 00:07:07 mail postfix/anvil[21457]: statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
+        "provider": "postfix",
+        "type": [
+            "info"
+        ]
+    },
+    "host": {
+        "architecture": "x86_64",
+        "containerized": false,
+        "hostname": "elastic-agent-92462",
+        "ip": [
+            "172.23.0.2",
+            "172.22.0.4"
+        ],
+        "mac": [
+            "02-42-AC-16-00-04",
+            "02-42-AC-17-00-02"
+        ],
+        "name": "mail",
+        "os": {
+            "family": "",
+            "kernel": "6.11.0-17-generic",
+            "name": "Wolfi",
+            "platform": "wolfi",
+            "type": "linux",
+            "version": "20230201"
+        }
+    },
+    "input": {
+        "type": "filestream"
+    },
+    "log": {
+        "file": {
+            "device_id": "51",
+            "inode": "146306",
+            "path": "/tmp/service_logs/mail.log"
+        },
+        "level": "info",
+        "offset": 125
+    },
+    "message": "statistics: max connection count 1 for (smtp:89.160.20.113) at Jan  1 00:03:46Dec 31 23:54:23 mail postfix/anvil[21425]: statistics: max cache size 1 at Dec 31 23:51:02",
+    "postfix": {
+        "anvil": {
+            "connection": {
+                "count": 1,
+                "end_time": "2025-01-01T00:07:07.000Z",
+                "service_name": "smtp"
+            }
+        }
+    },
+    "process": {
+        "name": "postfix/anvil",
+        "pid": 21457
+    },
+    "tags": [
+        "preserve_original_event",
+        "connection_metrics_enabled",
+        "geoip_enabled",
+        "pipeline_trace_enabled",
+        "postfix",
+        "pipeline: default",
+        "pipeline: anvil",
+        "pipeline: geoip",
+        "pipeline: loglevel"
+    ]
+}
