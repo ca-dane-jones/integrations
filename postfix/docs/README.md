@@ -214,7 +214,7 @@ An example event for `log` looks as following:
 | postfix.anvil.connection.service_name | The master.cf service name of the postfix daemon process. | keyword |
 | postfix.anvil.connection.start_time | The time at which the client session began. | date |
 | postfix.configuration_path | Path to the configuation file used in process startup. | keyword |
-| postfix.delivery.delays.before_qmgr_time | The amount of time spent before the email is sent to the queue manager, includes transmission. | float |
+| postfix.delivery.delays.before_qmgr_time | The time spent before the message reaches the queue manager, including the time it took for the message to be transmitted to the mail server. | float |
 | postfix.delivery.delays.connection_setup_time | The amount of time spent setting up a connection to deliver an email to a recipient, including time spent in DNS, HELO, and TLS. | float |
 | postfix.delivery.delays.in_qmgr_time | The amount of time spent by the queue manager in delivering an email to a recipient. | float |
 | postfix.delivery.delays.message_transmission_time | The amount of time spent transmitting a message over an established connection. | float |
