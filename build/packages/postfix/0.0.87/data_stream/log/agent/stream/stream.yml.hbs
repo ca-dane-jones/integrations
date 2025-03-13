@@ -31,12 +31,6 @@ fields:
   _tmp:
     tz_offset: {{tz_offset}}
 {{/if}}
-{{#if local_relay_domains}}
-fields_under_root: true
-fields:
-  _tmp:
-    local_email_domains: {{local_email_domains}}
-{{/if}}
 {{#if processors}}
 {{processors}}
 {{/if}}

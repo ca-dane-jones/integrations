@@ -1,6 +1,7 @@
 ---
+# TODO: Implement GeoIP processing for postfix.relay.server?
 description: |
-    Pipeline for enriching events containing client and/or server IP addresses with GeoIP database details.
+  Pipeline for enriching events containing client and/or server IP addresses with GeoIP database details.
 processors:
   - append:
       description: Append pipeline trace tag if enabled
@@ -19,7 +20,7 @@ processors:
       target_field: client.as
       properties:
         - asn
-        - organization_name  
+        - organization_name
   - rename:
       field: client.as.asn
       target_field: client.as.number

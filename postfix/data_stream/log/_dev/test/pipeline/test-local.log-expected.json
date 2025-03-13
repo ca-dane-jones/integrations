@@ -6,6 +6,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -85,6 +86,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -164,6 +166,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -243,6 +246,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -315,6 +319,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -365,7 +370,10 @@
                     "server": {
                         "address": "2a02:cf40::1a",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "port": 25
+                        "ip": "2a02:cf40::1a",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
                     }
                 }
             },
@@ -389,6 +397,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -439,7 +448,10 @@
                     "server": {
                         "address": "175.16.199.5",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "port": 25
+                        "ip": "175.16.199.5",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
                     }
                 }
             },
@@ -463,6 +475,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "264E480039",
                 "to": {
                     "address": [
@@ -514,7 +527,10 @@
                     "server": {
                         "address": "175.16.199.5",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "port": 25
+                        "ip": "175.16.199.5",
+                        "port": 25,
+                        "registered_domain": "google.com",
+                        "top_level_domain": "com"
                     }
                 }
             },

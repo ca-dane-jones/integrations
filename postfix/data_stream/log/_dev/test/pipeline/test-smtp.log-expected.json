@@ -149,7 +149,7 @@
                 "version": "8.11.0"
             },
             "email": {
-                "direction": "inbound",
+                "direction": "outbound",
                 "local_id": "125891E00BA",
                 "to": {
                     "address": [
@@ -307,6 +307,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "125891E00BA",
                 "to": {
                     "address": [

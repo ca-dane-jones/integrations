@@ -62,33 +62,22 @@ processors:
       field: postfix.email.to.original_address
       value: "{{{_tmp.postfix_email_to_original_address}}}"
       if: 'ctx._tmp?.postfix_email_to_original_address != null'
-  - registered_domain:
-      field: postfix.relay.server.domain
-      target_field: postfix.relay.server
-      ignore_missing: true
-      if: 'ctx.postfix?.relay?.server?.domain != "none" && ctx.postfix?.relay?.server?.domain != "local"'
-  - convert:
-      field: postfix.relay.server.address
-      target_field: postfix.relay.server.ip
-      type: ip
-      ignore_failure: true
-      ignore_missing: true
   - append:
       description: 'Append info to event.type'
       field: event.type
       value:
         - info
       allow_duplicates: false
-  - set:
-      description: Set email direction to inbound if relaying locally
-      field: email.direction
-      value: inbound
-      if: 'ctx.postfix?.relay?.server?.domain != null && ctx._tmp?.local_email_domains != null && (ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.domain) || ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.registered_domain))'
-  - set:
-      description: Set email direction to outbound if relaying remotely
-      field: email.direction
-      value: outbound
-      if: 'ctx._tmp?.local_email_domains != null && ctx.postfix?.relay?.server?.registered_domain != null && !ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.registered_domain)'
+  #  - set:
+  #      description: Set email direction to inbound if not relaying
+  #      field: email.direction
+  #      value: inbound
+  #      if: 'ctx.postfix?.relay?.server?.domain != null && ctx._tmp?.local_email_domains != null && (ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.domain) || ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.registered_domain))'
+  #  - set:
+  #      description: Set email direction to outbound if relaying remotely
+  #      field: email.direction
+  #      value: outbound
+  #      if: 'ctx._tmp?.local_email_domains != null && ctx.postfix?.relay?.server?.registered_domain != null && !ctx._tmp?.local_email_domains.contains(ctx.postfix?.relay?.server?.registered_domain)'
   - remove:
       description: 'Remove the defaulted event tag if this event was successfully processed.'
       field: _tmp.defaulted_event
