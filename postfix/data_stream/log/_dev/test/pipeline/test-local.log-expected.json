@@ -365,10 +365,7 @@
                     "server": {
                         "address": "2a02:cf40::1a",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "ip": "2a02:cf40::1a",
-                        "port": 25,
-                        "registered_domain": "google.com",
-                        "top_level_domain": "com"
+                        "port": 25
                     }
                 }
             },
@@ -442,10 +439,7 @@
                     "server": {
                         "address": "175.16.199.5",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "ip": "175.16.199.5",
-                        "port": 25,
-                        "registered_domain": "google.com",
-                        "top_level_domain": "com"
+                        "port": 25
                     }
                 }
             },
@@ -520,10 +514,7 @@
                     "server": {
                         "address": "175.16.199.5",
                         "domain": "ALT2.ASPMX.L.GOOGLE.COM",
-                        "ip": "175.16.199.5",
-                        "port": 25,
-                        "registered_domain": "google.com",
-                        "top_level_domain": "com"
+                        "port": 25
                     }
                 }
             },

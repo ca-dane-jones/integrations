@@ -7,3 +7,6 @@ fields:
     - geoip_enabled
     - pipeline_trace_enabled
   "_tmp.tz_offset": local
+  "_tmp.local_email_domains":
+    - example.com
+    - none

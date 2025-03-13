@@ -22,6 +22,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "action": "smtpd-connect",
                 "category": [
@@ -66,6 +69,9 @@
             },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "action": "smtpd-connect",
@@ -127,6 +133,9 @@
             },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "action": "smtpd-connect",
@@ -190,6 +199,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "category": [
                     "email"
@@ -249,6 +261,9 @@
             "@timestamp": "2025-01-05T06:35:48.000Z",
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -347,6 +362,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "action": "smtpd-disconnect",
                 "category": [
@@ -432,6 +450,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "action": "smtpd-disconnect",
                 "category": [
@@ -504,6 +525,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "action": "smtpd-disconnect",
                 "category": [
@@ -575,6 +599,9 @@
             },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "action": "smtpd-disconnect",
@@ -675,6 +702,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "category": [
                     "email"
@@ -728,6 +758,9 @@
             },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -799,6 +832,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "category": [
                     "email"
@@ -866,6 +902,9 @@
             },
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -937,6 +976,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "3183E8003F"
             },
             "event": {
@@ -1001,6 +1041,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "37C3980086"
             },
             "event": {
@@ -1043,6 +1084,9 @@
             "@timestamp": "2025-01-05T05:46:30.000Z",
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -1092,6 +1136,9 @@
             "@timestamp": "2025-01-05T06:32:37.000Z",
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -1161,6 +1208,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "category": [
                     "email"
@@ -1228,6 +1278,9 @@
             "ecs": {
                 "version": "8.11.0"
             },
+            "email": {
+                "direction": "outbound"
+            },
             "event": {
                 "category": [
                     "email"
@@ -1277,6 +1330,9 @@
             "@timestamp": "2025-01-22T19:00:37.966-05:00",
             "ecs": {
                 "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound"
             },
             "event": {
                 "category": [
@@ -1348,6 +1404,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "outbound",
                 "local_id": "NOQUEUE"
             },
             "event": {

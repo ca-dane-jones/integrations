@@ -6,6 +6,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "inbound",
                 "local_id": "125891E00BF",
                 "to": {
                     "address": [
@@ -148,6 +149,7 @@
                 "version": "8.11.0"
             },
             "email": {
+                "direction": "inbound",
                 "local_id": "125891E00BA",
                 "to": {
                     "address": [
@@ -163,7 +165,7 @@
                     "event"
                 ],
                 "module": "smtp",
-                "original": "Jul  2 12:24:48 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+                "original": "Jul  2 12:24:48 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.com>, relay=mail.example.com[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
                 "provider": "postfix",
                 "type": [
                     "info"
@@ -175,7 +177,7 @@
             "log": {
                 "level": "info"
             },
-            "message": "125891E00BA: to=<user@example.com>, relay=89.160.20.129[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
+            "message": "125891E00BA: to=<user@example.com>, relay=mail.example.com[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.com> Queued mail for delivery)",
             "postfix": {
                 "delivery": {
                     "delays": {
@@ -197,9 +199,91 @@
                 "relay": {
                     "server": {
                         "address": "89.160.20.129",
-                        "domain": "89.160.20.129",
+                        "domain": "mail.example.com",
                         "ip": "89.160.20.129",
-                        "port": 25
+                        "port": 25,
+                        "registered_domain": "example.com",
+                        "subdomain": "mail",
+                        "top_level_domain": "com"
+                    }
+                }
+            },
+            "process": {
+                "name": "postfix/smtp",
+                "pid": 123456
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "pipeline: smtp",
+                "pipeline: loglevel"
+            ]
+        },
+        {
+            "@timestamp": "2025-07-02T12:24:48.000Z",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "email": {
+                "direction": "outbound",
+                "local_id": "125891E00BA",
+                "to": {
+                    "address": [
+                        "user@example.org"
+                    ]
+                }
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "smtp",
+                "original": "Jul  2 12:24:48 mail postfix/smtp[123456]: 125891E00BA: to=<user@example.org>, relay=mail.example.org[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.org> Queued mail for delivery)",
+                "provider": "postfix",
+                "type": [
+                    "info"
+                ]
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": "info"
+            },
+            "message": "125891E00BA: to=<user@example.org>, relay=mail.example.org[89.160.20.129]:25, delay=5.3, delays=5.1/0.02/0.02/0.2, dsn=1.2.3, status=sent (250 1.2.3 <20140702012658.1234567890A@hostname.example.org> Queued mail for delivery)",
+            "postfix": {
+                "delivery": {
+                    "delays": {
+                        "before_qmgr_time": 5.1,
+                        "connection_setup_time": 0.02,
+                        "in_qmgr_time": 0.02,
+                        "message_transmission_time": 0.2,
+                        "total_time": 5.3
+                    },
+                    "status": "sent",
+                    "status_code": {
+                        "class": 1,
+                        "detail": 3,
+                        "subject": 2,
+                        "value": "1.2.3"
+                    },
+                    "status_message": "250 1.2.3 <20140702012658.1234567890A@hostname.example.org> Queued mail for delivery"
+                },
+                "relay": {
+                    "server": {
+                        "address": "89.160.20.129",
+                        "domain": "mail.example.org",
+                        "ip": "89.160.20.129",
+                        "port": 25,
+                        "registered_domain": "example.org",
+                        "subdomain": "mail",
+                        "top_level_domain": "org"
                     }
                 }
             },
@@ -290,6 +374,43 @@
                 "pipeline_trace_enabled",
                 "pipeline: default",
                 "pipeline: smtp",
+                "pipeline: loglevel"
+            ]
+        },
+        {
+            "@timestamp": "2025-03-11T12:49:05.784-04:00",
+            "ecs": {
+                "version": "8.11.0"
+            },
+            "event": {
+                "category": [
+                    "email"
+                ],
+                "kind": [
+                    "event"
+                ],
+                "module": "dovecot",
+                "original": "2025-03-11T12:49:05.784842-04:00 mail dovecot: imap(someone@example.com)<120792><gvXi3RMwPp7AqAGb>: Disconnected: Logged out in=222 out=3924 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+                "provider": "dovecot",
+                "timezone": "-04:00"
+            },
+            "host": {
+                "name": "mail"
+            },
+            "log": {
+                "level": "info"
+            },
+            "message": "imap(someone@example.com)<120792><gvXi3RMwPp7AqAGb>: Disconnected: Logged out in=222 out=3924 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0",
+            "process": {
+                "name": "dovecot"
+            },
+            "tags": [
+                "preserve_original_event",
+                "connection_metrics_enabled",
+                "geoip_enabled",
+                "pipeline_trace_enabled",
+                "pipeline: default",
+                "catch_all",
                 "pipeline: loglevel"
             ]
         }
