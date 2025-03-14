@@ -12,15 +12,20 @@ processors:
   - grok:
       field: message
       patterns:
-        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): (to=<%{DATA:_tmp.email_to_address}>, orig_to=<%{DATA:_tmp.postfix_email_to_original_address}>|to=<%{DATA:_tmp.email_to_address}>), relay=%{DATA:_tmp.postfix_relay_info}, delay=%{INT:postfix.delivery.delays.total_time:long}, delays=%{BASE10NUM:postfix.delivery.delays.before_qmgr_time:float}/%{BASE10NUM:postfix.delivery.delays.in_qmgr_time:float}/%{BASE10NUM:postfix.delivery.delays.connection_setup_time:float}/%{BASE10NUM:postfix.delivery.delays.message_transmission_time:float}, dsn=(?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}), status=%{DATA:postfix.delivery.status} \(%{DATA:postfix.delivery.status_message}\)'
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): (to=<%{DATA:_tmp.email_to_address}>, orig_to=<%{DATA:_tmp.postfix_email_to_original_address}>|to=<%{DATA:_tmp.email_to_address}>), relay=%{DATA:_tmp.postfix_relay_info}, delay=%{BASE10NUM:postfix.delivery.delays.total_time:float}, delays=%{BASE10NUM:postfix.delivery.delays.before_qmgr_time:float}\/%{BASE10NUM:postfix.delivery.delays.in_qmgr_time:float}\/%{BASE10NUM:postfix.delivery.delays.connection_setup_time:float}\/%{BASE10NUM:postfix.delivery.delays.message_transmission_time:float}, dsn=(?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}), status=%{DATA:postfix.delivery.status} \(%{DATA:postfix.delivery.status_message}\)'
         - '%{GREEDYDATA:_tmp.catch_all}'
       description: 'Extracts local event fields.'
   - grok:
       field: _tmp.postfix_relay_info
       patterns:
         - '%{HOSTNAME:postfix.relay.server.domain}(\[%{IP:postfix.relay.server.address}\]:%{POSINT:postfix.relay.server.port:long})?'
-      if: 'ctx._tmp?.postfix_relay_info != null'
-      description: 'Extracts relay server details'  
+      if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postrix_relay_info != "none" && ctx._tmp?.postfix_relay_info != "local"'
+      description: 'Extracts relay server details'
+  - set:
+      field: postfix.relay.server.domain
+      value: local
+      if: 'ctx._tmp?.postfix_relay_info != null && ctx._tmp?.postfix_relay_info == "local"'
+      description: 'Set postfix.relay.server.domain to local if this is a local email message delivery.  This value is used in the default pipeline when determining email direction.'
   - append:
       description: Add the email to address if extracted.
       field: email.to.address

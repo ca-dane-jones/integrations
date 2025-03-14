@@ -195,7 +195,7 @@ processors:
       description: Set email.direction to outbound if relaying
       field: email.direction
       value: outbound
-      if: 'ctx.postfix?.relay?.server?.domain != null && ctx.event?.module != "lmtp" && ctx.postfix?.relay?.server?.domain != null && ctx.postfix?.relay?.server?.domain != "none"'
+      if: 'ctx.postfix?.relay?.server?.domain != null && ctx.event?.module != "lmtp" && ctx.postfix?.relay?.server?.domain != "none" && ctx.postfix?.relay?.server?.domain != "local"'
   # ---- End postfix email.direction processing -----
   - append:
       description: Append a catch_all tag to events that did not match a specific grok processor in any pipeline
