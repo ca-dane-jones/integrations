@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "0.0.88"
+- version: "0.0.89"
   changes:
     - description: "Minor fixes."
       type: enhancement
