@@ -5,9 +5,9 @@
         "name": "postfix"
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2024-01-15T16:00:15.995Z",
+    "created_at": "2025-03-14T19:42:54.630Z",
     "id": "postfix-2c6424b0-b3bf-11ee-a818-97241a48aae3",
-    "managed": false,
+    "managed": true,
     "references": [],
     "type": "tag",
     "typeMigrationVersion": "8.0.0"

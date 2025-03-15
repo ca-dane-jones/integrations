@@ -24,7 +24,7 @@ processors:
         - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.certificate_status} (?<_tmp.tls_connection>TLS connection established) to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: TLSv(?<tls.version>[\d\.]+) with cipher (?<tls.cipher>[\w\d\-_]+) \(%{NUMBER}\/%{NUMBER} bits\)( key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w\d\-_]+) server-signature (?<postfix.smtpd.connection.tls.signature_algorithm>[\w\d\-_]+) \((%{POSINT:postfix.smtpd.connection.tls.signature_strength:long} bits|(?<_tmp.sig_algo_strength>[\w\d\-_]+))\) server-digest (?<postfix.smtpd.connection.tls.signature_digest>[\w\d\-_]+)|)'
         - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOST_AND_IP}(: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOST_AND_IP}'
-        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.status}: %{SMTP_STAGE} (?<_tmp.direction>from) %{HOST_AND_IP}: %{NUMBER:postfix.error.code} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) \<%{EMAILADDRESS}\>: %{DATA:postfix.error.message}; from=\<%{EMAILADDRESS:email.from.address}\> to=\<%{EMAILADDRESS:email.to.address}\> proto=%{WORD} helo=\<%{HOSTNAME}\>'
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.status}: %{SMTP_STAGE} (?<_tmp.direction>from) %{HOST_AND_IP}: %{NUMBER:postfix.error.code} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) \<%{EMAILADDRESS}\>: %{REJECT_REASON:postfix.error.message} from=\<%{EMAILADDRESS:email.from.address}\> to=\<%{EMAILADDRESS:email.to.address}\> proto=%{WORD} helo=\<%{HOSTNAME}\>'
         - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOST_AND_IP}: %{GREEDYDATA}'
         - '(?<postfix.error.type>warning): %{HOSTNAME}: (?<postfix.error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
         - '(?<postfix.error.type>warning): (?<postfix.error.code>TLS library problem): %{GREEDYDATA}'
@@ -61,6 +61,9 @@ processors:
         # Lost connection patterns
         LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
         LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'
+        # Reject patterns
+        REJECT_REASON: '%{REJECT_NOVIRTMAP}'
+        REJECT_NOVIRTMAP: '(Recipient address rejected: User unknown in virtual mailbox table;)'
       description: 'Extracts smtpd event fields.'
   #    - grok:
   #        feild: _tmp.postfix.error.message

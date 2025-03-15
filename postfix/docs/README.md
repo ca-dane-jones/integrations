@@ -203,7 +203,6 @@ An example event for `log` looks as following:
 | log.offset | Log offset | long |
 | log.syslog.priority | Syslog priority | long |
 | message | For log events the message field contains the log message, optimized for viewing in a log viewer. For structured logs without an original message field, other fields can be concatenated to form a human-readable summary of the event. If multiple messages exist, they can be combined into one message. | match_only_text |
-| postfix._tmp.trace.pipeline | Remove me! | keyword |
 | postfix.anvil.connection.cache_size | The maximum cache size during the client session. | long |
 | postfix.anvil.connection.count | The total number of connections made during the client session. | long |
 | postfix.anvil.connection.duration | The total duration of the client session. | long |
