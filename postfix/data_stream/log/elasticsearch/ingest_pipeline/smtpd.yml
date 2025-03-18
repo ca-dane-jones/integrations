@@ -1,7 +1,5 @@
 ---
 # TODO: Need to add additional event category and type processing to this pipeline.  There's a lot going on here. :)
-# TODO: Further refinement of grok pattern: (?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.reject.type}: %{SMTP_STAGE} from %{HOST_AND_IP}: %{NUMBER} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) %{GREEDYDATA:postfix.error.message}
-#       postfix.error.message contains fields that need to be extracted
 description: |
   Pipeline for processing Posftix smtpd events.  The smtp daemon accepts network connection 
   requests and performs SMTP transactions per connection
@@ -15,6 +13,7 @@ processors:
   - grok:
       # TODO: The disconnect and command parsing pattern in this processor should be revisited in a future release.  
       #       It doesn't gracefully handle multiple "missing_parser" commands in a disconnect message
+      description: 'Extracts smtpd event fields.'
       field: message
       patterns:
         - '(?<_tmp.smtpd_cxn_action>connect) from %{HOST_AND_IP}$'
@@ -24,7 +23,7 @@ processors:
         - '%{TLS_AUTH_TYPE:postfix.smtpd.connection.tls.certificate_status} (?<_tmp.tls_connection>TLS connection established) to %{HOSTNAME:server.domain}\[%{IP:server.address}\]:%{POSINT:server.port:long}: TLSv(?<tls.version>[\d\.]+) with cipher (?<tls.cipher>[\w\d\-_]+) \(%{NUMBER}\/%{NUMBER} bits\)( key-exchange (?<postfix.smtpd.connection.tls.key_exchange_algorithm>[\w\d\-_]+) server-signature (?<postfix.smtpd.connection.tls.signature_algorithm>[\w\d\-_]+) \((%{POSINT:postfix.smtpd.connection.tls.signature_strength:long} bits|(?<_tmp.sig_algo_strength>[\w\d\-_]+))\) server-digest (?<postfix.smtpd.connection.tls.signature_digest>[\w\d\-_]+)|)'
         - '%{LOSTCONN:postfix.smtpd.connection.lost.message}( after %{SMTP_STAGE:postfix.smtpd.connection.lost.stage}( \(%{INT} bytes\))?)? from %{HOST_AND_IP}(: %{GREEDYDATA:postfix.smtpd.connection.lost.reason})?'
         - '(?<email.local_id>[0-9A-F]+|NOQUEUE): client=%{HOST_AND_IP}'
-        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.status}: %{SMTP_STAGE} (?<_tmp.direction>from) %{HOST_AND_IP}: %{NUMBER:postfix.error.code} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) \<%{EMAILADDRESS}\>: %{REJECT_REASON:postfix.error.message} from=\<%{EMAILADDRESS:email.from.address}\> to=\<%{EMAILADDRESS:email.to.address}\> proto=%{WORD} helo=\<%{HOSTNAME}\>'
+        - '(?<email.local_id>[0-9A-F]+|NOQUEUE): %{POSTFIX_ACTION:postfix.delivery.status}: %{SMTP_STAGE} (?<_tmp.direction>from) %{HOST_AND_IP}: %{NUMBER:postfix.error.code} (?<postfix.delivery.status_code.value>%{INT:postfix.delivery.status_code.class:long}\.%{INT:postfix.delivery.status_code.subject:long}\.%{INT:postfix.delivery.status_code.detail:long}) \<?(%{EMAILADDRESS}|%{HOSTNAME})\>: %{REJECT_REASON:postfix.error.message} from=\<%{EMAILADDRESS:email.from.address}\> to=\<%{EMAILADDRESS:email.to.address}\> proto=%{WORD} helo=\<%{HOSTNAME}\>'
         - '(?<postfix.error.code>improper command pipelining) after %{SMTP_STAGE} from %{HOST_AND_IP}: %{GREEDYDATA}'
         - '(?<postfix.error.type>warning): %{HOSTNAME}: (?<postfix.error.code>RBL lookup error): %{GREEDYDATA:_tmp.rbl_error_msg}'
         - '(?<postfix.error.type>warning): (?<postfix.error.code>TLS library problem): %{GREEDYDATA}'
@@ -62,14 +61,9 @@ processors:
         LOSTCONN: '(Connection timed out|No route to host|Connection refused|Network is unreachable|lost connection|timeout|SSL_accept error|-1)'
         LOSTCONN_REASONS: '(receiving the initial server greeting|sending message body|sending end of data -- message may be sent more than once)'
         # Reject patterns
-        REJECT_REASON: '%{REJECT_NOVIRTMAP}'
-        REJECT_NOVIRTMAP: '(Recipient address rejected: User unknown in virtual mailbox table;)'
-      description: 'Extracts smtpd event fields.'
-  #    - grok:
-  #        feild: _tmp.postfix.error.message
-  #        patterns:
-  #            -  'from=<%{EMAILADDRESS:email.from.address}> (to=<%{EMAILADDRESS:email_to_address}>, orig_to=<%{EMAILADDRESS:postfix.email.to.original_address}>|to=<%{EMAILADDRESS:email.to.address}>) proto=%{SMTPD_PROTO:postfix.delivery.reject.protocol} %{SMTP_STAGE_LIST:postfix.delivery.reject.stage}=<%{WORD:postfix.delivery.reject.stage_value}>''
-  #        if: "ctx._tmp?.postfix?.error?.message != null"
+        REJECT_REASON: '%{REJECT_NOVIRTMAP}|%{REJECT_HOSTNOTFOUND}'
+        REJECT_NOVIRTMAP: 'Recipient address rejected: User unknown in virtual mailbox table;'
+        REJECT_HOSTNOTFOUND: 'Helo command rejected: Host not found;'
   - grok:
       field: _tmp.rbl_error_msg
       patterns:
@@ -216,17 +210,14 @@ processors:
       allow_duplicates: false
       if: 'ctx.postfix?.error?.message != null && ctx.postfix?.error?.code == null'
   - append:
-      # Set to info because even.type: error is not supported for event.category: email.
+      # Set to info because event.type: error is not supported for event.category: email.
       description: 'Append info to event.type'
       field: 'event.type'
       value:
         - 'info'
       allow_duplicates: false
-  #    - set:
-  #            description: Set email direction to outbound
-  #            field: email.direction
-  #            value: outbound
   - remove:
       description: 'Remove the defaulted event tag if this event was successfully processed.'
       field: _tmp.defaulted_event
       if: 'ctx._tmp?.catch_all == null'
+      ignore_missing: true

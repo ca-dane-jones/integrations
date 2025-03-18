@@ -10,12 +10,12 @@
                 "ignoreValidations": false
             },
             "panelsJSON": {
-                "7506014b-3f78-4a89-be25-82d15583b3d7": {
+                "5a1f4d71-7eca-425f-9a08-ec63081efb40": {
                     "explicitInput": {
                         "dataViewId": "logs-*",
                         "existsSelected": true,
                         "fieldName": "host.name",
-                        "id": "7506014b-3f78-4a89-be25-82d15583b3d7",
+                        "id": "5a1f4d71-7eca-425f-9a08-ec63081efb40",
                         "searchTechnique": "prefix",
                         "selectedOptions": [],
                         "sort": {
@@ -246,7 +246,7 @@
                 "gridData": {
                     "h": 5,
                     "i": "98c23b04-5088-4895-b886-7a6da668d895",
-                    "w": 5,
+                    "w": 6,
                     "x": 0,
                     "y": 0
                 },
@@ -344,11 +344,737 @@
                 "gridData": {
                     "h": 5,
                     "i": "8fd5dc81-5aa1-4ce9-93df-8279fd5262fc",
-                    "w": 5,
-                    "x": 5,
+                    "w": 6,
+                    "x": 6,
                     "y": 0
                 },
                 "panelIndex": "8fd5dc81-5aa1-4ce9-93df-8279fd5262fc",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-71f167eb-e49f-404e-9d3a-84f3a961a4f7",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-57ebe123-b023-4c9c-8184-4b40ea8912e4",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "57ebe123-b023-4c9c-8184-4b40ea8912e4": {
+                                            "columnOrder": [
+                                                "de6d75a4-28b0-4bec-a1fd-ff5741837904",
+                                                "055852c5-25da-4fa6-ad52-ec482508111a",
+                                                "60e7da81-b185-4c75-b3ac-b83eeb88adc6"
+                                            ],
+                                            "columns": {
+                                                "055852c5-25da-4fa6-ad52-ec482508111a": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 2
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.email.size"
+                                                },
+                                                "60e7da81-b185-4c75-b3ac-b83eeb88adc6": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Median Message Size",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 2
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.email.size"
+                                                },
+                                                "de6d75a4-28b0-4bec-a1fd-ff5741837904": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "linkToLayers": [
+                                                "71f167eb-e49f-404e-9d3a-84f3a961a4f7"
+                                            ],
+                                            "sampling": 1
+                                        },
+                                        "71f167eb-e49f-404e-9d3a-84f3a961a4f7": {
+                                            "columnOrder": [
+                                                "314e1dea-a8d3-4008-bea9-becbf2235b95",
+                                                "3614869b-efdd-4149-bd30-457171611db4",
+                                                "62141156-0375-4506-a16b-27a1564967bc"
+                                            ],
+                                            "columns": {
+                                                "314e1dea-a8d3-4008-bea9-becbf2235b95": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Median Message Size",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 2
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.email.size"
+                                                },
+                                                "3614869b-efdd-4149-bd30-457171611db4": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 2
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.email.size"
+                                                },
+                                                "62141156-0375-4506-a16b-27a1564967bc": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Maximum of postfix.email.size",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.email.size"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layerId": "71f167eb-e49f-404e-9d3a-84f3a961a4f7",
+                                "layerType": "data",
+                                "maxAccessor": "62141156-0375-4506-a16b-27a1564967bc",
+                                "metricAccessor": "314e1dea-a8d3-4008-bea9-becbf2235b95",
+                                "secondaryMetricAccessor": "3614869b-efdd-4149-bd30-457171611db4",
+                                "showBar": false,
+                                "trendlineLayerId": "57ebe123-b023-4c9c-8184-4b40ea8912e4",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "60e7da81-b185-4c75-b3ac-b83eeb88adc6",
+                                "trendlineSecondaryMetricAccessor": "055852c5-25da-4fa6-ad52-ec482508111a",
+                                "trendlineTimeAccessor": "de6d75a4-28b0-4bec-a1fd-ff5741837904"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "d2f89cb9-4ed8-468e-8e9a-414f759d25ef",
+                    "w": 6,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "d2f89cb9-4ed8-468e-8e9a-414f759d25ef",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1ff3329a-8931-4034-acf1-dc809276d8c9",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-557770cb-f802-48ba-916e-2fbce2783aff",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1ff3329a-8931-4034-acf1-dc809276d8c9": {
+                                            "columnOrder": [
+                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
+                                                "4c53ba47-169d-4b1b-8c41-914ae438347f"
+                                            ],
+                                            "columns": {
+                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "email.direction:\"inbound\""
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Median Delivery Delay (inbound)",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "4c53ba47-169d-4b1b-8c41-914ae438347f": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        },
+                                        "557770cb-f802-48ba-916e-2fbce2783aff": {
+                                            "columnOrder": [
+                                                "da434b36-3495-4fd0-b602-8b38b542364c",
+                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b",
+                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8"
+                                            ],
+                                            "columns": {
+                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "email.direction:\"inbound\""
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Median Delivery Delay (inbound)",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "da434b36-3495-4fd0-b602-8b38b542364c": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "linkToLayers": [
+                                                "1ff3329a-8931-4034-acf1-dc809276d8c9"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layerId": "1ff3329a-8931-4034-acf1-dc809276d8c9",
+                                "layerType": "data",
+                                "metricAccessor": "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
+                                "secondaryMetricAccessor": "4c53ba47-169d-4b1b-8c41-914ae438347f",
+                                "showBar": false,
+                                "trendlineLayerId": "557770cb-f802-48ba-916e-2fbce2783aff",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8",
+                                "trendlineSecondaryMetricAccessor": "d1e486c0-3be6-4028-9c23-76fcb73b531b",
+                                "trendlineTimeAccessor": "da434b36-3495-4fd0-b602-8b38b542364c"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "e5daf01a-5acf-4fbd-b441-9b415ce325dc",
+                    "w": 6,
+                    "x": 24,
+                    "y": 0
+                },
+                "panelIndex": "e5daf01a-5acf-4fbd-b441-9b415ce325dc",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-1ff3329a-8931-4034-acf1-dc809276d8c9",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-557770cb-f802-48ba-916e-2fbce2783aff",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "1ff3329a-8931-4034-acf1-dc809276d8c9": {
+                                            "columnOrder": [
+                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
+                                                "4c53ba47-169d-4b1b-8c41-914ae438347f"
+                                            ],
+                                            "columns": {
+                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "email.direction:\"outbound\""
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Median Delivery Delay (outbound)",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "4c53ba47-169d-4b1b-8c41-914ae438347f": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        },
+                                        "557770cb-f802-48ba-916e-2fbce2783aff": {
+                                            "columnOrder": [
+                                                "da434b36-3495-4fd0-b602-8b38b542364c",
+                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b",
+                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8"
+                                            ],
+                                            "columns": {
+                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "email.direction:\"outbound\""
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Median Delivery Delay (outbound)",
+                                                    "operationType": "median",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Max",
+                                                    "operationType": "max",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 2,
+                                                                "suffix": "s"
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "postfix.delivery.delays.total_time"
+                                                },
+                                                "da434b36-3495-4fd0-b602-8b38b542364c": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "linkToLayers": [
+                                                "1ff3329a-8931-4034-acf1-dc809276d8c9"
+                                            ],
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layerId": "1ff3329a-8931-4034-acf1-dc809276d8c9",
+                                "layerType": "data",
+                                "metricAccessor": "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
+                                "secondaryMetricAccessor": "4c53ba47-169d-4b1b-8c41-914ae438347f",
+                                "showBar": false,
+                                "trendlineLayerId": "557770cb-f802-48ba-916e-2fbce2783aff",
+                                "trendlineLayerType": "metricTrendline",
+                                "trendlineMetricAccessor": "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8",
+                                "trendlineSecondaryMetricAccessor": "d1e486c0-3be6-4028-9c23-76fcb73b531b",
+                                "trendlineTimeAccessor": "da434b36-3495-4fd0-b602-8b38b542364c"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 5,
+                    "i": "5b556e35-ad1c-4b76-b56b-8baad5188968",
+                    "w": 6,
+                    "x": 30,
+                    "y": 0
+                },
+                "panelIndex": "5b556e35-ad1c-4b76-b56b-8baad5188968",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-985fc6a8-2509-4206-b626-8c4c4d9538eb",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "985fc6a8-2509-4206-b626-8c4c4d9538eb": {
+                                            "columnOrder": [
+                                                "5dd026fc-b969-450f-9862-72453fe3350e",
+                                                "e7af0144-6de7-4e7f-af40-05baa17893c1",
+                                                "8c1a092c-c470-4b9b-a926-22672dbb5806"
+                                            ],
+                                            "columns": {
+                                                "5dd026fc-b969-450f-9862-72453fe3350e": {
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 3 values of email.direction",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "8c1a092c-c470-4b9b-a926-22672dbb5806",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 3
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "email.direction"
+                                                },
+                                                "8c1a092c-c470-4b9b-a926-22672dbb5806": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Email",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "email.direction"
+                                                },
+                                                "e7af0144-6de7-4e7f-af40-05baa17893c1": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "8c1a092c-c470-4b9b-a926-22672dbb5806"
+                                        ],
+                                        "colorMapping": {
+                                            "assignments": [],
+                                            "colorMode": {
+                                                "type": "categorical"
+                                            },
+                                            "paletteId": "eui_amsterdam_color_blind",
+                                            "specialAssignments": [
+                                                {
+                                                    "color": {
+                                                        "type": "loop"
+                                                    },
+                                                    "rule": {
+                                                        "type": "other"
+                                                    },
+                                                    "touched": false
+                                                }
+                                            ]
+                                        },
+                                        "layerId": "985fc6a8-2509-4206-b626-8c4c4d9538eb",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "splitAccessor": "5dd026fc-b969-450f-9862-72453fe3350e",
+                                        "xAccessor": "e7af0144-6de7-4e7f-af40-05baa17893c1"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "title": "Empty XY chart",
+                                "valueLabels": "hide",
+                                "yTitle": "Total Email Count"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "f88a9d08-54f1-4a13-a24c-2ce70f8f14ab",
+                    "w": 24,
+                    "x": 0,
+                    "y": 5
+                },
+                "panelIndex": "f88a9d08-54f1-4a13-a24c-2ce70f8f14ab",
+                "title": "Email Volume (count)",
                 "type": "lens"
             },
             {
@@ -543,370 +1269,12 @@
                 "gridData": {
                     "h": 10,
                     "i": "cc55639d-4ec0-45a7-a3ee-4334eb4918ad",
-                    "w": 19,
-                    "x": 20,
-                    "y": 0
+                    "w": 24,
+                    "x": 24,
+                    "y": 5
                 },
                 "panelIndex": "cc55639d-4ec0-45a7-a3ee-4334eb4918ad",
                 "title": "Median Delivery Times",
-                "type": "lens"
-            },
-            {
-                "embeddableConfig": {
-                    "attributes": {
-                        "references": [
-                            {
-                                "id": "logs-*",
-                                "name": "indexpattern-datasource-layer-1ff3329a-8931-4034-acf1-dc809276d8c9",
-                                "type": "index-pattern"
-                            },
-                            {
-                                "id": "logs-*",
-                                "name": "indexpattern-datasource-layer-557770cb-f802-48ba-916e-2fbce2783aff",
-                                "type": "index-pattern"
-                            }
-                        ],
-                        "state": {
-                            "adHocDataViews": {},
-                            "datasourceStates": {
-                                "formBased": {
-                                    "currentIndexPatternId": "logs-*",
-                                    "layers": {
-                                        "1ff3329a-8931-4034-acf1-dc809276d8c9": {
-                                            "columnOrder": [
-                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
-                                                "4c53ba47-169d-4b1b-8c41-914ae438347f"
-                                            ],
-                                            "columns": {
-                                                "480fa5c8-f4fd-42b2-9060-4b19c311c3b0": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Avg Delivery Delay",
-                                                    "operationType": "average",
-                                                    "params": {
-                                                        "emptyAsNull": true,
-                                                        "format": {
-                                                            "id": "number",
-                                                            "params": {
-                                                                "decimals": 2,
-                                                                "suffix": "s"
-                                                            }
-                                                        }
-                                                    },
-                                                    "scale": "ratio",
-                                                    "sourceField": "postfix.delivery.delays.total_time"
-                                                },
-                                                "4c53ba47-169d-4b1b-8c41-914ae438347f": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Max",
-                                                    "operationType": "max",
-                                                    "params": {
-                                                        "emptyAsNull": true,
-                                                        "format": {
-                                                            "id": "number",
-                                                            "params": {
-                                                                "decimals": 2,
-                                                                "suffix": "s"
-                                                            }
-                                                        }
-                                                    },
-                                                    "scale": "ratio",
-                                                    "sourceField": "postfix.delivery.delays.total_time"
-                                                }
-                                            },
-                                            "incompleteColumns": {},
-                                            "indexPatternId": "logs-*",
-                                            "sampling": 1
-                                        },
-                                        "557770cb-f802-48ba-916e-2fbce2783aff": {
-                                            "columnOrder": [
-                                                "da434b36-3495-4fd0-b602-8b38b542364c",
-                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b",
-                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8"
-                                            ],
-                                            "columns": {
-                                                "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Avg Delivery Delay",
-                                                    "operationType": "average",
-                                                    "params": {
-                                                        "emptyAsNull": true,
-                                                        "format": {
-                                                            "id": "number",
-                                                            "params": {
-                                                                "decimals": 2,
-                                                                "suffix": "s"
-                                                            }
-                                                        }
-                                                    },
-                                                    "scale": "ratio",
-                                                    "sourceField": "postfix.delivery.delays.total_time"
-                                                },
-                                                "d1e486c0-3be6-4028-9c23-76fcb73b531b": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Max",
-                                                    "operationType": "max",
-                                                    "params": {
-                                                        "emptyAsNull": true,
-                                                        "format": {
-                                                            "id": "number",
-                                                            "params": {
-                                                                "decimals": 2,
-                                                                "suffix": "s"
-                                                            }
-                                                        }
-                                                    },
-                                                    "scale": "ratio",
-                                                    "sourceField": "postfix.delivery.delays.total_time"
-                                                },
-                                                "da434b36-3495-4fd0-b602-8b38b542364c": {
-                                                    "dataType": "date",
-                                                    "isBucketed": true,
-                                                    "label": "@timestamp",
-                                                    "operationType": "date_histogram",
-                                                    "params": {
-                                                        "dropPartials": false,
-                                                        "includeEmptyRows": true,
-                                                        "interval": "auto"
-                                                    },
-                                                    "scale": "interval",
-                                                    "sourceField": "@timestamp"
-                                                }
-                                            },
-                                            "ignoreGlobalFilters": false,
-                                            "incompleteColumns": {},
-                                            "indexPatternId": "logs-*",
-                                            "linkToLayers": [
-                                                "1ff3329a-8931-4034-acf1-dc809276d8c9"
-                                            ],
-                                            "sampling": 1
-                                        }
-                                    }
-                                },
-                                "indexpattern": {
-                                    "layers": {}
-                                },
-                                "textBased": {
-                                    "layers": {}
-                                }
-                            },
-                            "filters": [],
-                            "internalReferences": [],
-                            "query": {
-                                "language": "kuery",
-                                "query": ""
-                            },
-                            "visualization": {
-                                "layerId": "1ff3329a-8931-4034-acf1-dc809276d8c9",
-                                "layerType": "data",
-                                "metricAccessor": "480fa5c8-f4fd-42b2-9060-4b19c311c3b0",
-                                "secondaryMetricAccessor": "4c53ba47-169d-4b1b-8c41-914ae438347f",
-                                "showBar": false,
-                                "trendlineLayerId": "557770cb-f802-48ba-916e-2fbce2783aff",
-                                "trendlineLayerType": "metricTrendline",
-                                "trendlineMetricAccessor": "c5ab270a-0602-4cc1-9a59-a88ecbcc79f8",
-                                "trendlineSecondaryMetricAccessor": "d1e486c0-3be6-4028-9c23-76fcb73b531b",
-                                "trendlineTimeAccessor": "da434b36-3495-4fd0-b602-8b38b542364c"
-                            }
-                        },
-                        "title": "",
-                        "type": "lens",
-                        "visualizationType": "lnsMetric"
-                    },
-                    "enhancements": {}
-                },
-                "gridData": {
-                    "h": 5,
-                    "i": "e5daf01a-5acf-4fbd-b441-9b415ce325dc",
-                    "w": 5,
-                    "x": 10,
-                    "y": 0
-                },
-                "panelIndex": "e5daf01a-5acf-4fbd-b441-9b415ce325dc",
-                "type": "lens"
-            },
-            {
-                "embeddableConfig": {
-                    "attributes": {
-                        "description": "Total number of SMTPD connections over time as reported by anvil",
-                        "references": [
-                            {
-                                "id": "logs-*",
-                                "name": "indexpattern-datasource-layer-7845a4d5-dbd2-4bd7-bab8-5c6500b46629",
-                                "type": "index-pattern"
-                            }
-                        ],
-                        "state": {
-                            "adHocDataViews": {},
-                            "datasourceStates": {
-                                "formBased": {
-                                    "currentIndexPatternId": "logs-*",
-                                    "layers": {
-                                        "7845a4d5-dbd2-4bd7-bab8-5c6500b46629": {
-                                            "columnOrder": [
-                                                "c38ac6eb-912c-4c01-af52-ffd970c117ca",
-                                                "0a11fb4e-b035-47d1-a809-365f9931811b",
-                                                "e690f49e-20a2-4988-a552-463241a8d904"
-                                            ],
-                                            "columns": {
-                                                "0a11fb4e-b035-47d1-a809-365f9931811b": {
-                                                    "dataType": "date",
-                                                    "isBucketed": true,
-                                                    "label": "@timestamp",
-                                                    "operationType": "date_histogram",
-                                                    "params": {
-                                                        "dropPartials": false,
-                                                        "includeEmptyRows": true,
-                                                        "interval": "auto"
-                                                    },
-                                                    "scale": "interval",
-                                                    "sourceField": "@timestamp"
-                                                },
-                                                "c38ac6eb-912c-4c01-af52-ffd970c117ca": {
-                                                    "dataType": "string",
-                                                    "isBucketed": true,
-                                                    "label": "Top 8 values of host.name",
-                                                    "operationType": "terms",
-                                                    "params": {
-                                                        "accuracyMode": true,
-                                                        "exclude": [],
-                                                        "excludeIsRegex": false,
-                                                        "include": [],
-                                                        "includeIsRegex": false,
-                                                        "missingBucket": false,
-                                                        "orderBy": {
-                                                            "columnId": "e690f49e-20a2-4988-a552-463241a8d904",
-                                                            "type": "column"
-                                                        },
-                                                        "orderDirection": "desc",
-                                                        "otherBucket": true,
-                                                        "parentFormat": {
-                                                            "id": "terms"
-                                                        },
-                                                        "size": 8
-                                                    },
-                                                    "scale": "ordinal",
-                                                    "sourceField": "host.name"
-                                                },
-                                                "e690f49e-20a2-4988-a552-463241a8d904": {
-                                                    "customLabel": true,
-                                                    "dataType": "number",
-                                                    "isBucketed": false,
-                                                    "label": "Connection Count",
-                                                    "operationType": "sum",
-                                                    "params": {
-                                                        "emptyAsNull": true
-                                                    },
-                                                    "scale": "ratio",
-                                                    "sourceField": "postfix.anvil.connection.count"
-                                                }
-                                            },
-                                            "ignoreGlobalFilters": false,
-                                            "incompleteColumns": {},
-                                            "indexPatternId": "logs-*",
-                                            "sampling": 1
-                                        }
-                                    }
-                                },
-                                "indexpattern": {
-                                    "layers": {}
-                                },
-                                "textBased": {
-                                    "layers": {}
-                                }
-                            },
-                            "filters": [],
-                            "internalReferences": [],
-                            "query": {
-                                "language": "kuery",
-                                "query": ""
-                            },
-                            "visualization": {
-                                "axisTitlesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "fittingFunction": "None",
-                                "gridlinesVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "labelsOrientation": {
-                                    "x": 0,
-                                    "yLeft": 0,
-                                    "yRight": 0
-                                },
-                                "layers": [
-                                    {
-                                        "accessors": [
-                                            "e690f49e-20a2-4988-a552-463241a8d904"
-                                        ],
-                                        "colorMapping": {
-                                            "assignments": [],
-                                            "colorMode": {
-                                                "type": "categorical"
-                                            },
-                                            "paletteId": "eui_amsterdam_color_blind",
-                                            "specialAssignments": [
-                                                {
-                                                    "color": {
-                                                        "type": "loop"
-                                                    },
-                                                    "rule": {
-                                                        "type": "other"
-                                                    },
-                                                    "touched": false
-                                                }
-                                            ]
-                                        },
-                                        "layerId": "7845a4d5-dbd2-4bd7-bab8-5c6500b46629",
-                                        "layerType": "data",
-                                        "position": "top",
-                                        "seriesType": "bar_stacked",
-                                        "showGridlines": false,
-                                        "splitAccessor": "c38ac6eb-912c-4c01-af52-ffd970c117ca",
-                                        "xAccessor": "0a11fb4e-b035-47d1-a809-365f9931811b"
-                                    }
-                                ],
-                                "legend": {
-                                    "isVisible": true,
-                                    "legendSize": "large",
-                                    "position": "right"
-                                },
-                                "preferredSeriesType": "bar_stacked",
-                                "tickLabelsVisibilitySettings": {
-                                    "x": true,
-                                    "yLeft": true,
-                                    "yRight": true
-                                },
-                                "valueLabels": "hide"
-                            }
-                        },
-                        "title": "",
-                        "type": "lens",
-                        "visualizationType": "lnsXY"
-                    },
-                    "description": "Total number of connections to Postfix over time as reported by anvil",
-                    "enhancements": {}
-                },
-                "gridData": {
-                    "h": 10,
-                    "i": "0bc7191a-991a-4c44-bb2e-22717cf0cbb2",
-                    "w": 20,
-                    "x": 0,
-                    "y": 5
-                },
-                "panelIndex": "0bc7191a-991a-4c44-bb2e-22717cf0cbb2",
-                "title": "Connections over time",
                 "type": "lens"
             },
             {
@@ -1152,11 +1520,150 @@
                 "gridData": {
                     "h": 10,
                     "i": "272f80ed-0384-4cdf-8ac5-8cba0ee96961",
-                    "w": 19,
-                    "x": 20,
-                    "y": 10
+                    "w": 12,
+                    "x": 0,
+                    "y": 15
                 },
                 "panelIndex": "272f80ed-0384-4cdf-8ac5-8cba0ee96961",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-54eb68b6-cd67-476b-ab63-c75015e778b9",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "54eb68b6-cd67-476b-ab63-c75015e778b9": {
+                                            "columnOrder": [
+                                                "77eec45a-3233-49d0-8dcb-3292f74560bd",
+                                                "ac89f950-6c5e-40bf-b6df-734c42769e23",
+                                                "6dc76a8a-dd22-479b-b55a-efc04392cb2e"
+                                            ],
+                                            "columns": {
+                                                "6dc76a8a-dd22-479b-b55a-efc04392cb2e": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "___records___"
+                                                },
+                                                "77eec45a-3233-49d0-8dcb-3292f74560bd": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Top 5 To Addresses",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "accuracyMode": true,
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "ac89f950-6c5e-40bf-b6df-734c42769e23",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "secondaryFields": [],
+                                                        "size": 5
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "email.to.address"
+                                                },
+                                                "ac89f950-6c5e-40bf-b6df-734c42769e23": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Email Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": true,
+                                                        "format": {
+                                                            "id": "number",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "email.to.address"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "columns": [
+                                    {
+                                        "collapseFn": "",
+                                        "columnId": "77eec45a-3233-49d0-8dcb-3292f74560bd",
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "columnId": "ac89f950-6c5e-40bf-b6df-734c42769e23",
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "alignment": "center",
+                                        "columnId": "6dc76a8a-dd22-479b-b55a-efc04392cb2e",
+                                        "hidden": true,
+                                        "isMetric": true,
+                                        "isTransposed": false
+                                    }
+                                ],
+                                "layerId": "54eb68b6-cd67-476b-ab63-c75015e778b9",
+                                "layerType": "data"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsDatatable"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 10,
+                    "i": "8aa7937e-f4dc-49c1-ac46-2e484c228370",
+                    "w": 12,
+                    "x": 12,
+                    "y": 15
+                },
+                "panelIndex": "8aa7937e-f4dc-49c1-ac46-2e484c228370",
                 "type": "lens"
             },
             {
@@ -1308,11 +1815,235 @@
                 "gridData": {
                     "h": 10,
                     "i": "7dc41a75-a69b-4761-adaf-5711b3493555",
-                    "w": 20,
-                    "x": 0,
+                    "w": 24,
+                    "x": 24,
                     "y": 15
                 },
                 "panelIndex": "7dc41a75-a69b-4761-adaf-5711b3493555",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [],
+                        "state": {
+                            "adHocDataViews": {
+                                "c17b763141b61f3c9ad281f7388f71a60223245935b94424140ffa25eb0cd5b8": {
+                                    "allowHidden": false,
+                                    "allowNoIndex": false,
+                                    "fieldFormats": {},
+                                    "id": "c17b763141b61f3c9ad281f7388f71a60223245935b94424140ffa25eb0cd5b8",
+                                    "name": "logs-postfix.log*",
+                                    "runtimeFieldMap": {},
+                                    "sourceFilters": [],
+                                    "timeFieldName": "@timestamp",
+                                    "title": "logs-postfix.log*",
+                                    "type": "esql"
+                                }
+                            },
+                            "datasourceStates": {
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "c17b763141b61f3c9ad281f7388f71a60223245935b94424140ffa25eb0cd5b8",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-postfix.log*"
+                                        }
+                                    ],
+                                    "layers": {
+                                        "0d6e75fe-14ff-4233-ae53-ef9b7be79df1": {
+                                            "allColumns": [
+                                                {
+                                                    "columnId": "timestamp",
+                                                    "fieldName": "timestamp",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "date",
+                                                        "type": "date"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "host",
+                                                    "fieldName": "host",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "from",
+                                                    "fieldName": "from",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "to",
+                                                    "fieldName": "to",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "relay",
+                                                    "fieldName": "relay",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ],
+                                            "columns": [
+                                                {
+                                                    "columnId": "timestamp",
+                                                    "fieldName": "timestamp",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "date",
+                                                        "type": "date"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "host",
+                                                    "fieldName": "host",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "from",
+                                                    "fieldName": "from",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "to",
+                                                    "fieldName": "to",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "15bf10f6-2e17-448f-8fce-bd3097b89d87",
+                                                    "fieldName": "status",
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "relay",
+                                                    "fieldName": "relay",
+                                                    "inMetricDimension": true,
+                                                    "meta": {
+                                                        "esType": "keyword",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "afbe1891-1dd8-4d3d-b9ae-8894f92b00f2",
+                                                    "fieldName": "delay",
+                                                    "meta": {
+                                                        "esType": "long",
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                {
+                                                    "columnId": "24536496-b796-449b-bc65-fc6bc26c5c4f",
+                                                    "fieldName": "size",
+                                                    "meta": {
+                                                        "esType": "long",
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            ],
+                                            "index": "c17b763141b61f3c9ad281f7388f71a60223245935b94424140ffa25eb0cd5b8",
+                                            "query": {
+                                                "esql": "FROM logs-postfix.log* \n| EVAL first_letter = SUBSTRING(email.to.address, 0, 1)\n| WHERE email.direction IS NOT NULL OR postfix.email.size IS NOT NULL OR email.from.address IS NOT NULL OR email.to.address IS NOT NULL\n| STATS timestamp = MAX(@timestamp), host = VALUES(host.name), from = MAX(email.from.address), to = VALUES(email.to.address), relay = VALUES(postfix.relay.server.domain), direction = VALUES(email.direction), status = VALUES(postfix.delivery.status), delay = VALUES(postfix.delivery.delays.total_time), size = MAX(postfix.email.size) by local_id = email.local_id\n| SORT timestamp DESC"
+                                            },
+                                            "timeField": "@timestamp"
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "query": {
+                                "esql": "FROM logs-postfix.log* \n| EVAL first_letter = SUBSTRING(email.to.address, 0, 1)\n| WHERE email.direction IS NOT NULL OR postfix.email.size IS NOT NULL OR email.from.address IS NOT NULL OR email.to.address IS NOT NULL\n| STATS timestamp = MAX(@timestamp), host = VALUES(host.name), from = MAX(email.from.address), to = VALUES(email.to.address), relay = VALUES(postfix.relay.server.domain), direction = VALUES(email.direction), status = VALUES(postfix.delivery.status), delay = VALUES(postfix.delivery.delays.total_time), size = MAX(postfix.email.size) by local_id = email.local_id\n| SORT timestamp DESC"
+                            },
+                            "visualization": {
+                                "columns": [
+                                    {
+                                        "columnId": "timestamp",
+                                        "width": 241.39999999999998
+                                    },
+                                    {
+                                        "columnId": "host",
+                                        "width": 143.89999999999998
+                                    },
+                                    {
+                                        "columnId": "from",
+                                        "width": 298.56666666666666
+                                    },
+                                    {
+                                        "columnId": "to",
+                                        "width": 356.5666666666667
+                                    },
+                                    {
+                                        "columnId": "relay",
+                                        "isMetric": true,
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "columnId": "15bf10f6-2e17-448f-8fce-bd3097b89d87",
+                                        "isMetric": true,
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "columnId": "afbe1891-1dd8-4d3d-b9ae-8894f92b00f2",
+                                        "isMetric": true,
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "columnId": "24536496-b796-449b-bc65-fc6bc26c5c4f",
+                                        "isMetric": true,
+                                        "isTransposed": false
+                                    }
+                                ],
+                                "layerId": "0d6e75fe-14ff-4233-ae53-ef9b7be79df1",
+                                "layerType": "data"
+                            }
+                        },
+                        "title": "Table timestamp \u0026 host \u0026 from \u0026 to \u0026 relay",
+                        "type": "lens",
+                        "visualizationType": "lnsDatatable"
+                    },
+                    "disabledActions": [
+                        "OPEN_FLYOUT_ADD_DRILLDOWN"
+                    ],
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "f2e2f515-f683-46eb-969d-0396add41fc1",
+                    "w": 48,
+                    "x": 0,
+                    "y": 25
+                },
+                "panelIndex": "f2e2f515-f683-46eb-969d-0396add41fc1",
+                "title": "Message Summary",
                 "type": "lens"
             }
         ],
@@ -1321,7 +2052,7 @@
         "version": 3
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2025-03-14T19:47:50.650Z",
+    "created_at": "2025-03-17T14:04:12.251Z",
     "id": "postfix-4a27ec5d-cd81-47fa-9ef4-786d5cb4e91a",
     "managed": false,
     "references": [
@@ -1352,7 +2083,12 @@
         },
         {
             "id": "logs-*",
-            "name": "cc55639d-4ec0-45a7-a3ee-4334eb4918ad:indexpattern-datasource-layer-32545bd0-c3f6-46d0-b530-775f9e515cf3",
+            "name": "d2f89cb9-4ed8-468e-8e9a-414f759d25ef:indexpattern-datasource-layer-71f167eb-e49f-404e-9d3a-84f3a961a4f7",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "d2f89cb9-4ed8-468e-8e9a-414f759d25ef:indexpattern-datasource-layer-57ebe123-b023-4c9c-8184-4b40ea8912e4",
             "type": "index-pattern"
         },
         {
@@ -1367,12 +2103,32 @@
         },
         {
             "id": "logs-*",
-            "name": "0bc7191a-991a-4c44-bb2e-22717cf0cbb2:indexpattern-datasource-layer-7845a4d5-dbd2-4bd7-bab8-5c6500b46629",
+            "name": "5b556e35-ad1c-4b76-b56b-8baad5188968:indexpattern-datasource-layer-1ff3329a-8931-4034-acf1-dc809276d8c9",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "5b556e35-ad1c-4b76-b56b-8baad5188968:indexpattern-datasource-layer-557770cb-f802-48ba-916e-2fbce2783aff",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f88a9d08-54f1-4a13-a24c-2ce70f8f14ab:indexpattern-datasource-layer-985fc6a8-2509-4206-b626-8c4c4d9538eb",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "cc55639d-4ec0-45a7-a3ee-4334eb4918ad:indexpattern-datasource-layer-32545bd0-c3f6-46d0-b530-775f9e515cf3",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
             "name": "272f80ed-0384-4cdf-8ac5-8cba0ee96961:indexpattern-datasource-layer-8db41fad-1eba-4558-a676-5073ec442582",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "8aa7937e-f4dc-49c1-ac46-2e484c228370:indexpattern-datasource-layer-54eb68b6-cd67-476b-ab63-c75015e778b9",
             "type": "index-pattern"
         },
         {
@@ -1387,7 +2143,7 @@
         },
         {
             "id": "logs-*",
-            "name": "controlGroup_8946af8e-673a-40d0-80db-28ebd436ccb5:optionsListDataView",
+            "name": "controlGroup_a70ca917-82fa-4721-b13d-a2fbabbeff6f:optionsListDataView",
             "type": "index-pattern"
         }
     ],
