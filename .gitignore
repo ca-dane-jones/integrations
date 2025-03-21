@@ -1,3 +1,3 @@
 # Ignore the Elastic Agent logs
 /build/container-logs/*.log
-
+/utils
